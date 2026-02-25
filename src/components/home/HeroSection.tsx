@@ -29,8 +29,8 @@ const HeroSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-hero-foreground leading-tight mb-6">
-            <span className="text-gradient-primary">Affordable SEO</span>{" "}
-            for Everyone
+            <span className="text-gradient-primary">SEO Made Simple</span>{" "}
+            for Non-Techies
           </h1>
           <p className="text-lg md:text-xl text-hero-muted max-w-2xl mx-auto mb-10">
             ZentroSEO is the beginner-friendly SEO platform that helps non-techies, freelancers, and small businesses grow organic traffic with AI-powered insights.
@@ -52,11 +52,12 @@ const HeroSection = () => {
             </div>
           </form>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-hero-muted">
-            <span className="flex items-center gap-1.5">🌍 Join early adopters worldwide</span>
-            <span className="flex items-center gap-1.5">📈 Built to scale</span>
-            <span className="flex items-center gap-1.5">⏱ 99.9% Uptime</span>
-            <span className="flex items-center gap-1.5">❤️ Beta users love it</span>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-hero-muted">
+            {["9 SEO Tools", "AI-Powered", "No Coding Needed", "Free Plan"].map((chip) => (
+              <span key={chip} className="px-3 py-1 rounded-full border border-hero-foreground/10 bg-hero-foreground/5">
+                {chip}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>
