@@ -20,7 +20,7 @@ const WhyDifferent = () => {
               <p className="text-muted-foreground text-lg mb-8">
                 While other tools just report SEO issues, ZentroSEO's AI actually fixes them automatically at the click of a button.
               </p>
-              <a href="https://app.zentroseo.com/signup" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline">
+              <a href="https://app.zentroseo.com/signup?flow=direct" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline">
                 Start your free trial →
               </a>
             </div>

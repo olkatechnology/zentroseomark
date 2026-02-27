@@ -12,7 +12,7 @@ const sections = [
     title: "Getting Started",
     description: "Learn the basics of ZentroSEO and set up your first project.",
     links: [
-      { label: "Create Your Account", href: "https://app.zentroseo.com/signup" },
+      { label: "Create Your Account", href: "https://app.zentroseo.com/signup?flow=direct" },
       { label: "Run Your First Audit", href: "/resources/help-center/" },
       { label: "Connect Google Search Console", href: "/resources/help-center/" },
     ],

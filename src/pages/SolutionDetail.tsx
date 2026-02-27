@@ -66,7 +66,7 @@ const SolutionDetail = () => {
               {solution.heroTagline}
             </h1>
             <p className="text-hero-muted text-lg max-w-2xl mx-auto mb-8">{solution.heroDescription}</p>
-            <a href="https://app.zentroseo.com/signup">
+            <a href="https://app.zentroseo.com/signup?flow=direct">
               <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 text-base">
                 Get Started Free <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
@@ -135,7 +135,7 @@ const SolutionDetail = () => {
             <Link to="/pricing/">
               <Button variant="outline" className="mr-3">View Pricing</Button>
             </Link>
-            <a href="https://app.zentroseo.com/signup">
+            <a href="https://app.zentroseo.com/signup?flow=direct">
               <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground">Start Free</Button>
             </a>
           </div>

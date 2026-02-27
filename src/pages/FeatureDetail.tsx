@@ -90,7 +90,7 @@ const FeatureDetail = () => {
                 </span>
               ))}
             </div>
-            <a href="https://app.zentroseo.com/signup">
+            <a href="https://app.zentroseo.com/signup?flow=direct">
               <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 text-base">
                 Try {feature.name} Free <ArrowRight className="w-4 h-4 ml-1" />
               </Button>

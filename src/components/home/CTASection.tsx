@@ -12,7 +12,7 @@ const CTASection = () => {
           Join thousands of businesses using ZentroSEO to simplify SEO and drive organic growth.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="https://app.zentroseo.com/signup">
+          <a href="https://app.zentroseo.com/signup?flow=direct">
             <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 text-base flex items-center gap-2">
               Start Free Trial <ArrowRight className="w-4 h-4" />
             </Button>

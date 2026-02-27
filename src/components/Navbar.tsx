@@ -104,7 +104,7 @@ const Navbar = () => {
           <a href="https://app.zentroseo.com/login" className="text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground transition-colors px-3 py-2">
             Login
           </a>
-          <a href="https://app.zentroseo.com/signup">
+          <a href="https://app.zentroseo.com/signup?flow=direct">
             <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-5">
               Get Started
             </Button>
@@ -134,7 +134,7 @@ const Navbar = () => {
             ))}
             <div className="pt-3 flex flex-col gap-2">
               <a href="https://app.zentroseo.com/login" className="text-sm text-center font-medium text-hero-foreground/80 py-2">Login</a>
-              <a href="https://app.zentroseo.com/signup">
+              <a href="https://app.zentroseo.com/signup?flow=direct">
                 <Button className="w-full bg-gradient-cta text-primary-foreground font-semibold">Get Started</Button>
               </a>
             </div>

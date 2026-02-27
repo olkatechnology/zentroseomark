@@ -55,7 +55,7 @@ const SEOToolkit = () => {
                   <TIcon className="w-8 h-8 text-primary mb-4" />
                   <h2 className="font-display text-lg font-bold mb-2">{tool.title}</h2>
                   <p className="text-sm text-muted-foreground mb-6 flex-1">{tool.description}</p>
-                  <a href="https://app.zentroseo.com/signup">
+                  <a href="https://app.zentroseo.com/signup?flow=direct">
                     <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground w-full text-sm">
                       {tool.cta} <ArrowRight className="w-3.5 h-3.5 ml-1" />
                     </Button>

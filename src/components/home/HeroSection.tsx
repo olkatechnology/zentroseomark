@@ -3,14 +3,27 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
+const isValidUrl = (input: string) => {
+  const pattern = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/.*)?$/;
+  return pattern.test(input.trim());
+};
+
 const HeroSection = () => {
   const [url, setUrl] = useState("");
+  const [error, setError] = useState("");
 
   const handleCheck = (e: React.FormEvent) => {
     e.preventDefault();
-    if (url) {
-      window.location.href = `https://app.zentroseo.com/signup?url=${encodeURIComponent(url)}`;
+    if (!url.trim()) {
+      setError("Please enter a website URL");
+      return;
     }
+    if (!isValidUrl(url)) {
+      setError("Please enter a valid website URL (e.g. example.com)");
+      return;
+    }
+    setError("");
+    window.location.href = `https://app.zentroseo.com/signup?url=${encodeURIComponent(url.trim())}&flow=hero`;
   };
 
   return (
@@ -50,6 +63,7 @@ const HeroSection = () => {
                 Check My Website <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
+            {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
           </form>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-hero-muted">

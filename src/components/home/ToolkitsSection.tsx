@@ -346,7 +346,7 @@ const ToolkitsSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href="https://app.zentroseo.com/signup">
+                  <a href="https://app.zentroseo.com/signup?flow=direct">
                     <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-6 rounded-lg mt-2">
                       Try for free <ArrowRight className="w-4 h-4" />
                     </Button>
