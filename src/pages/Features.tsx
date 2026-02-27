@@ -10,6 +10,11 @@ const Features = () => {
         <title>All ZentroSEO Features – AI Tools for Every SEO Task</title>
         <meta name="description" content="Discover ZentroSEO's powerful features including audits, fixes, schema generation, rank tracking, and competitor analysis, all designed to simplify SEO and maximize visibility." />
         <link rel="canonical" href="https://zentroseo.com/features/" />
+        <meta property="og:title" content="All ZentroSEO Features – AI Tools for Every SEO Task" />
+        <meta property="og:description" content="Discover ZentroSEO's powerful features including audits, fixes, schema generation, rank tracking, and competitor analysis." />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
       </Helmet>
 
       <section className="bg-hero py-20 md:py-28">

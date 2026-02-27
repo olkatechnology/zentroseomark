@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Calendar, Clock } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import Testimonials from "@/components/shared/Testimonials";
@@ -9,6 +9,7 @@ import RelatedLinks from "@/components/shared/RelatedLinks";
 import CTASection from "@/components/home/CTASection";
 import { Button } from "@/components/ui/button";
 import { featuresData } from "@/data/features";
+import { getPostsByFeature } from "@/data/blog-posts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const FeatureDetail = () => {
@@ -54,6 +55,11 @@ const FeatureDetail = () => {
         <title>{feature.metaTitle}</title>
         <meta name="description" content={feature.metaDescription} />
         <link rel="canonical" href={`https://zentroseo.com/features/${feature.slug}/`} />
+        <meta property="og:title" content={feature.metaTitle} />
+        <meta property="og:description" content={feature.metaDescription} />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(softwareJsonLd)}</script>
       </Helmet>
@@ -199,6 +205,43 @@ const FeatureDetail = () => {
           </Accordion>
         </div>
       </section>
+
+      {/* Related Blog Posts */}
+      {slug && (() => {
+        const relatedPosts = getPostsByFeature(slug);
+        if (relatedPosts.length === 0) return null;
+        return (
+          <section className="py-16 md:py-20 bg-secondary/30">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <h2 className="font-display text-3xl font-bold text-center mb-4">Related Reading</h2>
+              <p className="text-muted-foreground text-center max-w-xl mx-auto mb-8">
+                Learn more about how to get the most from {feature.name}.
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedPosts.slice(0, 3).map((post) => (
+                  <Link
+                    key={post.slug}
+                    to={`/resources/blog/${post.slug}/`}
+                    className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden bg-card"
+                  >
+                    {post.featuredImage && (
+                      <img src={post.featuredImage} alt={post.title} className="w-full h-36 object-cover" loading="lazy" />
+                    )}
+                    <div className="p-5">
+                      <span className="text-xs text-primary font-medium">{post.category}</span>
+                      <h3 className="font-display font-semibold mt-1 mb-2 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                        <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       <CTASection />
     </Layout>

@@ -33,6 +33,11 @@ const SolutionHub = () => {
         <title>SEO Solutions by ZentroSEO – Tailored for Your Industry</title>
         <meta name="description" content="ZentroSEO offers targeted SEO solutions for agencies, content teams, e-commerce, local businesses, and startups." />
         <link rel="canonical" href="https://zentroseo.com/solutions/" />
+        <meta property="og:title" content="SEO Solutions by ZentroSEO – Tailored for Your Industry" />
+        <meta property="og:description" content="ZentroSEO offers targeted SEO solutions for agencies, content teams, e-commerce, and startups." />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Solutions" }]} />

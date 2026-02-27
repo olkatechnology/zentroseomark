@@ -29,6 +29,11 @@ const LegalPage = ({ slug: propSlug }: LegalPageProps) => {
         <title>{page.metaTitle}</title>
         <meta name="description" content={page.metaDescription} />
         <link rel="canonical" href={`https://zentroseo.com/${page.slug}/`} />
+        <meta property="og:title" content={page.metaTitle} />
+        <meta property="og:description" content={page.metaDescription} />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: page.title }]} />

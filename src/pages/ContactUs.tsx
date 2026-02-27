@@ -30,6 +30,11 @@ const ContactUs = () => {
         <title>Contact ZentroSEO – Let's Talk SEO</title>
         <meta name="description" content="Have questions, feedback, or partnership inquiries? Reach out to the ZentroSEO team." />
         <link rel="canonical" href="https://zentroseo.com/company/contact-us/" />
+        <meta property="og:title" content="Contact ZentroSEO – Let's Talk SEO" />
+        <meta property="og:description" content="Have questions, feedback, or partnership inquiries? Reach out to the ZentroSEO team." />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Company", href: "/company/" }, { label: "Contact Us" }]} />

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Youtube } from "lucide-react";
 import logo from "@/assets/zentroseo-logo.png";
 
 const footerLinks = {
@@ -34,6 +35,12 @@ const footerLinks = {
   ],
 };
 
+const socialLinks = [
+  { icon: Linkedin, href: "https://www.linkedin.com/company/zentroseo/", label: "ZentroSEO on LinkedIn" },
+  { icon: Twitter, href: "https://x.com/ZentroSEO", label: "ZentroSEO on X" },
+  { icon: Youtube, href: "https://www.youtube.com/@ZentroSEO", label: "ZentroSEO on YouTube" },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-hero text-hero-foreground">
@@ -41,9 +48,26 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           <div className="col-span-2 md:col-span-1">
             <img src={logo} alt="ZentroSEO" className="h-8 mb-4" />
-            <p className="text-sm text-hero-muted leading-relaxed">
+            <p className="text-sm text-hero-muted leading-relaxed mb-4">
               AI-powered SEO platform for smarter rankings. Built for beginners, loved by pros.
             </p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => {
+                const SIcon = social.icon;
+                return (
+                  <a
+                    key={social.href}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-hero-muted hover:text-hero-foreground transition-colors"
+                  >
+                    <SIcon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>

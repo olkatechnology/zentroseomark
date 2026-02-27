@@ -21,6 +21,11 @@ const ResourcesHub = () => {
         <title>SEO Resources Library – Guides, Templates & Tutorials</title>
         <meta name="description" content="Access free SEO resources including guides, checklists, templates, and walkthroughs to grow your traffic." />
         <link rel="canonical" href="https://zentroseo.com/resources/" />
+        <meta property="og:title" content="SEO Resources Library – Guides, Templates & Tutorials" />
+        <meta property="og:description" content="Access free SEO resources including guides, checklists, templates, and walkthroughs to grow your traffic." />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources" }]} />

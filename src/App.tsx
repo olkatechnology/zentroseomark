@@ -20,6 +20,9 @@ import CaseStudies from "./pages/CaseStudies";
 import Documentation from "./pages/Documentation";
 import SEOToolkit from "./pages/SEOToolkit";
 import LegalPage from "./pages/LegalPage";
+import BlogPostPage from "./pages/BlogPost";
+import BlogCategory from "./pages/BlogCategory";
+import AuthorProfile from "./pages/AuthorProfile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +46,9 @@ const App = () => (
             <Route path="/company/contact-us/" element={<ContactUs />} />
             <Route path="/resources/" element={<ResourcesHub />} />
             <Route path="/resources/blog/" element={<Blog />} />
+            <Route path="/resources/blog/category/:category/" element={<BlogCategory />} />
+            <Route path="/resources/blog/:slug/" element={<BlogPostPage />} />
+            <Route path="/company/team/:slug/" element={<AuthorProfile />} />
             <Route path="/resources/help-center/" element={<HelpCenter />} />
             <Route path="/resources/case-studies/" element={<CaseStudies />} />
             <Route path="/resources/documentation/" element={<Documentation />} />

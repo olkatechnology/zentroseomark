@@ -24,12 +24,38 @@ const plans = {
 const Pricing = () => {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
 
+  const currentPlans = plans[billing];
+
+  const pricingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "ZentroSEO",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    url: "https://zentroseo.com/pricing/",
+    offers: currentPlans.map((plan) => ({
+      "@type": "Offer",
+      name: plan.name,
+      description: plan.desc,
+      price: plan.price.replace(/[^0-9.]/g, ""),
+      priceCurrency: "USD",
+      url: plan.href.startsWith("http") ? plan.href : `https://zentroseo.com${plan.href}`,
+    })),
+  };
+
   return (
     <Layout>
       <Helmet>
         <title>ZentroSEO Pricing – Free, Starter, Pro, and Agency Plans</title>
         <meta name="description" content="Choose the ZentroSEO plan that fits your business, from our free plan to full-featured agency-level access. Transparent, affordable pricing." />
         <link rel="canonical" href="https://zentroseo.com/pricing/" />
+        <meta property="og:title" content="ZentroSEO Pricing – Free, Starter, Pro, and Agency Plans" />
+        <meta property="og:description" content="Choose the ZentroSEO plan that fits your business. Transparent, affordable pricing." />
+        <meta property="og:type" content="product" />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
+        <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
       </Helmet>
 
       <section className="bg-hero py-20 md:py-28">

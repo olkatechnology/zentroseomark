@@ -42,6 +42,11 @@ const SolutionDetail = () => {
         <title>{solution.metaTitle}</title>
         <meta name="description" content={solution.metaDescription} />
         <link rel="canonical" href={`https://zentroseo.com/solutions/${solution.slug}/`} />
+        <meta property="og:title" content={solution.metaTitle} />
+        <meta property="og:description" content={solution.metaDescription} />
+        <meta property="og:image" content="https://zentroseo.com/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
