@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
     date: "2025-08-21",
     author: "Olayinka Olayokun",
     readTime: "4 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/mobile-first-indexing-seo.jpg",
+    featuredImage: undefined,
     content: `Did you know that Google now crawls and indexes your **mobile version** before it even considers your desktop site? If your mobile site is broken, slow, or lacks core content, your SEO rankings could suffer, even if your desktop site looks perfect.
 
 Mobile-first indexing is no longer optional. It's the default. And if you're not optimizing with this in mind, you're handing visibility to competitors who are.
@@ -165,7 +165,7 @@ Start by auditing your mobile experience, fix content parity issues, optimize sp
     date: "2025-08-02",
     author: "Tomisin Sode",
     readTime: "4 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/The-Digital-City-Map-Roads-to-Your-Website.jpg",
+    featuredImage: "/images/blog/The-Digital-City-Map-Roads-to-Your-Website.jpg",
     content: `_"Don't just build a website, build visibility."_
 
 I said this in my previous article, and it's never been more relevant. Visibility isn't a one-road journey; it's an intersection of platforms, behaviours, and digital patterns. And now, it's time to go beyond Google.
@@ -284,7 +284,7 @@ At ZentroSEO, we help you build that visibility map with AI-powered tools that o
     date: "2025-07-24",
     author: "Olayinka Olayokun",
     readTime: "27 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/on-page-seo-audit-framework.jpg",
+    featuredImage: "/images/blog/SEO-Audit-Blueprint-Optimize-Every-Element-of-Your-Webpage.jpg",
     content: `## Why On-Page SEO Still Rules the Rankings
 
 Despite Google's evolving algorithms, on-page SEO remains foundational. It's the bridge between user intent and search engine comprehension. No matter how powerful your backlink profile or structured data may be, if your content isn't optimized for both humans and bots, you're leaving rankings on the table.
@@ -466,7 +466,7 @@ Use tools like ZentroAudit to automate detection, ZentroFix for rapid implementa
     date: "2025-07-22",
     author: "Olayinka Olayokun",
     readTime: "15 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/What-Is-a-Technical-SEO-Audit-And-How-to-Run-One-in-Minutes.jpg",
+    featuredImage: "/images/blog/What-Is-a-Technical-SEO-Audit-And-How-to-Run-One-in-Minutes.jpg",
     content: `A technical SEO audit is one of the most important, yet often misunderstood, steps in improving your website's visibility on search engines. It's the process of identifying and fixing technical issues that prevent search engines like Google from properly crawling, indexing, and ranking your site.
 
 While it might sound complex, with the right tools, it can be a fast, efficient, and transformational step toward improving your website's SEO performance.
@@ -605,7 +605,7 @@ The goal isn't just to fix errors — it's to **future-proof** your site against
     date: "2025-07-22",
     author: "Olayinka Olayokun",
     readTime: "4 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/xml-sitemap-optimization.jpg",
+    featuredImage: "/images/blog/Optimizing-XML-Sitemap-Structure-for-SEO-Efficiency.jpg",
     content: `In the constantly evolving SEO landscape, one thing remains foundational: helping search engines understand and index your website efficiently. XML sitemaps are a key tool for achieving this.
 
 But simply having a sitemap is not enough.
@@ -708,7 +708,7 @@ Make it lean. Make it useful. Make it meaningful. And most importantly, keep it 
     date: "2025-07-22",
     author: "Olayinka Olayokun",
     readTime: "5 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/canonicalization-duplicate-content.jpg",
+    featuredImage: undefined,
     content: `Canonicalization is the cornerstone of clean indexing and healthy crawl budgets. In the complex world of modern websites, where pages are dynamically generated, URLs include parameters, and content syndication is common, duplicate content can quietly erode SEO equity.
 
 ## What Is Duplicate Content in SEO?
@@ -796,7 +796,7 @@ Canonicalization isn't just a technical SEO fix; it's a foundational practice fo
     date: "2025-07-22",
     author: "Olayinka Olayokun",
     readTime: "5 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/https-security-seo-trust-signals.jpg",
+    featuredImage: "/images/blog/HTTPS-vs-HTTP-SEO-Security-Comparison.jpg",
     content: `As Google continues to prioritize user trust and experience, security has evolved into a critical SEO ranking factor. HTTPS encryption, site integrity, and trust signals are no longer optional — they directly influence rankings, user behavior, and crawl prioritization.
 
 ## What Is HTTPS and Why Does It Matter?
@@ -877,7 +877,7 @@ Treat HTTPS as a foundation. Prioritize security headers and user safety. Make t
     date: "2025-07-22",
     author: "Olayinka Olayokun",
     readTime: "5 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/How-Schema-Markup-Boosts-Search-Visibility.jpg",
+    featuredImage: undefined,
     content: `Search engines interpret content semantically. Schema Markup is the translator that makes your website intelligible to machines. Yet, many marketers and developers still treat it as an afterthought, missing out on rich results, enhanced visibility, and critical entity recognition.
 
 ## What Is Schema Markup?
@@ -980,7 +980,7 @@ Schema markup is one of the most effective technical SEO tools for improving sea
     date: "2025-07-21",
     author: "Olayinka Olayokun",
     readTime: "5 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/site-architecture-seo.jpg",
+    featuredImage: "/images/blog/SEO-Site-Architecture-Blueprint.jpg",
     content: `Most websites suffer in rankings not because they lack good content, but because that content is buried under a poor structure. Site architecture isn't just about how menus are arranged; it's about how information is grouped, linked, and made accessible to both users and search engines.
 
 ## What Is Site Architecture in SEO?
@@ -1067,7 +1067,7 @@ Start with intent. Structure around topics. Connect contextually. Test often.`,
     date: "2025-07-19",
     author: "Tomisin Sode",
     readTime: "3 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/Your-Website-Is-a-Building-Heres-Why-No-Ones-Visiting-And-How-to-Fix-It.jpg",
+    featuredImage: "/images/blog/Your-Website-Is-a-Building-Heres-Why-No-Ones-Visiting-And-How-to-Fix-It.jpg",
     content: `Imagine a city filled with buildings of all shapes and sizes. Some are towering skyscrapers, others are cozy family-owned shops tucked into quiet corners. Now picture your website as one of those buildings.
 
 It might be beautifully designed and filled with valuable content, but if no one knows it exists, what good does it do?
@@ -1154,7 +1154,7 @@ At ZentroSEO, we build cost-friendly tools that combine SEO with cutting-edge AI
     date: "2025-07-06",
     author: "Olayinka Olayokun",
     readTime: "4 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/06/LCP-FID-CLS-metrics-beforeafter-improvement.jpg",
+    featuredImage: "/images/blog/LCP-FID-CLS-metrics-beforeafter-improvement.jpg",
     content: `In 2021, Google officially rolled out Core Web Vitals as part of its Page Experience algorithm update — cementing user experience as a central ranking factor. But what exactly are Core Web Vitals, why should SEOs care, and how can you improve them?
 
 ![LCP, FID, CLS metrics before and after improvement](https://zentroseo.com/wp-content/uploads/2025/06/LCP-FID-CLS-metrics-beforeafter-improvement-1024x683.jpg)
@@ -1249,7 +1249,7 @@ Audit your site using ZentroAudit or PageSpeed Insights, identify failing pages,
     date: "2025-07-05",
     author: "Olayinka Olayokun",
     readTime: "4 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/Using-schema-markup-for-SEO-A-technical-guide.jpg",
+    featuredImage: "/images/blog/Using-schema-markup-for-SEO-A-technical-guide.jpg",
     content: `Schema markup is one of the most powerful yet underutilized tools in technical SEO. By using structured data (like Schema.org vocabulary), you help search engines better understand your content, often leading to enhanced search results like rich snippets, knowledge panels, and FAQs.
 
 ## What Is Schema Markup?
@@ -1354,7 +1354,7 @@ Start with high-value types like Organization, Product, FAQ, and Article, and ex
     date: "2025-07-05",
     author: "Olayinka Olayokun",
     readTime: "5 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/robots-vs-meta-robots.jpg",
+    featuredImage: "/images/blog/Robots.txt-vs-Meta-Robots-Which-Controls-What.jpg",
     content: `When optimizing your website for SEO, it's important to understand how search engines interact with your content. Few things cause more confusion than the difference between \`robots.txt\` and \`meta robots\` tags. While they sound similar and both relate to how search engines interact with your website, they serve **very different purposes**.
 
 ## What is robots.txt?
@@ -1435,7 +1435,7 @@ By mastering both, you prevent unwanted pages from wasting crawl budget, keep pr
     date: "2025-07-05",
     author: "Olayinka Olayokun",
     readTime: "6 min",
-    featuredImage: "https://zentroseo.com/wp-content/uploads/2025/07/Crawlability-vs.-Indexability-Whats-the-Difference-And-Why-It-Matters-for-SEO.jpg",
+    featuredImage: undefined,
     content: `Search engine optimization is filled with terms that often sound similar but mean very different things. Two such critical terms are **crawlability** and **indexability**. These are the most overlooked but critical foundations of SEO.
 
 If your website isn't showing up on search engines, there's a high chance one or both of these are the culprits.
