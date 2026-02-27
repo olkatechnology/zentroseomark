@@ -38,7 +38,7 @@ const footerLinks = {
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/zentroseo/", label: "ZentroSEO on LinkedIn" },
   { icon: Twitter, href: "https://x.com/ZentroSEO", label: "ZentroSEO on X" },
-  ( icon: Facebook, href: "https://www.facebook.com/ZentroSEO/", label: "ZentroSEO on Facebook" ),
+  { icon: Facebook, href: "https://www.facebook.com/ZentroSEO/", label: "ZentroSEO on Facebook" },
   { icon: Youtube, href: "https://www.youtube.com/@ZentroSEO", label: "ZentroSEO on YouTube" },
 ];
 
