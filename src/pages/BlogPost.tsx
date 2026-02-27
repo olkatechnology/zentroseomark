@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Calendar, Clock, User, ArrowLeft, ArrowRight } from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
@@ -9,6 +9,7 @@ import TableOfContents, { TocItem } from "@/components/blog/TableOfContents";
 import { blogPosts } from "@/data/blog-posts";
 import { teamMembers } from "@/data/team";
 import { featuresData } from "@/data/features";
+import { Badge } from "@/components/ui/badge";
 
 /** Generate a URL-friendly slug from heading text */
 const slugify = (text: string) =>
@@ -197,6 +198,12 @@ const BlogPostPage = () => {
 
   const related = blogPosts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3);
 
+  // Hub/spoke data
+  const hubPost = post.topicalMapHub ? blogPosts.find((p) => p.slug === post.topicalMapHub) : null;
+  const spokeArticles = post.isHub
+    ? blogPosts.filter((p) => p.topicalMapHub === post.slug)
+    : [];
+
   // Resolve author
   const authorMember = teamMembers.find((m) => m.name === post.author);
   const authorUrl = authorMember
@@ -210,10 +217,10 @@ const BlogPostPage = () => {
 
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
-  // Article JSON-LD
+  // BlogPosting JSON-LD (changed from Article)
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
@@ -275,7 +282,22 @@ const BlogPostPage = () => {
               <ArrowLeft className="w-4 h-4" /> Back to Blog
             </Link>
 
-            <span className="inline-block px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium mb-4">{post.category}</span>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="inline-block px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium">{post.category}</span>
+              {post.isHub && <Badge variant="default" className="text-xs">Pillar Guide</Badge>}
+            </div>
+
+            {/* Hub breadcrumb for spoke articles */}
+            {hubPost && (
+              <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-3">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Part of</span>
+                <Link to={`/resources/blog/${hubPost.slug}/`} className="text-primary hover:underline font-medium">
+                  {hubPost.title}
+                </Link>
+              </div>
+            )}
+
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">{post.title}</h1>
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-8">
@@ -305,7 +327,7 @@ const BlogPostPage = () => {
 
           {/* Content + Desktop ToC sidebar */}
           <div className="flex gap-8 max-w-5xl mx-auto">
-            <div className="prose-custom flex-1 min-w-0 max-w-3xl">
+            <div role="main" className="prose-custom flex-1 min-w-0 max-w-3xl">
               {renderMarkdown(post.content)}
             </div>
             {/* Desktop ToC */}
@@ -316,9 +338,35 @@ const BlogPostPage = () => {
         </div>
       </article>
 
+      {/* Topic Cluster section for hub posts */}
+      {post.isHub && spokeArticles.length > 0 && (
+        <aside className="py-12 bg-primary/5">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="font-display text-2xl font-bold mb-2">Topic Cluster</h2>
+            <p className="text-sm text-muted-foreground mb-6">Explore all articles in this pillar guide series.</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {spokeArticles.map((sp) => (
+                <Link
+                  key={sp.slug}
+                  to={`/resources/blog/${sp.slug}/`}
+                  className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-card transition-all"
+                >
+                  <BookOpen className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <div>
+                    <h3 className="font-display font-semibold text-sm line-clamp-2">{sp.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1">{sp.readTime} read</p>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-muted-foreground ml-auto mt-1 shrink-0" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </aside>
+      )}
+
       {/* Recommended Tools */}
       {relatedFeatureData.length > 0 && (
-        <section className="py-12 bg-primary/5">
+        <aside className="py-12 bg-primary/5">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="font-display text-2xl font-bold mb-6">Recommended Tools</h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -341,12 +389,12 @@ const BlogPostPage = () => {
               })}
             </div>
           </div>
-        </section>
+        </aside>
       )}
 
       {/* Related Posts */}
       {related.length > 0 && (
-        <section className="py-12 bg-secondary/30">
+        <aside className="py-12 bg-secondary/30">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="font-display text-2xl font-bold mb-6">Related Articles</h2>
             <div className="grid sm:grid-cols-3 gap-4">
@@ -358,7 +406,7 @@ const BlogPostPage = () => {
               ))}
             </div>
           </div>
-        </section>
+        </aside>
       )}
 
       <CTASection />

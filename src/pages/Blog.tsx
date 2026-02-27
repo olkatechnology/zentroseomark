@@ -7,11 +7,30 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
+import { Badge } from "@/components/ui/badge";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filtered = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+
+  // CollectionPage JSON-LD
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "ZentroSEO Blog",
+    description: "SEO tips, strategies, and case studies from the ZentroSEO team.",
+    url: "https://zentroseo.com/resources/blog/",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogPosts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://zentroseo.com/resources/blog/${post.slug}/`,
+        name: post.title,
+      })),
+    },
+  };
 
   return (
     <Layout>
@@ -24,6 +43,7 @@ const Blog = () => {
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
+        <script type="application/ld+json">{JSON.stringify(collectionJsonLd)}</script>
       </Helmet>
 
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources/" }, { label: "Blog" }]} />
@@ -83,9 +103,16 @@ const Blog = () => {
                     />
                   )}
                   <div className="p-6">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-medium mb-3">
-                      {post.category}
-                    </span>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-medium">
+                        {post.category}
+                      </span>
+                      {post.isHub && (
+                        <Badge variant="default" className="text-[10px] px-2 py-0">
+                          Pillar Guide
+                        </Badge>
+                      )}
+                    </div>
                     <h2 className="font-display font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h2>
                     <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">

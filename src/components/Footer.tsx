@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
-import logo from "@/assets/zentroseo-logo.png";
+import logo from "@/assets/zentroseo-logo-marketing.png";
 
 const footerLinks = {
   Features: [

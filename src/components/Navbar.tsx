@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/zentroseo-logo.png";
+import logo from "@/assets/zentroseo-logo-marketing.png";
 
 const navItems = [
   {
