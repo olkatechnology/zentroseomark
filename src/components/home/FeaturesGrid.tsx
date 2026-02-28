@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, Wrench, BarChart3, PenTool, GitCompare, Link2, Code2, FileText, Sparkles } from "lucide-react";
+import { Search, Wrench, BarChart3, PenTool, GitCompare, Link2, Code2, FileText, Sparkles, Map, FileEdit, CalendarClock, Gauge } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const tools = [
@@ -12,6 +12,10 @@ const tools = [
   { icon: Link2, name: "ZentroBacklinks", desc: "Monitor & analyze your backlink profile", href: "/features/zentrobacklinks/" },
   { icon: Code2, name: "ZentroMarkup", desc: "Auto-generate JSON-LD schema markup", href: "/features/zentromarkup/" },
   { icon: FileText, name: "ZentroWhite", desc: "White-label SEO reports for your clients", href: "/features/zentrowhite/" },
+  { icon: Map, name: "ZentroTopicalMap", desc: "Build entity-based topical maps for topic authority", href: "/features/zentrotopicalmap/", tag: "New" },
+  { icon: FileEdit, name: "ZentroContentBrief", desc: "Generate EAV-optimized semantic content briefs", href: "/features/zentrocontentbrief/", tag: "New" },
+  { icon: CalendarClock, name: "ZentroContentPlan", desc: "Schedule 6-month semantic audits automatically", href: "/features/zentrocontentplan/", tag: "New" },
+  { icon: Gauge, name: "ZentroTopicality", desc: "Score content topical depth with NLP analysis", href: "/features/zentrotopicality/", tag: "New" },
 ];
 
 const container = {

@@ -23,6 +23,7 @@ import LegalPage from "./pages/LegalPage";
 import BlogPostPage from "./pages/BlogPost";
 import BlogCategory from "./pages/BlogCategory";
 import AuthorProfile from "./pages/AuthorProfile";
+import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const App = () => (
             <Route path="/privacy-policy/" element={<LegalPage slug="privacy-policy" />} />
             <Route path="/terms-of-service/" element={<LegalPage slug="terms-of-service" />} />
             <Route path="/refund-policy/" element={<LegalPage slug="refund-policy" />} />
+            <Route path="/sitemap/" element={<Sitemap />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

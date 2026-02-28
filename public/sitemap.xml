@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://zentroseo.com/</loc>
-    <lastmod>2025-08-21</lastmod>
+    <lastmod>2025-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -25,206 +25,125 @@
   </url>
 
   <!-- Feature Detail Pages -->
-  <url>
-    <loc>https://zentroseo.com/features/zentroaudit/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentrofix/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentrokeywords/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentrorank/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentrowrite/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentrocompare/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentrobacklinks/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/features/zentromarkup/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://zentroseo.com/features/zentroaudit/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentrofix/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentrokeywords/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentrorank/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentrowrite/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentrocompare/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentrobacklinks/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/features/zentromarkup/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Solutions Hub -->
-  <url>
-    <loc>https://zentroseo.com/solutions/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/solutions/for-agencies/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/solutions/for-startups/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/solutions/for-e-commerce/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/solutions/for-content-creators/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://zentroseo.com/solutions/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/solutions/for-agencies/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/solutions/for-startups/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/solutions/for-e-commerce/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/solutions/for-content-creators/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Resources -->
-  <url>
-    <loc>https://zentroseo.com/resources/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/</loc>
-    <lastmod>2025-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/help-center/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/case-studies/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/documentation/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/seo-toolkit/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <url><loc>https://zentroseo.com/resources/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/help-center/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://zentroseo.com/resources/case-studies/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/resources/documentation/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://zentroseo.com/resources/seo-toolkit/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <!-- Blog Posts -->
-  <url>
-    <loc>https://zentroseo.com/resources/blog/mobile-first-indexing-seo/</loc>
-    <lastmod>2025-08-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/think-beyond-google-digital-map/</loc>
-    <lastmod>2025-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/on-page-seo-audit/</loc>
-    <lastmod>2025-07-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/technical-seo-audit/</loc>
-    <lastmod>2025-07-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/what-is-semantic-seo/</loc>
-    <lastmod>2025-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/seo-for-non-techies/</loc>
-    <lastmod>2025-07-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/schema-markup-seo/</loc>
-    <lastmod>2025-07-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/resources/blog/your-website-is-your-building/</loc>
-    <lastmod>2025-07-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Blog Category Pages -->
+  <url><loc>https://zentroseo.com/resources/blog/category/technical-seo/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/category/on-page-seo/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/category/semantic-seo/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/category/keyword-research--content-strategy/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/category/link-building--off-page-seo/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/category/local--e-commerce-seo/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/category/seo-tools--ai/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — Technical SEO -->
+  <url><loc>https://zentroseo.com/resources/blog/mobile-first-indexing-seo/</loc><lastmod>2025-08-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/technical-seo-audit/</loc><lastmod>2025-07-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/xml-sitemap-optimization/</loc><lastmod>2025-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/canonicalization/</loc><lastmod>2025-08-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/https-security/</loc><lastmod>2025-08-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/schema-markup-seo-guide/</loc><lastmod>2025-07-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/site-architecture-seo/</loc><lastmod>2025-08-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/improve-core-web-vitals/</loc><lastmod>2025-08-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/robots-vs-meta-robots/</loc><lastmod>2025-08-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/crawlability-vs-indexability/</loc><lastmod>2025-08-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/javascript-seo-rendering/</loc><lastmod>2025-10-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/log-file-analysis-seo/</loc><lastmod>2025-10-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/international-seo-hreflang/</loc><lastmod>2025-10-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — On-Page SEO -->
+  <url><loc>https://zentroseo.com/resources/blog/on-page-seo-audit/</loc><lastmod>2025-07-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/title-tag-optimization/</loc><lastmod>2025-09-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/meta-description-best-practices/</loc><lastmod>2025-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/heading-hierarchy-h1-h6-guide/</loc><lastmod>2025-09-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/image-alt-text-seo/</loc><lastmod>2025-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/internal-linking-strategy/</loc><lastmod>2025-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/content-freshness-updating-old-posts/</loc><lastmod>2025-09-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/eeat-signals-author-authority/</loc><lastmod>2025-09-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — Semantic SEO -->
+  <url><loc>https://zentroseo.com/resources/blog/what-is-semantic-seo/</loc><lastmod>2025-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/entity-based-seo-explained/</loc><lastmod>2025-09-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/topical-authority-how-to-build/</loc><lastmod>2025-09-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/topical-maps-content-strategy/</loc><lastmod>2025-09-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/entity-attribute-value-seo/</loc><lastmod>2025-09-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/knowledge-graph-optimization/</loc><lastmod>2025-09-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/semantic-content-briefs/</loc><lastmod>2025-09-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/nlp-search-engines-how-google-understands-content/</loc><lastmod>2025-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — Keyword Research & Content Strategy -->
+  <url><loc>https://zentroseo.com/resources/blog/keyword-research-complete-guide/</loc><lastmod>2025-09-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/search-intent-keyword-strategy/</loc><lastmod>2025-09-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/long-tail-keywords-strategy/</loc><lastmod>2025-09-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/keyword-clustering-topical-groups/</loc><lastmod>2025-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/content-gap-analysis/</loc><lastmod>2025-11-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/competitor-keyword-analysis/</loc><lastmod>2025-11-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/ai-content-optimization-seo/</loc><lastmod>2025-11-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — Link Building & Off-Page SEO -->
+  <url><loc>https://zentroseo.com/resources/blog/link-building-strategies-guide/</loc><lastmod>2025-09-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/digital-pr-seo/</loc><lastmod>2025-09-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/internal-vs-external-links-seo/</loc><lastmod>2025-09-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/anchor-text-optimization/</loc><lastmod>2025-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/broken-link-building-technique/</loc><lastmod>2025-09-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/brand-mentions-unlinked-seo/</loc><lastmod>2025-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — Local & E-commerce SEO -->
+  <url><loc>https://zentroseo.com/resources/blog/think-beyond-google-digital-map/</loc><lastmod>2025-08-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/why-your-website-needs-seo-to-be-found/</loc><lastmod>2025-07-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/google-business-profile-optimization/</loc><lastmod>2025-09-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/local-citations-nap-consistency/</loc><lastmod>2025-09-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/product-page-seo-ecommerce/</loc><lastmod>2025-10-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/local-keyword-research/</loc><lastmod>2025-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/structured-data-ecommerce-product-schema/</loc><lastmod>2025-10-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — SEO Tools & AI -->
+  <url><loc>https://zentroseo.com/resources/blog/best-seo-tools-guide/</loc><lastmod>2025-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/ai-seo-tools-future/</loc><lastmod>2025-09-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/seo-audit-tools-compared/</loc><lastmod>2025-09-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/rank-tracking-tools-guide/</loc><lastmod>2025-05-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/schema-markup-generators-compared/</loc><lastmod>2025-05-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/seo-automation-workflows/</loc><lastmod>2025-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Blog Posts — Other -->
+  <url><loc>https://zentroseo.com/resources/blog/seo-for-non-techies/</loc><lastmod>2025-07-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/schema-markup-seo/</loc><lastmod>2025-07-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/resources/blog/your-website-is-your-building/</loc><lastmod>2025-07-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Company -->
-  <url>
-    <loc>https://zentroseo.com/company/about-us/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/company/contact-us/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+  <url><loc>https://zentroseo.com/company/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/company/about-us/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/company/contact-us/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://zentroseo.com/company/team/tomisin-sode/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://zentroseo.com/company/team/olayinka-olayokun/</loc><lastmod>2025-08-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Sitemap -->
+  <url><loc>https://zentroseo.com/sitemap/</loc><lastmod>2025-11-22</lastmod><changefreq>weekly</changefreq><priority>0.4</priority></url>
 
   <!-- Legal -->
-  <url>
-    <loc>https://zentroseo.com/privacy-policy/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/terms-of-service/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://zentroseo.com/refund-policy/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://zentroseo.com/privacy-policy/</loc><lastmod>2025-08-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://zentroseo.com/terms-of-service/</loc><lastmod>2025-08-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://zentroseo.com/refund-policy/</loc><lastmod>2025-08-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
