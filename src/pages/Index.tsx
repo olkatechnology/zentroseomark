@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import HeroSection from "@/components/home/HeroSection";
+import TrustedBy from "@/components/home/TrustedBy";
 import ToolkitsSection from "@/components/home/ToolkitsSection";
+import Testimonials from "@/components/shared/Testimonials";
 import FeaturesGrid from "@/components/home/FeaturesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import WhyDifferent from "@/components/home/WhyDifferent";
@@ -77,10 +79,19 @@ const Index = () => {
       </Helmet>
 
       <HeroSection />
+      <TrustedBy />
       <ToolkitsSection />
       <WhyDifferent />
       <FeaturesGrid />
       <HowItWorks />
+      <Testimonials testimonials={[
+        { quote: "ZentroSEO cut our audit time by 80%. The AI suggestions are spot-on and actionable.", name: "Sarah Chen", role: "Head of SEO", company: "TechFlow" },
+        { quote: "We went from page 5 to page 1 for our core keywords in under 3 months. Incredible tool.", name: "Marcus Rivera", role: "Marketing Director", company: "ScaleUp" },
+        { quote: "The schema markup generator alone is worth the subscription. Saves us hours every week.", name: "Priya Sharma", role: "Content Lead", company: "GrowthLab" },
+        { quote: "Best SEO platform we've used. The keyword clustering feature is a game-changer.", name: "James Okonkwo", role: "Founder", company: "DataPulse" },
+        { quote: "Finally an SEO tool that doesn't require a PhD to use. Our whole team adopted it in days.", name: "Emily Larsson", role: "VP Marketing", company: "BrightEdge" },
+        { quote: "The rank tracking accuracy and real-time alerts keep us ahead of our competitors.", name: "David Kim", role: "SEO Manager", company: "ClickRise" },
+      ]} />
       <FAQSection />
       <CTASection />
 

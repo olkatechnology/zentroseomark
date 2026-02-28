@@ -12,6 +12,7 @@ import SolutionHub from "./pages/SolutionHub";
 import SolutionDetail from "./pages/SolutionDetail";
 import CompanyHub from "./pages/CompanyHub";
 import AboutUs from "./pages/AboutUs";
+import Careers from "./pages/Careers";
 import ContactUs from "./pages/ContactUs";
 import ResourcesHub from "./pages/ResourcesHub";
 import Blog from "./pages/Blog";
@@ -24,6 +25,14 @@ import BlogPostPage from "./pages/BlogPost";
 import BlogCategory from "./pages/BlogCategory";
 import AuthorProfile from "./pages/AuthorProfile";
 import Sitemap from "./pages/Sitemap";
+import Glossary from "./pages/Glossary";
+import GlossaryTerm from "./pages/GlossaryTerm";
+import TopicsHub from "./pages/TopicsHub";
+import TopicDetail from "./pages/TopicDetail";
+import GuidesHub from "./pages/GuidesHub";
+import GuideDetail from "./pages/GuideDetail";
+import ComparisonsHub from "./pages/ComparisonsHub";
+import ComparisonDetail from "./pages/ComparisonDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +53,7 @@ const App = () => (
             <Route path="/solutions/:slug/" element={<SolutionDetail />} />
             <Route path="/company/" element={<CompanyHub />} />
             <Route path="/company/about-us/" element={<AboutUs />} />
+            <Route path="/company/careers/" element={<Careers />} />
             <Route path="/company/contact-us/" element={<ContactUs />} />
             <Route path="/resources/" element={<ResourcesHub />} />
             <Route path="/resources/blog/" element={<Blog />} />
@@ -54,6 +64,14 @@ const App = () => (
             <Route path="/resources/case-studies/" element={<CaseStudies />} />
             <Route path="/resources/documentation/" element={<Documentation />} />
             <Route path="/resources/seo-toolkit/" element={<SEOToolkit />} />
+            <Route path="/resources/glossary/" element={<Glossary />} />
+            <Route path="/resources/glossary/:slug/" element={<GlossaryTerm />} />
+            <Route path="/resources/topics/" element={<TopicsHub />} />
+            <Route path="/resources/topics/:slug/" element={<TopicDetail />} />
+            <Route path="/resources/guides/" element={<GuidesHub />} />
+            <Route path="/resources/guides/:slug/" element={<GuideDetail />} />
+            <Route path="/resources/comparisons/" element={<ComparisonsHub />} />
+            <Route path="/resources/comparisons/:slug/" element={<ComparisonDetail />} />
             <Route path="/privacy-policy/" element={<LegalPage slug="privacy-policy" />} />
             <Route path="/terms-of-service/" element={<LegalPage slug="terms-of-service" />} />
             <Route path="/refund-policy/" element={<LegalPage slug="refund-policy" />} />

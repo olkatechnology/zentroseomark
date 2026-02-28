@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  { q: "What is ZentroSEO?", a: "ZentroSEO is a beginner-friendly, AI-powered SEO platform that combines 9 tools—audit, keywords, rank tracking, content writing, competitor analysis, backlink monitoring, schema markup, and white-label reporting—into one affordable solution." },
+  { q: "What is ZentroSEO?", a: "ZentroSEO is a beginner-friendly, AI-powered SEO platform that combines 13 tools—audit, keywords, rank tracking, content writing, competitor analysis, backlink monitoring, schema markup, topical mapping, content briefs, content planning, topicality scoring, AI fixes, and white-label reporting—into one affordable solution." },
   { q: "Is ZentroSEO good for beginners?", a: "Absolutely! ZentroSEO is specifically designed for non-techies, freelancers, and small businesses. Our interface is intuitive, and our AI handles the complex technical work for you." },
   { q: "How does the AI fix SEO issues?", a: "ZentroFix (coming soon) uses AI to detect and auto-correct critical SEO issues like meta tags, schema markup, broken links, and Core Web Vitals—all with a single click." },
   { q: "Can I try ZentroSEO for free?", a: "Yes! We offer a free plan with basic features. Paid plans start at $19/month with a 3-day free trial so you can explore everything risk-free." },

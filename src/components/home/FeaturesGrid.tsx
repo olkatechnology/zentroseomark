@@ -34,7 +34,7 @@ const FeaturesGrid = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-            9 Powerful SEO Tools in One Engine
+            13 Powerful SEO Tools in One Engine
           </h2>
           <p className="text-muted-foreground text-lg">
             Everything you need to dominate search rankings, all powered by AI automation.

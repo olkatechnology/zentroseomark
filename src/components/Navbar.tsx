@@ -36,6 +36,10 @@ const navItems = [
     href: "/resources/",
     children: [
       { label: "Blog", href: "/resources/blog/", desc: "SEO tips & strategies" },
+      { label: "Guides", href: "/resources/guides/", desc: "Step-by-step tutorials" },
+      { label: "Glossary", href: "/resources/glossary/", desc: "SEO term definitions" },
+      { label: "Topics", href: "/resources/topics/", desc: "Deep-dive topic hubs" },
+      { label: "Comparisons", href: "/resources/comparisons/", desc: "X vs Y breakdowns" },
       { label: "Help Center", href: "/resources/help-center/", desc: "Support & FAQs" },
       { label: "Case Studies", href: "/resources/case-studies/", desc: "Real results" },
       { label: "Documentation", href: "/resources/documentation/", desc: "Product docs" },

@@ -21,6 +21,10 @@ const footerLinks = {
   ],
   Resources: [
     { label: "Blog", href: "/resources/blog/" },
+    { label: "Guides", href: "/resources/guides/" },
+    { label: "Glossary", href: "/resources/glossary/" },
+    { label: "Topics", href: "/resources/topics/" },
+    { label: "Comparisons", href: "/resources/comparisons/" },
     { label: "Help Center", href: "/resources/help-center/" },
     { label: "Case Studies", href: "/resources/case-studies/" },
     { label: "Documentation", href: "/resources/documentation/" },

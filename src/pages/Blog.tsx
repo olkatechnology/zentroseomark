@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar, Clock, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
@@ -11,8 +12,14 @@ import { Badge } from "@/components/ui/badge";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filtered = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+  const filtered = blogPosts.filter((p) => {
+    const matchesCategory = activeCategory === "All" || p.category === activeCategory;
+    if (!searchQuery.trim()) return matchesCategory;
+    const q = searchQuery.toLowerCase();
+    return matchesCategory && (p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+  });
 
   // CollectionPage JSON-LD
   const collectionJsonLd = {
@@ -57,6 +64,17 @@ const Blog = () => {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
+          {/* Search */}
+          <div className="max-w-md mx-auto mb-8 relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search articles…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
+          </div>
           {/* Category Tabs */}
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             {blogCategories.map((cat) =>

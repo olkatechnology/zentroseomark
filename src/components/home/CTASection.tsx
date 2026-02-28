@@ -18,7 +18,7 @@ const CTASection = () => {
             </Button>
           </a>
           <a href="/pricing/">
-            <Button variant="outline" className="border-hero-muted/30 text-hero-foreground hover:bg-hero-foreground/10 px-8 py-3 text-base">
+            <Button className="border border-white/30 bg-transparent text-white hover:bg-white/10 px-8 py-3 text-base">
               View Pricing
             </Button>
           </a>

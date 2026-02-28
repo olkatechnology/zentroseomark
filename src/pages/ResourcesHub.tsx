@@ -1,13 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, HelpCircle, BarChart3, FileText, Wrench } from "lucide-react";
+import { BookOpen, HelpCircle, BarChart3, FileText, Wrench, GraduationCap, BookA, Map, GitCompareArrows } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 
 const resources = [
   { icon: BookOpen, title: "Blog", description: "SEO tips, strategies, and in-depth guides from the ZentroSEO team.", href: "/resources/blog/" },
+  { icon: GraduationCap, title: "Guides", description: "Step-by-step tutorials covering technical SEO, content strategy, and more.", href: "/resources/guides/" },
+  { icon: BookA, title: "Glossary", description: "Clear definitions for every SEO term you need to know.", href: "/resources/glossary/" },
+  { icon: Map, title: "Topics", description: "Deep-dive hub pages covering major SEO concepts from every angle.", href: "/resources/topics/" },
+  { icon: GitCompareArrows, title: "Comparisons", description: "Side-by-side breakdowns of SEO tools, concepts, and strategies.", href: "/resources/comparisons/" },
   { icon: HelpCircle, title: "Help Center", description: "FAQs, troubleshooting, and guides to get the most from ZentroSEO.", href: "/resources/help-center/" },
   { icon: BarChart3, title: "Case Studies", description: "Real results from real businesses using ZentroSEO.", href: "/resources/case-studies/" },
   { icon: FileText, title: "Documentation", description: "Technical docs, API references, and feature guides.", href: "/resources/documentation/" },

@@ -8686,7 +8686,7 @@ ZentroSEO provides a systematic approach to Knowledge Graph optimization through
 ---
 
 **Return to the pillar guide:** [What Is Semantic SEO?](/resources/blog/what-is-semantic-seo/) | **Related:** [Entity-Attribute-Value in SEO](/resources/blog/entity-attribute-value-seo/) · [Schema Markup SEO Guide](/resources/blog/schema-markup-seo-guide/) · [Technical SEO Audit](/resources/blog/technical-seo-audit/)`,
-    author: "Tomisin Sode",
+    author: "Olayinka Olayokun",
     date: "2025-09-18",
     dateModified: "2026-02-28",
     category: "Semantic SEO",
@@ -9069,7 +9069,7 @@ ZentroSEO's toolkit is engineered to bridge the gap between how writers create c
 ---
 
 **Return to the pillar guide:** [What Is Semantic SEO?](/resources/blog/what-is-semantic-seo/) | **Related:** [Entity-Attribute-Value in SEO](/resources/blog/entity-attribute-value-seo/) · [Knowledge Graph Optimization](/resources/blog/knowledge-graph-optimization/) · [Schema Markup SEO Guide](/resources/blog/schema-markup-seo-guide/) · [On-Page SEO Audit](/resources/blog/on-page-seo-audit/)`,
-    author: "Tomisin Sode",
+    author: "Olayinka Olayokun",
     date: "2025-09-24",
     dateModified: "2026-02-28",
     category: "Semantic SEO",
@@ -9193,7 +9193,7 @@ ZentroSEO's toolkit includes several features designed to support local SEO effo
 ---
 
 **Related reading:** [Local Citations & NAP Consistency](/resources/blog/local-citations-nap-consistency/) · [Local Keyword Research](/resources/blog/local-keyword-research/) · [Schema Markup SEO Guide](/resources/blog/schema-markup-seo-guide/) · [On-Page SEO Audit](/resources/blog/on-page-seo-audit/)`,
-    author: "Tomisin Sode",
+    author: "Olayinka Olayokun",
     date: "2025-09-28",
     dateModified: "2026-02-28",
     category: "Local & E-commerce SEO",
@@ -9443,7 +9443,7 @@ For a complete internal linking framework, see our [internal linking strategy](/
 ---
 
 **Related reading:** [Structured Data for E-commerce](/resources/blog/structured-data-ecommerce-product-schema/) · [Schema Markup SEO Guide](/resources/blog/schema-markup-seo-guide/) · [Title Tag Optimization](/resources/blog/title-tag-optimization/) · [On-Page SEO Audit](/resources/blog/on-page-seo-audit/)`,
-    author: "Tomisin Sode",
+    author: "Olayinka Olayokun",
     date: "2025-10-02",
     dateModified: "2026-02-28",
     category: "Local & E-commerce SEO",

@@ -4,6 +4,10 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
 import { featuresData } from "@/data/features";
+import { glossaryTerms } from "@/data/glossary";
+import { topics } from "@/data/topics";
+import { guides } from "@/data/guides";
+import { comparisons } from "@/data/comparisons";
 
 const siteStructure = [
   {
@@ -32,10 +36,14 @@ const siteStructure = [
     ],
     hubLink: { label: "Company Hub", href: "/company/" },
   },
-  {
+    {
     title: "Resources",
     links: [
       { label: "Blog", href: "/resources/blog/" },
+      { label: "Guides", href: "/resources/guides/" },
+      { label: "Glossary", href: "/resources/glossary/" },
+      { label: "Topics", href: "/resources/topics/" },
+      { label: "Comparisons", href: "/resources/comparisons/" },
       { label: "Help Center", href: "/resources/help-center/" },
       { label: "Case Studies", href: "/resources/case-studies/" },
       { label: "Documentation", href: "/resources/documentation/" },
@@ -140,6 +148,74 @@ const Sitemap = () => {
                   </div>
                 );
               })}
+            </section>
+
+            {/* Glossary */}
+            <section>
+              <h2 className="font-display text-xl font-bold mb-1">Glossary</h2>
+              <p className="text-sm text-muted-foreground mb-3">
+                <Link to="/resources/glossary/" className="text-primary hover:underline font-medium">All Glossary Terms</Link>
+              </p>
+              <ul className="ml-4 space-y-1">
+                {glossaryTerms.map((t) => (
+                  <li key={t.slug}>
+                    <Link to={`/resources/glossary/${t.slug}/`} className="text-sm text-primary hover:underline">
+                      {t.term}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Topics */}
+            <section>
+              <h2 className="font-display text-xl font-bold mb-1">Topics</h2>
+              <p className="text-sm text-muted-foreground mb-3">
+                <Link to="/resources/topics/" className="text-primary hover:underline font-medium">All Topics</Link>
+              </p>
+              <ul className="ml-4 space-y-1">
+                {topics.map((t) => (
+                  <li key={t.slug}>
+                    <Link to={`/resources/topics/${t.slug}/`} className="text-sm text-primary hover:underline">
+                      {t.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Guides */}
+            <section>
+              <h2 className="font-display text-xl font-bold mb-1">Guides</h2>
+              <p className="text-sm text-muted-foreground mb-3">
+                <Link to="/resources/guides/" className="text-primary hover:underline font-medium">All Guides</Link>
+              </p>
+              <ul className="ml-4 space-y-1">
+                {guides.map((g) => (
+                  <li key={g.slug}>
+                    <Link to={`/resources/guides/${g.slug}/`} className="text-sm text-primary hover:underline">
+                      {g.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Comparisons */}
+            <section>
+              <h2 className="font-display text-xl font-bold mb-1">Comparisons</h2>
+              <p className="text-sm text-muted-foreground mb-3">
+                <Link to="/resources/comparisons/" className="text-primary hover:underline font-medium">All Comparisons</Link>
+              </p>
+              <ul className="ml-4 space-y-1">
+                {comparisons.map((c) => (
+                  <li key={c.slug}>
+                    <Link to={`/resources/comparisons/${c.slug}/`} className="text-sm text-primary hover:underline">
+                      {c.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
           </div>
         </div>
