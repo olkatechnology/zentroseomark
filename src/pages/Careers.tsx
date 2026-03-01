@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Heart, Zap, Users, Globe, MapPin, Clock, Briefcase } from "lucide-react";
+import { Heart, Zap, Users, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
@@ -12,14 +12,6 @@ const values = [
   { icon: Heart, title: "User Obsessed", description: "Every decision starts with the question: how does this help our users rank better?" },
   { icon: Users, title: "Collaborative Culture", description: "We believe the best ideas come from diverse perspectives working together." },
   { icon: Globe, title: "Remote-First", description: "Work from anywhere. We trust our team to deliver excellence on their own terms." },
-];
-
-const openings = [
-  { title: "Senior Full-Stack Engineer", department: "Engineering", location: "Remote", type: "Full-time" },
-  { title: "Product Designer (UX/UI)", department: "Design", location: "Remote", type: "Full-time" },
-  { title: "SEO Content Strategist", department: "Marketing", location: "Remote", type: "Full-time" },
-  { title: "Customer Success Manager", department: "Support", location: "Remote (EU)", type: "Full-time" },
-  { title: "Data Scientist – NLP & Search", department: "AI/ML", location: "Remote", type: "Full-time" },
 ];
 
 const Careers = () => (
@@ -70,35 +62,6 @@ const Careers = () => (
               </div>
               <h3 className="font-display font-bold mb-2">{v.title}</h3>
               <p className="text-sm text-muted-foreground">{v.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Open Positions */}
-    <section className="py-16 bg-secondary/30">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="font-display text-3xl font-bold text-center mb-12">Open Positions</h2>
-        <div className="space-y-4">
-          {openings.map((job, i) => (
-            <motion.div
-              key={job.title}
-              initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-              className="bg-card rounded-xl border border-border p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
-            >
-              <div>
-                <h3 className="font-display font-bold">{job.title}</h3>
-                <div className="flex flex-wrap gap-3 mt-1 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1"><Briefcase className="w-3.5 h-3.5" />{job.department}</span>
-                  <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{job.location}</span>
-                  <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{job.type}</span>
-                </div>
-              </div>
-              <Link to="/company/contact-us/">
-                <Button size="sm" variant="outline">Apply</Button>
-              </Link>
             </motion.div>
           ))}
         </div>

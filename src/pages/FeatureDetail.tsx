@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Calendar, Clock } from "lucide-react";
+import { ArrowRight, CheckCircle, Calendar, Clock, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import Testimonials from "@/components/shared/Testimonials";
@@ -99,8 +99,22 @@ const FeatureDetail = () => {
         </div>
       </section>
 
+      {/* Overview */}
+      {feature.overview && (
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="font-display text-3xl font-bold mb-6">What Is {feature.name}?</h2>
+            <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-4">
+              {feature.overview.split('\n\n').map((paragraph, i) => (
+                <p key={i} dangerouslySetInnerHTML={{ __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Key Capabilities */}
-      <section className="py-16 md:py-20 bg-background">
+      <section className="py-16 md:py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-3xl font-bold text-center mb-4">Key Capabilities</h2>
           <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
@@ -179,6 +193,61 @@ const FeatureDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Use Cases */}
+      {feature.useCases && feature.useCases.length > 0 && (
+        <section className="py-16 md:py-20 bg-secondary/30">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="font-display text-3xl font-bold text-center mb-4">Real-World Use Cases</h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-10">
+              See how teams use {feature.name} to solve real SEO challenges.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {feature.useCases.map((uc, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                  className="p-6 rounded-xl border border-border bg-card hover:shadow-card transition-shadow"
+                >
+                  <h3 className="font-display font-semibold mb-2">{uc.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{uc.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Who Is It For */}
+      {feature.whoIsItFor && feature.whoIsItFor.length > 0 && (
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="font-display text-3xl font-bold text-center mb-4">Who Is {feature.name} For?</h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-10">
+              Built for the people who need it most.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {feature.whoIsItFor.map((w, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                  className="p-6 rounded-xl border border-border bg-card hover:shadow-card transition-shadow text-center"
+                >
+                  <Users className="w-6 h-6 text-primary mx-auto mb-3" />
+                  <h3 className="font-display font-semibold mb-2">{w.persona}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{w.reason}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Testimonials */}
       <Testimonials

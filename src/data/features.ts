@@ -8,6 +8,9 @@ export interface FeatureData {
   metaDescription: string;
   trustChips: string[];
   icon: any;
+  overview?: string;
+  useCases?: { title: string; description: string }[];
+  whoIsItFor?: { persona: string; reason: string }[];
   capabilities: { icon: any; title: string; description: string }[];
   steps: { title: string; description: string }[];
   benefits: string[];
@@ -24,6 +27,19 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "ZentroAudit analyzes your site using semantic SEO, topical depth, and entity coverage.",
     trustChips: ["200+ SEO checks", "Core Web Vitals", "Entity coverage"],
     icon: Search,
+    overview: "Most SEO audit tools check surface-level signals — missing meta tags, slow load times, broken links. ZentroAudit goes deeper. It evaluates your site through the lens of **entity-based SEO**, measuring how completely your content covers the entities, attributes, and semantic relationships that search engines use to determine topical authority.\n\nTraditional audits miss the most important ranking factor of the modern search era: **semantic completeness**. ZentroAudit's Entity-Attribute-Value (EAV) analysis compares your content against the knowledge graph expectations for your target queries, surfacing gaps where your pages fail to answer the questions search engines are asking on behalf of users.\n\nBy combining 200+ technical SEO checks with NLP-powered entity coverage analysis and Core Web Vitals monitoring, ZentroAudit gives you a single, prioritized roadmap that addresses both the technical foundation and the semantic depth your site needs to rank. It's the audit tool built for how Google actually works today — not how it worked five years ago.",
+    useCases: [
+      { title: "Agency managing 20+ client sites", description: "Run automated weekly audits across your entire portfolio, catch technical regressions before they impact rankings, and generate client-ready reports showing entity coverage improvements over time." },
+      { title: "E-commerce site with 10,000+ product pages", description: "Crawl your entire catalog to find orphaned products, missing schema markup, broken internal links, and thin entity coverage that prevents product pages from appearing in rich results." },
+      { title: "Content publisher after a core algorithm update", description: "Identify which pages lost rankings due to insufficient topical depth, missing EAV coverage, or Core Web Vitals regressions — then prioritize fixes by traffic impact." },
+      { title: "In-house SEO team preparing a site migration", description: "Baseline your current SEO health score, entity coverage, and technical metrics before migration so you can measure post-migration impact and catch regressions immediately." },
+    ],
+    whoIsItFor: [
+      { persona: "In-house SEO managers", reason: "Get a single dashboard that combines technical health, entity coverage, and Core Web Vitals — eliminating the need to juggle multiple tools for a complete picture of site health." },
+      { persona: "SEO agencies", reason: "Audit client sites at scale with automated scheduling, branded reports, and entity-level insights that differentiate your service from competitors using basic crawl tools." },
+      { persona: "Content strategists", reason: "Understand which pages lack the semantic depth search engines expect, so you can prioritize content improvements based on entity gaps rather than guesswork." },
+      { persona: "Technical SEO specialists", reason: "Deep-crawl analysis with redirect chain detection, canonicalization auditing, and JavaScript rendering checks — combined with the entity layer most technical tools ignore." },
+    ],
     capabilities: [
       { icon: FileSearch, title: "Deep Crawl Analysis", description: "Crawl every page to uncover broken links, redirect chains, orphan pages, and indexation issues that block search engines." },
       { icon: Activity, title: "Core Web Vitals Monitoring", description: "Track LCP, FID, and CLS metrics to ensure your pages deliver fast, stable user experiences that Google rewards." },
@@ -66,6 +82,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "ZentroFix uses AI to detect and auto-correct critical SEO issues like Core Web Vitals, metadata, indexing, and broken links.",
     trustChips: ["1-click fixes", "AI-powered", "Auto-correction"],
     icon: Wrench,
+    overview: "Finding SEO issues is only half the battle — fixing them is where most teams get stuck. ZentroFix bridges the gap between audit and action by using AI to generate precise, context-aware fixes for every issue ZentroAudit discovers. Instead of handing you a spreadsheet of problems and leaving you to figure out solutions, ZentroFix provides the actual code, content, and configuration changes needed.\n\nThe tool understands the **semantic context** of each issue. When it generates a missing meta description, it doesn't produce generic filler — it analyzes your page's entity coverage, target keywords, and topical focus to craft metadata that accurately represents the content's semantic scope. When it fixes broken internal links, it suggests replacements based on topical relevance, not just URL similarity.\n\nZentroFix is designed for teams who need to move fast without sacrificing quality. Whether you're batch-fixing metadata across thousands of pages or resolving critical schema errors one at a time, every fix is previewed before application and reversible after — giving you the confidence to apply changes at scale.",
+    useCases: [
+      { title: "Post-audit remediation sprint", description: "After running ZentroAudit, apply the highest-impact fixes in bulk — resolving hundreds of metadata issues, broken links, and missing schema in a single session rather than weeks of manual work." },
+      { title: "Content team fixing thin pages", description: "Use AI-generated content suggestions to enrich thin pages with entity-relevant paragraphs, missing EAV attributes, and proper heading structure without starting from scratch." },
+      { title: "Developer implementing technical fixes", description: "Get copy-paste code snippets for redirect rules, schema injection, canonical tag corrections, and security headers — ready for your CMS or server configuration." },
+    ],
+    whoIsItFor: [
+      { persona: "SEO managers with limited dev resources", reason: "Apply technical fixes without waiting for developer sprints — ZentroFix generates ready-to-deploy code and content that non-technical team members can implement." },
+      { persona: "Agencies delivering fix implementation", reason: "Differentiate your service by actually fixing client issues, not just reporting them. Batch-apply fixes across client sites and show measurable improvement in the next audit cycle." },
+      { persona: "Small business owners", reason: "No SEO expertise needed — ZentroFix explains each issue in plain language, shows you exactly what will change, and lets you apply fixes with a single click." },
+    ],
     capabilities: [
       { icon: Zap, title: "1-Click Auto-Fixes", description: "Fix broken links, missing meta tags, duplicate content, and redirect chains with a single click — no coding required." },
       { icon: RefreshCw, title: "Metadata Repair", description: "Automatically generate and optimize title tags, meta descriptions, and Open Graph tags using AI content analysis." },
@@ -107,6 +134,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Discover high-impact keywords based on entity associations, search intent, and topical clusters.",
     trustChips: ["Entity-based", "Intent mapping", "Topical clusters"],
     icon: Target,
+    overview: "Keyword research has evolved beyond search volume and competition scores. ZentroKeywords approaches keyword discovery through the lens of **semantic entities and topical relationships** — the same framework search engines use to understand and rank content. Instead of giving you a flat list of keywords sorted by volume, it maps the entity landscape around your seed topic.\n\nEvery keyword exists within a web of semantic relationships. ZentroKeywords reveals these connections: which entities search engines associate with a query, what topical clusters a keyword belongs to, and what search intent patterns it activates. This lets you build content strategies that establish **topical authority** rather than chasing individual keyword rankings.\n\nThe tool integrates Koray Tugberk GÜBÜR's semantic SEO methodology directly into the research workflow. When you enter a seed keyword, ZentroKeywords doesn't just find related terms — it maps the full entity graph, identifies the hub-and-spoke content structure you need, and classifies every keyword by intent so your content strategy aligns with how users actually search.",
+    useCases: [
+      { title: "Building a new content silo from scratch", description: "Enter your core topic and ZentroKeywords generates the complete topical cluster — hub keyword, spoke keywords, and supporting entity terms — so you can plan an entire content silo before writing a single article." },
+      { title: "E-commerce category page optimization", description: "Discover the entity-rich long-tail keywords that drive purchase intent, classify them by commercial vs informational intent, and map them to your product taxonomy for complete category coverage." },
+      { title: "International market expansion", description: "Research keywords in 50+ languages and 100+ countries to understand how entity associations and search intent differ across markets before localizing your content strategy." },
+    ],
+    whoIsItFor: [
+      { persona: "Content strategists", reason: "Build comprehensive topical maps from keyword research, ensuring every article you plan contributes to a cohesive hub-and-spoke content architecture." },
+      { persona: "SEO specialists", reason: "Go beyond volume and difficulty — understand the entity relationships behind keywords so you can target queries where your existing topical authority gives you an advantage." },
+      { persona: "PPC and SEO hybrid teams", reason: "Classify keywords by intent to align paid and organic strategies, ensuring your PPC campaigns capture transactional queries while organic content builds informational authority." },
+    ],
     capabilities: [
       { icon: Brain, title: "Entity Topic Discovery", description: "Discover semantically related entities and topics that search engines associate with your target keywords." },
       { icon: Target, title: "Search Intent Mapping", description: "Classify keywords by intent — informational, navigational, transactional, or commercial — to align content strategy." },
@@ -148,6 +186,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Track your keyword performance by device, location, and entity topics.",
     trustChips: ["Real-time tracking", "Multi-device", "Location-based"],
     icon: BarChart3,
+    overview: "Rankings fluctuate daily, and without continuous monitoring you're flying blind. ZentroRank provides real-time keyword rank tracking that goes beyond simple position numbers — it tracks your visibility across **devices, locations, and SERP features** to give you a complete picture of how search engines present your content to users.\n\nWhat makes ZentroRank different from generic rank trackers is its entity-aware approach. It doesn't just tell you that you rank #7 for a keyword — it shows you which SERP features surround your listing, whether your competitors hold knowledge panels or featured snippets, and how your rankings correlate with your entity authority scores from ZentroTopicality.\n\nFor agencies and multi-location businesses, ZentroRank's location-based tracking provides granular visibility data. Track the same keyword across 100+ cities to understand your local search presence, compare mobile vs desktop rankings, and set intelligent alerts that notify you only when movements are statistically significant.",
+    useCases: [
+      { title: "Monitoring after a content update", description: "Track keyword movements daily after publishing updated content to measure the impact of entity coverage improvements and validate your optimization strategy within weeks." },
+      { title: "Multi-location franchise business", description: "Track the same service keywords across every franchise location to identify which markets need local SEO attention and which are performing well organically." },
+      { title: "Competitor intelligence for pitch preparation", description: "Track competitor keyword rankings alongside your own to identify where you're gaining ground and where competitors are pulling ahead — essential data for strategy reviews." },
+    ],
+    whoIsItFor: [
+      { persona: "SEO managers reporting to executives", reason: "Generate clear, visual ranking reports that show trends over time, SERP feature wins, and competitive positioning — data that translates SEO work into business outcomes." },
+      { persona: "Local SEO specialists", reason: "City-level rank tracking across hundreds of locations with device segmentation — the granularity you need to optimize Google Business Profiles and local landing pages effectively." },
+      { persona: "Content teams measuring impact", reason: "Connect ranking changes to specific content updates and entity improvements, building a feedback loop that proves which editorial decisions drive measurable SEO results." },
+    ],
     capabilities: [
       { icon: TrendingUp, title: "Real-Time SERP Tracking", description: "Monitor your keyword rankings as they change, with daily updates and instant alerts for significant movements." },
       { icon: Globe, title: "Location-Based Tracking", description: "Track rankings across different cities, regions, and countries to understand your local and global visibility." },
@@ -189,6 +238,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Generate optimized blog posts, product pages, and meta content aligned with topical relevance.",
     trustChips: ["AI-powered", "Entity-optimized", "SEO-ready"],
     icon: PenTool,
+    overview: "Content creation for SEO has shifted from keyword stuffing to **semantic completeness**. ZentroWrite is an AI writing assistant built specifically for this new paradigm — it generates content that naturally incorporates the entities, attributes, and topical relationships search engines expect to find on authoritative pages.\n\nUnlike generic AI writers that produce fluent but semantically shallow content, ZentroWrite is trained on entity-based SEO principles. When you provide a target keyword, it analyzes the full entity landscape — which named entities must appear, what EAV triplets need coverage, and how the content should be structured with question-format H2s and extractive answers that optimize for featured snippets and AI Overviews.\n\nZentroWrite integrates directly with ZentroContentBrief to receive pre-built semantic blueprints, and with ZentroTopicality to score the content's topical depth before publishing. This creates a closed-loop workflow: brief → write → score → refine.",
+    useCases: [
+      { title: "Scaling blog content production", description: "Generate entity-rich first drafts for your editorial calendar that cover the required EAV triplets and named entities, cutting research and drafting time by 60% while maintaining semantic depth." },
+      { title: "Optimizing existing thin content", description: "Paste underperforming pages into ZentroWrite and get AI-suggested paragraphs that add the missing entity coverage, semantic roles, and topical depth your content needs to compete." },
+      { title: "Product page descriptions at scale", description: "Generate unique, entity-optimized product descriptions for e-commerce catalogs that include the attributes, specifications, and semantic relationships shoppers and search engines both need." },
+    ],
+    whoIsItFor: [
+      { persona: "Content writers and editors", reason: "Get AI-powered semantic guidance as you write — real-time entity coverage scoring, suggested H2 structures, and extractive answer templates that ensure your content meets search engine expectations." },
+      { persona: "SEO teams without dedicated writers", reason: "Generate publish-ready first drafts that already incorporate the entity coverage and topical depth your target queries require, reducing the need for extensive SEO editing." },
+      { persona: "Agencies producing client content", reason: "Scale content production across client accounts while maintaining semantic quality — each piece is scored against topicality benchmarks before delivery." },
+    ],
     capabilities: [
       { icon: Brain, title: "Semantic Content Generation", description: "Generate content that naturally incorporates the entities, topics, and semantic relationships search engines expect." },
       { icon: PenTool, title: "Meta Tag Generation", description: "Auto-create optimized title tags, meta descriptions, and Open Graph tags based on your page content." },
@@ -230,6 +290,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Analyze how competitors perform across search entities and topics.",
     trustChips: ["Gap analysis", "Entity comparison", "Topical maps"],
     icon: GitCompare,
+    overview: "Ranking higher than your competitors requires understanding exactly where they're stronger — and where they're vulnerable. ZentroCompare provides **entity-level competitive analysis** that goes beyond keyword overlap to reveal the semantic gaps in your content strategy.\n\nTraditional competitor tools show you which keywords competitors rank for. ZentroCompare shows you *why* they rank — by mapping their entity coverage, topical depth, and content architecture against yours. You'll see which semantic topics they've covered comprehensively, which entity relationships they've established, and which areas of their topical map have gaps you can exploit.\n\nThis entity-first approach to competitive analysis aligns with how modern search engines evaluate authority. Google doesn't just count keywords — it assesses whether a site demonstrates comprehensive understanding of a topic through complete entity coverage.",
+    useCases: [
+      { title: "Quarterly content strategy planning", description: "Compare your topical coverage against your top 5 competitors every quarter to identify emerging gaps, prioritize new content clusters, and allocate editorial resources where they'll have the most impact." },
+      { title: "New market or niche entry", description: "Before entering a new topic space, analyze the incumbent competitors' entity coverage to understand the depth of content required to compete — and identify underserved subtopics." },
+      { title: "Post-algorithm update diagnosis", description: "When competitors gain rankings after a core update, use entity comparison to understand what semantic coverage they have that you're missing — turning algorithm volatility into actionable insights." },
+    ],
+    whoIsItFor: [
+      { persona: "SEO directors and strategists", reason: "Make content investment decisions based on entity-level competitive data rather than gut feeling — know exactly which topical areas offer the highest ROI for new content creation." },
+      { persona: "Agency strategists preparing audits", reason: "Deliver competitive analyses that show clients not just keyword gaps but semantic authority gaps — demonstrating a depth of insight that differentiates your agency." },
+      { persona: "Product marketing teams", reason: "Understand how competitor product pages and content hubs cover entity topics differently, informing both SEO strategy and product positioning in search results." },
+    ],
     capabilities: [
       { icon: GitCompare, title: "Competitor Gap Analysis", description: "Compare your entity and topic coverage against up to 5 competitors to find content opportunities they're ranking for." },
       { icon: Layers, title: "Topical Coverage Maps", description: "Visualize how your content covers topic clusters compared to competitors — see where you lead and where you lag." },
@@ -271,6 +342,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Analyze backlink profiles based on authority, topical relevance, and entity associations.",
     trustChips: ["Link analysis", "Toxic detection", "Authority scoring"],
     icon: Link2,
+    overview: "Not all backlinks are created equal. In entity-based SEO, the **topical relevance** of a linking domain matters as much as its domain authority. ZentroBacklinks analyzes your backlink profile through the lens of entity trust — evaluating whether your links come from sources that reinforce your topical authority or dilute it with irrelevant associations.\n\nTraditional backlink tools score links primarily by domain authority metrics. ZentroBacklinks adds an entity relevance layer: it maps the topical focus of each linking domain and assesses whether the link strengthens or weakens your entity authority for your target topics. A link from a niche-relevant blog with modest traffic can be worth more than a link from a high-DA site covering unrelated topics.\n\nBeyond analysis, ZentroBacklinks provides actionable link building opportunities. By analyzing competitor backlink profiles through the same entity lens, it identifies topically relevant domains that link to competitors but not to you — high-probability prospects already interested in your topic space.",
+    useCases: [
+      { title: "Post-penalty recovery", description: "Identify and disavow toxic backlinks that triggered a manual action or algorithmic penalty, using entity relevance scoring to distinguish genuinely harmful links from low-quality but harmless ones." },
+      { title: "Link building campaign targeting", description: "Build prospect lists of topically relevant domains by analyzing which entity-relevant sites link to competitors, filtering by authority, relevance, and likelihood of successful outreach." },
+      { title: "Merger or acquisition due diligence", description: "Evaluate the backlink health of a domain you're acquiring — understanding not just the quantity of links but whether they carry genuine entity authority in your target niche." },
+    ],
+    whoIsItFor: [
+      { persona: "Link building specialists", reason: "Find prospects based on entity relevance rather than just domain authority — building links that strengthen your topical authority profile in ways search engines actually reward." },
+      { persona: "SEO managers concerned about link risk", reason: "Monitor your backlink profile for toxic links, spammy patterns, and entity-irrelevant link growth that could signal manipulation to search engine algorithms." },
+      { persona: "Digital PR teams", reason: "Identify the publications and blogs in your entity niche that actively link to competitor content — high-value outreach targets for digital PR campaigns." },
+    ],
     capabilities: [
       { icon: Link2, title: "Backlink Profile Analysis", description: "Get a complete view of your backlink profile including referring domains, anchor text distribution, and link types." },
       { icon: Shield, title: "Toxic Link Detection", description: "Identify spammy, low-quality, or harmful backlinks that could trigger penalties or dilute your link equity." },
@@ -312,6 +394,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Boost rich results and entity linking by generating and injecting schema.",
     trustChips: ["JSON-LD generation", "Rich snippets", "Schema validation"],
     icon: Code2,
+    overview: "Structured data is the bridge between your content and the knowledge graph. ZentroMarkup automates the creation of **JSON-LD schema markup** that explicitly declares the entities, attributes, and relationships in your content — helping search engines understand your pages with precision rather than inference.\n\nMost schema generators produce basic markup from form fields. ZentroMarkup uses AI to analyze your actual page content, identify the entities present, and generate comprehensive structured data that covers not just required properties but the recommended and entity-linking properties that strengthen knowledge graph associations.\n\nRich results — featured snippets, knowledge panels, FAQ accordions, product carousels — all depend on correctly implemented structured data. ZentroMarkup validates your schema against Google's Rich Results Test requirements in real-time, ensuring your markup qualifies for enhanced SERP presentations before you deploy it.",
+    useCases: [
+      { title: "E-commerce product catalog", description: "Generate Product schema with complete offer, review, and availability markup for thousands of product pages — including entity-linking properties that connect products to their brand and category entities." },
+      { title: "Content publisher seeking FAQ rich results", description: "Automatically detect question-and-answer patterns in your content and generate FAQPage schema that qualifies for FAQ rich results — increasing click-through rates without changing your content." },
+      { title: "Local business with multiple locations", description: "Generate LocalBusiness schema for each location with accurate NAP data, service areas, opening hours, and entity connections to your parent organization." },
+    ],
+    whoIsItFor: [
+      { persona: "Technical SEO specialists", reason: "Generate advanced schema with entity-linking properties, nested types, and knowledge graph connections that go beyond what basic schema generators offer." },
+      { persona: "Content managers without coding skills", reason: "Create and deploy JSON-LD schema through a visual editor — no code knowledge required. See exactly what search engines will read and validate before publishing." },
+      { persona: "E-commerce SEO teams", reason: "Bulk-generate Product, Offer, and Review schema across your catalog with content-aware templates that pull entity data directly from your product pages." },
+    ],
     capabilities: [
       { icon: Code2, title: "Auto Schema Generation", description: "Automatically generate JSON-LD structured data based on your page content — no coding required." },
       { icon: CheckCircle, title: "Rich Snippet Validation", description: "Validate your schema markup against Google's requirements to ensure rich results eligibility." },
@@ -353,6 +446,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Generate hub-and-spoke topical maps grounded in semantic entities. Define your central entity, discover source contexts, and export a complete content plan.",
     trustChips: ["Entity-based", "Hub & spoke", "Semantic gap detection"],
     icon: Map,
+    overview: "Topical authority is built through **systematic content architecture**, not random article publishing. ZentroTopicalMap generates comprehensive hub-and-spoke content structures grounded in entity relationships — giving you a complete blueprint for dominating a topic in search.\n\nKoray Tugberk GÜBÜR's semantic SEO framework emphasizes that search engines evaluate topical authority holistically. A single article, no matter how well-written, cannot establish authority. You need a structured network of interconnected pages that collectively cover every entity, attribute, and relationship within your topic's semantic space. ZentroTopicalMap builds this network for you.\n\nThe tool starts with your central entity and maps outward: identifying the hub topics that anchor your content architecture, the spoke subtopics that provide depth, the entity relationships that connect everything, and the source contexts that shape your niche's authority landscape.",
+    useCases: [
+      { title: "Launching a new website or blog", description: "Before publishing your first article, generate a complete topical map that defines every hub and spoke page you'll need — ensuring your content architecture is designed for authority from day one." },
+      { title: "Restructuring an existing content library", description: "Map your current content against the full topical landscape to identify orphaned pages, missing hub articles, and spoke gaps that prevent your existing content from building cumulative authority." },
+      { title: "Agency pitching a content strategy", description: "Generate visual topical maps for prospect niches during the pitch process — demonstrating the depth of your strategic approach and providing a tangible deliverable." },
+    ],
+    whoIsItFor: [
+      { persona: "Content strategists and editors", reason: "Replace ad-hoc topic brainstorming with data-driven topical maps that ensure every article you commission contributes to a deliberate authority-building architecture." },
+      { persona: "SEO directors managing content teams", reason: "Provide your writers with a visual content roadmap that shows how each piece fits into the larger topical structure — eliminating duplicated effort and ensuring comprehensive coverage." },
+      { persona: "Startup founders building organic channels", reason: "Get a clear, prioritized content plan that shows the minimum viable content architecture needed to establish topical authority in your niche." },
+    ],
     capabilities: [
       { icon: Brain, title: "Central Entity Mapper", description: "Define your seed entity and ZentroTopicalMap builds a full entity graph showing attributes, relationships, and semantic neighbourhoods search engines associate with your topic." },
       { icon: Layers, title: "Hub-and-Spoke Builder", description: "Automatically structure your topical map into pillar hub pages and spoke articles — ensuring every subtopic is covered with the right depth and hierarchy." },
@@ -394,6 +498,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Build semantic content briefs with EAV triples, question H2s, named entity recommendations, and macro context settings — all exported directly to ZentroWrite.",
     trustChips: ["EAV triples", "Question H2s", "Named entities"],
     icon: FileEdit,
+    overview: "Great content starts with a great brief. ZentroContentBrief generates **EAV-optimized content blueprints** that tell writers exactly which entities to cover, which attributes to define, and which semantic relationships to establish — before they write a single word.\n\nMost content briefs focus on keywords, word count, and competitor headings. ZentroContentBrief goes deeper by generating the Entity-Attribute-Value triplets your content must cover, suggesting question-format H2 headings with 40-word extractive answer targets (following Koray's authorship framework), and defining the macro context that should govern your entire page.\n\nThe macro context setting is critical: it ensures your page operates within a single, clear semantic framework rather than diluting its topical focus across multiple meanings. Combined with named entity recommendations and anchor text suggestions for internal links, ZentroContentBrief produces briefs that are essentially semantic blueprints.",
+    useCases: [
+      { title: "Editorial team scaling content production", description: "Generate standardized semantic briefs for freelance writers that ensure every commissioned article meets your entity coverage and topical depth requirements — regardless of the writer's SEO expertise." },
+      { title: "Refreshing underperforming content", description: "Generate a brief for an existing page's target query to see what EAV triplets and named entities are missing — then use the gap analysis to guide a targeted content update." },
+      { title: "Building featured snippet-optimized content", description: "Use question H2 suggestions with 40-word extractive answer targets to structure content specifically for featured snippet capture and AI Overview inclusion." },
+    ],
+    whoIsItFor: [
+      { persona: "Content managers leading writer teams", reason: "Provide writers with semantic blueprints that eliminate guesswork about entity coverage, heading structure, and topical depth — ensuring consistent quality across your content operation." },
+      { persona: "Freelance SEO writers", reason: "Receive briefs that tell you exactly which entities to mention, which questions to answer, and which macro context to maintain — so your content meets expectations on the first draft." },
+      { persona: "SEO consultants advising clients", reason: "Deliver actionable content briefs as part of your consulting service — demonstrating tangible expertise by providing entity-level guidance that generic keyword briefs can't match." },
+    ],
     capabilities: [
       { icon: Brain, title: "EAV Triple Generator", description: "Automatically generate Entity-Attribute-Value triplets for your target query so every sentence in your article carries full semantic weight and topical relevance." },
       { icon: Target, title: "Question H2 Suggester", description: "Produce H2 headings phrased as user questions — following Koray's authorship rule of 40-word extractive answers immediately after each question heading." },
@@ -435,6 +550,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Monitor content age, query pattern shifts, and semantic distance decay. Set automated 6-month re-audit cycles so your content stays relevant as search evolves.",
     trustChips: ["Content decay detection", "6-month audit cycles", "Query shift alerts"],
     icon: CalendarClock,
+    overview: "Content doesn't stay optimized forever. Query patterns shift, competitors publish better content, and the semantic expectations for your target topics evolve over time. ZentroContentPlan automates the **content lifecycle management** that Koray's framework prescribes — scheduling regular re-audits to catch semantic distance decay before it becomes visible in your ranking data.\n\nThe 6-month re-audit cycle is grounded in observable search behavior: query patterns typically shift within a 6-month window, and historical engagement data accumulates over this period. Pages that were semantically comprehensive when published can drift out of alignment as the entity landscape around their topics evolves.\n\nBeyond scheduled re-audits, ZentroContentPlan monitors for acute query pattern shifts — sudden changes in how users search for your target topics that indicate your content needs immediate attention. Combined with Google's Helpful Content Update signal monitoring, it gives you a proactive content maintenance system that prevents the slow ranking decay most sites don't notice until it's too late.",
+    useCases: [
+      { title: "Enterprise content library maintenance", description: "Manage re-audit schedules for thousands of pages across multiple topic clusters, ensuring your entire content library stays semantically current without manual tracking." },
+      { title: "Seasonal content optimization", description: "Set 3-month audit cycles for seasonal content that needs regular updates — travel guides, holiday pages, annual roundups — ensuring they're refreshed before peak traffic periods." },
+      { title: "Post-algorithm update response", description: "When a Helpful Content Update rolls out, immediately identify which pages have drifted furthest from current semantic expectations and prioritize them for rapid re-optimization." },
+    ],
+    whoIsItFor: [
+      { persona: "SEO managers at content-heavy sites", reason: "Automate the content maintenance workflow that would otherwise require manually tracking hundreds of publication dates, update schedules, and performance metrics." },
+      { persona: "Agencies managing ongoing client retainers", reason: "Build recurring content audit cycles into your client service — demonstrating ongoing value by proactively identifying and fixing content decay before clients see ranking drops." },
+      { persona: "Content operations leads", reason: "Transform content maintenance from a reactive, firefighting exercise into a proactive, scheduled process with clear triggers, priorities, and handoffs to your editorial team." },
+    ],
     capabilities: [
       { icon: Activity, title: "Content Age Monitoring", description: "Track the publication and last-modified dates of every page to surface content that has aged beyond its relevance window and risks ranking decay." },
       { icon: AlertTriangle, title: "Query Pattern Shift Alerts", description: "Detect when user query patterns around your topics shift significantly — triggering re-audit alerts before your rankings show the impact." },
@@ -476,6 +602,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Run NLP-powered topicality scoring, frame semantics analysis, EAV coverage checks, and query gap detection on any page — instantly.",
     trustChips: ["NLP scoring", "Frame semantics", "Query gap analysis"],
     icon: Gauge,
+    overview: "How do you know if your content is semantically deep enough to rank? ZentroTopicality answers this question with **NLP-powered topicality scoring** that measures your content against the full semantic expectations search engines have for your target topic.\n\nMost SEO tools score content based on keyword density, readability, and on-page factors. ZentroTopicality goes to the sentence level, analyzing semantic roles (agent, patient, action), frame semantics coverage, and Entity-Attribute-Value completeness. It doesn't check whether you mentioned a keyword — it checks whether your content fully describes the entities, their attributes, and their relationships in the way search engines need for fact extraction and knowledge graph integration.\n\nThe frame semantics analysis is particularly powerful. Based on linguistic frame theory, it evaluates whether your content activates all the conceptual frames associated with your target query. If you're writing about 'coffee brewing' and haven't addressed water temperature, extraction time, or grind size, key semantic frames are missing — and ZentroTopicality will flag them.",
+    useCases: [
+      { title: "Pre-publication quality gate", description: "Score every piece of content against topicality benchmarks before publishing — ensuring nothing goes live that falls below your minimum semantic depth threshold." },
+      { title: "Competitive content benchmarking", description: "Paste competitor URLs to understand the topicality score you need to beat, then use the dimension breakdown to identify exactly which semantic dimensions you need to exceed." },
+      { title: "Content audit and prioritization", description: "Bulk-score your existing content library to identify pages with the lowest topicality scores — prioritizing re-optimization efforts on the pages with the most room for improvement." },
+    ],
+    whoIsItFor: [
+      { persona: "Content editors and quality reviewers", reason: "Get objective, NLP-based scoring that removes subjectivity from content review — know exactly whether a piece meets semantic expectations before approving it for publication." },
+      { persona: "SEO specialists optimizing existing content", reason: "Identify the specific semantic dimensions where existing pages fall short — whether it's missing EAV triplets, incomplete frame coverage, or insufficient entity density." },
+      { persona: "AI content teams ensuring quality", reason: "Validate that AI-generated content meets the same topicality standards as human-written content — catching semantic gaps that AI writers commonly produce." },
+    ],
     capabilities: [
       { icon: BarChart3, title: "NLP Relevance Scorer", description: "Measure how well your content's language patterns align with NLP models' expectations for your target topic — scoring semantic coherence, entity density, and topical focus." },
       { icon: Layers, title: "Frame Semantics Analyzer", description: "Evaluate whether your page covers all the semantic frames activated by your target query, ensuring complete topical coverage rather than surface-level keyword presence." },
@@ -517,6 +654,17 @@ export const featuresData: Record<string, FeatureData> = {
     metaDescription: "Provide clients with branded dashboards that deliver SEO results.",
     trustChips: ["White-label", "Custom branding", "Client reports"],
     icon: Palette,
+    overview: "SEO agencies need tools that make their clients say 'wow' — not tools that expose the platform behind the curtain. ZentroWhite lets you deliver the full power of ZentroSEO's entity-based SEO toolkit **under your own brand**, with your logo, your colors, your domain, and your name on every report and dashboard.\n\nWhite-labeling isn't just about slapping a logo on someone else's tool. ZentroWhite provides a complete branded experience: custom login portals, branded email notifications, PDF reports with your cover pages and executive summaries, and client-facing dashboards that look and feel like a proprietary platform your agency built. Your clients never see the ZentroSEO brand.\n\nFor agencies that want to differentiate with entity-based SEO methodology, ZentroWhite is the infrastructure layer that lets you scale. Instead of building proprietary tools from scratch — a multi-year, multi-million-dollar endeavor — you get immediate access to semantic auditing, topical mapping, EAV analysis, and all 12 ZentroSEO tools, fully branded and ready to deploy to clients on day one.",
+    useCases: [
+      { title: "SEO agency launching a managed service", description: "Brand the entire ZentroSEO platform as your proprietary tool, give clients their own login portals, and deliver automated monthly reports — creating a productized service that scales without proportionally increasing headcount." },
+      { title: "Marketing consultancy adding SEO to offerings", description: "Add a branded SEO platform to your service portfolio without the R&D investment of building tools from scratch — start delivering entity-based SEO audits and reports to clients immediately." },
+      { title: "Freelancer building a personal brand", description: "Present ZentroSEO's capabilities as your own toolkit — with your domain, your branding, and your reports — giving you the professional presence of a full agency while working independently." },
+    ],
+    whoIsItFor: [
+      { persona: "SEO agency owners", reason: "Scale your agency with a fully branded platform that delivers entity-based SEO services — managing unlimited clients from a single dashboard without revealing the technology behind your competitive advantage." },
+      { persona: "Marketing agency directors", reason: "Add a revenue-generating SEO service line to your agency's offerings overnight — complete with branded dashboards, automated reporting, and client portals that match your agency's visual identity." },
+      { persona: "Independent SEO consultants", reason: "Punch above your weight with a branded platform that gives clients the impression of a full-service agency — building trust and justifying premium pricing for your consulting services." },
+    ],
     capabilities: [
       { icon: Palette, title: "Custom Branding", description: "Replace ZentroSEO branding with your agency's logo, colors, and domain for a fully branded client experience." },
       { icon: Users, title: "Client Management", description: "Manage multiple client accounts from a single dashboard with role-based access and permissions." },

@@ -98,6 +98,36 @@ const Blog = () => {
             )}
           </div>
 
+          {/* Trending Posts */}
+          {activeCategory === "All" && !searchQuery.trim() && (
+            (() => {
+              const trendingPosts = blogPosts.filter((p) => p.trending);
+              return trendingPosts.length > 0 ? (
+                <div className="max-w-5xl mx-auto mb-12">
+                  <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">🔥 Trending Articles</h2>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {trendingPosts.slice(0, 3).map((post) => (
+                      <Link
+                        key={post.slug}
+                        to={`/resources/blog/${post.slug}/`}
+                        className="group block rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all overflow-hidden"
+                      >
+                        <div className="p-5">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Badge variant="default" className="text-[10px] px-2 py-0">Trending</Badge>
+                            <span className="text-xs text-muted-foreground">{post.category}</span>
+                          </div>
+                          <h3 className="font-display font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : null;
+            })()
+          )}
+
           {/* Posts Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {filtered.map((post, i) => (
@@ -128,6 +158,11 @@ const Blog = () => {
                       {post.isHub && (
                         <Badge variant="default" className="text-[10px] px-2 py-0">
                           Pillar Guide
+                        </Badge>
+                      )}
+                      {post.trending && (
+                        <Badge variant="secondary" className="text-[10px] px-2 py-0">
+                          🔥 Trending
                         </Badge>
                       )}
                     </div>

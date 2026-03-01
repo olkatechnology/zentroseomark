@@ -1,8 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/zentroseo-logo-marketing.png";
+
+const languages = [
+  { code: "EN", label: "English" },
+  { code: "DE", label: "Deutsch" },
+  { code: "ES", label: "Español" },
+  { code: "FR", label: "Français" },
+  { code: "IT", label: "Italiano" },
+  { code: "NL", label: "Nederlands" },
+  { code: "PL", label: "Polski" },
+  { code: "PT", label: "Português (Brasil)" },
+  { code: "SV", label: "Svenska" },
+  { code: "VI", label: "Tiếng Việt" },
+  { code: "TR", label: "Türkçe" },
+  { code: "ZH", label: "中文" },
+  { code: "JA", label: "日本語" },
+  { code: "KO", label: "한국어" },
+];
 
 const navItems = [
   {
@@ -58,7 +75,20 @@ const navItems = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [langOpen, setLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState("EN");
   const location = useLocation();
+
+  useEffect(() => {
+    const saved = localStorage.getItem("zentro-lang");
+    if (saved) setSelectedLang(saved);
+  }, []);
+
+  const handleLangSelect = (code: string) => {
+    setSelectedLang(code);
+    localStorage.setItem("zentro-lang", code);
+    setLangOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-hero/95 backdrop-blur-md border-b border-hero-muted/10">
@@ -105,6 +135,38 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
+          {/* Language Switcher */}
+          <div
+            className="relative"
+            onMouseEnter={() => setLangOpen(true)}
+            onMouseLeave={() => setLangOpen(false)}
+          >
+            <button className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground transition-colors rounded-md">
+              <Globe className="w-4 h-4" />
+              {selectedLang}
+              <ChevronDown className="w-3 h-3 opacity-60" />
+            </button>
+            {langOpen && (
+              <div className="absolute top-full right-0 pt-2 w-48 animate-fade-in z-50">
+                <div className="bg-card rounded-lg shadow-lg border p-1.5 max-h-72 overflow-y-auto">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => handleLangSelect(lang.code)}
+                      className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                        selectedLang === lang.code
+                          ? "bg-primary/10 text-primary font-medium"
+                          : "text-foreground hover:bg-accent"
+                      }`}
+                    >
+                      {lang.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
           <a href="https://app.zentroseo.com/login" className="text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground transition-colors px-3 py-2">
             Login
           </a>
@@ -136,6 +198,21 @@ const Navbar = () => {
                 </Link>
               </div>
             ))}
+
+            {/* Mobile Language Switcher */}
+            <div className="border-t border-hero-muted/10 pt-3">
+              <div className="px-3 pb-2 text-xs font-medium text-hero-muted uppercase tracking-wider">Language</div>
+              <select
+                value={selectedLang}
+                onChange={(e) => handleLangSelect(e.target.value)}
+                className="w-full px-3 py-2 text-sm bg-hero-foreground/10 text-hero-foreground rounded-lg border border-hero-muted/20 focus:outline-none"
+              >
+                {languages.map((lang) => (
+                  <option key={lang.code} value={lang.code}>{lang.label}</option>
+                ))}
+              </select>
+            </div>
+
             <div className="pt-3 flex flex-col gap-2">
               <a href="https://app.zentroseo.com/login" className="text-sm text-center font-medium text-hero-foreground/80 py-2">Login</a>
               <a href="https://app.zentroseo.com/signup?flow=direct">

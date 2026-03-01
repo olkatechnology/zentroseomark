@@ -67,7 +67,7 @@ const HeroSection = () => {
           </form>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-hero-muted">
-            {["9 SEO Tools", "AI-Powered", "No Coding Needed", "Free Plan"].map((chip) => (
+            {["13 SEO Tools", "AI-Powered", "No Coding Needed", "Free Plan"].map((chip) => (
               <span key={chip} className="px-3 py-1 rounded-full border border-hero-foreground/10 bg-hero-foreground/5">
                 {chip}
               </span>

@@ -29,6 +29,7 @@ import Glossary from "./pages/Glossary";
 import GlossaryTerm from "./pages/GlossaryTerm";
 import TopicsHub from "./pages/TopicsHub";
 import TopicDetail from "./pages/TopicDetail";
+import TopicalMap from "./pages/TopicalMap";
 import GuidesHub from "./pages/GuidesHub";
 import GuideDetail from "./pages/GuideDetail";
 import ComparisonsHub from "./pages/ComparisonsHub";
@@ -68,6 +69,7 @@ const App = () => (
             <Route path="/resources/glossary/:slug/" element={<GlossaryTerm />} />
             <Route path="/resources/topics/" element={<TopicsHub />} />
             <Route path="/resources/topics/:slug/" element={<TopicDetail />} />
+            <Route path="/resources/topics/map/" element={<TopicalMap />} />
             <Route path="/resources/guides/" element={<GuidesHub />} />
             <Route path="/resources/guides/:slug/" element={<GuideDetail />} />
             <Route path="/resources/comparisons/" element={<ComparisonsHub />} />

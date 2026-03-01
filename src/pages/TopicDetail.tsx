@@ -8,6 +8,8 @@ import { topics } from "@/data/topics";
 import { blogPosts } from "@/data/blog-posts";
 import { glossaryTerms } from "@/data/glossary";
 import { featuresData } from "@/data/features";
+import { renderMarkdown } from "@/lib/markdown-renderer";
+import { Badge } from "@/components/ui/badge";
 
 const TopicDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -20,6 +22,10 @@ const TopicDetail = () => {
   const relatedPosts = topic.relatedBlogSlugs.map((s) => blogPosts.find((p) => p.slug === s)).filter(Boolean);
   const relatedGlossary = topic.relatedGlossaryTerms.map((s) => glossaryTerms.find((t) => t.slug === s)).filter(Boolean);
   const relatedFeats = topic.relatedFeatures.map((s) => featuresData[s]).filter(Boolean);
+
+  // Identify trending posts for this topic
+  const trendingPosts = relatedPosts.filter((p) => p && (p as any).trending);
+
   const topicUrl = `https://zentroseo.com/resources/topics/${topic.slug}/`;
 
   const webPageJsonLd = {
@@ -60,13 +66,9 @@ const TopicDetail = () => {
             <ArrowLeft className="w-4 h-4" /> All Topics
           </Link>
 
-          <div className="prose-custom text-muted-foreground leading-relaxed whitespace-pre-line">
-            {topic.heroContent.split("\n\n").map((p, i) => {
-              if (p.startsWith("## ")) return <h2 key={i} className="text-2xl font-bold font-display mt-8 mb-3 text-foreground">{p.replace("## ", "")}</h2>;
-              if (p.startsWith("- ")) return <ul key={i} className="list-disc pl-6 my-3 space-y-1.5">{p.split("\n").map((l, li) => <li key={li}>{l.replace(/^- /, "").replace(/\*\*(.+?)\*\*/g, "$1")}</li>)}</ul>;
-              if (p.match(/^\d\./)) return <ol key={i} className="list-decimal pl-6 my-3 space-y-1.5">{p.split("\n").map((l, li) => <li key={li}>{l.replace(/^\d+\.\s*/, "").replace(/\*\*(.+?)\*\*/g, "$1")}</li>)}</ol>;
-              return <p key={i} className="my-3">{p.replace(/\*\*(.+?)\*\*/g, "$1")}</p>;
-            })}
+          {/* Full markdown rendering with links, bold, tables, etc. */}
+          <div className="prose-custom">
+            {renderMarkdown(topic.heroContent)}
           </div>
 
           {/* Subtopics */}
@@ -78,6 +80,24 @@ const TopicDetail = () => {
               ))}
             </div>
           </div>
+
+          {/* Trending Articles */}
+          {trendingPosts.length > 0 && (
+            <div className="mt-8 pt-8 border-t border-border">
+              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">🔥 Trending in {topic.name}</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {trendingPosts.map((p) => p && (
+                  <Link key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Badge variant="default" className="text-[10px] px-2 py-0">Trending</Badge>
+                    </div>
+                    <h3 className="font-display font-semibold text-sm line-clamp-2">{p.title}</h3>
+                    <p className="text-xs text-muted-foreground mt-1">{p.readTime} · {p.category}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Related Articles */}
           {relatedPosts.length > 0 && (
