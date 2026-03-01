@@ -2,93 +2,91 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/zentroseo-logo-marketing.png";
 
 const languages = [
-  { code: "EN", label: "English" },
-  { code: "DE", label: "Deutsch" },
-  { code: "ES", label: "Español" },
-  { code: "FR", label: "Français" },
-  { code: "IT", label: "Italiano" },
-  { code: "NL", label: "Nederlands" },
-  { code: "PL", label: "Polski" },
-  { code: "PT", label: "Português (Brasil)" },
-  { code: "SV", label: "Svenska" },
-  { code: "VI", label: "Tiếng Việt" },
-  { code: "TR", label: "Türkçe" },
-  { code: "ZH", label: "中文" },
-  { code: "JA", label: "日本語" },
-  { code: "KO", label: "한국어" },
-];
-
-const navItems = [
-  {
-    label: "Features",
-    href: "/features/",
-    children: [
-      { label: "ZentroAudit", href: "/features/zentroaudit/", desc: "Technical & on-page SEO audit" },
-      { label: "ZentroFix", href: "/features/zentrofix/", desc: "1-Click AI SEO fixer" },
-      { label: "ZentroKeywords", href: "/features/zentrokeywords/", desc: "Keyword explorer" },
-      { label: "ZentroRank", href: "/features/zentrorank/", desc: "Keyword rank tracker" },
-      { label: "ZentroWrite", href: "/features/zentrowrite/", desc: "AI content generator" },
-      { label: "ZentroCompare", href: "/features/zentrocompare/", desc: "Competitor analysis" },
-      { label: "ZentroBacklinks", href: "/features/zentrobacklinks/", desc: "Backlink tracker" },
-      { label: "ZentroMarkup", href: "/features/zentromarkup/", desc: "Schema markup builder" },
-      { label: "ZentroWhite", href: "/features/zentrowhite/", desc: "White-label reporting" },
-    ],
-  },
-  {
-    label: "Solutions",
-    href: "/solutions/",
-    children: [
-      { label: "For Agencies", href: "/solutions/for-agencies/", desc: "Scale with white label SEO" },
-      { label: "For Startups", href: "/solutions/for-startups/", desc: "Launch with organic growth" },
-      { label: "For E-commerce", href: "/solutions/for-e-commerce/", desc: "Boost rankings & sales" },
-      { label: "For Content Creators", href: "/solutions/for-content-creators/", desc: "Rank your work faster" },
-    ],
-  },
-  { label: "Pricing", href: "/pricing/" },
-  {
-    label: "Resources",
-    href: "/resources/",
-    children: [
-      { label: "Blog", href: "/resources/blog/", desc: "SEO tips & strategies" },
-      { label: "Guides", href: "/resources/guides/", desc: "Step-by-step tutorials" },
-      { label: "Glossary", href: "/resources/glossary/", desc: "SEO term definitions" },
-      { label: "Topics", href: "/resources/topics/", desc: "Deep-dive topic hubs" },
-      { label: "Comparisons", href: "/resources/comparisons/", desc: "X vs Y breakdowns" },
-      { label: "Help Center", href: "/resources/help-center/", desc: "Support & FAQs" },
-      { label: "Case Studies", href: "/resources/case-studies/", desc: "Real results" },
-      { label: "Documentation", href: "/resources/documentation/", desc: "Product docs" },
-    ],
-  },
-  {
-    label: "Company",
-    href: "/company/",
-    children: [
-      { label: "About Us", href: "/company/about-us/", desc: "Our story & team" },
-      { label: "Contact", href: "/company/contact-us/", desc: "Get in touch" },
-    ],
-  },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" },
+  { code: "es", label: "Español" },
+  { code: "fr", label: "Français" },
+  { code: "it", label: "Italiano" },
+  { code: "nl", label: "Nederlands" },
+  { code: "pl", label: "Polski" },
+  { code: "pt", label: "Português (Brasil)" },
+  { code: "sv", label: "Svenska" },
+  { code: "vi", label: "Tiếng Việt" },
+  { code: "tr", label: "Türkçe" },
+  { code: "zh", label: "中文" },
+  { code: "ja", label: "日本語" },
+  { code: "ko", label: "한국어" },
 ];
 
 const Navbar = () => {
+  const { t, i18n } = useTranslation(["nav", "common"]);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("EN");
   const location = useLocation();
 
-  useEffect(() => {
-    const saved = localStorage.getItem("zentro-lang");
-    if (saved) setSelectedLang(saved);
-  }, []);
+  const selectedLang = i18n.language;
 
   const handleLangSelect = (code: string) => {
-    setSelectedLang(code);
-    localStorage.setItem("zentro-lang", code);
+    i18n.changeLanguage(code);
+    localStorage.setItem("zentro-lang", code.toUpperCase());
     setLangOpen(false);
   };
+
+  const navItems = [
+    {
+      label: t("nav:features"),
+      href: "/features/",
+      children: [
+        { label: "ZentroAudit", href: "/features/zentroaudit/", desc: t("nav:zentroauditDesc") },
+        { label: "ZentroFix", href: "/features/zentrofix/", desc: t("nav:zentrofixDesc") },
+        { label: "ZentroKeywords", href: "/features/zentrokeywords/", desc: t("nav:zentrokeywordsDesc") },
+        { label: "ZentroRank", href: "/features/zentrorank/", desc: t("nav:zentrorankDesc") },
+        { label: "ZentroWrite", href: "/features/zentrowrite/", desc: t("nav:zentrowriteDesc") },
+        { label: "ZentroCompare", href: "/features/zentrocompare/", desc: t("nav:zentrocompareDesc") },
+        { label: "ZentroBacklinks", href: "/features/zentrobacklinks/", desc: t("nav:zentrobacklinksDesc") },
+        { label: "ZentroMarkup", href: "/features/zentromarkup/", desc: t("nav:zentromarkupDesc") },
+        { label: "ZentroWhite", href: "/features/zentrowhite/", desc: t("nav:zentrowhiteDesc") },
+      ],
+    },
+    {
+      label: t("nav:solutions"),
+      href: "/solutions/",
+      children: [
+        { label: t("nav:forAgencies"), href: "/solutions/for-agencies/", desc: t("nav:forAgenciesDesc") },
+        { label: t("nav:forStartups"), href: "/solutions/for-startups/", desc: t("nav:forStartupsDesc") },
+        { label: t("nav:forEcommerce"), href: "/solutions/for-e-commerce/", desc: t("nav:forEcommerceDesc") },
+        { label: t("nav:forContentCreators"), href: "/solutions/for-content-creators/", desc: t("nav:forContentCreatorsDesc") },
+      ],
+    },
+    { label: t("nav:pricing"), href: "/pricing/" },
+    {
+      label: t("nav:resources"),
+      href: "/resources/",
+      children: [
+        { label: t("nav:blog"), href: "/resources/blog/", desc: t("nav:blogDesc") },
+        { label: t("nav:guides"), href: "/resources/guides/", desc: t("nav:guidesDesc") },
+        { label: t("nav:glossary"), href: "/resources/glossary/", desc: t("nav:glossaryDesc") },
+        { label: t("nav:topics"), href: "/resources/topics/", desc: t("nav:topicsDesc") },
+        { label: t("nav:comparisons"), href: "/resources/comparisons/", desc: t("nav:comparisonsDesc") },
+        { label: t("nav:helpCenter"), href: "/resources/help-center/", desc: t("nav:helpCenterDesc") },
+        { label: t("nav:caseStudies"), href: "/resources/case-studies/", desc: t("nav:caseStudiesDesc") },
+        { label: t("nav:documentation"), href: "/resources/documentation/", desc: t("nav:documentationDesc") },
+      ],
+    },
+    {
+      label: t("nav:company"),
+      href: "/company/",
+      children: [
+        { label: t("nav:aboutUs"), href: "/company/about-us/", desc: t("nav:aboutUsDesc") },
+        { label: t("nav:contact"), href: "/company/contact-us/", desc: t("nav:contactDesc") },
+      ],
+    },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-hero/95 backdrop-blur-md border-b border-hero-muted/10">
@@ -143,7 +141,7 @@ const Navbar = () => {
           >
             <button className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground transition-colors rounded-md">
               <Globe className="w-4 h-4" />
-              {selectedLang}
+              {selectedLang.toUpperCase()}
               <ChevronDown className="w-3 h-3 opacity-60" />
             </button>
             {langOpen && (
@@ -168,11 +166,11 @@ const Navbar = () => {
           </div>
 
           <a href="https://app.zentroseo.com/login" className="text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground transition-colors px-3 py-2">
-            Login
+            {t("common:login")}
           </a>
           <a href="https://app.zentroseo.com/signup?flow=direct">
             <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-5">
-              Get Started
+              {t("common:getStarted")}
             </Button>
           </a>
         </div>
@@ -201,7 +199,7 @@ const Navbar = () => {
 
             {/* Mobile Language Switcher */}
             <div className="border-t border-hero-muted/10 pt-3">
-              <div className="px-3 pb-2 text-xs font-medium text-hero-muted uppercase tracking-wider">Language</div>
+              <div className="px-3 pb-2 text-xs font-medium text-hero-muted uppercase tracking-wider">{t("common:language")}</div>
               <select
                 value={selectedLang}
                 onChange={(e) => handleLangSelect(e.target.value)}
@@ -214,9 +212,9 @@ const Navbar = () => {
             </div>
 
             <div className="pt-3 flex flex-col gap-2">
-              <a href="https://app.zentroseo.com/login" className="text-sm text-center font-medium text-hero-foreground/80 py-2">Login</a>
+              <a href="https://app.zentroseo.com/login" className="text-sm text-center font-medium text-hero-foreground/80 py-2">{t("common:login")}</a>
               <a href="https://app.zentroseo.com/signup?flow=direct">
-                <Button className="w-full bg-gradient-cta text-primary-foreground font-semibold">Get Started</Button>
+                <Button className="w-full bg-gradient-cta text-primary-foreground font-semibold">{t("common:getStarted")}</Button>
               </a>
             </div>
           </div>

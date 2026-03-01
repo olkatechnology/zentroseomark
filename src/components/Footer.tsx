@@ -1,44 +1,7 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/zentroseo-logo-marketing.png";
-
-const footerLinks = {
-  Features: [
-    { label: "ZentroAudit", href: "/features/zentroaudit/" },
-    { label: "ZentroFix", href: "/features/zentrofix/" },
-    { label: "ZentroKeywords", href: "/features/zentrokeywords/" },
-    { label: "ZentroRank", href: "/features/zentrorank/" },
-    { label: "ZentroWrite", href: "/features/zentrowrite/" },
-    { label: "ZentroCompare", href: "/features/zentrocompare/" },
-    { label: "ZentroBacklinks", href: "/features/zentrobacklinks/" },
-    { label: "ZentroMarkup", href: "/features/zentromarkup/" },
-  ],
-  Solutions: [
-    { label: "For Agencies", href: "/solutions/for-agencies/" },
-    { label: "For Startups", href: "/solutions/for-startups/" },
-    { label: "For E-commerce", href: "/solutions/for-e-commerce/" },
-    { label: "For Content Creators", href: "/solutions/for-content-creators/" },
-  ],
-  Resources: [
-    { label: "Blog", href: "/resources/blog/" },
-    { label: "Guides", href: "/resources/guides/" },
-    { label: "Glossary", href: "/resources/glossary/" },
-    { label: "Topics", href: "/resources/topics/" },
-    { label: "Comparisons", href: "/resources/comparisons/" },
-    { label: "Help Center", href: "/resources/help-center/" },
-    { label: "Case Studies", href: "/resources/case-studies/" },
-    { label: "Documentation", href: "/resources/documentation/" },
-    { label: "SEO Toolkit", href: "/resources/seo-toolkit/" },
-  ],
-  Company: [
-    { label: "About Us", href: "/company/about-us/" },
-    { label: "Contact Us", href: "/company/contact-us/" },
-    { label: "Privacy Policy", href: "/privacy-policy/" },
-    { label: "Terms of Service", href: "/terms-of-service/" },
-    { label: "Refund Policy", href: "/refund-policy/" },
-    { label: "Sitemap", href: "/sitemap/" },
-  ],
-};
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/company/zentroseo/", label: "ZentroSEO on LinkedIn" },
@@ -48,6 +11,46 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation("common");
+
+  const footerLinks = {
+    [t("footerFeatures")]: [
+      { label: "ZentroAudit", href: "/features/zentroaudit/" },
+      { label: "ZentroFix", href: "/features/zentrofix/" },
+      { label: "ZentroKeywords", href: "/features/zentrokeywords/" },
+      { label: "ZentroRank", href: "/features/zentrorank/" },
+      { label: "ZentroWrite", href: "/features/zentrowrite/" },
+      { label: "ZentroCompare", href: "/features/zentrocompare/" },
+      { label: "ZentroBacklinks", href: "/features/zentrobacklinks/" },
+      { label: "ZentroMarkup", href: "/features/zentromarkup/" },
+    ],
+    [t("footerSolutions")]: [
+      { label: t("nav:forAgencies", { ns: "nav", defaultValue: "For Agencies" }), href: "/solutions/for-agencies/" },
+      { label: t("nav:forStartups", { ns: "nav", defaultValue: "For Startups" }), href: "/solutions/for-startups/" },
+      { label: t("nav:forEcommerce", { ns: "nav", defaultValue: "For E-commerce" }), href: "/solutions/for-e-commerce/" },
+      { label: t("nav:forContentCreators", { ns: "nav", defaultValue: "For Content Creators" }), href: "/solutions/for-content-creators/" },
+    ],
+    [t("footerResources")]: [
+      { label: t("blog"), href: "/resources/blog/" },
+      { label: t("nav:guides", { ns: "nav", defaultValue: "Guides" }), href: "/resources/guides/" },
+      { label: t("nav:glossary", { ns: "nav", defaultValue: "Glossary" }), href: "/resources/glossary/" },
+      { label: t("nav:topics", { ns: "nav", defaultValue: "Topics" }), href: "/resources/topics/" },
+      { label: t("nav:comparisons", { ns: "nav", defaultValue: "Comparisons" }), href: "/resources/comparisons/" },
+      { label: t("nav:helpCenter", { ns: "nav", defaultValue: "Help Center" }), href: "/resources/help-center/" },
+      { label: t("nav:caseStudies", { ns: "nav", defaultValue: "Case Studies" }), href: "/resources/case-studies/" },
+      { label: t("nav:documentation", { ns: "nav", defaultValue: "Documentation" }), href: "/resources/documentation/" },
+      { label: "SEO Toolkit", href: "/resources/seo-toolkit/" },
+    ],
+    [t("footerCompany")]: [
+      { label: t("nav:aboutUs", { ns: "nav", defaultValue: "About Us" }), href: "/company/about-us/" },
+      { label: t("contactUs"), href: "/company/contact-us/" },
+      { label: t("privacy"), href: "/privacy-policy/" },
+      { label: t("terms"), href: "/terms-of-service/" },
+      { label: "Refund Policy", href: "/refund-policy/" },
+      { label: "Sitemap", href: "/sitemap/" },
+    ],
+  };
+
   return (
     <footer className="bg-hero text-hero-foreground">
       <div className="container mx-auto px-4 py-16">
@@ -55,20 +58,13 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-1">
             <img src={logo} alt="ZentroSEO" className="h-8 mb-4" />
             <p className="text-sm text-hero-muted leading-relaxed mb-4">
-              AI-powered SEO platform for smarter rankings. Built for beginners, loved by pros.
+              {t("footerDescription")}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => {
                 const SIcon = social.icon;
                 return (
-                  <a
-                    key={social.href}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="text-hero-muted hover:text-hero-foreground transition-colors"
-                  >
+                  <a key={social.href} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="text-hero-muted hover:text-hero-foreground transition-colors">
                     <SIcon className="w-5 h-5" />
                   </a>
                 );
@@ -91,10 +87,10 @@ const Footer = () => {
           ))}
         </div>
         <div className="mt-12 pt-8 border-t border-hero-muted/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-hero-muted">© {new Date().getFullYear()} ZentroSEO by OLKA Technology LTD. All rights reserved.</p>
+          <p className="text-sm text-hero-muted">{t("copyright", { year: new Date().getFullYear() })}</p>
           <div className="flex items-center gap-4">
-            <Link to="/privacy-policy/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">Privacy</Link>
-            <Link to="/terms-of-service/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">Terms</Link>
+            <Link to="/privacy-policy/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("privacy")}</Link>
+            <Link to="/terms-of-service/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("terms")}</Link>
           </div>
         </div>
       </div>
