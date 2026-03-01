@@ -1,169 +1,146 @@
 
 
-## Add Missing Content Types: Glossary, Topics, Guides, and Comparisons
+## Full Site Internationalization (i18n) -- 14 Languages
 
-The current site has ~55 blog posts organized in 7 categories with hub-and-spoke linking. However, Koray's Holistic SEO framework requires a **complete semantic content network** with distinct content types that serve different user intents and query patterns. Four major content types are missing.
-
----
-
-### What's Missing and Why It Matters
-
-| Content Type | Purpose in Koray's Framework | User Intent |
-|---|---|---|
-| **Glossary** | Define every entity in the topical map; DefinedTerm schema signals entity expertise to Knowledge Graph | Informational / "What is X?" |
-| **Topics** | Hub pages for each major SEO concept, deeper than categories; anchor the topical map's top-level entities | Navigational / Topical authority |
-| **Guides** | Long-form step-by-step resources covering full EAV coverage of a process | How-to / Transactional |
-| **Comparisons** | "X vs Y" pages that cover attribute-value differences between related entities | Commercial investigation |
-
-These 4 content types create the remaining **query cluster coverage** needed for topical authority -- they answer the questions blog posts alone cannot.
+Implementing end-to-end translation for the entire ZentroSEO website across all 14 languages. This covers UI chrome, navigation, page content, blog posts, glossary terms, guides, comparisons, topics, and all data-driven content.
 
 ---
 
-### Phase 1: SEO Glossary (`/resources/glossary/`)
+### Architecture: `react-i18next`
+
+We will use `react-i18next` (the React standard for i18n) with namespace-based JSON translation files. This gives us:
+- `t()` function for all translatable strings
+- Namespace separation (nav, common, home, features, blog, glossary, etc.)
+- Language detection from localStorage (matching current switcher behavior)
+- Lazy loading of translation files per language to keep bundle size manageable
+
+---
+
+### Phase 1: Install and Configure i18n Infrastructure
+
+**New dependency:** `react-i18next`, `i18next`
 
 **New files:**
-- `src/data/glossary.ts` -- 40-60 SEO term definitions with fields: `term`, `slug`, `definition` (40-word extractive answer), `longDescription` (full markdown), `relatedTerms[]`, `relatedBlogSlugs[]`, `entities[]`, `category` (Technical SEO, Semantic SEO, etc.)
-- `src/pages/Glossary.tsx` -- Hub listing page with alphabetical index + category filter
-- `src/pages/GlossaryTerm.tsx` -- Individual term page with DefinedTerm JSON-LD schema
-
-**Route:** `/resources/glossary/` and `/resources/glossary/:slug/`
-
-**Initial terms (30+):** Topical Authority, Entity-Based SEO, Semantic SEO, Core Web Vitals, Schema Markup, Crawlability, Indexability, SERP, Backlinks, Canonical Tag, Hreflang, Robots.txt, Meta Robots, Knowledge Graph, E-E-A-T, Topical Map, Content Silo, Internal Linking, Anchor Text, Domain Authority, Page Authority, Featured Snippet, Rich Result, Structured Data, Mobile-First Indexing, Long-Tail Keywords, Search Intent, NAP Consistency, Local Pack, Keyword Clustering
-
-**Structured data:** `DefinedTerm` schema per term page + `ItemList` on hub
-
-**Internal linking:** Each term links to related blog posts, feature pages, and other terms -- forming dense entity relationships
-
----
-
-### Phase 2: Topics Hub (`/resources/topics/`)
-
-**New files:**
-- `src/data/topics.ts` -- 10-15 topic entries with fields: `name`, `slug`, `description`, `heroContent` (markdown overview), `subtopics[]`, `relatedBlogSlugs[]`, `relatedFeatures[]`, `relatedGlossaryTerms[]`, `entities[]`
-- `src/pages/TopicsHub.tsx` -- Landing page listing all topics
-- `src/pages/TopicDetail.tsx` -- Individual topic page acting as a **topical map anchor**
-
-**Route:** `/resources/topics/` and `/resources/topics/:slug/`
-
-**Initial topics:** Technical SEO, Semantic SEO, On-Page SEO, Off-Page SEO, Local SEO, E-commerce SEO, Content Strategy, Keyword Research, Link Building, Schema Markup, Core Web Vitals, AI in SEO, Programmatic SEO, International SEO
-
-Each topic page serves as a **macro-level hub** that links down to blog posts (spokes), glossary terms, guides, and comparisons within that topic. This is the "topical map visualization" Koray emphasizes.
-
-**Structured data:** `WebPage` with `about` pointing to the topic entity + `ItemList` of related content
-
----
-
-### Phase 3: Guides Section (`/resources/guides/`)
-
-**New files:**
-- `src/data/guides.ts` -- 6-10 guide entries with fields: `title`, `slug`, `excerpt`, `content` (full markdown), `category`, `difficulty` (Beginner/Intermediate/Advanced), `estimatedTime`, `prerequisites[]`, `steps[]`, `relatedBlogSlugs[]`, `relatedFeatures[]`, `entities[]`
-- `src/pages/GuidesHub.tsx` -- Landing page with difficulty filter
-- `src/pages/GuideDetail.tsx` -- Individual guide page with step-by-step layout, progress tracking, and Table of Contents
-
-**Route:** `/resources/guides/` and `/resources/guides/:slug/`
-
-**Initial guides:**
-1. Complete Technical SEO Audit Guide (Beginner)
-2. Building Topical Authority from Scratch (Intermediate)
-3. Schema Markup Implementation for Every Page Type (Intermediate)
-4. Keyword Research to Content Strategy Pipeline (Beginner)
-5. Link Building Without Outreach: The Semantic Approach (Advanced)
-6. Setting Up ZentroSEO for Your First Website (Beginner)
-
-**Structured data:** `HowTo` schema with steps + `Article` schema
-
-**Key difference from blog posts:** Guides are structured as numbered step sequences with clear prerequisites and outcomes. Blog posts are topical articles. This distinction helps search engines classify query intent correctly.
-
----
-
-### Phase 4: Comparisons Section (`/resources/comparisons/`)
-
-**New files:**
-- `src/data/comparisons.ts` -- 8-12 comparison entries with fields: `title`, `slug`, `excerpt`, `itemA`, `itemB`, `content` (markdown with comparison tables), `verdict`, `category`, `relatedBlogSlugs[]`, `relatedFeatures[]`, `entities[]`
-- `src/pages/ComparisonsHub.tsx` -- Landing page listing all comparisons
-- `src/pages/ComparisonDetail.tsx` -- Individual comparison page with side-by-side table, pros/cons, and verdict section
-
-**Route:** `/resources/comparisons/` and `/resources/comparisons/:slug/`
-
-**Initial comparisons:**
-1. ZentroSEO vs Ahrefs: Full Feature Comparison
-2. ZentroSEO vs SEMrush: Which SEO Platform Wins?
-3. ZentroSEO vs Moz: Feature-by-Feature Breakdown
-4. Technical SEO vs On-Page SEO: What's the Difference?
-5. Schema Markup vs Open Graph: When to Use Each
-6. Robots.txt vs Meta Robots: Controlling Crawlers
-7. Canonical Tags vs 301 Redirects: Which to Use When
-8. Manual SEO vs AI-Powered SEO: Pros and Cons
-
-**Structured data:** `Article` with `about` entity pairs + comparison table markup
-
-**Internal linking:** Each comparison links to the relevant feature pages (for product comparisons) or blog posts (for concept comparisons)
-
----
-
-### Phase 5: Update Navigation, Resources Hub, and Sitemap
+- `src/i18n/index.ts` -- i18n initialization with language detection from localStorage (`zentro-lang`), fallback to `EN`, namespace config
+- `src/i18n/LanguageContext.tsx` -- React context provider that wraps the app and syncs `react-i18next` language with the navbar switcher
 
 **Modified files:**
-- `src/App.tsx` -- Add 8 new routes (4 hubs + 4 detail pages)
-- `src/components/Navbar.tsx` -- Add Glossary, Topics, Guides, Comparisons to Resources dropdown
-- `src/pages/ResourcesHub.tsx` -- Add 4 new resource cards (Glossary, Topics, Guides, Comparisons)
-- `src/components/Footer.tsx` -- Add new sections to Resources footer links
-- `src/pages/Sitemap.tsx` -- Add new sections for all new pages
-- `public/sitemap.xml` -- Add all new URLs
-- `src/pages/Blog.tsx` -- Add cross-links to related guides, glossary terms, and comparisons in sidebar or footer
+- `src/App.tsx` -- Wrap app in i18n provider
+- `src/components/Navbar.tsx` -- Connect language switcher to `i18next.changeLanguage()` instead of just localStorage
+- `src/components/Layout.tsx` -- Set `<html lang>` attribute dynamically based on selected language
 
 ---
 
-### How This Completes Koray's Semantic Content Network
+### Phase 2: Translation Files Structure
+
+Create JSON translation files for each language, organized by namespace:
 
 ```text
-                         [Homepage]
-                             |
-        +----------+---------+----------+----------+
-        |          |         |          |          |
-   [Features] [Solutions] [Pricing] [Resources] [Company]
-                                        |
-                    +------+------+-----+-----+------+------+
-                    |      |      |     |     |      |      |
-                 [Blog] [Guides] [Glossary] [Topics] [Comparisons] [Help]
-                    |      |      |     |     |
-                  posts  steps  terms  hubs  vs-pages
-                    |      |      |     |     |
-                    +------+------+-----+-----+
-                    (cross-linked via relatedSlugs, entities, features)
+src/i18n/locales/
+  en/
+    common.json      (buttons, labels, shared UI text)
+    nav.json          (navigation items, dropdowns)
+    home.json         (hero, features grid, CTA, FAQ, testimonials)
+    pricing.json      (plan names, features, CTA text)
+    features.json     (all 9 feature pages - titles, descriptions, benefits, useCases)
+    solutions.json    (all 4 solution pages)
+    blog.json         (all 14 blog posts - titles, excerpts, full content)
+    glossary.json     (all 40+ terms - definitions, long descriptions)
+    topics.json       (all 15 topic pages)
+    guides.json       (all 7 guides - titles, steps, content)
+    comparisons.json  (all 8 comparisons)
+    legal.json        (privacy, terms, refund policies)
+    company.json      (about us, contact, careers)
+    resources.json    (help center, case studies, documentation, toolkit)
+  de/
+    (same structure)
+  es/
+    (same structure)
+  ... (11 more languages)
 ```
 
-Each content type covers a different **query intent pattern**:
-- "What is X?" --> Glossary
-- "How to do X" --> Guides
-- "X vs Y" --> Comparisons
-- "Everything about X" --> Topics
-- "X tips / strategy / analysis" --> Blog posts
+English (`en/`) files will be created first as the **complete reference**. Each file extracts all hardcoded strings from the corresponding data files and components.
 
-This ensures full query cluster coverage for every entity in the topical map.
+For the remaining 13 languages, we will create **structurally complete files** with professionally translated content for:
+- `common.json` and `nav.json` (UI chrome -- ~100 strings each, fully translated)
+- Page titles and meta descriptions across all namespaces
+- Key headings and CTAs
+
+Long-form markdown content (blog post bodies, glossary long descriptions, guide steps, comparison content) will initially use English as a fallback, with the structure in place for you to add professional translations over time.
 
 ---
 
-### Technical Details
+### Phase 3: Refactor Components to Use `t()`
 
-**Total new files: 12**
-- 4 data files (`glossary.ts`, `topics.ts`, `guides.ts`, `comparisons.ts`)
-- 8 page components (4 hubs + 4 detail pages)
+Every component with hardcoded English text needs to be updated to use the `t()` translation function. This affects approximately **35+ files**:
 
-**Total modified files: 6**
-- `App.tsx`, `Navbar.tsx`, `ResourcesHub.tsx`, `Footer.tsx`, `Sitemap.tsx`, `sitemap.xml`
+**Navigation and Layout:**
+- `Navbar.tsx` -- nav labels, dropdown descriptions, Login/Get Started buttons
+- `Footer.tsx` -- section headers, link labels, copyright text
+- `Layout.tsx` -- dynamic `lang` attribute on document
 
-**Patterns followed:**
-- Same data-driven template architecture as existing `FeatureDetail`/`SolutionDetail`
-- Same `BlogPost` interface pattern (slug, entities, relatedSlugs, content as markdown)
-- Same `BlogPost.tsx` markdown rendering approach for long-form content
-- Breadcrumbs + JSON-LD on every page
-- Framer Motion animations matching existing pages
-- All pages wrapped in `Layout` component
+**Home page components:**
+- `HeroSection.tsx` -- headline, subheadline, placeholder text, chips, error messages
+- `TrustedBy.tsx` -- heading text
+- `ToolkitsSection.tsx` -- section heading, toolkit names, bullet points, CTA text
+- `FeaturesGrid.tsx` -- heading, feature titles and descriptions
+- `HowItWorks.tsx` -- heading, step titles and descriptions
+- `WhyDifferent.tsx` -- heading, differentiator titles and descriptions
+- `FAQSection.tsx` -- heading, all Q&A pairs
+- `CTASection.tsx` -- heading, description, button text
+- `Testimonials.tsx` -- heading, quote text, names, roles
 
-**Estimated initial content:**
-- 30+ glossary terms
-- 10-15 topic pages
-- 6-10 guides
-- 8-12 comparisons
+**Page components:**
+- `Index.tsx`, `Pricing.tsx`, `Features.tsx`, `FeatureDetail.tsx`
+- `SolutionHub.tsx`, `SolutionDetail.tsx`
+- `Blog.tsx`, `BlogPost.tsx`, `BlogCategory.tsx`, `AuthorProfile.tsx`
+- `Glossary.tsx`, `GlossaryTerm.tsx`
+- `TopicsHub.tsx`, `TopicDetail.tsx`
+- `GuidesHub.tsx`, `GuideDetail.tsx`
+- `ComparisonsHub.tsx`, `ComparisonDetail.tsx`
+- `ResourcesHub.tsx`, `HelpCenter.tsx`, `CaseStudies.tsx`, `Documentation.tsx`
+- `CompanyHub.tsx`, `AboutUs.tsx`, `ContactUs.tsx`, `Careers.tsx`
+- `LegalPage.tsx`, `Sitemap.tsx`, `NotFound.tsx`
+
+**Data files refactored to be language-aware:**
+- `src/data/blog-posts.ts` -- Export function `getBlogPosts(lang)` that returns translated content
+- `src/data/glossary.ts` -- Export function `getGlossaryTerms(lang)`
+- `src/data/topics.ts` -- Export function `getTopics(lang)`
+- `src/data/guides.ts` -- Export function `getGuides(lang)`
+- `src/data/comparisons.ts` -- Export function `getComparisons(lang)`
+- `src/data/features.ts` -- Export function `getFeaturesData(lang)`
+- `src/data/solutions.ts` -- Export function `getSolutionsData(lang)`
+- `src/data/legal.ts` -- Export function `getLegalPages(lang)`
+
+Each data getter will look up the current language's JSON namespace and return translated content, falling back to English for any missing translations.
+
+---
+
+### Phase 4: SEO Metadata per Language
+
+- Update `<Helmet>` on every page to set `<html lang={currentLang}>` and translate `<title>`, `<meta name="description">`, `og:title`, `og:description`
+- Add `hreflang` alternate link tags to key pages for international SEO signals
+- Update `robots.txt` and `sitemap.xml` references if needed
+
+---
+
+### Phase 5: RTL and Locale-Specific Formatting
+
+None of the 14 supported languages require RTL, so no layout direction changes are needed. However:
+- Date formatting in blog posts (`date`, `dateModified`) will use `date-fns` locale imports to display dates in the user's language (e.g., "28 Februar 2026" for German)
+- Number formatting for any statistics will use `Intl.NumberFormat`
+
+---
+
+### Summary
+
+| What | Count |
+|------|-------|
+| New dependency | `react-i18next`, `i18next` |
+| New files (infrastructure) | ~3 (i18n config, context, types) |
+| New files (translation JSONs) | ~14 namespaces x 14 languages = ~196 JSON files |
+| Modified components | ~35+ component/page files |
+| Modified data files | 8 data files refactored to language-aware getters |
+
+This is a large structural change. Implementation will proceed in phases: infrastructure first, then English extraction, then component refactoring, then adding translations for each additional language.
 
