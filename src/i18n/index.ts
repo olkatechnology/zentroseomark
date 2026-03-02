@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
   resources: { en, de, es, fr, it, nl, pl, pt, sv, vi, tr, zh, ja, ko },
   lng: savedLang.toLowerCase(),
   fallbackLng: 'en',
-  ns: ['common', 'nav', 'home'],
+  ns: ['common', 'nav', 'home', 'pricing', 'pages'],
   defaultNS: 'common',
   interpolation: { escapeValue: false },
 });

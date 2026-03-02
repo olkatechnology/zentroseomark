@@ -5,40 +5,43 @@ import { BookOpen, HelpCircle, BarChart3, FileText, Wrench, GraduationCap, BookA
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-
-const resources = [
-  { icon: BookOpen, title: "Blog", description: "SEO tips, strategies, and in-depth guides from the ZentroSEO team.", href: "/resources/blog/" },
-  { icon: GraduationCap, title: "Guides", description: "Step-by-step tutorials covering technical SEO, content strategy, and more.", href: "/resources/guides/" },
-  { icon: BookA, title: "Glossary", description: "Clear definitions for every SEO term you need to know.", href: "/resources/glossary/" },
-  { icon: Map, title: "Topics", description: "Deep-dive hub pages covering major SEO concepts from every angle.", href: "/resources/topics/" },
-  { icon: GitCompareArrows, title: "Comparisons", description: "Side-by-side breakdowns of SEO tools, concepts, and strategies.", href: "/resources/comparisons/" },
-  { icon: HelpCircle, title: "Help Center", description: "FAQs, troubleshooting, and guides to get the most from ZentroSEO.", href: "/resources/help-center/" },
-  { icon: BarChart3, title: "Case Studies", description: "Real results from real businesses using ZentroSEO.", href: "/resources/case-studies/" },
-  { icon: FileText, title: "Documentation", description: "Technical docs, API references, and feature guides.", href: "/resources/documentation/" },
-  { icon: Wrench, title: "Free SEO Toolkit", description: "Free tools to check your website score, meta tags, and schema.", href: "/resources/seo-toolkit/" },
-];
+import { useTranslation } from "react-i18next";
 
 const ResourcesHub = () => {
+  const { t } = useTranslation("pages");
+
+  const resources = [
+    { icon: BookOpen, title: t("blog"), description: t("blogHeroSubtitle"), href: "/resources/blog/" },
+    { icon: GraduationCap, title: t("resGuides"), description: t("resGuidesDesc"), href: "/resources/guides/" },
+    { icon: BookA, title: t("resGlossary"), description: t("resGlossaryDesc"), href: "/resources/glossary/" },
+    { icon: Map, title: t("resTopics"), description: t("resTopicsDesc"), href: "/resources/topics/" },
+    { icon: GitCompareArrows, title: t("resComparisons"), description: t("resComparisonsDesc"), href: "/resources/comparisons/" },
+    { icon: HelpCircle, title: t("resHelpCenter"), description: t("resHelpCenterDesc"), href: "/resources/help-center/" },
+    { icon: BarChart3, title: t("resCaseStudies"), description: t("resCaseStudiesDesc"), href: "/resources/case-studies/" },
+    { icon: FileText, title: t("resDocumentation"), description: t("resDocumentationDesc"), href: "/resources/documentation/" },
+    { icon: Wrench, title: t("resSeoToolkit"), description: t("resSeoToolkitDesc"), href: "/resources/seo-toolkit/" },
+  ];
+
   return (
     <Layout>
       <Helmet>
-        <title>SEO Resources Library – Guides, Templates & Tutorials</title>
-        <meta name="description" content="Access free SEO resources including guides, checklists, templates, and walkthroughs to grow your traffic." />
+        <title>{t("resourcesMetaTitle")}</title>
+        <meta name="description" content={t("resourcesMetaDesc")} />
         <link rel="canonical" href="https://zentroseo.com/resources/" />
-        <meta property="og:title" content="SEO Resources Library – Guides, Templates & Tutorials" />
-        <meta property="og:description" content="Access free SEO resources including guides, checklists, templates, and walkthroughs to grow your traffic." />
+        <meta property="og:title" content={t("resourcesMetaTitle")} />
+        <meta property="og:description" content={t("resourcesMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources" }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources") }]} />
 
       <section className="bg-hero py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">SEO Resources</h1>
-            <p className="text-hero-muted text-lg max-w-xl mx-auto">Guides, templates, and tutorials to grow your traffic and master SEO.</p>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">{t("resourcesHeroTitle")}</h1>
+            <p className="text-hero-muted text-lg max-w-xl mx-auto">{t("resourcesHeroSubtitle")}</p>
           </motion.div>
         </div>
       </section>
