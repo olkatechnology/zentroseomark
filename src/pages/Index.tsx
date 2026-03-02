@@ -79,9 +79,9 @@ const Index = () => {
     <Layout>
       <Helmet>
         <title>{t("home:metaTitle", { ns: "home", defaultValue: "ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings" })}</title>
-        <meta name="description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, & rank tracking all in one place." })} />
+        <meta name="description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform for non-techies to run audits, schema, keywords, and rank tracking — all in one place." })} />
         <meta property="og:title" content={t("home:metaTitle", { ns: "home", defaultValue: "ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings" })} />
-        <meta property="og:description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, & rank tracking all in one place." })} />
+        <meta property="og:description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform for non-techies to run audits, schema, keywords, and rank tracking — all in one place." })} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://zentroseo.com/" />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
