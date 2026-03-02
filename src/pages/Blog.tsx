@@ -9,10 +9,12 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const { t } = useTranslation("pages");
 
   const filtered = blogPosts.filter((p) => {
     const matchesCategory = activeCategory === "All" || p.category === activeCategory;
@@ -21,12 +23,11 @@ const Blog = () => {
     return matchesCategory && (p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
   });
 
-  // CollectionPage JSON-LD
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "ZentroSEO Blog",
-    description: "SEO tips, strategies, and case studies from the ZentroSEO team.",
+    description: t("blogMetaDesc"),
     url: "https://zentroseo.com/resources/blog/",
     mainEntity: {
       "@type": "ItemList",
@@ -42,40 +43,38 @@ const Blog = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ZentroSEO Blog – SEO Tips, Strategies & Case Studies</title>
-        <meta name="description" content="Read the latest on SEO audits, ranking strategies, semantic content, and AI tools." />
+        <title>{t("blogMetaTitle")}</title>
+        <meta name="description" content={t("blogMetaDesc")} />
         <link rel="canonical" href="https://zentroseo.com/resources/blog/" />
-        <meta property="og:title" content="ZentroSEO Blog – SEO Tips, Strategies & Case Studies" />
-        <meta property="og:description" content="Read the latest on SEO audits, ranking strategies, semantic content, and AI tools." />
+        <meta property="og:title" content={t("blogMetaTitle")} />
+        <meta property="og:description" content={t("blogMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(collectionJsonLd)}</script>
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources/" }, { label: "Blog" }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("blog") }]} />
 
       <section className="bg-hero py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">Blog</h1>
-          <p className="text-hero-muted text-lg max-w-xl mx-auto">SEO tips, strategies, and case studies from the ZentroSEO team.</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">{t("blogHeroTitle")}</h1>
+          <p className="text-hero-muted text-lg max-w-xl mx-auto">{t("blogHeroSubtitle")}</p>
         </div>
       </section>
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          {/* Search */}
           <div className="max-w-md mx-auto mb-8 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search articles…"
+              placeholder={t("searchArticles")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10"
             />
           </div>
-          {/* Category Tabs */}
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             {blogCategories.map((cat) =>
               cat === "All" ? (
@@ -84,7 +83,7 @@ const Blog = () => {
                   onClick={() => setActiveCategory(cat)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground hover:text-foreground"}`}
                 >
-                  {cat}
+                  {t("all")}
                 </button>
               ) : (
                 <Link
@@ -98,23 +97,18 @@ const Blog = () => {
             )}
           </div>
 
-          {/* Trending Posts */}
           {activeCategory === "All" && !searchQuery.trim() && (
             (() => {
               const trendingPosts = blogPosts.filter((p) => p.trending);
               return trendingPosts.length > 0 ? (
                 <div className="max-w-5xl mx-auto mb-12">
-                  <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">🔥 Trending Articles</h2>
+                  <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">{t("trendingArticles")}</h2>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {trendingPosts.slice(0, 3).map((post) => (
-                      <Link
-                        key={post.slug}
-                        to={`/resources/blog/${post.slug}/`}
-                        className="group block rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all overflow-hidden"
-                      >
+                      <Link key={post.slug} to={`/resources/blog/${post.slug}/`} className="group block rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all overflow-hidden">
                         <div className="p-5">
                           <div className="flex items-center gap-2 mb-2">
-                            <Badge variant="default" className="text-[10px] px-2 py-0">Trending</Badge>
+                            <Badge variant="default" className="text-[10px] px-2 py-0">{t("trending")}</Badge>
                             <span className="text-xs text-muted-foreground">{post.category}</span>
                           </div>
                           <h3 className="font-display font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
@@ -128,43 +122,16 @@ const Blog = () => {
             })()
           )}
 
-          {/* Posts Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {filtered.map((post, i) => (
-              <motion.div
-                key={post.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-              >
-                <Link
-                  to={`/resources/blog/${post.slug}/`}
-                  className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden h-full"
-                >
-                  {post.featuredImage && (
-                    <img
-                      src={post.featuredImage}
-                      alt={post.title}
-                      className="w-full h-40 object-cover"
-                      loading="lazy"
-                    />
-                  )}
+              <motion.div key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <Link to={`/resources/blog/${post.slug}/`} className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden h-full">
+                  {post.featuredImage && <img src={post.featuredImage} alt={post.title} className="w-full h-40 object-cover" loading="lazy" />}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-medium">
-                        {post.category}
-                      </span>
-                      {post.isHub && (
-                        <Badge variant="default" className="text-[10px] px-2 py-0">
-                          Pillar Guide
-                        </Badge>
-                      )}
-                      {post.trending && (
-                        <Badge variant="secondary" className="text-[10px] px-2 py-0">
-                          🔥 Trending
-                        </Badge>
-                      )}
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-medium">{post.category}</span>
+                      {post.isHub && <Badge variant="default" className="text-[10px] px-2 py-0">{t("pillarGuide")}</Badge>}
+                      {post.trending && <Badge variant="secondary" className="text-[10px] px-2 py-0">🔥 {t("trending")}</Badge>}
                     </div>
                     <h2 className="font-display font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h2>
                     <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
