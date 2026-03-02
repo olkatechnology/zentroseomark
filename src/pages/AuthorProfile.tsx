@@ -6,17 +6,20 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { teamMembers } from "@/data/team";
 import { getPostsByAuthor } from "@/data/blog-posts";
+import { useTranslation } from "react-i18next";
+import { formatDate } from "@/lib/date-utils";
 
 const AuthorProfile = () => {
   const { slug } = useParams<{ slug: string }>();
   const author = teamMembers.find((m) => m.authorSlug === slug);
+  const { t, i18n } = useTranslation("pages");
 
   if (!author) {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="font-display text-3xl font-bold mb-4">Author Not Found</h1>
-          <Link to="/company/about-us/" className="text-primary hover:underline">← Back to About Us</Link>
+          <h1 className="font-display text-3xl font-bold mb-4">{t("authorNotFound")}</h1>
+          <Link to="/company/about-us/" className="text-primary hover:underline">{t("backToAboutUs")}</Link>
         </div>
       </Layout>
     );
@@ -57,9 +60,9 @@ const AuthorProfile = () => {
 
       <Breadcrumbs
         items={[
-          { label: "Home", href: "/" },
-          { label: "Company", href: "/company/" },
-          { label: "About Us", href: "/company/about-us/" },
+          { label: t("home"), href: "/" },
+          { label: t("company"), href: "/company/" },
+          { label: t("aboutUs"), href: "/company/about-us/" },
           { label: author.name },
         ]}
       />
@@ -96,13 +99,13 @@ const AuthorProfile = () => {
 
       <section className="py-12 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="font-display text-2xl font-bold mb-4">About {author.name.split(" ")[0]}</h2>
+          <h2 className="font-display text-2xl font-bold mb-4">{t("aboutAuthor", { name: author.name.split(" ")[0] })}</h2>
           <p className="text-muted-foreground leading-relaxed mb-12">{author.bio}</p>
 
           {posts.length > 0 && (
             <>
               <h2 className="font-display text-2xl font-bold mb-6">
-                Articles by {author.name.split(" ")[0]} ({posts.length})
+                {t("articlesByAuthor", { name: author.name.split(" ")[0], count: posts.length })}
               </h2>
               <div className="space-y-4">
                 {posts.map((post) => (
@@ -116,7 +119,7 @@ const AuthorProfile = () => {
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3 h-3" />
-                        {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                        {formatDate(post.date, i18n.language)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-3 h-3" /> {post.readTime}

@@ -11,16 +11,19 @@ import { Button } from "@/components/ui/button";
 import { featuresData } from "@/data/features";
 import { getPostsByFeature } from "@/data/blog-posts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useTranslation } from "react-i18next";
+import { formatDate } from "@/lib/date-utils";
 
 const FeatureDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const feature = slug ? featuresData[slug] : null;
+  const { t, i18n } = useTranslation("pages");
 
   if (!feature) {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="text-2xl font-bold">Feature not found</h1>
+          <h1 className="text-2xl font-bold">{t("featureNotFound")}</h1>
         </div>
       </Layout>
     );
@@ -66,8 +69,8 @@ const FeatureDetail = () => {
 
       <Breadcrumbs
         items={[
-          { label: "Home", href: "/" },
-          { label: "Features", href: "/features/" },
+          { label: t("home"), href: "/" },
+          { label: t("features"), href: "/features/" },
           { label: feature.name },
         ]}
       />
@@ -92,7 +95,7 @@ const FeatureDetail = () => {
             </div>
             <a href="https://app.zentroseo.com/signup?flow=direct">
               <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-8 py-3 text-base">
-                Try {feature.name} Free <ArrowRight className="w-4 h-4 ml-1" />
+                {t("tryFeatureFree", { name: feature.name })} <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </a>
           </motion.div>
@@ -103,7 +106,7 @@ const FeatureDetail = () => {
       {feature.overview && (
         <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="font-display text-3xl font-bold mb-6">What Is {feature.name}?</h2>
+            <h2 className="font-display text-3xl font-bold mb-6">{t("whatIs", { name: feature.name })}</h2>
             <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-4">
               {feature.overview.split('\n\n').map((paragraph, i) => (
                 <p key={i} dangerouslySetInnerHTML={{ __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
@@ -116,22 +119,15 @@ const FeatureDetail = () => {
       {/* Key Capabilities */}
       <section className="py-16 md:py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <h2 className="font-display text-3xl font-bold text-center mb-4">Key Capabilities</h2>
+          <h2 className="font-display text-3xl font-bold text-center mb-4">{t("keyCapabilities")}</h2>
           <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
-            Everything you need from {feature.name} to improve your search performance.
+            {t("keyCapabilitiesSubtitle", { name: feature.name })}
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {feature.capabilities.map((cap, i) => {
               const CapIcon = cap.icon;
               return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="p-6 rounded-xl border border-border hover:shadow-card transition-shadow"
-                >
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }} className="p-6 rounded-xl border border-border hover:shadow-card transition-shadow">
                   <CapIcon className="w-6 h-6 text-primary mb-3" />
                   <h3 className="font-display font-semibold mb-2">{cap.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{cap.description}</p>
@@ -145,20 +141,11 @@ const FeatureDetail = () => {
       {/* How It Works */}
       <section className="py-16 md:py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <h2 className="font-display text-3xl font-bold text-center mb-12">How It Works</h2>
+          <h2 className="font-display text-3xl font-bold text-center mb-12">{t("howItWorks")}</h2>
           <div className="max-w-3xl mx-auto space-y-8">
             {feature.steps.map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
-                className="flex gap-4"
-              >
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
-                  {i + 1}
-                </div>
+              <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.4 }} className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">{i + 1}</div>
                 <div>
                   <h3 className="font-display font-semibold text-lg mb-1">{step.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
@@ -174,7 +161,7 @@ const FeatureDetail = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-display text-3xl font-bold mb-6">Why Use {feature.name}?</h2>
+              <h2 className="font-display text-3xl font-bold mb-6">{t("whyUse", { name: feature.name })}</h2>
               <ul className="space-y-3">
                 {feature.benefits.map((b, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -187,7 +174,7 @@ const FeatureDetail = () => {
             <div className="bg-secondary/50 rounded-2xl p-8 flex items-center justify-center min-h-[250px]">
               <div className="text-center">
                 <Icon className="w-16 h-16 text-primary/30 mx-auto mb-4" />
-                <p className="text-sm text-muted-foreground">{feature.name} Dashboard Preview</p>
+                <p className="text-sm text-muted-foreground">{t("dashboardPreview", { name: feature.name })}</p>
               </div>
             </div>
           </div>
@@ -198,20 +185,13 @@ const FeatureDetail = () => {
       {feature.useCases && feature.useCases.length > 0 && (
         <section className="py-16 md:py-20 bg-secondary/30">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="font-display text-3xl font-bold text-center mb-4">Real-World Use Cases</h2>
+            <h2 className="font-display text-3xl font-bold text-center mb-4">{t("realWorldUseCases")}</h2>
             <p className="text-muted-foreground text-center max-w-xl mx-auto mb-10">
-              See how teams use {feature.name} to solve real SEO challenges.
+              {t("useCasesSubtitle", { name: feature.name })}
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {feature.useCases.map((uc, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="p-6 rounded-xl border border-border bg-card hover:shadow-card transition-shadow"
-                >
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }} className="p-6 rounded-xl border border-border bg-card hover:shadow-card transition-shadow">
                   <h3 className="font-display font-semibold mb-2">{uc.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{uc.description}</p>
                 </motion.div>
@@ -225,20 +205,11 @@ const FeatureDetail = () => {
       {feature.whoIsItFor && feature.whoIsItFor.length > 0 && (
         <section className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="font-display text-3xl font-bold text-center mb-4">Who Is {feature.name} For?</h2>
-            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-10">
-              Built for the people who need it most.
-            </p>
+            <h2 className="font-display text-3xl font-bold text-center mb-4">{t("whoIsItFor", { name: feature.name })}</h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-10">{t("whoIsItForSubtitle")}</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {feature.whoIsItFor.map((w, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="p-6 rounded-xl border border-border bg-card hover:shadow-card transition-shadow text-center"
-                >
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }} className="p-6 rounded-xl border border-border bg-card hover:shadow-card transition-shadow text-center">
                   <Users className="w-6 h-6 text-primary mx-auto mb-3" />
                   <h3 className="font-display font-semibold mb-2">{w.persona}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{w.reason}</p>
@@ -249,21 +220,19 @@ const FeatureDetail = () => {
         </section>
       )}
 
-      {/* Testimonials */}
       <Testimonials
         testimonials={[
-          { quote: `${feature.name} transformed how we approach SEO. The insights are actionable and the interface is incredibly intuitive.`, name: "Alex Thompson", role: "Marketing Director", company: "GrowthHub" },
-          { quote: `We saw measurable improvements within weeks of using ${feature.name}. It's now an essential part of our toolkit.`, name: "Maria Santos", role: "SEO Lead", company: "Digital First Agency" },
+          { quote: t("featureTestimonial1", { name: feature.name, defaultValue: `${feature.name} transformed how we approach SEO. The insights are actionable and the interface is incredibly intuitive.` }), name: "Alex Thompson", role: "Marketing Director", company: "GrowthHub" },
+          { quote: t("featureTestimonial2", { name: feature.name, defaultValue: `We saw measurable improvements within weeks of using ${feature.name}. It's now an essential part of our toolkit.` }), name: "Maria Santos", role: "SEO Lead", company: "Digital First Agency" },
         ]}
       />
 
-      {/* Related Tools */}
-      <RelatedLinks title="Related Tools" links={feature.relatedTools} />
+      <RelatedLinks title={t("relatedTools")} links={feature.relatedTools} />
 
       {/* FAQ */}
       <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="font-display text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+          <h2 className="font-display text-3xl font-bold text-center mb-8">{t("faq")}</h2>
           <Accordion type="single" collapsible className="w-full">
             {feature.faqs.map((faq, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
@@ -282,9 +251,9 @@ const FeatureDetail = () => {
         return (
           <section className="py-16 md:py-20 bg-secondary/30">
             <div className="container mx-auto px-4 max-w-5xl">
-              <h2 className="font-display text-3xl font-bold text-center mb-4">Related Reading</h2>
+              <h2 className="font-display text-3xl font-bold text-center mb-4">{t("relatedReading")}</h2>
               <p className="text-muted-foreground text-center max-w-xl mx-auto mb-8">
-                Learn more about how to get the most from {feature.name}.
+                {t("relatedReadingSubtitle", { name: feature.name })}
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedPosts.slice(0, 3).map((post) => (
@@ -300,7 +269,7 @@ const FeatureDetail = () => {
                       <span className="text-xs text-primary font-medium">{post.category}</span>
                       <h3 className="font-display font-semibold mt-1 mb-2 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
                       <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                        <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {formatDate(post.date, i18n.language)}</span>
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                       </div>
                     </div>

@@ -39,15 +39,15 @@ const Footer = () => {
       { label: t("nav:helpCenter", { ns: "nav", defaultValue: "Help Center" }), href: "/resources/help-center/" },
       { label: t("nav:caseStudies", { ns: "nav", defaultValue: "Case Studies" }), href: "/resources/case-studies/" },
       { label: t("nav:documentation", { ns: "nav", defaultValue: "Documentation" }), href: "/resources/documentation/" },
-      { label: "SEO Toolkit", href: "/resources/seo-toolkit/" },
+      { label: t("seoToolkit"), href: "/resources/seo-toolkit/" },
     ],
     [t("footerCompany")]: [
       { label: t("nav:aboutUs", { ns: "nav", defaultValue: "About Us" }), href: "/company/about-us/" },
       { label: t("contactUs"), href: "/company/contact-us/" },
       { label: t("privacy"), href: "/privacy-policy/" },
       { label: t("terms"), href: "/terms-of-service/" },
-      { label: "Refund Policy", href: "/refund-policy/" },
-      { label: "Sitemap", href: "/sitemap/" },
+      { label: t("refundPolicy"), href: "/refund-policy/" },
+      { label: t("sitemap"), href: "/sitemap/" },
     ],
   };
 

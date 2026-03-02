@@ -10,20 +10,21 @@ import { glossaryTerms } from "@/data/glossary";
 import { featuresData } from "@/data/features";
 import { renderMarkdown } from "@/lib/markdown-renderer";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
 
 const TopicDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const topic = topics.find((t) => t.slug === slug);
+  const { t } = useTranslation("pages");
 
   if (!topic) {
-    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">Topic Not Found</h1><Link to="/resources/topics/" className="text-primary hover:underline">← Back to Topics</Link></div></Layout>);
+    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("topicNotFound")}</h1><Link to="/resources/topics/" className="text-primary hover:underline">{t("backToTopics")}</Link></div></Layout>);
   }
 
   const relatedPosts = topic.relatedBlogSlugs.map((s) => blogPosts.find((p) => p.slug === s)).filter(Boolean);
   const relatedGlossary = topic.relatedGlossaryTerms.map((s) => glossaryTerms.find((t) => t.slug === s)).filter(Boolean);
   const relatedFeats = topic.relatedFeatures.map((s) => featuresData[s]).filter(Boolean);
 
-  // Identify trending posts for this topic
   const trendingPosts = relatedPosts.filter((p) => p && (p as any).trending);
 
   const topicUrl = `https://zentroseo.com/resources/topics/${topic.slug}/`;
@@ -51,7 +52,7 @@ const TopicDetail = () => {
         <script type="application/ld+json">{JSON.stringify(webPageJsonLd)}</script>
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources/" }, { label: "Topics", href: "/resources/topics/" }, { label: topic.name }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("topics"), href: "/resources/topics/" }, { label: topic.name }]} />
 
       <section className="bg-hero py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
@@ -63,17 +64,15 @@ const TopicDetail = () => {
       <article className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
           <Link to="/resources/topics/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" /> All Topics
+            <ArrowLeft className="w-4 h-4" /> {t("allTopics")}
           </Link>
 
-          {/* Full markdown rendering with links, bold, tables, etc. */}
           <div className="prose-custom">
             {renderMarkdown(topic.heroContent)}
           </div>
 
-          {/* Subtopics */}
           <div className="mt-12 pt-8 border-t border-border">
-            <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><Tag className="w-5 h-5 text-primary" /> Subtopics</h2>
+            <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><Tag className="w-5 h-5 text-primary" /> {t("subtopicsHeading")}</h2>
             <div className="flex flex-wrap gap-2">
               {topic.subtopics.map((st) => (
                 <span key={st} className="px-3 py-1.5 rounded-lg border border-border text-sm text-muted-foreground">{st}</span>
@@ -81,15 +80,14 @@ const TopicDetail = () => {
             </div>
           </div>
 
-          {/* Trending Articles */}
           {trendingPosts.length > 0 && (
             <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">🔥 Trending in {topic.name}</h2>
+              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">{t("trendingInTopic", { name: topic.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {trendingPosts.map((p) => p && (
                   <Link key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all">
                     <div className="flex items-center gap-2 mb-1">
-                      <Badge variant="default" className="text-[10px] px-2 py-0">Trending</Badge>
+                      <Badge variant="default" className="text-[10px] px-2 py-0">{t("trending")}</Badge>
                     </div>
                     <h3 className="font-display font-semibold text-sm line-clamp-2">{p.title}</h3>
                     <p className="text-xs text-muted-foreground mt-1">{p.readTime} · {p.category}</p>
@@ -99,10 +97,9 @@ const TopicDetail = () => {
             </div>
           )}
 
-          {/* Related Articles */}
           {relatedPosts.length > 0 && (
             <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><BookOpen className="w-5 h-5 text-primary" /> Related Articles</h2>
+              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><BookOpen className="w-5 h-5 text-primary" /> {t("relatedArticles")}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedPosts.map((p) => p && (
                   <Link key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
@@ -114,22 +111,20 @@ const TopicDetail = () => {
             </div>
           )}
 
-          {/* Related Glossary */}
           {relatedGlossary.length > 0 && (
             <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4">Key Terms</h2>
+              <h2 className="font-display text-xl font-bold mb-4">{t("keyTerms")}</h2>
               <div className="flex flex-wrap gap-2">
-                {relatedGlossary.map((t) => t && (
-                  <Link key={t.slug} to={`/resources/glossary/${t.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{t.term}</Link>
+                {relatedGlossary.map((gt) => gt && (
+                  <Link key={gt.slug} to={`/resources/glossary/${gt.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{gt.term}</Link>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Related Features */}
           {relatedFeats.length > 0 && (
             <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><Wrench className="w-5 h-5 text-primary" /> ZentroSEO Tools for {topic.name}</h2>
+              <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><Wrench className="w-5 h-5 text-primary" /> {t("toolsForTopic", { name: topic.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedFeats.map((f) => (
                   <Link key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">

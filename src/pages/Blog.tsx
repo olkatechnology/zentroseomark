@@ -8,13 +8,14 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
+import { formatDate } from "@/lib/date-utils";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const { t } = useTranslation("pages");
+  const { t, i18n } = useTranslation("pages");
 
   const filtered = blogPosts.filter((p) => {
     const matchesCategory = activeCategory === "All" || p.category === activeCategory;
@@ -136,7 +137,7 @@ const Blog = () => {
                     <h2 className="font-display font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h2>
                     <p className="text-sm text-muted-foreground line-clamp-3 mb-4">{post.excerpt}</p>
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                      <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {formatDate(post.date, i18n.language)}</span>
                       <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                     </div>
                   </div>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface Testimonial {
   quote: string;
@@ -13,11 +14,14 @@ interface TestimonialsProps {
   title?: string;
 }
 
-const Testimonials = ({ testimonials, title = "What Our Users Say" }: TestimonialsProps) => {
+const Testimonials = ({ testimonials, title }: TestimonialsProps) => {
+  const { t } = useTranslation("home");
+  const displayTitle = title || t("testimonialsTitle");
+
   return (
     <section className="py-16 md:py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <h2 className="font-display text-3xl font-bold text-center mb-12">{title}</h2>
+        <h2 className="font-display text-3xl font-bold text-center mb-12">{displayTitle}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {testimonials.map((t, i) => (
             <motion.div

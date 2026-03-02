@@ -7,6 +7,7 @@ import CTASection from "@/components/home/CTASection";
 import { glossaryTerms } from "@/data/glossary";
 import { blogPosts } from "@/data/blog-posts";
 import { featuresData } from "@/data/features";
+import { useTranslation } from "react-i18next";
 
 // Lightweight markdown renderer (simplified from BlogPost)
 function renderMarkdown(md: string) {
@@ -53,9 +54,10 @@ function renderMarkdown(md: string) {
 const GlossaryTermPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const term = glossaryTerms.find((t) => t.slug === slug);
+  const { t } = useTranslation("pages");
 
   if (!term) {
-    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">Term Not Found</h1><Link to="/resources/glossary/" className="text-primary hover:underline">← Back to Glossary</Link></div></Layout>);
+    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("termNotFound")}</h1><Link to="/resources/glossary/" className="text-primary hover:underline">{t("backToGlossary")}</Link></div></Layout>);
   }
 
   const relatedTermData = term.relatedTerms.map((s) => glossaryTerms.find((t) => t.slug === s)).filter(Boolean) as typeof glossaryTerms;
@@ -65,16 +67,9 @@ const GlossaryTermPage = () => {
   const termUrl = `https://zentroseo.com/resources/glossary/${term.slug}/`;
 
   const definedTermJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "DefinedTerm",
-    name: term.term,
-    description: term.definition,
-    url: termUrl,
-    inDefinedTermSet: {
-      "@type": "DefinedTermSet",
-      name: "ZentroSEO SEO Glossary",
-      url: "https://zentroseo.com/resources/glossary/",
-    },
+    "@context": "https://schema.org", "@type": "DefinedTerm",
+    name: term.term, description: term.definition, url: termUrl,
+    inDefinedTermSet: { "@type": "DefinedTermSet", name: "ZentroSEO SEO Glossary", url: "https://zentroseo.com/resources/glossary/" },
   };
 
   return (
@@ -90,12 +85,12 @@ const GlossaryTermPage = () => {
         <script type="application/ld+json">{JSON.stringify(definedTermJsonLd)}</script>
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources/" }, { label: "Glossary", href: "/resources/glossary/" }, { label: term.term }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("glossary"), href: "/resources/glossary/" }, { label: term.term }]} />
 
       <article className="bg-background py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-3xl">
           <Link to="/resources/glossary/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-            <ArrowLeft className="w-4 h-4" /> Back to Glossary
+            <ArrowLeft className="w-4 h-4" /> {t("backToGlossary")}
           </Link>
 
           <span className="inline-block px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium mb-4">{term.category}</span>
@@ -108,7 +103,7 @@ const GlossaryTermPage = () => {
 
           {relatedTermData.length > 0 && (
             <div className="mt-12 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4">Related Terms</h2>
+              <h2 className="font-display text-xl font-bold mb-4">{t("relatedTerms")}</h2>
               <div className="flex flex-wrap gap-2">
                 {relatedTermData.map((rt) => (
                   <Link key={rt.slug} to={`/resources/glossary/${rt.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{rt.term}</Link>
@@ -119,7 +114,7 @@ const GlossaryTermPage = () => {
 
           {relatedPostData.length > 0 && (
             <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4">Related Blog Posts</h2>
+              <h2 className="font-display text-xl font-bold mb-4">{t("relatedBlogPosts")}</h2>
               <ul className="space-y-2">
                 {relatedPostData.map((p) => p && (
                   <li key={p.slug}><Link to={`/resources/blog/${p.slug}/`} className="text-primary hover:underline text-sm">{p.title}</Link></li>
@@ -130,7 +125,7 @@ const GlossaryTermPage = () => {
 
           {relatedFeatureData.length > 0 && (
             <div className="mt-8 pt-8 border-t border-border">
-              <h2 className="font-display text-xl font-bold mb-4">Related Features</h2>
+              <h2 className="font-display text-xl font-bold mb-4">{t("relatedFeatures")}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedFeatureData.map((f) => (
                   <Link key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">

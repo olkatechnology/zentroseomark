@@ -4,64 +4,67 @@ import { TrendingUp, BarChart3, Target } from "lucide-react";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-
-const caseStudies = [
-  {
-    title: "How a SaaS Startup Grew Organic Traffic by 340%",
-    industry: "SaaS / Technology",
-    icon: TrendingUp,
-    challenge: "A B2B SaaS startup had minimal organic visibility despite having a great product. Their website had 67 technical SEO issues, no structured data, and thin content across key landing pages.",
-    solution: "ZentroAudit identified all technical issues, ZentroFix auto-corrected 52 of them in one click, and ZentroWrite helped create entity-rich content for their top 10 landing pages. ZentroMarkup added Product and FAQ schema across the site.",
-    results: [
-      { metric: "340%", label: "Organic traffic increase in 6 months" },
-      { metric: "52", label: "SEO issues auto-fixed in one session" },
-      { metric: "15", label: "New featured snippets earned" },
-      { metric: "2.1s → 0.8s", label: "LCP improvement" },
-    ],
-  },
-  {
-    title: "E-commerce Store Doubles Product Page Rankings",
-    industry: "E-commerce / Retail",
-    icon: BarChart3,
-    challenge: "An online fashion retailer with 3,000+ product pages had duplicate content issues, missing schema, and poor internal linking — resulting in only 12% of products being indexed.",
-    solution: "ZentroAudit crawled all 3,000+ pages, identifying duplicate content from faceted navigation. ZentroFix applied canonical tags and ZentroMarkup generated Product schema for every page. ZentroKeywords identified 200+ buyer-intent keywords for category pages.",
-    results: [
-      { metric: "12% → 89%", label: "Product page indexation rate" },
-      { metric: "200+", label: "Rich results for product pages" },
-      { metric: "156%", label: "Organic revenue increase" },
-      { metric: "34%", label: "Click-through rate improvement" },
-    ],
-  },
-  {
-    title: "Digital Agency Scales to 25 Clients with White-Label",
-    industry: "Digital Marketing Agency",
-    icon: Target,
-    challenge: "A growing agency was spending 20+ hours per week on manual reporting and using 4 different SEO tools — making it unprofitable to take on new clients.",
-    solution: "ZentroWhite provided a fully branded SEO dashboard under their domain. Automated weekly reports replaced manual work, and ZentroAudit + ZentroFix streamlined client deliverables.",
-    results: [
-      { metric: "8 → 25", label: "Clients managed (3x growth)" },
-      { metric: "20hrs → 3hrs", label: "Weekly reporting time saved" },
-      { metric: "4 → 1", label: "SEO tools consolidated" },
-      { metric: "40%", label: "Profit margin improvement" },
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const CaseStudies = () => {
+  const { t } = useTranslation("pages");
+
+  const caseStudies = [
+    {
+      titleKey: "caseStudy1Title",
+      industryKey: "caseStudy1Industry",
+      icon: TrendingUp,
+      challengeKey: "caseStudy1Challenge",
+      solutionKey: "caseStudy1Solution",
+      results: [
+        { metric: "340%", labelKey: "caseStudy1R1" },
+        { metric: "52", labelKey: "caseStudy1R2" },
+        { metric: "15", labelKey: "caseStudy1R3" },
+        { metric: "2.1s → 0.8s", labelKey: "caseStudy1R4" },
+      ],
+    },
+    {
+      titleKey: "caseStudy2Title",
+      industryKey: "caseStudy2Industry",
+      icon: BarChart3,
+      challengeKey: "caseStudy2Challenge",
+      solutionKey: "caseStudy2Solution",
+      results: [
+        { metric: "12% → 89%", labelKey: "caseStudy2R1" },
+        { metric: "200+", labelKey: "caseStudy2R2" },
+        { metric: "156%", labelKey: "caseStudy2R3" },
+        { metric: "34%", labelKey: "caseStudy2R4" },
+      ],
+    },
+    {
+      titleKey: "caseStudy3Title",
+      industryKey: "caseStudy3Industry",
+      icon: Target,
+      challengeKey: "caseStudy3Challenge",
+      solutionKey: "caseStudy3Solution",
+      results: [
+        { metric: "8 → 25", labelKey: "caseStudy3R1" },
+        { metric: "20hrs → 3hrs", labelKey: "caseStudy3R2" },
+        { metric: "4 → 1", labelKey: "caseStudy3R3" },
+        { metric: "40%", labelKey: "caseStudy3R4" },
+      ],
+    },
+  ];
+
   return (
     <Layout>
       <Helmet>
-        <title>SEO Case Studies – Real Results with ZentroSEO</title>
-        <meta name="description" content="See how real businesses improved rankings, traffic, and growth using ZentroSEO." />
+        <title>{t("caseStudiesMetaTitle")}</title>
+        <meta name="description" content={t("caseStudiesMetaDesc")} />
         <link rel="canonical" href="https://zentroseo.com/resources/case-studies/" />
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources/" }, { label: "Case Studies" }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("caseStudiesHeroTitle") }]} />
 
       <section className="bg-hero py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">Case Studies</h1>
-          <p className="text-hero-muted text-lg max-w-xl mx-auto">Real results from real businesses using ZentroSEO.</p>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">{t("caseStudiesHeroTitle")}</h1>
+          <p className="text-hero-muted text-lg max-w-xl mx-auto">{t("caseStudiesHeroSubtitle")}</p>
         </div>
       </section>
 
@@ -80,18 +83,18 @@ const CaseStudies = () => {
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <CSIcon className="w-6 h-6 text-primary" />
-                    <span className="text-xs font-medium text-primary bg-accent rounded-full px-3 py-1">{cs.industry}</span>
+                    <span className="text-xs font-medium text-primary bg-accent rounded-full px-3 py-1">{t(cs.industryKey)}</span>
                   </div>
-                  <h2 className="font-display text-2xl font-bold mb-4">{cs.title}</h2>
+                  <h2 className="font-display text-2xl font-bold mb-4">{t(cs.titleKey)}</h2>
                   
                   <div className="space-y-4 mb-6">
                     <div>
-                      <h3 className="font-semibold text-sm mb-1 text-destructive">Challenge</h3>
-                      <p className="text-sm text-muted-foreground">{cs.challenge}</p>
+                      <h3 className="font-semibold text-sm mb-1 text-destructive">{t("challenge")}</h3>
+                      <p className="text-sm text-muted-foreground">{t(cs.challengeKey)}</p>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-sm mb-1 text-primary">Solution</h3>
-                      <p className="text-sm text-muted-foreground">{cs.solution}</p>
+                      <h3 className="font-semibold text-sm mb-1 text-primary">{t("solution")}</h3>
+                      <p className="text-sm text-muted-foreground">{t(cs.solutionKey)}</p>
                     </div>
                   </div>
 
@@ -99,7 +102,7 @@ const CaseStudies = () => {
                     {cs.results.map((r, ri) => (
                       <div key={ri} className="text-center p-3 rounded-lg bg-secondary/50">
                         <p className="font-display text-xl font-bold text-primary">{r.metric}</p>
-                        <p className="text-xs text-muted-foreground mt-1">{r.label}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{t(r.labelKey)}</p>
                       </div>
                     ))}
                   </div>

@@ -9,8 +9,20 @@ import HowItWorks from "@/components/home/HowItWorks";
 import WhyDifferent from "@/components/home/WhyDifferent";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/home/CTASection";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
+  const { t } = useTranslation("home");
+
+  const testimonials = [
+    { quote: t("testimonial1Quote"), name: t("testimonial1Name"), role: t("testimonial1Role"), company: t("testimonial1Company") },
+    { quote: t("testimonial2Quote"), name: t("testimonial2Name"), role: t("testimonial2Role"), company: t("testimonial2Company") },
+    { quote: t("testimonial3Quote"), name: t("testimonial3Name"), role: t("testimonial3Role"), company: t("testimonial3Company") },
+    { quote: t("testimonial4Quote"), name: t("testimonial4Name"), role: t("testimonial4Role"), company: t("testimonial4Company") },
+    { quote: t("testimonial5Quote"), name: t("testimonial5Name"), role: t("testimonial5Role"), company: t("testimonial5Company") },
+    { quote: t("testimonial6Quote"), name: t("testimonial6Name"), role: t("testimonial6Role"), company: t("testimonial6Company") },
+  ];
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -66,10 +78,10 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings</title>
-        <meta name="description" content="ZentroSEO is the AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, & rank tracking all in one place." />
-        <meta property="og:title" content="ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings" />
-        <meta property="og:description" content="ZentroSEO is the AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, & rank tracking all in one place." />
+        <title>{t("home:metaTitle", { ns: "home", defaultValue: "ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings" })}</title>
+        <meta name="description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, & rank tracking all in one place." })} />
+        <meta property="og:title" content={t("home:metaTitle", { ns: "home", defaultValue: "ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings" })} />
+        <meta property="og:description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, & rank tracking all in one place." })} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://zentroseo.com/" />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -84,14 +96,7 @@ const Index = () => {
       <WhyDifferent />
       <FeaturesGrid />
       <HowItWorks />
-      <Testimonials testimonials={[
-        { quote: "ZentroSEO cut our audit time by 80%. The AI suggestions are spot-on and actionable.", name: "Sarah Chen", role: "Head of SEO", company: "TechFlow" },
-        { quote: "We went from page 5 to page 1 for our core keywords in under 3 months. Incredible tool.", name: "Marcus Rivera", role: "Marketing Director", company: "ScaleUp" },
-        { quote: "The schema markup generator alone is worth the subscription. Saves us hours every week.", name: "Priya Sharma", role: "Content Lead", company: "GrowthLab" },
-        { quote: "Best SEO platform we've used. The keyword clustering feature is a game-changer.", name: "James Okonkwo", role: "Founder", company: "DataPulse" },
-        { quote: "Finally an SEO tool that doesn't require a PhD to use. Our whole team adopted it in days.", name: "Emily Larsson", role: "VP Marketing", company: "BrightEdge" },
-        { quote: "The rank tracking accuracy and real-time alerts keep us ahead of our competitors.", name: "David Kim", role: "SEO Manager", company: "ClickRise" },
-      ]} />
+      <Testimonials testimonials={testimonials} />
       <FAQSection />
       <CTASection />
 

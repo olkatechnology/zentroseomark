@@ -8,97 +8,94 @@ import { glossaryTerms } from "@/data/glossary";
 import { topics } from "@/data/topics";
 import { guides } from "@/data/guides";
 import { comparisons } from "@/data/comparisons";
-
-const siteStructure = [
-  {
-    title: "Features",
-    links: Object.values(featuresData).map((f) => ({
-      label: f.name,
-      href: `/features/${f.slug}/`,
-    })),
-    hubLink: { label: "All Features", href: "/features/" },
-  },
-  {
-    title: "Solutions",
-    links: [
-      { label: "For Agencies", href: "/solutions/for-agencies/" },
-      { label: "For Startups", href: "/solutions/for-startups/" },
-      { label: "For E-commerce", href: "/solutions/for-e-commerce/" },
-      { label: "For Content Creators", href: "/solutions/for-content-creators/" },
-    ],
-    hubLink: { label: "All Solutions", href: "/solutions/" },
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "/company/about-us/" },
-      { label: "Contact Us", href: "/company/contact-us/" },
-    ],
-    hubLink: { label: "Company Hub", href: "/company/" },
-  },
-    {
-    title: "Resources",
-    links: [
-      { label: "Blog", href: "/resources/blog/" },
-      { label: "Guides", href: "/resources/guides/" },
-      { label: "Glossary", href: "/resources/glossary/" },
-      { label: "Topics", href: "/resources/topics/" },
-      { label: "Comparisons", href: "/resources/comparisons/" },
-      { label: "Help Center", href: "/resources/help-center/" },
-      { label: "Case Studies", href: "/resources/case-studies/" },
-      { label: "Documentation", href: "/resources/documentation/" },
-      { label: "SEO Toolkit", href: "/resources/seo-toolkit/" },
-    ],
-    hubLink: { label: "All Resources", href: "/resources/" },
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/privacy-policy/" },
-      { label: "Terms of Service", href: "/terms-of-service/" },
-      { label: "Refund Policy", href: "/refund-policy/" },
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const Sitemap = () => {
+  const { t } = useTranslation("pages");
   const categories = blogCategories.filter((c) => c !== "All");
+
+  const siteStructure = [
+    {
+      title: t("features"),
+      links: Object.values(featuresData).map((f) => ({ label: f.name, href: `/features/${f.slug}/` })),
+      hubLink: { label: t("sitemapAllFeatures"), href: "/features/" },
+    },
+    {
+      title: t("solutions"),
+      links: [
+        { label: t("nav:forAgencies", { ns: "nav" }), href: "/solutions/for-agencies/" },
+        { label: t("nav:forStartups", { ns: "nav" }), href: "/solutions/for-startups/" },
+        { label: t("nav:forEcommerce", { ns: "nav" }), href: "/solutions/for-e-commerce/" },
+        { label: t("nav:forContentCreators", { ns: "nav" }), href: "/solutions/for-content-creators/" },
+      ],
+      hubLink: { label: t("allSolutions"), href: "/solutions/" },
+    },
+    {
+      title: t("company"),
+      links: [
+        { label: t("aboutUs"), href: "/company/about-us/" },
+        { label: t("contactUs"), href: "/company/contact-us/" },
+      ],
+      hubLink: { label: t("companyHub"), href: "/company/" },
+    },
+    {
+      title: t("resources"),
+      links: [
+        { label: t("blog"), href: "/resources/blog/" },
+        { label: t("guides"), href: "/resources/guides/" },
+        { label: t("glossary"), href: "/resources/glossary/" },
+        { label: t("topics"), href: "/resources/topics/" },
+        { label: t("comparisons"), href: "/resources/comparisons/" },
+        { label: t("helpCenterHeroTitle"), href: "/resources/help-center/" },
+        { label: t("caseStudiesHeroTitle"), href: "/resources/case-studies/" },
+        { label: t("docsHeroTitle"), href: "/resources/documentation/" },
+        { label: t("seoToolkitHeroTitle"), href: "/resources/seo-toolkit/" },
+      ],
+      hubLink: { label: t("allResources"), href: "/resources/" },
+    },
+    {
+      title: t("legal"),
+      links: [
+        { label: t("privacyPolicy"), href: "/privacy-policy/" },
+        { label: t("termsOfService"), href: "/terms-of-service/" },
+        { label: t("common:refundPolicy", { ns: "common" }), href: "/refund-policy/" },
+      ],
+    },
+  ];
 
   const sitemapJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Sitemap – ZentroSEO",
-    description: "Complete site map of ZentroSEO — browse all pages, features, solutions, blog posts, and resources.",
+    name: t("sitemapMetaTitle"),
+    description: t("sitemapMetaDesc"),
     url: "https://zentroseo.com/sitemap/",
   };
 
   return (
     <Layout>
       <Helmet>
-        <title>Sitemap – ZentroSEO</title>
-        <meta name="description" content="Browse the complete ZentroSEO sitemap. Find every page, feature, blog post, and resource organized by category." />
+        <title>{t("sitemapMetaTitle")}</title>
+        <meta name="description" content={t("sitemapMetaDesc")} />
         <link rel="canonical" href="https://zentroseo.com/sitemap/" />
         <script type="application/ld+json">{JSON.stringify(sitemapJsonLd)}</script>
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Sitemap" }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("sitemapTitle") }]} />
 
       <main className="bg-background py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">Sitemap</h1>
-          <p className="text-muted-foreground mb-10">Browse every page on ZentroSEO, organized by section.</p>
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">{t("sitemapTitle")}</h1>
+          <p className="text-muted-foreground mb-10">{t("sitemapSubtitle")}</p>
 
           <div className="space-y-10">
-            {/* Core pages */}
             <section>
-              <h2 className="font-display text-xl font-bold mb-1">Main Pages</h2>
+              <h2 className="font-display text-xl font-bold mb-1">{t("mainPages")}</h2>
               <ul className="mt-3 space-y-1.5">
-                <li><Link to="/" className="text-primary hover:underline">Home</Link></li>
-                <li><Link to="/pricing/" className="text-primary hover:underline">Pricing</Link></li>
+                <li><Link to="/" className="text-primary hover:underline">{t("home")}</Link></li>
+                <li><Link to="/pricing/" className="text-primary hover:underline">{t("common:viewPricing", { ns: "common" })}</Link></li>
               </ul>
             </section>
 
-            {/* Structured sections */}
             {siteStructure.map((section) => (
               <section key={section.title}>
                 <h2 className="font-display text-xl font-bold mb-1">{section.title}</h2>
@@ -119,11 +116,10 @@ const Sitemap = () => {
               </section>
             ))}
 
-            {/* Blog by Category */}
             <section>
-              <h2 className="font-display text-xl font-bold mb-1">Blog</h2>
+              <h2 className="font-display text-xl font-bold mb-1">{t("blog")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <Link to="/resources/blog/" className="text-primary hover:underline font-medium">All Blog Posts</Link>
+                <Link to="/resources/blog/" className="text-primary hover:underline font-medium">{t("allBlogPosts")}</Link>
               </p>
               {categories.map((cat) => {
                 const posts = blogPosts.filter((p) => p.category === cat);
@@ -150,45 +146,42 @@ const Sitemap = () => {
               })}
             </section>
 
-            {/* Glossary */}
             <section>
-              <h2 className="font-display text-xl font-bold mb-1">Glossary</h2>
+              <h2 className="font-display text-xl font-bold mb-1">{t("glossary")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <Link to="/resources/glossary/" className="text-primary hover:underline font-medium">All Glossary Terms</Link>
+                <Link to="/resources/glossary/" className="text-primary hover:underline font-medium">{t("allGlossaryTerms")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
-                {glossaryTerms.map((t) => (
-                  <li key={t.slug}>
-                    <Link to={`/resources/glossary/${t.slug}/`} className="text-sm text-primary hover:underline">
-                      {t.term}
+                {glossaryTerms.map((term) => (
+                  <li key={term.slug}>
+                    <Link to={`/resources/glossary/${term.slug}/`} className="text-sm text-primary hover:underline">
+                      {term.term}
                     </Link>
                   </li>
                 ))}
               </ul>
             </section>
 
-            {/* Topics */}
             <section>
-              <h2 className="font-display text-xl font-bold mb-1">Topics</h2>
+              <h2 className="font-display text-xl font-bold mb-1">{t("topics")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <Link to="/resources/topics/" className="text-primary hover:underline font-medium">All Topics</Link>
+                <Link to="/resources/topics/" className="text-primary hover:underline font-medium">{t("allTopics")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
-                {topics.map((t) => (
-                  <li key={t.slug}>
-                    <Link to={`/resources/topics/${t.slug}/`} className="text-sm text-primary hover:underline">
-                      {t.name}
+                {topics.map((tp) => (
+                  <li key={tp.slug}>
+                    <Link to={`/resources/topics/${tp.slug}/`} className="text-sm text-primary hover:underline">
+                      {tp.name}
                     </Link>
                   </li>
                 ))}
               </ul>
             </section>
 
-            {/* Guides */}
             <section>
-              <h2 className="font-display text-xl font-bold mb-1">Guides</h2>
+              <h2 className="font-display text-xl font-bold mb-1">{t("guides")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <Link to="/resources/guides/" className="text-primary hover:underline font-medium">All Guides</Link>
+                <Link to="/resources/guides/" className="text-primary hover:underline font-medium">{t("allSitemapGuides")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
                 {guides.map((g) => (
@@ -201,11 +194,10 @@ const Sitemap = () => {
               </ul>
             </section>
 
-            {/* Comparisons */}
             <section>
-              <h2 className="font-display text-xl font-bold mb-1">Comparisons</h2>
+              <h2 className="font-display text-xl font-bold mb-1">{t("comparisons")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <Link to="/resources/comparisons/" className="text-primary hover:underline font-medium">All Comparisons</Link>
+                <Link to="/resources/comparisons/" className="text-primary hover:underline font-medium">{t("allSitemapComparisons")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
                 {comparisons.map((c) => (

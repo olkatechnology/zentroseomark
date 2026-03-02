@@ -6,12 +6,13 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { comparisons } from "@/data/comparisons";
+import { useTranslation } from "react-i18next";
 
 const ComparisonsHub = () => {
+  const { t } = useTranslation("pages");
+
   const itemListJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "SEO Comparisons",
+    "@context": "https://schema.org", "@type": "ItemList", name: t("comparisonsHeroTitle"),
     numberOfItems: comparisons.length,
     itemListElement: comparisons.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.title, url: `https://zentroseo.com/resources/comparisons/${c.slug}/` })),
   };
@@ -19,23 +20,23 @@ const ComparisonsHub = () => {
   return (
     <Layout>
       <Helmet>
-        <title>SEO Comparisons – Side-by-Side Analysis | ZentroSEO</title>
-        <meta name="description" content="Compare SEO tools, concepts, and strategies side by side. Make informed decisions with detailed feature comparisons and analysis." />
+        <title>{t("comparisonsMetaTitle")}</title>
+        <meta name="description" content={t("comparisonsMetaDesc")} />
         <link rel="canonical" href="https://zentroseo.com/resources/comparisons/" />
-        <meta property="og:title" content="SEO Comparisons – Side-by-Side Analysis" />
-        <meta property="og:description" content="Compare SEO tools and concepts side by side." />
+        <meta property="og:title" content={t("comparisonsMetaTitle")} />
+        <meta property="og:description" content={t("comparisonsMetaDesc")} />
         <meta property="og:url" content="https://zentroseo.com/resources/comparisons/" />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
       </Helmet>
 
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources/" }, { label: "Comparisons" }]} />
+      <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("comparisons") }]} />
 
       <section className="bg-hero py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">SEO Comparisons</h1>
-            <p className="text-hero-muted text-lg max-w-xl mx-auto">Side-by-side analysis of SEO tools, concepts, and strategies.</p>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-hero-foreground mb-4">{t("comparisonsHeroTitle")}</h1>
+            <p className="text-hero-muted text-lg max-w-xl mx-auto">{t("comparisonsHeroSubtitle")}</p>
           </motion.div>
         </div>
       </section>

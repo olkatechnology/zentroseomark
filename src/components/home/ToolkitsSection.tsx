@@ -2,105 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, Search, BarChart3, Wrench, TrendingUp, FileText, Link2, Users, Code2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const toolkits = [
-  {
-    id: "audit",
-    label: "Site Audit",
-    name: "ZentroAudit",
-    icon: Search,
-    bullets: [
-      "Run a full technical SEO audit in minutes",
-      "Get a health score with prioritized fixes",
-      "Monitor crawl issues, broken links & speed",
-    ],
-    mockType: "audit" as const,
-  },
-  {
-    id: "fixes",
-    label: "SEO Fixes",
-    name: "ZentroFix",
-    icon: Wrench,
-    bullets: [
-      "AI-generated fix suggestions for every issue",
-      "One-click meta tag & heading corrections",
-      "Exportable fix reports for your dev team",
-    ],
-    mockType: "fixes" as const,
-  },
-  {
-    id: "rank",
-    label: "Rank Tracking",
-    name: "ZentroRank",
-    icon: TrendingUp,
-    bullets: [
-      "Track keyword positions daily across Google",
-      "Monitor competitors' ranking movements",
-      "Get alerts when rankings change significantly",
-    ],
-    mockType: "rank" as const,
-  },
-  {
-    id: "keywords",
-    label: "Keywords",
-    name: "ZentroKeywords",
-    icon: BarChart3,
-    bullets: [
-      "Discover high-opportunity keywords with AI",
-      "See search volume, difficulty & intent data",
-      "Group keywords into content clusters",
-    ],
-    mockType: "keywords" as const,
-  },
-  {
-    id: "content",
-    label: "Content",
-    name: "ZentroWrite",
-    icon: FileText,
-    bullets: [
-      "AI writing assistant for SEO-optimized content",
-      "Real-time content scoring & suggestions",
-      "Generate briefs, outlines & full drafts",
-    ],
-    mockType: "content" as const,
-  },
-  {
-    id: "backlinks",
-    label: "Backlinks",
-    name: "ZentroBacklinks",
-    icon: Link2,
-    bullets: [
-      "Analyze your backlink profile at a glance",
-      "Find toxic links & disavow opportunities",
-      "Discover competitor link-building strategies",
-    ],
-    mockType: "backlinks" as const,
-  },
-  {
-    id: "competitors",
-    label: "Competitors",
-    name: "ZentroCompare",
-    icon: Users,
-    bullets: [
-      "Side-by-side competitor SEO comparison",
-      "Uncover content gaps & keyword overlaps",
-      "Track competitor traffic & authority trends",
-    ],
-    mockType: "competitors" as const,
-  },
-  {
-    id: "schema",
-    label: "Schema",
-    name: "ZentroMarkup",
-    icon: Code2,
-    bullets: [
-      "Generate structured data without coding",
-      "Support for FAQ, Product, Article & more",
-      "Validate & preview rich snippets instantly",
-    ],
-    mockType: "schema" as const,
-  },
-];
+import { useTranslation } from "react-i18next";
 
 /* ---------- Mini mock UI illustrations ---------- */
 
@@ -243,6 +145,51 @@ const mockComponents: Record<string, React.FC> = {
 /* ---------- Main Component ---------- */
 
 const ToolkitsSection = () => {
+  const { t } = useTranslation("home");
+
+  const toolkits = [
+    {
+      id: "audit", label: t("tabSiteAudit"), name: "ZentroAudit", icon: Search,
+      bullets: [t("auditBullet1"), t("auditBullet2"), t("auditBullet3")],
+      mockType: "audit" as const,
+    },
+    {
+      id: "fixes", label: t("tabSeoFixes"), name: "ZentroFix", icon: Wrench,
+      bullets: [t("fixBullet1"), t("fixBullet2"), t("fixBullet3")],
+      mockType: "fixes" as const,
+    },
+    {
+      id: "rank", label: t("tabRankTracking"), name: "ZentroRank", icon: TrendingUp,
+      bullets: [t("rankBullet1"), t("rankBullet2"), t("rankBullet3")],
+      mockType: "rank" as const,
+    },
+    {
+      id: "keywords", label: t("tabKeywords"), name: "ZentroKeywords", icon: BarChart3,
+      bullets: [t("keywordsBullet1"), t("keywordsBullet2"), t("keywordsBullet3")],
+      mockType: "keywords" as const,
+    },
+    {
+      id: "content", label: t("tabContent"), name: "ZentroWrite", icon: FileText,
+      bullets: [t("contentBullet1"), t("contentBullet2"), t("contentBullet3")],
+      mockType: "content" as const,
+    },
+    {
+      id: "backlinks", label: t("tabBacklinks"), name: "ZentroBacklinks", icon: Link2,
+      bullets: [t("backlinksBullet1"), t("backlinksBullet2"), t("backlinksBullet3")],
+      mockType: "backlinks" as const,
+    },
+    {
+      id: "competitors", label: t("tabCompetitors"), name: "ZentroCompare", icon: Users,
+      bullets: [t("competitorsBullet1"), t("competitorsBullet2"), t("competitorsBullet3")],
+      mockType: "competitors" as const,
+    },
+    {
+      id: "schema", label: t("tabSchema"), name: "ZentroMarkup", icon: Code2,
+      bullets: [t("schemaBullet1"), t("schemaBullet2"), t("schemaBullet3")],
+      mockType: "schema" as const,
+    },
+  ];
+
   const [activeIndex, setActiveIndex] = useState(0);
   const active = toolkits[activeIndex];
   const Icon = active.icon;
@@ -256,25 +203,22 @@ const ToolkitsSection = () => {
 
   return (
     <section className="bg-hero relative overflow-hidden py-20 md:py-28">
-      {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(0 0% 100%) 1px, transparent 0)',
         backgroundSize: '32px 32px'
       }} />
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-hero-foreground text-center max-w-3xl mx-auto mb-10"
         >
-          Toolkits to grow your traffic, fix issues, and{" "}
-          <span className="text-gradient-primary">rank higher</span>
+          {t("toolkitsHeading")}{" "}
+          <span className="text-gradient-primary">{t("toolkitsHeadingHighlight")}</span>
         </motion.h2>
 
-        {/* Tab bar */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -297,14 +241,11 @@ const ToolkitsSection = () => {
           ))}
         </motion.div>
 
-        {/* Carousel area */}
         <div className="relative flex items-center justify-center gap-4 md:gap-6">
-          {/* Left arrow */}
           <button onClick={prev} className="absolute left-0 md:relative z-20 w-10 h-10 rounded-full bg-hero-foreground/10 hover:bg-hero-foreground/20 flex items-center justify-center text-hero-foreground transition-colors">
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* Side card left (hidden on mobile) */}
           <div className="hidden lg:block w-56 shrink-0 opacity-40 scale-90 blur-[1px]">
             <div className="bg-hero-foreground/5 border border-hero-foreground/10 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-3">
@@ -319,7 +260,6 @@ const ToolkitsSection = () => {
             </div>
           </div>
 
-          {/* Center card */}
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
@@ -330,7 +270,6 @@ const ToolkitsSection = () => {
               className="w-full max-w-2xl bg-hero-foreground/[0.06] border border-hero-foreground/10 backdrop-blur-sm rounded-2xl p-6 md:p-8"
             >
               <div className="flex flex-col md:flex-row gap-6">
-                {/* Left: text */}
                 <div className="flex-1 space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-hero-accent/20 flex items-center justify-center">
@@ -348,12 +287,11 @@ const ToolkitsSection = () => {
                   </ul>
                   <a href="https://app.zentroseo.com/signup?flow=direct">
                     <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-6 rounded-lg mt-2">
-                      Try for free <ArrowRight className="w-4 h-4" />
+                      {t("common:tryForFree", { ns: "common" })} <ArrowRight className="w-4 h-4" />
                     </Button>
                   </a>
                 </div>
 
-                {/* Right: mock UI */}
                 <div className="flex-1 min-w-0">
                   <div className="bg-hero-foreground/[0.04] border border-hero-foreground/10 rounded-xl p-4">
                     <MockUI />
@@ -363,7 +301,6 @@ const ToolkitsSection = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Side card right (hidden on mobile) */}
           <div className="hidden lg:block w-56 shrink-0 opacity-40 scale-90 blur-[1px]">
             <div className="bg-hero-foreground/5 border border-hero-foreground/10 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-3">
@@ -378,7 +315,6 @@ const ToolkitsSection = () => {
             </div>
           </div>
 
-          {/* Right arrow */}
           <button onClick={next} className="absolute right-0 md:relative z-20 w-10 h-10 rounded-full bg-hero-foreground/10 hover:bg-hero-foreground/20 flex items-center justify-center text-hero-foreground transition-colors">
             <ChevronRight className="w-5 h-5" />
           </button>

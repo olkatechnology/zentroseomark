@@ -12,11 +12,13 @@ import {
   categoryMeta,
   getPostsByCategory,
 } from "@/data/blog-posts";
+import { useTranslation } from "react-i18next";
+import { formatDate } from "@/lib/date-utils";
 
 const BlogCategory = () => {
   const { category: catSlug } = useParams<{ category: string }>();
+  const { t, i18n } = useTranslation("pages");
 
-  // Resolve category name from slug
   const categoryName = blogCategories
     .filter((c) => c !== "All")
     .find((c) => categorySlug(c) === catSlug);
@@ -25,8 +27,8 @@ const BlogCategory = () => {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
-          <h1 className="font-display text-3xl font-bold mb-4">Category Not Found</h1>
-          <Link to="/resources/blog/" className="text-primary hover:underline">← Back to Blog</Link>
+          <h1 className="font-display text-3xl font-bold mb-4">{t("categoryNotFound")}</h1>
+          <Link to="/resources/blog/" className="text-primary hover:underline">{t("backToBlogLink")}</Link>
         </div>
       </Layout>
     );
@@ -70,9 +72,9 @@ const BlogCategory = () => {
 
       <Breadcrumbs
         items={[
-          { label: "Home", href: "/" },
-          { label: "Resources", href: "/resources/" },
-          { label: "Blog", href: "/resources/blog/" },
+          { label: t("home"), href: "/" },
+          { label: t("resources"), href: "/resources/" },
+          { label: t("blog"), href: "/resources/blog/" },
           { label: categoryName },
         ]}
       />
@@ -90,7 +92,6 @@ const BlogCategory = () => {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          {/* Posts Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
             {posts.map((post, i) => (
               <motion.div
@@ -120,7 +121,7 @@ const BlogCategory = () => {
                     <div className="flex items-center gap-4 text-xs text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3 h-3" />
-                        {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                        {formatDate(post.date, i18n.language)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-3 h-3" /> {post.readTime}
@@ -132,9 +133,8 @@ const BlogCategory = () => {
             ))}
           </div>
 
-          {/* Cross-links to related category hubs */}
           <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-xl font-bold mb-4">Explore More Topics</h2>
+            <h2 className="font-display text-xl font-bold mb-4">{t("exploreMoreTopics")}</h2>
             <div className="flex flex-wrap gap-3">
               {otherCategories.map((cat) => (
                 <Link
@@ -149,7 +149,7 @@ const BlogCategory = () => {
                 to="/resources/blog/"
                 className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
               >
-                All Articles
+                {t("allArticles")}
               </Link>
             </div>
           </div>
