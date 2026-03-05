@@ -1,3 +1,6 @@
+import featuresTR from '@/i18n/data/features-tr';
+import contentTR from '@/i18n/data/content-tr';
+
 const tr = {
   common: {
     getStarted: "Başla", startFreeTrial: "Ücretsiz deneyin", tryForFree: "Ücretsiz deneyin",
@@ -124,6 +127,17 @@ const tr = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "ZentroSEO'yu test etmek için ideal", standardDesc: "Küçük işletmeler için harika",
     proDesc: "Büyüyen işletmeler ve ajanslar için", advancedDesc: "Ajanslar ve büyük işletmeler için",
+    f_1Website: "1 web sitesi", f_3Websites: "3 web sitesi", f_10Websites: "10 web sitesi", f_unlimitedWebsites: "Sınırsız web sitesi",
+    f_4BasicAudits: "4 temel SEO denetimi", f_20CompleteAudits: "URL başına 20 kapsamlı SEO denetimi", f_unlimitedAudits: "Sınırsız SEO denetimi",
+    f_3KeywordTracking: "3 anahtar kelime takibi", f_50KeywordTracking: "URL başına 50 anahtar kelime takibi", f_unlimitedKeywordTracking: "Sınırsız anahtar kelime takibi",
+    f_100KeywordResearch: "URL başına 100 anahtar kelime araştırması", f_unlimitedKeywordResearch: "Sınırsız anahtar kelime araştırması",
+    f_5CompetitorAnalysis: "URL başına 5 rakip analizi", f_10CompetitorAnalysis: "URL başına 10 rakip analizi", f_unlimitedCompetitorAnalysis: "Sınırsız rakip analizi",
+    f_backlinkAnalysis: "Backlink analizi", f_limitedAiWriting: "Sınırlı AI içerik yazımı", f_unlimitedAiWriting: "Sınırsız AI içerik yazımı", f_unlimitedAiWritingShort: "Sınırsız AI yazımı",
+    f_schemaGenerator: "Schema oluşturucu", f_schemaGeneration: "Schema oluşturma",
+    f_monthlyReports: "Aylık raporlar", f_weeklyReports: "Haftalık raporlar", f_dailyReports: "Günlük raporlar",
+    f_emailSupport: "E-posta desteği", f_priorityEmailSupport: "Öncelikli e-posta desteği", f_phoneEmailSupport: "Telefon + e-posta desteği",
+    f_autoSchedulingReports: "Otomatik rapor planlama", f_whiteLabelReports: "White-label raporlar", f_fullWhiteLabel: "Tam white-label çözümü", f_dedicatedAccountManager: "Özel hesap yöneticisi",
+    l_100PagesScanned: "100 taranan sayfayla sınırlı", l_basicReportingOnly: "Yalnızca temel raporlama",
   },
   pages: {
     featuresMetaTitle: "Tüm ZentroSEO Özellikleri", featuresMetaDesc: "ZentroSEO özelliklerini keşfedin.", featuresHeroTitle: "Tüm", featuresHeroHighlight: "Özellikler",
@@ -260,6 +274,10 @@ const tr = {
     topicalMapHeroTitle: "İçerik Konu Haritası", topicalMapHeroSubtitle: "{{count}} makalenin {{silos}} konu silosunda nasıl bağlandığını keşfedin.",
     networkView: "Ağ görünümü", listView: "Liste görünümü", hoverHint: "Bağlantıları vurgulamak için üzerine gelin · Makaleyi okumak için tıklayın",
     hubPillar: "Hub · Sütun", crossSiloLinks: "Cross-silo bağlantılar →", totalArticles: "Toplam makale", topicSilos: "Konu siloları", hubPages: "Hub sayfaları", topicHubs: "Konu hub'ları",
+  },
+  data: {
+    features: featuresTR,
+    ...contentTR,
   },
 };
 

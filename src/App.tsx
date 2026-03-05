@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import LangLayout from "./components/LangLayout";
 import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import Features from "./pages/Features";
@@ -38,6 +39,45 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+/** All app routes — shared between English (no prefix) and localized (/:lang prefix) */
+const AppRoutes = () => (
+  <>
+    <Route index element={<Index />} />
+    <Route path="pricing/" element={<Pricing />} />
+    <Route path="features/" element={<Features />} />
+    <Route path="features/:slug/" element={<FeatureDetail />} />
+    <Route path="solutions/" element={<SolutionHub />} />
+    <Route path="solutions/:slug/" element={<SolutionDetail />} />
+    <Route path="company/" element={<CompanyHub />} />
+    <Route path="company/about-us/" element={<AboutUs />} />
+    <Route path="company/careers/" element={<Careers />} />
+    <Route path="company/contact-us/" element={<ContactUs />} />
+    <Route path="company/team/:slug/" element={<AuthorProfile />} />
+    <Route path="resources/" element={<ResourcesHub />} />
+    <Route path="resources/blog/" element={<Blog />} />
+    <Route path="resources/blog/category/:category/" element={<BlogCategory />} />
+    <Route path="resources/blog/:slug/" element={<BlogPostPage />} />
+    <Route path="resources/help-center/" element={<HelpCenter />} />
+    <Route path="resources/case-studies/" element={<CaseStudies />} />
+    <Route path="resources/documentation/" element={<Documentation />} />
+    <Route path="resources/seo-toolkit/" element={<SEOToolkit />} />
+    <Route path="resources/glossary/" element={<Glossary />} />
+    <Route path="resources/glossary/:slug/" element={<GlossaryTerm />} />
+    <Route path="resources/topics/" element={<TopicsHub />} />
+    <Route path="resources/topics/:slug/" element={<TopicDetail />} />
+    <Route path="resources/topics/map/" element={<TopicalMap />} />
+    <Route path="resources/guides/" element={<GuidesHub />} />
+    <Route path="resources/guides/:slug/" element={<GuideDetail />} />
+    <Route path="resources/comparisons/" element={<ComparisonsHub />} />
+    <Route path="resources/comparisons/:slug/" element={<ComparisonDetail />} />
+    <Route path="privacy-policy/" element={<LegalPage slug="privacy-policy" />} />
+    <Route path="terms-of-service/" element={<LegalPage slug="terms-of-service" />} />
+    <Route path="refund-policy/" element={<LegalPage slug="refund-policy" />} />
+    <Route path="sitemap/" element={<Sitemap />} />
+    <Route path="*" element={<NotFound />} />
+  </>
+);
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -46,39 +86,14 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/pricing/" element={<Pricing />} />
-            <Route path="/features/" element={<Features />} />
-            <Route path="/features/:slug/" element={<FeatureDetail />} />
-            <Route path="/solutions/" element={<SolutionHub />} />
-            <Route path="/solutions/:slug/" element={<SolutionDetail />} />
-            <Route path="/company/" element={<CompanyHub />} />
-            <Route path="/company/about-us/" element={<AboutUs />} />
-            <Route path="/company/careers/" element={<Careers />} />
-            <Route path="/company/contact-us/" element={<ContactUs />} />
-            <Route path="/resources/" element={<ResourcesHub />} />
-            <Route path="/resources/blog/" element={<Blog />} />
-            <Route path="/resources/blog/category/:category/" element={<BlogCategory />} />
-            <Route path="/resources/blog/:slug/" element={<BlogPostPage />} />
-            <Route path="/company/team/:slug/" element={<AuthorProfile />} />
-            <Route path="/resources/help-center/" element={<HelpCenter />} />
-            <Route path="/resources/case-studies/" element={<CaseStudies />} />
-            <Route path="/resources/documentation/" element={<Documentation />} />
-            <Route path="/resources/seo-toolkit/" element={<SEOToolkit />} />
-            <Route path="/resources/glossary/" element={<Glossary />} />
-            <Route path="/resources/glossary/:slug/" element={<GlossaryTerm />} />
-            <Route path="/resources/topics/" element={<TopicsHub />} />
-            <Route path="/resources/topics/:slug/" element={<TopicDetail />} />
-            <Route path="/resources/topics/map/" element={<TopicalMap />} />
-            <Route path="/resources/guides/" element={<GuidesHub />} />
-            <Route path="/resources/guides/:slug/" element={<GuideDetail />} />
-            <Route path="/resources/comparisons/" element={<ComparisonsHub />} />
-            <Route path="/resources/comparisons/:slug/" element={<ComparisonDetail />} />
-            <Route path="/privacy-policy/" element={<LegalPage slug="privacy-policy" />} />
-            <Route path="/terms-of-service/" element={<LegalPage slug="terms-of-service" />} />
-            <Route path="/refund-policy/" element={<LegalPage slug="refund-policy" />} />
-            <Route path="/sitemap/" element={<Sitemap />} />
-            <Route path="*" element={<NotFound />} />
+            {/* Localized routes: /de/pricing/, /es/features/ etc. */}
+            <Route path="/:lang/*" element={<LangLayout />}>
+              {AppRoutes()}
+            </Route>
+            {/* English (default) routes: /pricing/, /features/ etc. */}
+            <Route path="/*" element={<LangLayout />}>
+              {AppRoutes()}
+            </Route>
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

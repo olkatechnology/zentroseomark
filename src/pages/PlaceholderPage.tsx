@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import CTASection from "@/components/home/CTASection";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 interface PlaceholderPageProps {
   title: string;
@@ -12,12 +14,14 @@ interface PlaceholderPageProps {
 }
 
 const PlaceholderPage = ({ title, metaTitle, metaDescription, canonicalPath, heading, description }: PlaceholderPageProps) => {
+  const { lang } = useLang();
+
   return (
     <Layout>
       <Helmet>
         <title>{metaTitle}</title>
         <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={`https://zentroseo.com${canonicalPath}`} />
+        <link rel="canonical" href={getCanonicalUrl(lang, canonicalPath)} />
       </Helmet>
 
       <section className="bg-hero py-20 md:py-28">

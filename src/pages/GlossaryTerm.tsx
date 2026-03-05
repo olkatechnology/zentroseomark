@@ -1,13 +1,17 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-import { glossaryTerms } from "@/data/glossary";
+import { glossaryTerms, getTranslatedGlossaryTerms } from "@/data/glossary";
 import { blogPosts } from "@/data/blog-posts";
 import { featuresData } from "@/data/features";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
+
 
 // Lightweight markdown renderer (simplified from BlogPost)
 function renderMarkdown(md: string) {
@@ -27,7 +31,7 @@ function renderMarkdown(md: string) {
       if (match[1] !== undefined && match[2]) {
         const href = match[2];
         const isExt = href.startsWith("http");
-        parts.push(isExt ? <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[1]}</a> : <Link key={pk++} to={href} className="text-primary hover:underline">{match[1]}</Link>);
+        parts.push(isExt ? <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[1]}</a> : <LocalizedLink key={pk++} to={href} className="text-primary hover:underline">{match[1]}</LocalizedLink>);
       } else if (match[3]) parts.push(<strong key={pk++}>{match[3]}</strong>);
       else if (match[4]) parts.push(<code key={pk++} className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">{match[4]}</code>);
       lastIndex = regex.lastIndex;
@@ -53,23 +57,24 @@ function renderMarkdown(md: string) {
 
 const GlossaryTermPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const term = glossaryTerms.find((t) => t.slug === slug);
+  const term = getTranslatedGlossaryTerms().find((t) => t.slug === slug);
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   if (!term) {
-    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("termNotFound")}</h1><Link to="/resources/glossary/" className="text-primary hover:underline">{t("backToGlossary")}</Link></div></Layout>);
+    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("termNotFound")}</h1><LocalizedLink to="/resources/glossary/" className="text-primary hover:underline">{t("backToGlossary")}</LocalizedLink></div></Layout>);
   }
 
   const relatedTermData = term.relatedTerms.map((s) => glossaryTerms.find((t) => t.slug === s)).filter(Boolean) as typeof glossaryTerms;
   const relatedPostData = term.relatedBlogSlugs.map((s) => blogPosts.find((p) => p.slug === s)).filter(Boolean);
   const relatedFeatureData = term.relatedFeatures.map((s) => featuresData[s]).filter(Boolean);
 
-  const termUrl = `https://zentroseo.com/resources/glossary/${term.slug}/`;
+  const termUrl = getCanonicalUrl(lang, `/resources/glossary/${term.slug}/`);
 
   const definedTermJsonLd = {
     "@context": "https://schema.org", "@type": "DefinedTerm",
     name: term.term, description: term.definition, url: termUrl,
-    inDefinedTermSet: { "@type": "DefinedTermSet", name: "ZentroSEO SEO Glossary", url: "https://zentroseo.com/resources/glossary/" },
+    inDefinedTermSet: { "@type": "DefinedTermSet", name: "ZentroSEO SEO Glossary", url: getCanonicalUrl(lang, "/resources/glossary/") },
   };
 
   return (
@@ -89,9 +94,9 @@ const GlossaryTermPage = () => {
 
       <article className="bg-background py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-3xl">
-          <Link to="/resources/glossary/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
+          <LocalizedLink to="/resources/glossary/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> {t("backToGlossary")}
-          </Link>
+          </LocalizedLink>
 
           <span className="inline-block px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium mb-4">{term.category}</span>
           <h1 className="font-display text-3xl md:text-4xl font-bold mb-4">{term.term}</h1>
@@ -106,7 +111,7 @@ const GlossaryTermPage = () => {
               <h2 className="font-display text-xl font-bold mb-4">{t("relatedTerms")}</h2>
               <div className="flex flex-wrap gap-2">
                 {relatedTermData.map((rt) => (
-                  <Link key={rt.slug} to={`/resources/glossary/${rt.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{rt.term}</Link>
+                  <LocalizedLink key={rt.slug} to={`/resources/glossary/${rt.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{rt.term}</LocalizedLink>
                 ))}
               </div>
             </div>
@@ -117,7 +122,7 @@ const GlossaryTermPage = () => {
               <h2 className="font-display text-xl font-bold mb-4">{t("relatedBlogPosts")}</h2>
               <ul className="space-y-2">
                 {relatedPostData.map((p) => p && (
-                  <li key={p.slug}><Link to={`/resources/blog/${p.slug}/`} className="text-primary hover:underline text-sm">{p.title}</Link></li>
+                  <li key={p.slug}><LocalizedLink to={`/resources/blog/${p.slug}/`} className="text-primary hover:underline text-sm">{p.title}</LocalizedLink></li>
                 ))}
               </ul>
             </div>
@@ -128,10 +133,10 @@ const GlossaryTermPage = () => {
               <h2 className="font-display text-xl font-bold mb-4">{t("relatedFeatures")}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedFeatureData.map((f) => (
-                  <Link key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
+                  <LocalizedLink key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
                     <h3 className="font-display font-semibold text-sm">{f.name}</h3>
                     <p className="text-xs text-muted-foreground mt-1">{f.tagline}</p>
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>

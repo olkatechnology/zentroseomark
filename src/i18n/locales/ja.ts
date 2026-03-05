@@ -1,3 +1,6 @@
+import featuresJA from '@/i18n/data/features-ja';
+import contentJA from '@/i18n/data/content-ja';
+
 const ja = {
   common: {
     getStarted: "始める", startFreeTrial: "無料トライアル", tryForFree: "無料で試す",
@@ -122,6 +125,17 @@ const ja = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "ZentroSEOを試すのに最適", standardDesc: "中小企業やスタートアップに最適",
     proDesc: "成長企業やエージェンシーに最適", advancedDesc: "エージェンシーや大企業向け",
+    f_1Website: "1サイト", f_3Websites: "3サイト", f_10Websites: "10サイト", f_unlimitedWebsites: "無制限サイト",
+    f_4BasicAudits: "4回の基本SEO監査", f_20CompleteAudits: "URLごとに20回の完全SEO監査", f_unlimitedAudits: "無制限SEO監査",
+    f_3KeywordTracking: "3キーワード追跡", f_50KeywordTracking: "URLごとに50キーワード追跡", f_unlimitedKeywordTracking: "無制限キーワード追跡",
+    f_100KeywordResearch: "URLごとに100キーワードリサーチ", f_unlimitedKeywordResearch: "無制限キーワードリサーチ",
+    f_5CompetitorAnalysis: "URLごとに5競合分析", f_10CompetitorAnalysis: "URLごとに10競合分析", f_unlimitedCompetitorAnalysis: "無制限競合分析",
+    f_backlinkAnalysis: "バックリンク分析", f_limitedAiWriting: "制限付きAIコンテンツ作成", f_unlimitedAiWriting: "無制限AIコンテンツ作成", f_unlimitedAiWritingShort: "無制限AIライティング",
+    f_schemaGenerator: "Schemaジェネレーター", f_schemaGeneration: "Schema生成",
+    f_monthlyReports: "月次レポート", f_weeklyReports: "週次レポート", f_dailyReports: "日次レポート",
+    f_emailSupport: "メールサポート", f_priorityEmailSupport: "優先メールサポート", f_phoneEmailSupport: "電話+メールサポート",
+    f_autoSchedulingReports: "レポート自動スケジュール", f_whiteLabelReports: "ホワイトラベルレポート", f_fullWhiteLabel: "完全ホワイトラベルソリューション", f_dedicatedAccountManager: "専任アカウントマネージャー",
+    l_100PagesScanned: "スキャン100ページまで", l_basicReportingOnly: "基本レポートのみ",
   },
   pages: {
     featuresMetaTitle: "ZentroSEO全機能", featuresMetaDesc: "ZentroSEOの機能を発見。", featuresHeroTitle: "すべての", featuresHeroHighlight: "機能",
@@ -252,6 +266,10 @@ const ja = {
     topicalMapHeroTitle: "コンテンツトピカルマップ", topicalMapHeroSubtitle: "{{count}}記事が{{silos}}トピックサイロでどう繋がるか発見。",
     networkView: "ネットワークビュー", listView: "リストビュー", hoverHint: "ホバーで接続をハイライト · クリックで記事を読む",
     hubPillar: "ハブ · ピラー", crossSiloLinks: "クロスサイロリンク →", totalArticles: "記事総数", topicSilos: "トピックサイロ", hubPages: "ハブページ", topicHubs: "トピックハブ",
+  },
+  data: {
+    features: featuresJA,
+    ...contentJA,
   },
 };
 

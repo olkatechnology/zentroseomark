@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Layers, FileText, ArrowRight, Network, List } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { blogPosts } from "@/data/blog-posts";
 import { topics } from "@/data/topics";
 import { Badge } from "@/components/ui/badge";
 import NetworkVisualization from "@/components/topical-map/NetworkVisualization";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const categoryColors: Record<string, string> = {
   "Technical SEO": "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
@@ -22,6 +24,7 @@ const categoryColors: Record<string, string> = {
 
 const TopicalMap = () => {
   const [view, setView] = useState<"network" | "list">("network");
+  const { lang } = useLang();
   const hubs = blogPosts.filter((p) => p.isHub);
   const silos = hubs.map((hub) => {
     const spokes = blogPosts.filter((p) => p.topicalMapHub === hub.slug);
@@ -34,7 +37,7 @@ const TopicalMap = () => {
     "@type": "CollectionPage",
     name: "Content Topical Map – ZentroSEO",
     description: "Interactive visualization of ZentroSEO's content hierarchy showing hub-and-spoke topic clusters across all SEO silos.",
-    url: "https://zentroseo.com/resources/topics/map/",
+    url: getCanonicalUrl(lang, "/resources/topics/map/"),
   };
 
   return (
@@ -42,7 +45,7 @@ const TopicalMap = () => {
       <Helmet>
         <title>Content Topical Map – SEO Knowledge Hierarchy | ZentroSEO</title>
         <meta name="description" content="Explore the complete ZentroSEO content hierarchy. See how pillar guides, cluster articles, and cross-silo links form an interconnected SEO knowledge network." />
-        <link rel="canonical" href="https://zentroseo.com/resources/topics/map/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/topics/map/")} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
@@ -105,7 +108,7 @@ const TopicalMap = () => {
               className="border border-border rounded-2xl overflow-hidden"
             >
               {/* Hub header */}
-              <Link
+              <LocalizedLink
                 to={`/resources/blog/${silo.hub.slug}/`}
                 className="group flex items-start gap-4 p-6 bg-muted/50 hover:bg-muted transition-colors"
               >
@@ -124,13 +127,13 @@ const TopicalMap = () => {
                   <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{silo.hub.excerpt}</p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors mt-2 shrink-0" />
-              </Link>
+              </LocalizedLink>
 
               {/* Spokes */}
               {silo.spokes.length > 0 && (
                 <div className="divide-y divide-border">
                   {silo.spokes.map((spoke) => (
-                    <Link
+                    <LocalizedLink
                       key={spoke.slug}
                       to={`/resources/blog/${spoke.slug}/`}
                       className="group flex items-center gap-3 px-6 py-3.5 pl-14 hover:bg-muted/30 transition-colors"
@@ -140,7 +143,7 @@ const TopicalMap = () => {
                         {spoke.title}
                       </span>
                       <span className="text-xs text-muted-foreground shrink-0">{spoke.readTime}</span>
-                    </Link>
+                    </LocalizedLink>
                   ))}
                 </div>
               )}
@@ -153,13 +156,13 @@ const TopicalMap = () => {
                     const target = blogPosts.find((p) => p.slug === slug);
                     if (!target) return null;
                     return (
-                      <Link
+                      <LocalizedLink
                         key={slug}
                         to={`/resources/blog/${slug}/`}
                         className="inline-block text-xs text-primary hover:underline mr-3"
                       >
                         {target.title.length > 50 ? target.title.slice(0, 50) + "…" : target.title}
-                      </Link>
+                      </LocalizedLink>
                     );
                   })}
                 </div>

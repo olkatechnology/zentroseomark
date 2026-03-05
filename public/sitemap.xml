@@ -212,4 +212,136 @@
   <url><loc>https://zentroseo.com/privacy-policy/</loc><lastmod>2026-03-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://zentroseo.com/terms-of-service/</loc><lastmod>2026-03-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://zentroseo.com/refund-policy/</loc><lastmod>2026-03-01</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Language-Prefixed URLs for Key Pillar Pages -->
+  <!-- German (de) -->
+  <url><loc>https://zentroseo.com/de/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/de/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/de/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/de/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/de/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/de/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/de/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/de/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Spanish (es) -->
+  <url><loc>https://zentroseo.com/es/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/es/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/es/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/es/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/es/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/es/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/es/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/es/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- French (fr) -->
+  <url><loc>https://zentroseo.com/fr/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/fr/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/fr/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/fr/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/fr/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/fr/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/fr/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/fr/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Italian (it) -->
+  <url><loc>https://zentroseo.com/it/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/it/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/it/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/it/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/it/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/it/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/it/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/it/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Dutch (nl) -->
+  <url><loc>https://zentroseo.com/nl/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/nl/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/nl/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/nl/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/nl/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/nl/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/nl/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/nl/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Polish (pl) -->
+  <url><loc>https://zentroseo.com/pl/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/pl/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pl/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pl/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/pl/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pl/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/pl/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pl/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Portuguese (pt) -->
+  <url><loc>https://zentroseo.com/pt/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/pt/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pt/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pt/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/pt/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pt/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/pt/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/pt/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Swedish (sv) -->
+  <url><loc>https://zentroseo.com/sv/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/sv/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/sv/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/sv/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/sv/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/sv/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/sv/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/sv/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Vietnamese (vi) -->
+  <url><loc>https://zentroseo.com/vi/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/vi/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/vi/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/vi/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/vi/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/vi/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/vi/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/vi/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Turkish (tr) -->
+  <url><loc>https://zentroseo.com/tr/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/tr/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/tr/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/tr/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/tr/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/tr/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/tr/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/tr/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Chinese (zh) -->
+  <url><loc>https://zentroseo.com/zh/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/zh/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/zh/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/zh/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/zh/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/zh/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/zh/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/zh/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Japanese (ja) -->
+  <url><loc>https://zentroseo.com/ja/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/ja/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ja/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ja/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/ja/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ja/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/ja/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ja/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Korean (ko) -->
+  <url><loc>https://zentroseo.com/ko/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zentroseo.com/ko/pricing/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ko/features/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ko/solutions/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/ko/resources/blog/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ko/resources/</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zentroseo.com/ko/resources/glossary/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zentroseo.com/ko/resources/topics/</loc><lastmod>2026-03-01</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
 </urlset>

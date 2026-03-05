@@ -2,21 +2,24 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, AlertTriangle } from "lucide-react";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import Testimonials from "@/components/shared/Testimonials";
 import RelatedLinks from "@/components/shared/RelatedLinks";
 import CTASection from "@/components/home/CTASection";
 import { Button } from "@/components/ui/button";
-import { solutionsData } from "@/data/solutions";
+import { solutionsData, getSolutionData } from "@/data/solutions";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const SolutionDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const solution = slug ? solutionsData[slug] : null;
+  const solution = slug ? getSolutionData(slug) : null;
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   if (!solution) {
     return (
@@ -38,7 +41,7 @@ const SolutionDetail = () => {
       <Helmet>
         <title>{solution.metaTitle}</title>
         <meta name="description" content={solution.metaDescription} />
-        <link rel="canonical" href={`https://zentroseo.com/solutions/${solution.slug}/`} />
+        <link rel="canonical" href={getCanonicalUrl(lang, `/solutions/${solution.slug}/`)} />
         <meta property="og:title" content={solution.metaTitle} />
         <meta property="og:description" content={solution.metaDescription} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -87,7 +90,7 @@ const SolutionDetail = () => {
               <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex gap-4 p-5 rounded-xl bg-card border border-border">
                 <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <Link to={s.toolHref} className="font-display font-semibold text-primary hover:underline">{s.tool}</Link>
+                  <LocalizedLink to={s.toolHref} className="font-display font-semibold text-primary hover:underline">{s.tool}</LocalizedLink>
                   <p className="text-sm text-muted-foreground mt-1">{s.description}</p>
                 </div>
               </motion.div>
@@ -101,9 +104,9 @@ const SolutionDetail = () => {
           <div className="max-w-lg mx-auto p-8 rounded-2xl border border-primary/20 bg-accent/30">
             <h2 className="font-display text-2xl font-bold mb-3">{t("startFreeScaleReady")}</h2>
             <p className="text-muted-foreground text-sm mb-6">{t("startFreeDesc", { audience: solution.audience.toLowerCase() })}</p>
-            <Link to="/pricing/">
+            <LocalizedLink to="/pricing/">
               <Button variant="outline" className="mr-3">{t("viewPricing")}</Button>
-            </Link>
+            </LocalizedLink>
             <a href="https://app.zentroseo.com/signup?flow=direct">
               <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground">{t("startFree")}</Button>
             </a>

@@ -1,7 +1,8 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Calendar, Clock } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
@@ -14,10 +15,13 @@ import {
 } from "@/data/blog-posts";
 import { useTranslation } from "react-i18next";
 import { formatDate } from "@/lib/date-utils";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const BlogCategory = () => {
   const { category: catSlug } = useParams<{ category: string }>();
   const { t, i18n } = useTranslation("pages");
+  const { lang } = useLang();
 
   const categoryName = blogCategories
     .filter((c) => c !== "All")
@@ -28,7 +32,7 @@ const BlogCategory = () => {
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="font-display text-3xl font-bold mb-4">{t("categoryNotFound")}</h1>
-          <Link to="/resources/blog/" className="text-primary hover:underline">{t("backToBlogLink")}</Link>
+          <LocalizedLink to="/resources/blog/" className="text-primary hover:underline">{t("backToBlogLink")}</LocalizedLink>
         </div>
       </Layout>
     );
@@ -44,14 +48,14 @@ const BlogCategory = () => {
     "@type": "CollectionPage",
     name: meta?.title || categoryName,
     description: meta?.description || "",
-    url: `https://zentroseo.com/resources/blog/category/${catSlug}/`,
+    url: getCanonicalUrl(lang, `/resources/blog/category/${catSlug}/`),
     mainEntity: {
       "@type": "ItemList",
       numberOfItems: posts.length,
       itemListElement: posts.map((p, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `https://zentroseo.com/resources/blog/${p.slug}/`,
+        url: getCanonicalUrl(lang, `/resources/blog/${p.slug}/`),
         name: p.title,
       })),
     },
@@ -62,7 +66,7 @@ const BlogCategory = () => {
       <Helmet>
         <title>{meta?.title || categoryName} – ZentroSEO Blog</title>
         <meta name="description" content={meta?.description || `Browse all ${categoryName} articles on the ZentroSEO blog.`} />
-        <link rel="canonical" href={`https://zentroseo.com/resources/blog/category/${catSlug}/`} />
+        <link rel="canonical" href={getCanonicalUrl(lang, `/resources/blog/category/${catSlug}/`)} />
         <meta property="og:title" content={`${meta?.title || categoryName} – ZentroSEO Blog`} />
         <meta property="og:description" content={meta?.description || ""} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -101,7 +105,7 @@ const BlogCategory = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
               >
-                <Link
+                <LocalizedLink
                   to={`/resources/blog/${post.slug}/`}
                   className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden h-full"
                 >
@@ -128,7 +132,7 @@ const BlogCategory = () => {
                       </span>
                     </div>
                   </div>
-                </Link>
+                </LocalizedLink>
               </motion.div>
             ))}
           </div>
@@ -137,20 +141,20 @@ const BlogCategory = () => {
             <h2 className="font-display text-xl font-bold mb-4">{t("exploreMoreTopics")}</h2>
             <div className="flex flex-wrap gap-3">
               {otherCategories.map((cat) => (
-                <Link
+                <LocalizedLink
                   key={cat}
                   to={`/resources/blog/category/${categorySlug(cat)}/`}
                   className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
                 >
                   {cat}
-                </Link>
+                </LocalizedLink>
               ))}
-              <Link
+              <LocalizedLink
                 to="/resources/blog/"
                 className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-colors"
               >
                 {t("allArticles")}
-              </Link>
+              </LocalizedLink>
             </div>
           </div>
         </div>

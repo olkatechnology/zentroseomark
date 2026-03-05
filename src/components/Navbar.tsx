@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import LocalizedLink from "@/components/LocalizedLink";
+import { useLang } from "@/hooks/use-lang";
+import { localizedPath, stripLangPrefix } from "@/lib/lang-utils";
 import logo from "@/assets/zentroseo-logo-marketing.png";
 
 const languages = [
@@ -28,13 +31,16 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
   const location = useLocation();
-
-  const selectedLang = i18n.language;
+  const navigate = useNavigate();
+  const { lang, pathWithoutLang } = useLang();
 
   const handleLangSelect = (code: string) => {
-    i18n.changeLanguage(code);
-    localStorage.setItem("zentro-lang", code.toUpperCase());
+    // Navigate to the same page in the new language
+    const currentPath = stripLangPrefix(location.pathname);
+    const newPath = localizedPath(code, currentPath);
+    navigate(newPath);
     setLangOpen(false);
+    setMobileOpen(false);
   };
 
   const navItems = [
@@ -88,12 +94,15 @@ const Navbar = () => {
     },
   ];
 
+  // Check if a path is active (accounting for lang prefix)
+  const isActive = (href: string) => pathWithoutLang.startsWith(href);
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-hero/95 backdrop-blur-md border-b border-hero-muted/10">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
+        <LocalizedLink to="/" className="flex items-center gap-2 shrink-0">
           <img src={logo} alt="ZentroSEO" className="h-8" />
-        </Link>
+        </LocalizedLink>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-1">
@@ -104,26 +113,26 @@ const Navbar = () => {
               onMouseEnter={() => item.children && setOpenDropdown(item.label)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <Link
+              <LocalizedLink
                 to={item.href}
                 className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors
-                  ${location.pathname.startsWith(item.href) ? "text-hero-accent" : "text-hero-foreground/80 hover:text-hero-foreground"}`}
+                  ${isActive(item.href) ? "text-hero-accent" : "text-hero-foreground/80 hover:text-hero-foreground"}`}
               >
                 {item.label}
                 {item.children && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
-              </Link>
+              </LocalizedLink>
               {item.children && openDropdown === item.label && (
                 <div className="absolute top-full left-0 pt-2 w-64 animate-fade-in">
                   <div className="bg-card rounded-lg shadow-lg border p-2">
                     {item.children.map((child) => (
-                      <Link
+                      <LocalizedLink
                         key={child.href}
                         to={child.href}
                         className="block px-3 py-2.5 rounded-md hover:bg-accent transition-colors"
                       >
                         <div className="text-sm font-medium text-foreground">{child.label}</div>
                         <div className="text-xs text-muted-foreground">{child.desc}</div>
-                      </Link>
+                      </LocalizedLink>
                     ))}
                   </div>
                 </div>
@@ -141,23 +150,23 @@ const Navbar = () => {
           >
             <button className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground transition-colors rounded-md">
               <Globe className="w-4 h-4" />
-              {selectedLang.toUpperCase()}
+              {lang.toUpperCase()}
               <ChevronDown className="w-3 h-3 opacity-60" />
             </button>
             {langOpen && (
               <div className="absolute top-full right-0 pt-2 w-48 animate-fade-in z-50">
                 <div className="bg-card rounded-lg shadow-lg border p-1.5 max-h-72 overflow-y-auto">
-                  {languages.map((lang) => (
+                  {languages.map((l) => (
                     <button
-                      key={lang.code}
-                      onClick={() => handleLangSelect(lang.code)}
+                      key={l.code}
+                      onClick={() => handleLangSelect(l.code)}
                       className={`w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
-                        selectedLang === lang.code
+                        lang === l.code
                           ? "bg-primary/10 text-primary font-medium"
                           : "text-foreground hover:bg-accent"
                       }`}
                     >
-                      {lang.label}
+                      {l.label}
                     </button>
                   ))}
                 </div>
@@ -187,13 +196,13 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <div key={item.label}>
-                <Link
+                <LocalizedLink
                   to={item.href}
                   onClick={() => setMobileOpen(false)}
                   className="block px-3 py-2 text-sm font-medium text-hero-foreground/80 hover:text-hero-foreground"
                 >
                   {item.label}
-                </Link>
+                </LocalizedLink>
               </div>
             ))}
 
@@ -201,12 +210,12 @@ const Navbar = () => {
             <div className="border-t border-hero-muted/10 pt-3">
               <div className="px-3 pb-2 text-xs font-medium text-hero-muted uppercase tracking-wider">{t("common:language")}</div>
               <select
-                value={selectedLang}
+                value={lang}
                 onChange={(e) => handleLangSelect(e.target.value)}
                 className="w-full px-3 py-2 text-sm bg-hero-foreground/10 text-hero-foreground rounded-lg border border-hero-muted/20 focus:outline-none"
               >
-                {languages.map((lang) => (
-                  <option key={lang.code} value={lang.code}>{lang.label}</option>
+                {languages.map((l) => (
+                  <option key={l.code} value={l.code}>{l.label}</option>
                 ))}
               </select>
             </div>

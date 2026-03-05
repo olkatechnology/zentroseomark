@@ -1,27 +1,31 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Clock, CheckCircle } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-import { guides } from "@/data/guides";
+import { guides, getTranslatedGuides } from "@/data/guides";
 import { blogPosts } from "@/data/blog-posts";
 import { featuresData } from "@/data/features";
 import { renderMarkdown } from "@/lib/markdown-renderer";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const GuideDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const guide = guides.find((g) => g.slug === slug);
+  const guide = getTranslatedGuides().find((g) => g.slug === slug);
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   if (!guide) {
-    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("guideNotFound")}</h1><Link to="/resources/guides/" className="text-primary hover:underline">{t("backToGuides")}</Link></div></Layout>);
+    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("guideNotFound")}</h1><LocalizedLink to="/resources/guides/" className="text-primary hover:underline">{t("backToGuides")}</LocalizedLink></div></Layout>);
   }
 
   const relatedPosts = guide.relatedBlogSlugs.map((s) => blogPosts.find((p) => p.slug === s)).filter(Boolean);
   const relatedFeats = guide.relatedFeatures.map((s) => featuresData[s]).filter(Boolean);
-  const guideUrl = `https://zentroseo.com/resources/guides/${guide.slug}/`;
+  const guideUrl = getCanonicalUrl(lang, `/resources/guides/${guide.slug}/`);
 
   const howToJsonLd = {
     "@context": "https://schema.org",
@@ -49,9 +53,9 @@ const GuideDetail = () => {
 
       <article className="bg-background py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-3xl">
-          <Link to="/resources/guides/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
+          <LocalizedLink to="/resources/guides/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" /> {t("backToGuides")}
-          </Link>
+          </LocalizedLink>
 
           <div className="flex flex-wrap items-center gap-2 mb-4">
             <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium">{guide.difficulty}</span>
@@ -93,7 +97,7 @@ const GuideDetail = () => {
             <div className="mt-12 pt-8 border-t border-border">
               <h2 className="font-display text-xl font-bold mb-4">{t("relatedReading")}</h2>
               <ul className="space-y-2">
-                {relatedPosts.map((p) => p && <li key={p.slug}><Link to={`/resources/blog/${p.slug}/`} className="text-primary hover:underline text-sm">{p.title}</Link></li>)}
+                {relatedPosts.map((p) => p && <li key={p.slug}><LocalizedLink to={`/resources/blog/${p.slug}/`} className="text-primary hover:underline text-sm">{p.title}</LocalizedLink></li>)}
               </ul>
             </div>
           )}
@@ -103,10 +107,10 @@ const GuideDetail = () => {
               <h2 className="font-display text-xl font-bold mb-4">{t("toolsInGuide")}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedFeats.map((f) => (
-                  <Link key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
+                  <LocalizedLink key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
                     <h3 className="font-display font-semibold text-sm">{f.name}</h3>
                     <p className="text-xs text-muted-foreground mt-1">{f.tagline}</p>
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>
