@@ -1,6 +1,3 @@
-import featuresPT from '@/i18n/data/features-pt';
-import contentPT from '@/i18n/data/content-pt';
-
 const pt = {
   common: {
     getStarted: "Começar",
@@ -148,17 +145,6 @@ const pt = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "Perfeito para testar o ZentroSEO", standardDesc: "Ideal para pequenas empresas e startups",
     proDesc: "Perfeito para empresas em crescimento e agências", advancedDesc: "Para agências e grandes empresas",
-    f_1Website: "1 site", f_3Websites: "3 sites", f_10Websites: "10 sites", f_unlimitedWebsites: "Sites ilimitados",
-    f_4BasicAudits: "4 auditorias SEO básicas", f_20CompleteAudits: "20 auditorias SEO completas por URL", f_unlimitedAudits: "Auditorias SEO ilimitadas",
-    f_3KeywordTracking: "3 rastreamentos de keywords", f_50KeywordTracking: "50 rastreamentos de keywords por URL", f_unlimitedKeywordTracking: "Rastreamento de keywords ilimitado",
-    f_100KeywordResearch: "100 pesquisas de keywords por URL", f_unlimitedKeywordResearch: "Pesquisa de keywords ilimitada",
-    f_5CompetitorAnalysis: "5 análises de concorrentes por URL", f_10CompetitorAnalysis: "10 análises de concorrentes por URL", f_unlimitedCompetitorAnalysis: "Análise de concorrentes ilimitada",
-    f_backlinkAnalysis: "Análise de backlinks", f_limitedAiWriting: "Escrita de conteúdo IA limitada", f_unlimitedAiWriting: "Escrita de conteúdo IA ilimitada", f_unlimitedAiWritingShort: "Escrita IA ilimitada",
-    f_schemaGenerator: "Gerador de schema", f_schemaGeneration: "Geração de schema",
-    f_monthlyReports: "Relatórios mensais", f_weeklyReports: "Relatórios semanais", f_dailyReports: "Relatórios diários",
-    f_emailSupport: "Suporte por email", f_priorityEmailSupport: "Suporte por email prioritário", f_phoneEmailSupport: "Suporte telefônico + email",
-    f_autoSchedulingReports: "Agendamento automático de relatórios", f_whiteLabelReports: "Relatórios white-label", f_fullWhiteLabel: "Solução white-label completa", f_dedicatedAccountManager: "Gerente de conta dedicado",
-    l_100PagesScanned: "Limitado a 100 páginas analisadas", l_basicReportingOnly: "Apenas relatórios básicos",
   },
   pages: {
     featuresMetaTitle: "Todas as funcionalidades ZentroSEO", featuresMetaDesc: "Descubra as funcionalidades do ZentroSEO.",
@@ -349,10 +335,6 @@ const pt = {
     goToHomepage: "Ir para a página inicial", backToHomepage: "Voltar à página inicial",
     exploreTools: "Explorar as nossas ferramentas SEO", readSeoTips: "Ler guias e dicas SEO",
     getInTouchWithTeam: "Contactar a nossa equipa", lastUpdated: "Última atualização:",
-  },
-  data: {
-    features: featuresPT,
-    ...contentPT,
   },
 };
 

@@ -1,25 +1,20 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-import { glossaryTerms, glossaryCategories, getTranslatedGlossaryTerms } from "@/data/glossary";
+import { glossaryTerms, glossaryCategories } from "@/data/glossary";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Glossary = () => {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
-  const translatedTerms = getTranslatedGlossaryTerms();
-
-  const filtered = translatedTerms.filter((term) => {
+  const filtered = glossaryTerms.filter((term) => {
     const matchSearch = term.term.toLowerCase().includes(search.toLowerCase()) || term.definition.toLowerCase().includes(search.toLowerCase());
     const matchCat = activeCategory === "All" || term.category === activeCategory;
     return matchSearch && matchCat;
@@ -32,10 +27,10 @@ const Glossary = () => {
     "@type": "ItemList",
     name: t("glossaryHeroTitle"),
     description: t("glossaryMetaDesc"),
-    numberOfItems: translatedTerms.length,
-    itemListElement: translatedTerms.map((term, i) => ({
+    numberOfItems: glossaryTerms.length,
+    itemListElement: glossaryTerms.map((term, i) => ({
       "@type": "ListItem", position: i + 1, name: term.term,
-      url: getCanonicalUrl(lang, `/resources/glossary/${term.slug}/`),
+      url: `https://zentroseo.com/resources/glossary/${term.slug}/`,
     })),
   };
 
@@ -44,10 +39,10 @@ const Glossary = () => {
       <Helmet>
         <title>{t("glossaryMetaTitle")}</title>
         <meta name="description" content={t("glossaryMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/glossary/")} />
+        <link rel="canonical" href="https://zentroseo.com/resources/glossary/" />
         <meta property="og:title" content={t("glossaryMetaTitle")} />
         <meta property="og:description" content={t("glossaryMetaDesc")} />
-        <meta property="og:url" content={getCanonicalUrl(lang, "/resources/glossary/")} />
+        <meta property="og:url" content="https://zentroseo.com/resources/glossary/" />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
       </Helmet>
@@ -108,11 +103,11 @@ const Glossary = () => {
                 <h2 className="font-display text-2xl font-bold mb-3 text-primary">{letter}</h2>
                 <div className="space-y-3">
                   {terms.map((term) => (
-                    <LocalizedLink key={term.slug} to={`/resources/glossary/${term.slug}/`} className="block p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all group">
+                    <Link key={term.slug} to={`/resources/glossary/${term.slug}/`} className="block p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all group">
                       <h3 className="font-display font-semibold group-hover:text-primary transition-colors">{term.term}</h3>
                       <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{term.definition}</p>
                       <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-accent text-accent-foreground">{term.category}</span>
-                    </LocalizedLink>
+                    </Link>
                   ))}
                 </div>
               </div>

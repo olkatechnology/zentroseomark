@@ -1,7 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Calendar, Clock, Linkedin, Twitter } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
@@ -9,35 +8,32 @@ import { teamMembers } from "@/data/team";
 import { getPostsByAuthor } from "@/data/blog-posts";
 import { useTranslation } from "react-i18next";
 import { formatDate } from "@/lib/date-utils";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const AuthorProfile = () => {
   const { slug } = useParams<{ slug: string }>();
   const author = teamMembers.find((m) => m.authorSlug === slug);
   const { t, i18n } = useTranslation("pages");
-  const { lang } = useLang();
 
   if (!author) {
     return (
       <Layout>
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="font-display text-3xl font-bold mb-4">{t("authorNotFound")}</h1>
-          <LocalizedLink to="/company/about-us/" className="text-primary hover:underline">{t("backToAboutUs")}</LocalizedLink>
+          <Link to="/company/about-us/" className="text-primary hover:underline">{t("backToAboutUs")}</Link>
         </div>
       </Layout>
     );
   }
 
   const posts = getPostsByAuthor(author.name);
-  const authorUrl = getCanonicalUrl(lang, `/company/team/${author.authorSlug}/`);
+
   const sameAs = [author.socials.linkedin, author.socials.twitter].filter(Boolean);
 
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: author.name,
-    url: authorUrl,
+    url: `https://zentroseo.com/company/team/${author.authorSlug}/`,
     image: author.photo,
     jobTitle: author.role,
     description: author.bio,
@@ -54,7 +50,7 @@ const AuthorProfile = () => {
       <Helmet>
         <title>{author.name} – {author.role} at ZentroSEO</title>
         <meta name="description" content={author.bio.slice(0, 155)} />
-        <link rel="canonical" href={authorUrl} />
+        <link rel="canonical" href={`https://zentroseo.com/company/team/${author.authorSlug}/`} />
         <meta property="og:title" content={`${author.name} – ${author.role} at ZentroSEO`} />
         <meta property="og:description" content={author.bio.slice(0, 155)} />
         <meta property="og:image" content={author.photo} />
@@ -113,7 +109,7 @@ const AuthorProfile = () => {
               </h2>
               <div className="space-y-4">
                 {posts.map((post) => (
-                  <LocalizedLink
+                  <Link
                     key={post.slug}
                     to={`/resources/blog/${post.slug}/`}
                     className="block p-4 rounded-xl border border-border bg-card hover:border-primary/30 hover:shadow-card transition-all"
@@ -129,7 +125,7 @@ const AuthorProfile = () => {
                         <Clock className="w-3 h-3" /> {post.readTime}
                       </span>
                     </div>
-                  </LocalizedLink>
+                  </Link>
                 ))}
               </div>
             </>

@@ -1,6 +1,3 @@
-import featuresES from '@/i18n/data/features-es';
-import contentES from '@/i18n/data/content-es';
-
 const es = {
   common: {
     getStarted: "Comenzar", startFreeTrial: "Prueba gratuita", tryForFree: "Probar gratis",
@@ -141,17 +138,6 @@ const es = {
     standardDesc: "Ideal para pequeñas empresas y startups",
     proDesc: "Perfecto para empresas en crecimiento y agencias",
     advancedDesc: "Para agencias y grandes empresas",
-    f_1Website: "1 sitio web", f_3Websites: "3 sitios web", f_10Websites: "10 sitios web", f_unlimitedWebsites: "Sitios web ilimitados",
-    f_4BasicAudits: "4 auditorías SEO básicas", f_20CompleteAudits: "20 auditorías SEO completas por URL", f_unlimitedAudits: "Auditorías SEO ilimitadas",
-    f_3KeywordTracking: "3 seguimientos de keywords", f_50KeywordTracking: "50 seguimientos de keywords por URL", f_unlimitedKeywordTracking: "Seguimiento de keywords ilimitado",
-    f_100KeywordResearch: "100 investigaciones de keywords por URL", f_unlimitedKeywordResearch: "Investigación de keywords ilimitada",
-    f_5CompetitorAnalysis: "5 análisis de competencia por URL", f_10CompetitorAnalysis: "10 análisis de competencia por URL", f_unlimitedCompetitorAnalysis: "Análisis de competencia ilimitado",
-    f_backlinkAnalysis: "Análisis de backlinks", f_limitedAiWriting: "Escritura de contenido IA limitada", f_unlimitedAiWriting: "Escritura de contenido IA ilimitada", f_unlimitedAiWritingShort: "Escritura IA ilimitada",
-    f_schemaGenerator: "Generador de schema", f_schemaGeneration: "Generación de schema",
-    f_monthlyReports: "Informes mensuales", f_weeklyReports: "Informes semanales", f_dailyReports: "Informes diarios",
-    f_emailSupport: "Soporte por email", f_priorityEmailSupport: "Soporte por email prioritario", f_phoneEmailSupport: "Soporte telefónico + email",
-    f_autoSchedulingReports: "Programación automática de informes", f_whiteLabelReports: "Informes de marca blanca", f_fullWhiteLabel: "Solución completa de marca blanca", f_dedicatedAccountManager: "Gestor de cuenta dedicado",
-    l_100PagesScanned: "Limitado a 100 páginas escaneadas", l_basicReportingOnly: "Solo informes básicos",
   },
   pages: {
     featuresMetaTitle: "Todas las funciones de ZentroSEO – Herramientas IA para cada tarea SEO",
@@ -398,10 +384,6 @@ const es = {
     aboutUs: "Sobre nosotros", contactUs: "Contáctenos", all: "Todas",
     tool: "Herramienta", agencies: "Agencias", startups: "Startups",
     ecommerce: "E-commerce", creators: "Creadores", careers: "Carreras", topicalMap: "Mapa temático",
-  },
-  data: {
-    features: featuresES,
-    ...contentES,
   },
 };
 

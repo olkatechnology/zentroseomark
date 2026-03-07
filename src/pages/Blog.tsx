@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Calendar, Clock, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import LocalizedLink from "@/components/LocalizedLink";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
@@ -11,14 +11,11 @@ import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
 import { formatDate } from "@/lib/date-utils";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const { t, i18n } = useTranslation("pages");
-  const { lang } = useLang();
 
   const filtered = blogPosts.filter((p) => {
     const matchesCategory = activeCategory === "All" || p.category === activeCategory;
@@ -32,13 +29,13 @@ const Blog = () => {
     "@type": "CollectionPage",
     name: "ZentroSEO Blog",
     description: t("blogMetaDesc"),
-    url: getCanonicalUrl(lang, "/resources/blog/"),
+    url: "https://zentroseo.com/resources/blog/",
     mainEntity: {
       "@type": "ItemList",
       itemListElement: blogPosts.map((post, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: getCanonicalUrl(lang, `/resources/blog/${post.slug}/`),
+        url: `https://zentroseo.com/resources/blog/${post.slug}/`,
         name: post.title,
       })),
     },
@@ -49,7 +46,7 @@ const Blog = () => {
       <Helmet>
         <title>{t("blogMetaTitle")}</title>
         <meta name="description" content={t("blogMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/blog/")} />
+        <link rel="canonical" href="https://zentroseo.com/resources/blog/" />
         <meta property="og:title" content={t("blogMetaTitle")} />
         <meta property="og:description" content={t("blogMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -71,45 +68,65 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto mb-8 relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input type="search" placeholder={t("searchArticles")} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pl-10" />
+            <Input
+              type="search"
+              placeholder={t("searchArticles")}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
           </div>
           <div className="flex flex-wrap gap-2 justify-center mb-12">
             {blogCategories.map((cat) =>
               cat === "All" ? (
-                <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground hover:text-foreground"}`}>{t("all")}</button>
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === cat ? "bg-primary text-primary-foreground" : "bg-secondary text-muted-foreground hover:text-foreground"}`}
+                >
+                  {t("all")}
+                </button>
               ) : (
-                <LocalizedLink key={cat} to={`/resources/blog/category/${categorySlug(cat)}/`} className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-muted-foreground hover:text-foreground transition-colors">{cat}</LocalizedLink>
+                <Link
+                  key={cat}
+                  to={`/resources/blog/category/${categorySlug(cat)}/`}
+                  className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {cat}
+                </Link>
               )
             )}
           </div>
 
-          {activeCategory === "All" && !searchQuery.trim() && (() => {
-            const trendingPosts = blogPosts.filter((p) => p.trending);
-            return trendingPosts.length > 0 ? (
-              <div className="max-w-5xl mx-auto mb-12">
-                <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">{t("trendingArticles")}</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {trendingPosts.slice(0, 3).map((post) => (
-                    <LocalizedLink key={post.slug} to={`/resources/blog/${post.slug}/`} className="group block rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all overflow-hidden">
-                      <div className="p-5">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="default" className="text-[10px] px-2 py-0">{t("trending")}</Badge>
-                          <span className="text-xs text-muted-foreground">{post.category}</span>
+          {activeCategory === "All" && !searchQuery.trim() && (
+            (() => {
+              const trendingPosts = blogPosts.filter((p) => p.trending);
+              return trendingPosts.length > 0 ? (
+                <div className="max-w-5xl mx-auto mb-12">
+                  <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">{t("trendingArticles")}</h2>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {trendingPosts.slice(0, 3).map((post) => (
+                      <Link key={post.slug} to={`/resources/blog/${post.slug}/`} className="group block rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all overflow-hidden">
+                        <div className="p-5">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Badge variant="default" className="text-[10px] px-2 py-0">{t("trending")}</Badge>
+                            <span className="text-xs text-muted-foreground">{post.category}</span>
+                          </div>
+                          <h3 className="font-display font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
                         </div>
-                        <h3 className="font-display font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">{post.title}</h3>
-                        <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
-                      </div>
-                    </LocalizedLink>
-                  ))}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ) : null;
-          })()}
+              ) : null;
+            })()
+          )}
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {filtered.map((post, i) => (
               <motion.div key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                <LocalizedLink to={`/resources/blog/${post.slug}/`} className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden h-full">
+                <Link to={`/resources/blog/${post.slug}/`} className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden h-full">
                   {post.featuredImage && <img src={post.featuredImage} alt={post.title} className="w-full h-40 object-cover" loading="lazy" />}
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
@@ -124,7 +141,7 @@ const Blog = () => {
                       <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                     </div>
                   </div>
-                </LocalizedLink>
+                </Link>
               </motion.div>
             ))}
           </div>

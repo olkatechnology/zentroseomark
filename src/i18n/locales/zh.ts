@@ -1,6 +1,3 @@
-import featuresZH from '@/i18n/data/features-zh';
-import contentZH from '@/i18n/data/content-zh';
-
 const zh = {
   common: {
     getStarted: "开始使用", startFreeTrial: "免费试用", tryForFree: "免费试用",
@@ -125,17 +122,6 @@ const zh = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "完美体验ZentroSEO", standardDesc: "适合小型企业和初创公司",
     proDesc: "适合成长型企业和代理商", advancedDesc: "适合代理商和大型企业",
-    f_1Website: "1个网站", f_3Websites: "3个网站", f_10Websites: "10个网站", f_unlimitedWebsites: "无限网站",
-    f_4BasicAudits: "4次基础SEO审计", f_20CompleteAudits: "每个URL 20次完整SEO审计", f_unlimitedAudits: "无限SEO审计",
-    f_3KeywordTracking: "3个关键词追踪", f_50KeywordTracking: "每个URL 50个关键词追踪", f_unlimitedKeywordTracking: "无限关键词追踪",
-    f_100KeywordResearch: "每个URL 100次关键词研究", f_unlimitedKeywordResearch: "无限关键词研究",
-    f_5CompetitorAnalysis: "每个URL 5次竞争对手分析", f_10CompetitorAnalysis: "每个URL 10次竞争对手分析", f_unlimitedCompetitorAnalysis: "无限竞争对手分析",
-    f_backlinkAnalysis: "外链分析", f_limitedAiWriting: "有限AI内容写作", f_unlimitedAiWriting: "无限AI内容写作", f_unlimitedAiWritingShort: "无限AI写作",
-    f_schemaGenerator: "Schema生成器", f_schemaGeneration: "Schema生成",
-    f_monthlyReports: "月度报告", f_weeklyReports: "周报告", f_dailyReports: "日报告",
-    f_emailSupport: "邮件支持", f_priorityEmailSupport: "优先邮件支持", f_phoneEmailSupport: "电话+邮件支持",
-    f_autoSchedulingReports: "自动报告调度", f_whiteLabelReports: "白标报告", f_fullWhiteLabel: "完整白标解决方案", f_dedicatedAccountManager: "专属客户经理",
-    l_100PagesScanned: "限扫描100个页面", l_basicReportingOnly: "仅基础报告",
   },
   pages: {
     featuresMetaTitle: "所有ZentroSEO功能", featuresMetaDesc: "发现ZentroSEO的功能。", featuresHeroTitle: "所有", featuresHeroHighlight: "功能",
@@ -269,10 +255,6 @@ const zh = {
     topicalMapHeroTitle: "内容主题地图", topicalMapHeroSubtitle: "发现{{count}}篇文章如何在{{silos}}个主题筒仓中连接。",
     networkView: "网络视图", listView: "列表视图", hoverHint: "悬停高亮连接 · 点击节点阅读文章",
     hubPillar: "枢纽 · 支柱", crossSiloLinks: "跨筒仓链接 →", totalArticles: "文章总数", topicSilos: "主题筒仓", hubPages: "枢纽页面", topicHubs: "主题枢纽",
-  },
-  data: {
-    features: featuresZH,
-    ...contentZH,
   },
 };
 

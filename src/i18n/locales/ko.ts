@@ -1,6 +1,3 @@
-import featuresKO from '@/i18n/data/features-ko';
-import contentKO from '@/i18n/data/content-ko';
-
 const ko = {
   common: {
     getStarted: "시작하기", startFreeTrial: "무료 체험", tryForFree: "무료로 사용해보기",
@@ -125,17 +122,6 @@ const ko = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "ZentroSEO를 테스트하기에 완벽", standardDesc: "소규모 비즈니스와 스타트업에 적합",
     proDesc: "성장하는 비즈니스와 에이전시에 적합", advancedDesc: "에이전시와 대기업을 위한",
-    f_1Website: "1개 웹사이트", f_3Websites: "3개 웹사이트", f_10Websites: "10개 웹사이트", f_unlimitedWebsites: "무제한 웹사이트",
-    f_4BasicAudits: "4회 기본 SEO 감사", f_20CompleteAudits: "URL당 20회 완전 SEO 감사", f_unlimitedAudits: "무제한 SEO 감사",
-    f_3KeywordTracking: "3개 키워드 추적", f_50KeywordTracking: "URL당 50개 키워드 추적", f_unlimitedKeywordTracking: "무제한 키워드 추적",
-    f_100KeywordResearch: "URL당 100회 키워드 리서치", f_unlimitedKeywordResearch: "무제한 키워드 리서치",
-    f_5CompetitorAnalysis: "URL당 5회 경쟁사 분석", f_10CompetitorAnalysis: "URL당 10회 경쟁사 분석", f_unlimitedCompetitorAnalysis: "무제한 경쟁사 분석",
-    f_backlinkAnalysis: "백링크 분석", f_limitedAiWriting: "제한된 AI 콘텐츠 작성", f_unlimitedAiWriting: "무제한 AI 콘텐츠 작성", f_unlimitedAiWritingShort: "무제한 AI 작성",
-    f_schemaGenerator: "Schema 생성기", f_schemaGeneration: "Schema 생성",
-    f_monthlyReports: "월간 보고서", f_weeklyReports: "주간 보고서", f_dailyReports: "일간 보고서",
-    f_emailSupport: "이메일 지원", f_priorityEmailSupport: "우선 이메일 지원", f_phoneEmailSupport: "전화 + 이메일 지원",
-    f_autoSchedulingReports: "자동 보고서 예약", f_whiteLabelReports: "화이트라벨 보고서", f_fullWhiteLabel: "완전한 화이트라벨 솔루션", f_dedicatedAccountManager: "전담 계정 관리자",
-    l_100PagesScanned: "100페이지 스캔으로 제한", l_basicReportingOnly: "기본 보고서만",
   },
   pages: {
     featuresMetaTitle: "모든 ZentroSEO 기능", featuresMetaDesc: "ZentroSEO 기능을 발견하세요.", featuresHeroTitle: "모든", featuresHeroHighlight: "기능",
@@ -266,10 +252,6 @@ const ko = {
     topicalMapHeroTitle: "콘텐츠 토픽 맵", topicalMapHeroSubtitle: "{{count}}개 기사가 {{silos}}개 토픽 사일로에서 어떻게 연결되는지 발견.",
     networkView: "네트워크 뷰", listView: "리스트 뷰", hoverHint: "호버하여 연결 강조 · 클릭하여 기사 읽기",
     hubPillar: "허브 · 필러", crossSiloLinks: "크로스사일로 링크 →", totalArticles: "총 기사", topicSilos: "토픽 사일로", hubPages: "허브 페이지", topicHubs: "토픽 허브",
-  },
-  data: {
-    features: featuresKO,
-    ...contentKO,
   },
 };
 

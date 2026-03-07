@@ -1,6 +1,3 @@
-import featuresIT from '@/i18n/data/features-it';
-import contentIT from '@/i18n/data/content-it';
-
 const it = {
   common: {
     getStarted: "Inizia ora",
@@ -163,17 +160,6 @@ const it = {
     standardDesc: "Ideale per piccole imprese e startup",
     proDesc: "Perfetto per aziende in crescita e agenzie",
     advancedDesc: "Per agenzie e grandi aziende",
-    f_1Website: "1 sito web", f_3Websites: "3 siti web", f_10Websites: "10 siti web", f_unlimitedWebsites: "Siti web illimitati",
-    f_4BasicAudits: "4 audit SEO base", f_20CompleteAudits: "20 audit SEO completi per URL", f_unlimitedAudits: "Audit SEO illimitati",
-    f_3KeywordTracking: "3 monitoraggi keyword", f_50KeywordTracking: "50 monitoraggi keyword per URL", f_unlimitedKeywordTracking: "Monitoraggio keyword illimitato",
-    f_100KeywordResearch: "100 ricerche keyword per URL", f_unlimitedKeywordResearch: "Ricerca keyword illimitata",
-    f_5CompetitorAnalysis: "5 analisi competitor per URL", f_10CompetitorAnalysis: "10 analisi competitor per URL", f_unlimitedCompetitorAnalysis: "Analisi competitor illimitata",
-    f_backlinkAnalysis: "Analisi backlink", f_limitedAiWriting: "Scrittura contenuti IA limitata", f_unlimitedAiWriting: "Scrittura contenuti IA illimitata", f_unlimitedAiWritingShort: "Scrittura IA illimitata",
-    f_schemaGenerator: "Generatore di schema", f_schemaGeneration: "Generazione schema",
-    f_monthlyReports: "Report mensili", f_weeklyReports: "Report settimanali", f_dailyReports: "Report giornalieri",
-    f_emailSupport: "Supporto via email", f_priorityEmailSupport: "Supporto email prioritario", f_phoneEmailSupport: "Supporto telefonico + email",
-    f_autoSchedulingReports: "Pianificazione automatica report", f_whiteLabelReports: "Report white-label", f_fullWhiteLabel: "Soluzione white-label completa", f_dedicatedAccountManager: "Account manager dedicato",
-    l_100PagesScanned: "Limitato a 100 pagine scansionate", l_basicReportingOnly: "Solo report base",
   },
   pages: {
     featuresMetaTitle: "Tutte le funzionalità ZentroSEO", featuresMetaDesc: "Scopri le funzionalità di ZentroSEO.",
@@ -388,10 +374,6 @@ const it = {
     exploreTools: "Esplora i nostri strumenti SEO", readSeoTips: "Leggi guide e consigli SEO",
     getInTouchWithTeam: "Contatta il nostro team",
     lastUpdated: "Ultimo aggiornamento:",
-  },
-  data: {
-    features: featuresIT,
-    ...contentIT,
   },
 };
 

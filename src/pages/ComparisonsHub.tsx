@@ -1,25 +1,20 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeftRight } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-import { comparisons, getTranslatedComparisons } from "@/data/comparisons";
+import { comparisons } from "@/data/comparisons";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const ComparisonsHub = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
-
-  const translatedComparisons = getTranslatedComparisons();
 
   const itemListJsonLd = {
     "@context": "https://schema.org", "@type": "ItemList", name: t("comparisonsHeroTitle"),
-    numberOfItems: translatedComparisons.length,
-    itemListElement: translatedComparisons.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.title, url: getCanonicalUrl(lang, `/resources/comparisons/${c.slug}/`) })),
+    numberOfItems: comparisons.length,
+    itemListElement: comparisons.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.title, url: `https://zentroseo.com/resources/comparisons/${c.slug}/` })),
   };
 
   return (
@@ -27,10 +22,10 @@ const ComparisonsHub = () => {
       <Helmet>
         <title>{t("comparisonsMetaTitle")}</title>
         <meta name="description" content={t("comparisonsMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/comparisons/")} />
+        <link rel="canonical" href="https://zentroseo.com/resources/comparisons/" />
         <meta property="og:title" content={t("comparisonsMetaTitle")} />
         <meta property="og:description" content={t("comparisonsMetaDesc")} />
-        <meta property="og:url" content={getCanonicalUrl(lang, "/resources/comparisons/")} />
+        <meta property="og:url" content="https://zentroseo.com/resources/comparisons/" />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
       </Helmet>
@@ -49,9 +44,9 @@ const ComparisonsHub = () => {
       <section className="py-16 md:py-20 bg-background">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="space-y-4">
-            {translatedComparisons.map((c, i) => (
+            {comparisons.map((c, i) => (
               <motion.div key={c.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-                <LocalizedLink to={`/resources/comparisons/${c.slug}/`} className="group block p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
+                <Link to={`/resources/comparisons/${c.slug}/`} className="group block p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-medium">{c.category}</span>
                   </div>
@@ -62,7 +57,7 @@ const ComparisonsHub = () => {
                     <ArrowLeftRight className="w-3 h-3" />
                     <span className="font-medium text-foreground">{c.itemB.name}</span>
                   </div>
-                </LocalizedLink>
+                </Link>
               </motion.div>
             ))}
           </div>

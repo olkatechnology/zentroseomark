@@ -10,12 +10,9 @@ import WhyDifferent from "@/components/home/WhyDifferent";
 import FAQSection from "@/components/home/FAQSection";
 import CTASection from "@/components/home/CTASection";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Index = () => {
   const { t } = useTranslation("home");
-  const { lang } = useLang();
 
   const testimonials = [
     { quote: t("testimonial1Quote"), name: t("testimonial1Name"), role: t("testimonial1Role"), company: t("testimonial1Company") },
@@ -86,11 +83,11 @@ const Index = () => {
         <meta property="og:title" content={t("home:metaTitle", { ns: "home", defaultValue: "ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings" })} />
         <meta property="og:description" content={t("home:metaDescription", { ns: "home", defaultValue: "ZentroSEO is the AI-powered SEO platform for non-techies to run audits, schema, keywords, and rank tracking — all in one place." })} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={getCanonicalUrl(lang, "/")} />
+        <meta property="og:url" content="https://zentroseo.com/" />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/")} />
+        <link rel="canonical" href="https://zentroseo.com/" />
       </Helmet>
 
       <HeroSection />

@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Youtube, Facebook } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import LocalizedLink from "@/components/LocalizedLink";
 import logo from "@/assets/zentroseo-logo-marketing.png";
 
 const socialLinks = [
@@ -77,9 +77,9 @@ const Footer = () => {
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <LocalizedLink to={link.href} className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">
+                    <Link to={link.href} className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">
                       {link.label}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -89,8 +89,8 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-hero-muted/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-hero-muted">{t("copyright", { year: new Date().getFullYear() })}</p>
           <div className="flex items-center gap-4">
-            <LocalizedLink to="/privacy-policy/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("privacy")}</LocalizedLink>
-            <LocalizedLink to="/terms-of-service/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("terms")}</LocalizedLink>
+            <Link to="/privacy-policy/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("privacy")}</Link>
+            <Link to="/terms-of-service/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("terms")}</Link>
           </div>
         </div>
       </div>

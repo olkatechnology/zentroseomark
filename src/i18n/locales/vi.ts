@@ -1,6 +1,3 @@
-import featuresVI from '@/i18n/data/features-vi';
-import contentVI from '@/i18n/data/content-vi';
-
 const vi = {
   common: {
     getStarted: "Bắt đầu", startFreeTrial: "Dùng thử miễn phí", tryForFree: "Dùng thử miễn phí",
@@ -133,17 +130,6 @@ const vi = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "Hoàn hảo để thử nghiệm ZentroSEO", standardDesc: "Tuyệt vời cho doanh nghiệp nhỏ",
     proDesc: "Hoàn hảo cho doanh nghiệp đang phát triển", advancedDesc: "Cho các agency và doanh nghiệp lớn",
-    f_1Website: "1 website", f_3Websites: "3 website", f_10Websites: "10 website", f_unlimitedWebsites: "Không giới hạn website",
-    f_4BasicAudits: "4 kiểm tra SEO cơ bản", f_20CompleteAudits: "20 kiểm tra SEO đầy đủ mỗi URL", f_unlimitedAudits: "Kiểm tra SEO không giới hạn",
-    f_3KeywordTracking: "3 theo dõi từ khóa", f_50KeywordTracking: "50 theo dõi từ khóa mỗi URL", f_unlimitedKeywordTracking: "Theo dõi từ khóa không giới hạn",
-    f_100KeywordResearch: "100 nghiên cứu từ khóa mỗi URL", f_unlimitedKeywordResearch: "Nghiên cứu từ khóa không giới hạn",
-    f_5CompetitorAnalysis: "5 phân tích đối thủ mỗi URL", f_10CompetitorAnalysis: "10 phân tích đối thủ mỗi URL", f_unlimitedCompetitorAnalysis: "Phân tích đối thủ không giới hạn",
-    f_backlinkAnalysis: "Phân tích backlink", f_limitedAiWriting: "Viết nội dung AI giới hạn", f_unlimitedAiWriting: "Viết nội dung AI không giới hạn", f_unlimitedAiWritingShort: "Viết AI không giới hạn",
-    f_schemaGenerator: "Trình tạo schema", f_schemaGeneration: "Tạo schema",
-    f_monthlyReports: "Báo cáo hàng tháng", f_weeklyReports: "Báo cáo hàng tuần", f_dailyReports: "Báo cáo hàng ngày",
-    f_emailSupport: "Hỗ trợ qua email", f_priorityEmailSupport: "Hỗ trợ email ưu tiên", f_phoneEmailSupport: "Hỗ trợ điện thoại + email",
-    f_autoSchedulingReports: "Lên lịch báo cáo tự động", f_whiteLabelReports: "Báo cáo white-label", f_fullWhiteLabel: "Giải pháp white-label đầy đủ", f_dedicatedAccountManager: "Quản lý tài khoản chuyên trách",
-    l_100PagesScanned: "Giới hạn 100 trang được quét", l_basicReportingOnly: "Chỉ báo cáo cơ bản",
   },
   pages: {
     featuresMetaTitle: "Tất cả tính năng ZentroSEO", featuresMetaDesc: "Khám phá tính năng ZentroSEO.", featuresHeroTitle: "Tất cả", featuresHeroHighlight: "Tính năng",
@@ -283,10 +269,6 @@ const vi = {
     topicalMapHeroTitle: "Bản đồ chủ đề", topicalMapHeroSubtitle: "Khám phá {{count}} bài viết kết nối trong {{silos}} silos.",
     networkView: "Xem mạng", listView: "Xem danh sách", hoverHint: "Di chuột để highlight · Click để đọc",
     hubPillar: "Hub · Trụ cột", crossSiloLinks: "Link cross-silo →", totalArticles: "Tổng bài viết", topicSilos: "Silos chủ đề", hubPages: "Trang hub", topicHubs: "Hub chủ đề",
-  },
-  data: {
-    features: featuresVI,
-    ...contentVI,
   },
 };
 

@@ -3,19 +3,16 @@ import Layout from "@/components/Layout";
 import FeaturesGrid from "@/components/home/FeaturesGrid";
 import CTASection from "@/components/home/CTASection";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Features = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   return (
     <Layout>
       <Helmet>
         <title>{t("featuresMetaTitle")}</title>
         <meta name="description" content={t("featuresMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/features/")} />
+        <link rel="canonical" href="https://zentroseo.com/features/" />
         <meta property="og:title" content={t("featuresMetaTitle")} />
         <meta property="og:description" content={t("featuresMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />

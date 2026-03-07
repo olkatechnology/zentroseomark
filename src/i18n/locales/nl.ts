@@ -1,6 +1,3 @@
-import featuresNL from '@/i18n/data/features-nl';
-import contentNL from '@/i18n/data/content-nl';
-
 const nl = {
   common: {
     getStarted: "Aan de slag",
@@ -150,17 +147,6 @@ const nl = {
     standardDesc: "Ideaal voor kleine bedrijven en startups",
     proDesc: "Perfect voor groeiende bedrijven en bureaus",
     advancedDesc: "Voor bureaus en grote bedrijven",
-    f_1Website: "1 website", f_3Websites: "3 websites", f_10Websites: "10 websites", f_unlimitedWebsites: "Onbeperkt websites",
-    f_4BasicAudits: "4 basis SEO-audits", f_20CompleteAudits: "20 volledige SEO-audits per URL", f_unlimitedAudits: "Onbeperkt SEO-audits",
-    f_3KeywordTracking: "3 keyword-tracking", f_50KeywordTracking: "50 keyword-tracking per URL", f_unlimitedKeywordTracking: "Onbeperkt keyword-tracking",
-    f_100KeywordResearch: "100 keyword-onderzoeken per URL", f_unlimitedKeywordResearch: "Onbeperkt keyword-onderzoek",
-    f_5CompetitorAnalysis: "5 concurrentieanalyses per URL", f_10CompetitorAnalysis: "10 concurrentieanalyses per URL", f_unlimitedCompetitorAnalysis: "Onbeperkt concurrentieanalyse",
-    f_backlinkAnalysis: "Backlink-analyse", f_limitedAiWriting: "Beperkt AI-content schrijven", f_unlimitedAiWriting: "Onbeperkt AI-content schrijven", f_unlimitedAiWritingShort: "Onbeperkt AI-schrijven",
-    f_schemaGenerator: "Schema-generator", f_schemaGeneration: "Schema-generatie",
-    f_monthlyReports: "Maandelijkse rapporten", f_weeklyReports: "Wekelijkse rapporten", f_dailyReports: "Dagelijkse rapporten",
-    f_emailSupport: "E-mailsupport", f_priorityEmailSupport: "Prioriteit e-mailsupport", f_phoneEmailSupport: "Telefoon- + e-mailsupport",
-    f_autoSchedulingReports: "Automatische rapportplanning", f_whiteLabelReports: "White-label rapporten", f_fullWhiteLabel: "Volledige white-label oplossing", f_dedicatedAccountManager: "Toegewezen accountmanager",
-    l_100PagesScanned: "Beperkt tot 100 gescande pagina's", l_basicReportingOnly: "Alleen basisrapportage",
   },
   pages: {
     featuresMetaTitle: "Alle ZentroSEO-functies", featuresMetaDesc: "Ontdek de functies van ZentroSEO.",
@@ -372,10 +358,6 @@ const nl = {
     exploreTools: "Ontdek onze SEO-tools", readSeoTips: "Lees SEO-gidsen & tips",
     getInTouchWithTeam: "Neem contact op met ons team",
     lastUpdated: "Laatst bijgewerkt:",
-  },
-  data: {
-    features: featuresNL,
-    ...contentNL,
   },
 };
 

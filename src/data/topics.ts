@@ -1,5 +1,3 @@
-import { td } from "@/lib/i18n-data";
-
 export interface Topic {
   name: string;
   slug: string;
@@ -427,11 +425,3 @@ Measures visual stability — how much the page layout shifts during loading. Ta
     ],
   },
 ];
-
-export function getTranslatedTopics(): Topic[] {
-  return topics.map((t) => ({
-    ...t,
-    name: td(`topics.${t.slug}.name`, t.name),
-    description: td(`topics.${t.slug}.description`, t.description),
-  }));
-}

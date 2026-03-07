@@ -1,6 +1,3 @@
-import featuresSV from '@/i18n/data/features-sv';
-import contentSV from '@/i18n/data/content-sv';
-
 const sv = {
   common: {
     getStarted: "Kom igång", startFreeTrial: "Gratis provperiod", tryForFree: "Prova gratis",
@@ -131,17 +128,6 @@ const sv = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "Perfekt för att testa ZentroSEO", standardDesc: "Bra för små företag och startups",
     proDesc: "Perfekt för växande företag och byråer", advancedDesc: "För byråer och stora företag",
-    f_1Website: "1 webbplats", f_3Websites: "3 webbplatser", f_10Websites: "10 webbplatser", f_unlimitedWebsites: "Obegränsade webbplatser",
-    f_4BasicAudits: "4 grundläggande SEO-revisioner", f_20CompleteAudits: "20 kompletta SEO-revisioner per URL", f_unlimitedAudits: "Obegränsade SEO-revisioner",
-    f_3KeywordTracking: "3 sökordsbevakning", f_50KeywordTracking: "50 sökordsbevakningar per URL", f_unlimitedKeywordTracking: "Obegränsad sökordsbevakning",
-    f_100KeywordResearch: "100 sökordsundersökningar per URL", f_unlimitedKeywordResearch: "Obegränsad sökordsundersökning",
-    f_5CompetitorAnalysis: "5 konkurrentanalyser per URL", f_10CompetitorAnalysis: "10 konkurrentanalyser per URL", f_unlimitedCompetitorAnalysis: "Obegränsad konkurrentanalys",
-    f_backlinkAnalysis: "Backlinkanalys", f_limitedAiWriting: "Begränsad AI-innehållsskrivning", f_unlimitedAiWriting: "Obegränsad AI-innehållsskrivning", f_unlimitedAiWritingShort: "Obegränsad AI-skrivning",
-    f_schemaGenerator: "Schema-generator", f_schemaGeneration: "Schema-generering",
-    f_monthlyReports: "Månadsrapporter", f_weeklyReports: "Veckorapporter", f_dailyReports: "Dagliga rapporter",
-    f_emailSupport: "E-postsupport", f_priorityEmailSupport: "Prioriterad e-postsupport", f_phoneEmailSupport: "Telefon- + e-postsupport",
-    f_autoSchedulingReports: "Automatisk rapportschemaläggning", f_whiteLabelReports: "White-label-rapporter", f_fullWhiteLabel: "Komplett white-label-lösning", f_dedicatedAccountManager: "Dedikerad kontoansvarig",
-    l_100PagesScanned: "Begränsat till 100 skannade sidor", l_basicReportingOnly: "Endast grundläggande rapportering",
   },
   pages: {
     featuresMetaTitle: "Alla ZentroSEO-funktioner", featuresMetaDesc: "Upptäck ZentroSEOs funktioner.", featuresHeroTitle: "Alla", featuresHeroHighlight: "Funktioner",
@@ -283,10 +269,6 @@ const sv = {
     hubPillar: "Hubb · Pelare", crossSiloLinks: "Cross-silo-länkar →", totalArticles: "Totalt artiklar", topicSilos: "Ämnessilos", hubPages: "Hubbsidor", topicHubs: "Ämneshubbar",
     pageNotFound: "Sidan hittades inte", pageNotFoundDesc: "Tyvärr, sidan finns inte.", goToHomepage: "Till startsidan", backToHomepage: "Tillbaka till startsidan",
     exploreTools: "Utforska våra SEO-verktyg", readSeoTips: "Läs SEO-guider & tips", getInTouchWithTeam: "Kontakta vårt team", lastUpdated: "Senast uppdaterad:",
-  },
-  data: {
-    features: featuresSV,
-    ...contentSV,
   },
 };
 
