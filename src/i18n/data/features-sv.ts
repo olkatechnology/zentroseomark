@@ -1,9 +1,10 @@
 const featuresSV: Record<string, any> = {
   zentroaudit: {
-    name: "ZentroAudit", tagline: "Entitetsbaserade SEO-granskningar på sekunder",
+    name: "ZentroAudit",
+    tagline: "Entitetsbaserade SEO-granskningar på sekunder",
     metaTitle: "ZentroAudit – Entitetsbaserade SEO-granskningar på sekunder",
     metaDescription: "ZentroAudit analyserar din webbplats med semantisk SEO, tematiskt djup och entitetstäckning.",
-    overview: "ZentroAudit går bortom ytliga signaler. Den utvärderar din webbplats genom linsen av **entitetsbaserad SEO**, och mäter täckning av entiteter, attribut och semantiska relationer.\n\nGenom att kombinera över 200 tekniska SEO-kontroller med NLP-analys av entitetstäckning och Core Web Vitals-övervakning levererar den en unik, prioriterad vägkarta.",
+    overview: "De flesta SEO-granskningsverktyg kontrollerar bara ytliga signaler — saknade metataggar, långsamma laddningstider, trasiga länkar. ZentroAudit går djupare. Den utvärderar din webbplats genom linsen av **entitetsbaserad SEO**, och mäter hur fullständigt ditt innehåll täcker de entiteter, attribut och semantiska relationer som sökmotorer använder för att avgöra tematisk auktoritet.\n\nTraditionella granskningar missar den viktigaste rankningsfaktorn i den moderna sökeran: **semantisk fullständighet**. ZentroAudits Entity-Attribute-Value (EAV)-analys jämför ditt innehåll med Knowledge Graph-förväntningarna för dina målsökningar och avslöjar luckor där dina sidor misslyckas med att svara på frågorna som sökmotorer ställer å användarnas vägnar.\n\nGenom att kombinera över 200 tekniska SEO-kontroller med NLP-driven analys av entitetstäckning och övervakning av Core Web Vitals, ger ZentroAudit dig en enda, prioriterad vägkarta som adresserar både den tekniska grunden och det semantiska djup din webbplats behöver för att ranka.",
     trustChips: ["200+ SEO-kontroller", "Core Web Vitals", "Entitetstäckning"],
     capabilities: [
       { title: "Djup crawl-analys", description: "Crawlar varje sida för att upptäcka trasiga länkar, omdirigeringskedjor och indexeringsproblem." },
@@ -11,52 +12,568 @@ const featuresSV: Record<string, any> = {
       { title: "EAV-täckningsanalys", description: "Mäter fullständigheten av Entity-Attribute-Value-tripletter mot sökmotorernas förväntningar." },
       { title: "On-page SEO-analys", description: "Granskar title-taggar, metabeskrivningar, rubrikhierarki och innehållsstruktur." },
       { title: "Säkerhet och tillgänglighet", description: "Kontrollerar HTTPS-problem, blandat innehåll och saknade alt-attribut." },
-      { title: "Prioriterad problempoängsättning", description: "Problem rankas efter SEO-påverkan så du åtgärdar det viktigaste först." },
+      { title: "Prioriterad problempoängsättning", description: "Problem rankas efter SEO-påverkan så du åtgärdar det viktigaste först." }
     ],
     steps: [
       { title: "Ange din URL", description: "Klistra in din webbplats-URL och ZentroAudit startar en komplett crawl." },
-      { title: "AI analyserar allt", description: "Vår motor kontrollerar över 200 SEO-faktorer inklusive teknisk hälsa, innehållskvalitet och Core Web Vitals." },
-      { title: "Prioriterade resultat", description: "Få en tydlig, handlingsbar rapport med problem rankade efter påverkan." },
-      { title: "Följ framsteg", description: "Kör granskningar igen för att mäta förbättring av SEO-hälsopoäng." },
+      { title: "AI analyserar allt", description: "Vår motor kontrollerar över 200 SEO-faktorer." },
+      { title: "Prioriterade resultat", description: "Få en tydlig, handlingsbar rapport." },
+      { title: "Följ framsteg", description: "Kör granskningar igen för att mäta förbättring." }
     ],
-    benefits: ["Upptäck tekniska SEO-problem innan de påverkar rankningar", "Förstå luckor i entitets- och tematisk täckning", "Övervaka Core Web Vitals för bättre sidupplevelsesignaler", "Få handlingsbara rekommendationer för varje problem", "Följ poängförbättring över tid"],
+    benefits: ["Upptäck tekniska problem", "Förstå semantiska luckor", "Övervaka användarupplevelse", "Få handlingsbara råd", "Följ hälsopoäng"],
     faqs: [
-      { q: "Hur många sidor kan ZentroAudit crawla?", a: "Upp till 10 000 sidor i Pro-planen och obegränsat i Agency-planen. Gratisplaner stöder upp till 100 sidor." },
-      { q: "Vilka SEO-faktorer kontrollerar ZentroAudit?", a: "Över 200 faktorer inklusive metataggar, rubrikstruktur, Core Web Vitals, entitetstäckning, intern länkning, schema-markup och mer." },
-      { q: "Hur mäts entitetstäckning?", a: "Vi jämför ditt innehålls semantiska entiteter med tematiska förväntningar för dina målsökord." },
-      { q: "Kan jag schemalägga återkommande granskningar?", a: "Ja! Ställ in automatiska vecko- eller månadsgranskningar." },
-      { q: "Kontrollerar ZentroAudit mobil-SEO?", a: "Absolut. Den kör både desktop- och mobilcrawls och verifierar mobilkompatibilitet och mobila Core Web Vitals." },
+      { q: "Hur många sidor?", a: "Upp till 10 000 i Pro, obegränsat i Agency." },
+      { q: "Vilka faktorer?", a: "200+ inklusive meta, schema, entiteter." },
+      { q: "Hur mäts täckning?", a: "Jämförelse med tematiska förväntningar." },
+      { q: "Återkommande?", a: "Ja, veckovis eller månadsvis." },
+      { q: "Mobil-SEO?", a: "Ja, både desktop och mobil." }
     ],
     useCases: [
-      { title: "Byrå som hanterar 20+ klientwebbplatser", description: "Kör automatiserade veckogranskningar över hela portföljen." },
-      { title: "E-handelswebbplats med 10 000+ produktsidor", description: "Crawla hela katalogen för att hitta föräldralösa produkter och saknad schema-markup." },
-      { title: "Innehållsutgivare efter algoritmuppdatering", description: "Identifiera sidor som tappat rankningar på grund av bristande tematiskt djup." },
-      { title: "Internt SEO-team före migrering", description: "Etablera en baslinje för SEO-hälsopoäng före migreringen." },
+      { title: "Byråer", description: "Automatiserade granskningar för klienter." },
+      { title: "E-handel", description: "Hitta problem i stora kataloger." },
+      { title: "Publicister", description: "Identifiera rankningstapp." },
+      { title: "Inhouse-team", description: "Baslinje före migrering." }
     ],
     whoIsItFor: [
-      { persona: "Interna SEO-chefer", reason: "En enda instrumentpanel som kombinerar teknisk hälsa, entitetstäckning och Core Web Vitals." },
-      { persona: "SEO-byråer", reason: "Granska klientwebbplatser i stor skala med varumärkta rapporter och entitetsinsikter." },
-      { persona: "Innehållsstrateger", reason: "Förstå vilka sidor som saknar semantiskt djup." },
-      { persona: "Tekniska SEO-specialister", reason: "Djupanalys med omdirigeringskedjedetektering och JavaScript-renderingsverifiering." },
+      { persona: "SEO-chefer", reason: "Allt i en instrumentpanel." },
+      { persona: "Byråer", reason: "Skalbar rapportering." },
+      { persona: "Strateger", reason: "Semantisk djuianalys." },
+      { persona: "Tekniker", reason: "Avancerad felsökning." }
     ],
     relatedTools: [
-      { label: "ZentroFix", description: "Åtgärda automatiskt problem hittade av ZentroAudit" },
-      { label: "ZentroMarkup", description: "Generera schema för bättre entitetsigenkänning" },
-      { label: "ZentroKeywords", description: "Forska sökord med entitetskontext" },
-    ],
+      { label: "ZentroFix", description: "Automatisk åtgärd" },
+      { label: "ZentroMarkup", description: "Schema-generering" },
+      { label: "ZentroKeywords", description: "Sökordsforskning" }
+    ]
   },
-  zentrofix: { name: "ZentroFix", tagline: "Åtgärda tekniska och innehållsmässiga SEO-fel direkt med AI", metaTitle: "ZentroFix – Åtgärda SEO-fel direkt med AI", metaDescription: "ZentroFix använder AI för att upptäcka och automatiskt åtgärda kritiska SEO-problem.", overview: "ZentroFix överbryggar klyftan mellan granskning och handling med AI som genererar precisa, kontextmedvetna korrigeringar.\n\nVerktyget förstår den **semantiska kontexten** för varje problem. Varje korrigering förhandsgranskas och är reversibel.", trustChips: ["1-klick-fixar", "AI-drivet", "Autokorrigering"], capabilities: [{ title: "1-klick autokorrigeringar", description: "Fixa trasiga länkar, saknade metataggar och duplicerat innehåll med ett klick." }, { title: "Metadatareparation", description: "Generera och optimera title-taggar, metabeskrivningar och Open Graph-taggar automatiskt." }, { title: "Trasig länk-lösning", description: "Upptäck och fixa trasiga interna och externa länkar." }, { title: "Schema-injektion", description: "Autogenerera och injicera saknade JSON-LD strukturerade data." }, { title: "Innehållslucka-fyllning", description: "Identifiera tunt innehåll och föreslå entitetsrika tillägg." }, { title: "Säkerhetsfix-förslag", description: "Flagga blandat innehåll, saknad HTTPS och andra säkerhetsproblem." }], steps: [{ title: "Kör din granskning", description: "ZentroFix arbetar med ZentroAudit — börja med att skanna din webbplats." }, { title: "Granska föreslagna fixar", description: "Varje problem har en AI-genererad fix-rekommendation." }, { title: "Applicera fixar direkt", description: "Klicka för att applicera enskilda eller masskorrigeringar." }, { title: "Verifiera resultat", description: "Kör granskningen igen för att bekräfta att fixarna fungerar." }], benefits: ["Spara timmar av manuellt SEO-arbete", "Ingen teknisk expertis krävs", "Fixa metadata, länkar och innehåll i bulk", "Förhindra rankningstapp", "Fungerar med ZentroAudit i ett komplett arbetsflöde"], faqs: [{ q: "Ändrar ZentroFix min webbplats direkt?", a: "Den genererar rekommendationer och kodsnuttar. För anslutna webbplatser kan den applicera fixar direkt." }, { q: "Vilka problem kan den automatiskt fixa?", a: "Metataggar, trasiga länkar, omdirigeringskedjor, saknat schema, duplicerat innehåll och mer." }, { q: "Är det säkert att applicera fixar i bulk?", a: "Ja. Den visar exakt vad som ändras och du kan ångra inom 30 dagar." }, { q: "Fungerar det med WordPress?", a: "Ja! Integreras med WordPress och andra populära CMS-plattformar." }], useCases: [{ title: "Åtgärdssprint efter granskning", description: "Applicera högpåverkande fixar i bulk." }, { title: "Innehållsteam som fixar tunna sidor", description: "Använd AI-förslag för att berika sidor." }, { title: "Utvecklare som implementerar tekniska fixar", description: "Få färdiga kodsnuttar att kopiera." }], whoIsItFor: [{ persona: "SEO-chefer med begränsade dev-resurser", reason: "Applicera tekniska fixar utan att vänta på utvecklingssprintar." }, { persona: "Byråer som levererar implementering", reason: "Differentiera dig genom att fixa klientproblem, inte bara rapportera dem." }, { persona: "Småföretagare", reason: "Ingen SEO-expertis behövs — ZentroFix förklarar varje problem tydligt." }], relatedTools: [{ label: "ZentroAudit", description: "Hitta problemen som ZentroFix löser" }, { label: "ZentroWrite", description: "Generera optimerat innehåll för tunna sidor" }, { label: "ZentroMarkup", description: "Autogenerera strukturerade data-markup" }] },
-  zentrokeywords: { name: "ZentroKeywords", tagline: "Semantisk sökordsresearch och tematisk entitetsupptäckt", metaTitle: "ZentroKeywords – Semantisk sökordsresearch", metaDescription: "Upptäck högpåverkande sökord baserade på entitetsassociationer och sökavsikt.", overview: "ZentroKeywords närmar sig sökordsupptäckt genom **semantiska entiteter och tematiska relationer**.\n\nDen integrerar Koray Tugberk GÜBÜRs semantiska SEO-metodik direkt i forskningsarbetsflödet.", trustChips: ["Entitetsbaserad", "Avsiktsmapping", "Tematiska kluster"], capabilities: [{ title: "Tematisk entitetsupptäckt", description: "Upptäck semantiskt relaterade entiteter och teman." }, { title: "Sökavsiktsmapping", description: "Klassificera sökord efter avsikt — informations-, navigations-, transaktions- eller kommersiell." }, { title: "Tematisk klusterbyggande", description: "Gruppera sökord i tematiska kluster för att bygga innehållssilos." }, { title: "Svårighetspoängsättning", description: "Utvärdera rankningssvårighet genom entitetskonkurrensanalys." }, { title: "Lokala och globala insikter", description: "Forska sökord efter plats och språk." }, { title: "Sökvolymtrender", description: "Övervaka trender för att identifiera säsongsbetonade möjligheter." }], steps: [{ title: "Ange seed-sökord", description: "Börja med ett ämne och ZentroKeywords expanderar det till en komplett semantisk karta." }, { title: "Utforska entitetsrelationer", description: "Se hur dina sökord kopplas till entiteter och teman." }, { title: "Filtrera efter avsikt och svårighet", description: "Begränsa till handlingsbara sökord." }, { title: "Exportera och planera innehåll", description: "Exportera kluster till din innehållskalender." }], benefits: ["Upptäck sökord som konkurrenterna missar", "Bygg tematisk auktoritet med entitetsbaserade kluster", "Anpassa varje innehåll till sökavsikten", "Hitta låg-konkurrens, hög-påverkan möjligheter", "Skapa kompletta innehållsplaner från ett enda seed"], faqs: [{ q: "Hur skiljer sig ZentroKeywords?", a: "Använder entitetsbaserad analys istället för bara sökvolym." }, { q: "Kan jag forska i flera språk?", a: "Ja! Stöder 50+ språk och 100+ länder." }, { q: "Hur genereras kluster?", a: "Vår AI analyserar semantiska relationer mellan sökord." }, { q: "Kan jag exportera data?", a: "Ja. Exportera som CSV eller integrera direkt med ZentroWrite." }], useCases: [{ title: "Bygga en ny innehållssilo", description: "Generera det kompletta tematiska klustret från grunden." }, { title: "E-handelskategorisida-optimering", description: "Upptäck entitetsrika long-tail sökord." }, { title: "Internationell marknadsexpansion", description: "Forska sökord i 50+ språk." }], whoIsItFor: [{ persona: "Innehållsstrateger", reason: "Bygg kompletta tematiska kartor från sökordsresearch." }, { persona: "SEO-specialister", reason: "Gå bortom volym — förstå entitetsrelationerna bakom sökord." }, { persona: "Hybrid PPC- och SEO-team", reason: "Klassificera sökord efter avsikt för att samordna betalda och organiska strategier." }], relatedTools: [{ label: "ZentroWrite", description: "Omvandla research till optimerat innehåll" }, { label: "ZentroRank", description: "Övervaka rankningar för målsökord" }, { label: "ZentroCompare", description: "Jämför sökordsräckning vs konkurrenter" }] },
-  zentrorank: { name: "ZentroRank", tagline: "Sökordsrankningsspårning i realtid", metaTitle: "ZentroRank – Rankningsspårning i realtid", metaDescription: "Övervaka sökordsresultat per enhet, plats och entitetsteman.", overview: "ZentroRank erbjuder rankningsspårning i realtid som går bortom enkla positioner — den övervakar synlighet över **enheter, platser och SERP-funktioner**.\n\nFör byråer och företag med flera platser ger platsspårning granulära synlighetsdata.", trustChips: ["Realtid", "Multi-enhet", "Per plats"], capabilities: [{ title: "SERP-spårning i realtid", description: "Övervaka rankningar med dagliga uppdateringar och omedelbara varningar." }, { title: "Platsspårning", description: "Övervaka rankningar i olika städer, regioner och länder." }, { title: "Enhetssegmentering", description: "Jämför rankningar på desktop, mobil och surfplatta." }, { title: "Konkurrentjämförelse", description: "Övervaka dina rankningar bredvid konkurrenternas." }, { title: "SERP-funktionsspårning", description: "Övervaka featured snippets, knowledge panels och mer." }, { title: "Rankningstappvarningar", description: "Omedelbara meddelanden vid signifikanta sökordstapp." }], steps: [{ title: "Lägg till sökord", description: "Importera manuellt, från CSV eller från ZentroKeywords." }, { title: "Konfigurera parametrar", description: "Välj enheter, platser och sökmotorer." }, { title: "Övervaka dagliga rankningar", description: "Granska instrumentpanelen med trender och rörelser." }, { title: "Agera på insikter", description: "Använd data för att identifiera sidor att optimera." }], benefits: ["Missa aldrig en rankningsförändring", "Förstå synlighet per enhet och plats", "Benchmark mot konkurrenter", "Övervaka framträdanden i SERP-funktioner", "Fatta datadrivna beslut"], faqs: [{ q: "Hur ofta uppdateras de?", a: "Dagligen. Pro- och Agency-planer tillåter flera dagliga kontroller." }, { q: "Hur många sökord kan jag övervaka?", a: "Gratisplan: 50. Pro: upp till 1 000. Agency: obegränsat." }, { q: "Kan jag övervaka i flera länder?", a: "Ja! I 100+ länder med spårning på stadsnivå." }, { q: "Övervakar den SERP-funktioner?", a: "Ja — featured snippets, People Also Ask, knowledge panels, local pack och mer." }], useCases: [{ title: "Övervakning efter innehållsuppdatering", description: "Övervaka dagliga rörelser efter publicering." }, { title: "Franchiseföretag med flera platser", description: "Övervaka samma sökord på varje plats." }, { title: "Konkurrensintelligens för pitchar", description: "Övervaka konkurrenters rankningar bredvid dina." }], whoIsItFor: [{ persona: "SEO-chefer som rapporterar till ledningen", reason: "Generera visuella, tydliga rankningsrapporter." }, { persona: "Lokala SEO-specialister", reason: "Spårning på stadsnivå med enhetssegmentering." }, { persona: "Innehållsteam som mäter påverkan", reason: "Koppla rankningsförändringar till specifika innehållsuppdateringar." }], relatedTools: [{ label: "ZentroKeywords", description: "Forska nya sökord att övervaka" }, { label: "ZentroCompare", description: "Fördjupa dig i konkurrenters rankningar" }, { label: "ZentroAudit", description: "Fixa problem som orsakar rankningstapp" }] },
-  zentrowrite: { name: "ZentroWrite", tagline: "Skapa entitetsrikt SEO-innehåll med AI", metaTitle: "ZentroWrite – Entitetsrikt SEO-innehåll med AI", metaDescription: "Generera bloggartiklar, produktsidor och metainnehåll optimerat för SEO.", overview: "ZentroWrite är en AI-skrivassistent byggd för **semantisk fullständighet** — den genererar innehåll som naturligt integrerar entiteter och tematiska relationer.\n\nDen integreras med ZentroContentBrief och ZentroTopicality i ett slutet arbetsflöde.", trustChips: ["AI-drivet", "Entitetsoptimerat", "SEO-redo"], capabilities: [{ title: "Semantisk innehållsgenerering", description: "Generera innehåll som naturligt integrerar entiteter och semantiska relationer." }, { title: "Metatagggenerering", description: "Skapa automatiskt optimerade title-taggar, metabeskrivningar och Open Graph-taggar." }, { title: "Innehållsbriefbyggare", description: "Generera kompletta briefer med målentiteter och konkurrensanalys." }, { title: "SEO-poängoptimerare", description: "Realtids-innehållspoäng som mäter entitetstäckning, läsbarhet och tematiskt djup." }, { title: "Blogg- och artikelskrivare", description: "Generera kompletta artiklar optimerade för målsökord och entiteter." }, { title: "Innehållsmallar", description: "Använd branschspecifika mallar för produktsidor, landningssidor och FAQ." }], steps: [{ title: "Välj innehållstyp", description: "Välj mellan bloggartiklar, produktbeskrivningar, metataggar eller anpassade format." }, { title: "Ange målsökord", description: "Ange målsökord och ZentroWrite kartlägger entitetslandskapet." }, { title: "Generera och anpassa", description: "AI genererar entitetsrikt innehåll som du kan redigera och förfina." }, { title: "Publicera med tillförsikt", description: "Exportera SEO-redo innehåll med optimerade rubriker och metataggar." }], benefits: ["Skapa innehåll som täcker förväntade entiteter", "Spara timmar med automatisk metatagggenerering", "Bygg tematisk auktoritet snabbare", "Få SEO-poäng i realtid", "Publicera aldrig mer tunt innehåll"], faqs: [{ q: "Ersätter ZentroWrite mänskliga skribenter?", a: "Nej. Det är en copilot som hjälper skapa bättre SEO-innehåll." }, { q: "Vilka innehållstyper kan den generera?", a: "Bloggartiklar, produktbeskrivningar, metataggar, FAQ-sektioner, landningssidor och anpassade format." }, { q: "Hur hjälper entitetsrikt innehåll?", a: "Sökmotorer använder entiteter för relevans. Att täcka rätt entiteter gör innehållet mer relevant." }, { q: "Kan jag använda min varumärkesröst?", a: "Ja! Konfigurera ton och stilriktlinjer." }], useCases: [{ title: "Skala blogginnehållsproduktion", description: "Generera entitetsrika första utkast." }, { title: "Optimera befintligt tunt innehåll", description: "Klistra in underpresterande sidor för förslag på saknade entiteter." }, { title: "Produktsidebeskrivningar i skala", description: "Generera unika, optimerade produktbeskrivningar." }], whoIsItFor: [{ persona: "Innehållsskribenter och redaktörer", reason: "Semantisk AI-vägledning i realtid medan du skriver." }, { persona: "SEO-team utan dedikerade skribenter", reason: "Generera publiceringsklara första utkast." }, { persona: "Byråer som producerar klientinnehåll", reason: "Skala produktion med bibehållen semantisk kvalitet." }], relatedTools: [{ label: "ZentroKeywords", description: "Forska sökord innan du skriver" }, { label: "ZentroAudit", description: "Identifiera sidor som behöver bättre innehåll" }, { label: "ZentroMarkup", description: "Lägg till strukturerade data i ditt innehåll" }] },
-  zentrocompare: { name: "ZentroCompare", tagline: "Identifiera SEO-luckor i entitets- och tematisk täckning", metaTitle: "ZentroCompare – Identifiera SEO-luckor i entitetstäckning", metaDescription: "Analysera konkurrenters prestanda på entiteter och sökteman.", overview: "ZentroCompare levererar **konkurrensanalys på entitetsnivå** som går bortom sökordsöverlappning.\n\nDen visar *varför* konkurrenter rankar — genom att kartlägga deras entitetstäckning mot din.", trustChips: ["Luckanalys", "Entitetsjämförelse", "Tematiska kartor"], capabilities: [{ title: "Konkurrensanalys av luckor", description: "Jämför din entitetstäckning med upp till 5 konkurrenter." }, { title: "Tematiska täckningskartor", description: "Visualisera hur ditt innehåll täcker tematiska kluster vs konkurrenter." }, { title: "Sökordsläcksupptäckare", description: "Upptäck sökord som konkurrenter rankar för men du inte." }, { title: "Entitetsauktoritetssjämförelse", description: "Jämför entitetsauktoritet mellan dig och konkurrenter." }, { title: "Trafikuppskattning", description: "Uppskatta konkurrenters organiska trafik." }, { title: "Trendanalys", description: "Övervaka hur konkurrenters täckning förändras över tid." }], steps: [{ title: "Lägg till konkurrenter", description: "Ange upp till 5 konkurrentdomäner." }, { title: "Jämför täckning", description: "Se jämförelser sida vid sida." }, { title: "Identifiera luckor", description: "Upptäck innehållsluckor och sökordsmöjligheter." }, { title: "Bygg strategin", description: "Exportera analysen till handlingsbara innehållsplaner." }], benefits: ["Hitta möjligheter som konkurrenter utnyttjar", "Bygg datadriven strategi", "Förstå din relativa tematiska auktoritet", "Prioritera efter trafikpotential", "Övervaka konkurrenters rörelser"], faqs: [{ q: "Hur många konkurrenter kan jag jämföra?", a: "Upp till 5 i Pro och 10 i Agency." }, { q: "Vilka data använder den?", a: "Sökordsrankningar, innehållstäckning, entitetsnärvaro, bakåtlänksprofiler och SERP-funktioner." }, { q: "Kan jag följa förändringar över tid?", a: "Ja! Övervaka konkurrensmått över tid." }, { q: "Vad är skillnaden mot sökordssjämförelse?", a: "Entitetsjämförelse visar tematiskt djup, inte bara rankningsöverlappning." }], useCases: [{ title: "Kvartalsstrategiplanering", description: "Jämför tematisk täckning mot topp 5 konkurrenter." }, { title: "Ny marknadsinträde", description: "Analysera konkurrenters entitetstäckning." }, { title: "Diagnos efter algoritmuppdatering", description: "Förstå konkurrenters semantiska täckningsvinster." }], whoIsItFor: [{ persona: "SEO-direktörer och strateger", reason: "Fatta investeringsbeslut baserat på konkurrensdata om entiteter." }, { persona: "Byråstrateger", reason: "Leverera analyser som visar luckor i semantisk auktoritet." }, { persona: "Produktmarknadsföringsteam", reason: "Förstå hur konkurrenter täcker entitetsteman annorlunda." }], relatedTools: [{ label: "ZentroKeywords", description: "Forska sökord från luckanalys" }, { label: "ZentroBacklinks", description: "Jämför bakåtlänksprofiler" }, { label: "ZentroWrite", description: "Skapa innehåll för att fylla luckor" }] },
-  zentrobacklinks: { name: "ZentroBacklinks", tagline: "Upptäck bakåtlänkar som bygger entitetsförtroende", metaTitle: "ZentroBacklinks – Bakåtlänkar som bygger entitetsförtroende", metaDescription: "Analysera bakåtlänksprofiler baserade på auktoritet, tematisk relevans och entitetsassociationer.", overview: "ZentroBacklinks analyserar din profil genom linsen av **entitetsförtroende**.\n\nDen lägger till ett lager av entitetsrelevans: kartlägger det tematiska fokuset för varje refererande domän.", trustChips: ["Länkanalys", "Toxisk detektering", "Auktoritetspoäng"], capabilities: [{ title: "Bakåtlänksprofilanalys", description: "Komplett profilvy med refererande domäner, ankardistribution och länktyper." }, { title: "Toxisk länkdetektering", description: "Identifiera spam- eller skadliga bakåtlänkar." }, { title: "Auktoritetspoängsättning", description: "Utvärdera kvaliteten på varje bakåtlänk." }, { title: "Entitetsbaserad länkrelevans", description: "Utvärdera om bakåtlänkar kommer från tematiskt relevanta källor." }, { title: "Länkbyggningsmöjligheter", description: "Upptäck kvalitetsprospekt från konkurrenters bakåtlänkar." }, { title: "Övervakning av nya och förlorade länkar", description: "Övervaka nya bakåtlänkar och få varningar för viktiga förlorade länkar." }], steps: [{ title: "Ange domän", description: "Klistra in din domän för komplett profilanalys." }, { title: "Granska kvalitet", description: "Varje bakåtlänk utvärderas för auktoritet, relevans och risk." }, { title: "Avvisa toxiska länkar", description: "Generera disavow-fil för skadliga bakåtlänkar." }, { title: "Hitta möjligheter", description: "Upptäck prospekt från konkurrensanalys." }], benefits: ["Skydda webbplatsen från bakåtlänksstraff", "Bygg länkar som stärker entitetsauktoritet", "Övervaka profiltillväxt", "Hitta möjligheter från konkurrensanalys", "Förstå den verkliga kvaliteten på varje länk"], faqs: [{ q: "Hur stor är databasen?", a: "Miljarder indexerade bakåtlänkar, kontinuerligt uppdaterade." }, { q: "Kan jag generera en Google disavow-fil?", a: "Ja! Generera en fil formaterad för Google Search Console." }, { q: "Hur fungerar entitetsbaserad analys?", a: "Vi utvärderar om refererande domäner täcker ämnen relaterade till din nisch." }, { q: "Kan jag övervaka konkurrenters bakåtlänkar?", a: "Ja. Analysera vilken domäns profil som helst." }], useCases: [{ title: "Återhämtning efter straff", description: "Identifiera och avvisa toxiska bakåtlänkar." }, { title: "Länkbyggnadskampanj-targeting", description: "Bygg tematiskt relevanta prospektlistor." }, { title: "Due diligence vid fusion/förvärv", description: "Utvärdera en domäns bakåtlänkshälsa." }], whoIsItFor: [{ persona: "Länkbyggnadsspecialister", reason: "Hitta prospekt baserade på entitetsrelevans." }, { persona: "SEO-chefer som bryr sig om risk", reason: "Övervaka profilen för toxiska länkar." }, { persona: "Digitala PR-team", reason: "Identifiera publikationer i din nisch som länkar till konkurrenter." }], relatedTools: [{ label: "ZentroCompare", description: "Jämför bakåtlänksprofiler" }, { label: "ZentroAudit", description: "Hitta problem med interna länkar" }, { label: "ZentroRank", description: "Se bakåtlänkars påverkan på rankningar" }] },
-  zentromarkup: { name: "ZentroMarkup", tagline: "Autogenerera JSON-LD Schema för entitetsigenkänning", metaTitle: "ZentroMarkup – JSON-LD Schema för entitetsigenkänning", metaDescription: "Förbättra rich results och entitetslänkning genom att generera och injicera schema.", overview: "Strukturerade data är bron mellan ditt innehåll och kunskapsgrafen. ZentroMarkup automatiserar skapandet av **JSON-LD schema-markup**.\n\nRich results beror på korrekt implementerade strukturerade data.", trustChips: ["JSON-LD-generering", "Rich Snippet", "Schemavalidering"], capabilities: [{ title: "Autoschema-generering", description: "Generera automatiskt JSON-LD strukturerade data — ingen kodning behövs." }, { title: "Rich Snippet-validering", description: "Validera markup mot Googles krav." }, { title: "Entitetslänkning", description: "Länka entiteter till kunskapsgrafsuppgifter." }, { title: "Multi-typstöd", description: "Generera schema för artiklar, produkter, FAQ, lokala företag och 30+ typer." }, { title: "Visuell schemaeditor", description: "Redigera schema via visuellt gränssnitt." }, { title: "Bulkgenerering", description: "Generera schema för hundratals sidor samtidigt." }], steps: [{ title: "Välj sida", description: "Välj en URL och ZentroMarkup identifierar de bästa schematyperna." }, { title: "Granska schema", description: "AI genererar komplett JSON-LD markup." }, { title: "Anpassa och validera", description: "Redigera via visuell editor och validera mot krav." }, { title: "Deploya på webbplatsen", description: "Kopiera koden eller autoinjicera via CMS-integrationer." }], benefits: ["Få rich snippets utan att studera syntax", "Stärk entitetsigenkänning", "Stöder 30+ schematyper", "Validera innan deploy", "Generera schema för hundratals sidor på minuter"], faqs: [{ q: "Vilka typer stöds?", a: "Article, Product, FAQ, HowTo, LocalBusiness, Organization, Event, Recipe, Review och 20+ typer." }, { q: "Behöver man kunna programmera?", a: "Inte alls. Den visuella editorn låter dig skapa utan kod." }, { q: "Hur hjälper strukturerade data?", a: "De hjälper sökmotorer förstå bättre och möjliggör rich results." }, { q: "Kan jag validera mot Google?", a: "Ja! Validera med Googles Rich Results-test." }], useCases: [{ title: "E-handelskatalog", description: "Generera komplett Product-schema för tusentals sidor." }, { title: "Utgivare som söker FAQ rich results", description: "Detektera Q&A-mönster och generera FAQPage-schema." }, { title: "Lokalt företag med flera platser", description: "Generera LocalBusiness-schema för varje plats." }], whoIsItFor: [{ persona: "Tekniska SEO-specialister", reason: "Generera avancerat schema med entitetslänkningsegenskaper." }, { persona: "Content managers utan kodkunskaper", reason: "Skapa schema via visuell editor." }, { persona: "E-handels-SEO-team", reason: "Bulkgenerera Product- och Offer-schema." }], relatedTools: [{ label: "ZentroAudit", description: "Hitta sidor utan strukturerade data" }, { label: "ZentroFix", description: "Autoinjicera schema på sidor" }, { label: "ZentroWrite", description: "Skapa innehåll optimerat för schema" }] },
-  zentrotopicalmap: { name: "ZentroTopicalMap", tagline: "Entitetsbaserade tematiska kartor för total tematisk auktoritet", metaTitle: "ZentroTopicalMap – Entitetsbaserade tematiska kartor", metaDescription: "Generera hub-and-spoke tematiska kartor baserade på semantiska entiteter.", overview: "Tematisk auktoritet byggs genom **systematisk innehållsarkitektur**. ZentroTopicalMap genererar kompletta hub-and-spoke-strukturer baserade på entitetsrelationer.\n\nVerktyget utgår från din centrala entitet och kartlägger utåt.", trustChips: ["Entitetsbaserad", "Hub & Spoke", "Semantisk luckdetektering"], capabilities: [{ title: "Central entitetskartläggare", description: "Definiera din seed-entitet och bygg en komplett entitetsgraf." }, { title: "Hub-and-Spoke-byggare", description: "Strukturera automatiskt kartan i pillar-sidor och spoke-artiklar." }, { title: "Källkontextanalysator", description: "Identifiera dominerande källor i din nisch." }, { title: "Extern sektionsupptäckt", description: "Avslöja mindre attributteman och perifera entiteter." }, { title: "Semantisk luckidentifierare", description: "Jämför befintligt innehåll mot den kompletta kartan." }, { title: "Tematiskt djuppoäng", description: "Utvärdera varje sektion för djup och fullständighet." }], steps: [{ title: "Definiera seed-entitet", description: "Ange ett centralt ämne och ZentroTopicalMap kartlägger det semantiska landskapet." }, { title: "Generera kartan", description: "AI bygger en strukturerad tematisk hierarki på sekunder." }, { title: "Granska kluster och luckor", description: "Utforska kartan och identifiera semantiska luckor." }, { title: "Exportera till innehållsplan", description: "Exportera den kompletta kartan som innehållskalender." }], benefits: ["Bygg auktoritet utan att förlita dig på bakåtlänkar", "Säkerställ komplett entitetstäckning", "Identifiera luckor innan du skriver", "Skapa hub-and-spoke-arkitektur som sökmotorer belönar", "Få en visuell innehållskarta"], faqs: [{ q: "Vad är en tematisk karta?", a: "En strukturerad innehållshierarki som organiserar ett ämne i hub- och spoke-innehåll." }, { q: "Hur detekterar den semantiska luckor?", a: "Genom att jämföra befintligt innehåll med det kompletta entitetslandskapet." }, { q: "Kan jag anpassa kartan?", a: "Ja! Modifiera hubbar, lägg till eller ta bort spokes." }, { q: "Fungerar det för alla branscher?", a: "Ja. Fungerar för vilket ämne eller bransch som helst." }], useCases: [{ title: "Lansera ny webbplats eller blogg", description: "Generera en komplett karta innan den första artikeln." }, { title: "Omstrukturera innehållsbibliotek", description: "Kartlägg nuvarande innehåll mot det tematiska landskapet." }, { title: "Byrå som pitchar strategi", description: "Generera visuella tematiska kartor för prospekt." }], whoIsItFor: [{ persona: "Innehållsstrateger och redaktörer", reason: "Ersätt ad hoc-brainstorming med datadrivna kartor." }, { persona: "SEO-direktörer med team", reason: "Ge skribenter en visuell vägkarta." }, { persona: "Startup-grundare", reason: "Få en tydlig, prioriterad innehållsplan." }], relatedTools: [{ label: "ZentroKeywords", description: "Mata research in i klustren" }, { label: "ZentroContentBrief", description: "Generera briefer för varje spoke-sida" }, { label: "ZentroWrite", description: "Skriv innehåll baserat på kartans briefer" }] },
-  zentrocontentbrief: { name: "ZentroContentBrief", tagline: "Generera EAV-optimerade semantiska innehållsbriefer", metaTitle: "ZentroContentBrief – EAV-optimerade semantiska briefer", metaDescription: "Skapa briefer med EAV-tripletter, fråge-H2:or och rekommendationer för namngivna entiteter.", overview: "Bra innehåll börjar med en bra brief. ZentroContentBrief genererar **EAV-optimerade innehållsritningar** som anger exakt vilka entiteter som ska täckas.\n\nMakrokontexten säkerställer att sidan verkar inom ett enda tydligt semantiskt ramverk.", trustChips: ["EAV-tripletter", "Fråge-H2:or", "Namngivna entiteter"], capabilities: [{ title: "EAV-triplettgenerator", description: "Generera automatiskt Entity-Attribute-Value-tripletter." }, { title: "Fråge-H2-förslagare", description: "Producera H2:or formulerade som användarfrågor med 40-ords extraktiva svar." }, { title: "Makrokontextkonfigurator", description: "Definiera sidans unika makrokontext." }, { title: "Namngivna entiteter-rekommendatör", description: "Framhäv oumbärliga namngivna entiteter för Knowledge Graph." }, { title: "Topikalitetsscorer", description: "Förbedöm planerat innehåll mot förväntningar." }, { title: "Ankartextoptimerare", description: "Generera beskrivande ankartextförslag för interna länkar." }], steps: [{ title: "Ange målquery", description: "Skriv den exakta queryn och ZentroContentBrief analyserar det semantiska landskapet." }, { title: "AI kartlägger entiteter och EAV", description: "Motorn genererar entitetsgrafen, EAV-tripletter och makrokontext." }, { title: "Granska och anpassa", description: "Modifiera briefen — justera H2:or och EAV-krav." }, { title: "Exportera till ZentroWrite", description: "Skicka briefen direkt till ZentroWrite." }], benefits: ["Eliminera gissningar om vilka entiteter som ska täckas", "Strukturera varje artikel för featured snippets", "Justera makrokontext innan skrivning", "Säkerställ täckning av namngivna entiteter", "Spara timmar av förresearch"], faqs: [{ q: "Vad är EAV-tripletter?", a: "Entity-Attribute-Value är en datamodell. Komplett EAV-täckning signalerar semantisk auktoritet." }, { q: "Hur fungerar H2-förslagaren?", a: "Analyserar querymönster och People Also Ask-data." }, { q: "Vad är makrokontext?", a: "Det dominerande betydelseramverket för sidan." }, { q: "Integreras det med mitt arbetsflöde?", a: "Ja. Exportera till PDF eller direkt till ZentroWrite." }], useCases: [{ title: "Redaktionellt team som skalar produktion", description: "Generera standardiserade semantiska briefer för frilansare." }, { title: "Fräscha upp underpresterande innehåll", description: "Generera briefer för en befintlig sidas målquery." }, { title: "Innehåll optimerat för featured snippets", description: "Använd H2-förslag med extraktiva svar." }], whoIsItFor: [{ persona: "Innehållschefer med team", reason: "Leverera semantiska ritningar som eliminerar gissningar." }, { persona: "Frilansande SEO-skribenter", reason: "Få briefer som anger exakt vad som ska täckas." }, { persona: "SEO-konsulter för klienter", reason: "Leverera handlingsbara briefer som del av tjänsten." }], relatedTools: [{ label: "ZentroWrite", description: "Omvandla briefen till komplett artikel" }, { label: "ZentroTopicalMap", description: "Bygg kartan där brieferna placeras" }, { label: "ZentroKeywords", description: "Upptäck målqueries för varje brief" }] },
-  zentrocontentplan: { name: "ZentroContentPlan", tagline: "Planera 6-månaders semantiska granskningar för konkurrenskraftigt innehåll", metaTitle: "ZentroContentPlan – 6-månaders semantiska granskningar", metaDescription: "Övervaka innehållsålder, querymönsterförändringar och semantisk avståndsnedgång.", overview: "Innehåll förblir inte optimerat för alltid. ZentroContentPlan automatiserar **innehållslivscykelhantering** med regelbundna omgranskningar.\n\nDen övervakar även akuta förändringar i querymönster.", trustChips: ["Nedgångsdetektering", "6-månaderscykler", "Ändringsvarningar"], capabilities: [{ title: "Innehållsåldersövervakning", description: "Övervaka publicerings- och ändringsdatum för varje sida." }, { title: "Querymönster-ändringsvarningar", description: "Detektera när querymönster förändras signifikant." }, { title: "Semantisk avståndstracker", description: "Mät hur långt innehåll avvikit från nuvarande förväntningar." }, { title: "Historisk prestationsanalysator", description: "Analysera engagement- och rankningsmönster över 6 månader." }, { title: "Helpful Content Update-checker", description: "Utvärdera innehåll mot Googles signaler." }, { title: "Automatisk omgranskningsschemaläggning", description: "Konfigurera 3-, 6- eller 12-månaderscykler per sida eller kluster." }], steps: [{ title: "Anslut innehåll", description: "Koppla webbplatsen och ZentroContentPlan skapar ett komplett inventarium." }, { title: "Konfigurera cykler", description: "Konfigurera 3-, 6- eller 12-månadersscheman." }, { title: "Ta emot varningar", description: "Meddelanden när mönster ändras eller semantiskt avstånd ökar." }, { title: "Applicera riktade uppdateringar", description: "Använd flaggade sidor för omoptimering." }], benefits: ["Förhindra rankningstapp från nedgång", "Behåll tematisk auktoritet över tid", "Automatisera 6-månaders granskningscykeln", "Identifiera vad som behöver uppdateras vs skrivas om", "Bygg historisk engagemangskvalitet"], faqs: [{ q: "Vad är innehållsnedgång?", a: "Gradvis förlust av relevans när querymönster förändras." }, { q: "Varför 6 månader?", a: "Det är det typiska fönstret för mönsterförändringar enligt Korays ramverk." }, { q: "Hur detekterar den förändringar?", a: "Övervakar volymtrender, SERP-förändringar och entitetsassociationer." }, { q: "Integreras den med ZentroAudit?", a: "Ja — kan automatiskt utlösa en ZentroAudit." }], useCases: [{ title: "Enterprise-biblioteksunderhåll", description: "Hantera omgranskningsscheman för tusentals sidor." }, { title: "Säsongsinnehållsoptimering", description: "3-månaderscykler för säsongsinnehåll." }, { title: "Respons efter algoritmuppdatering", description: "Identifiera omedelbart de mest avvikande sidorna." }], whoIsItFor: [{ persona: "SEO-chefer för innehållsrika webbplatser", reason: "Automatisera underhåll som skulle kräva manuell spårning." }, { persona: "Byråer med klientretainers", reason: "Bygg återkommande granskningscykler in i tjänsten." }, { persona: "Innehållsoperationsledare", reason: "Omvandla underhåll från reaktivt till proaktivt." }], relatedTools: [{ label: "ZentroAudit", description: "Kör fullständig omgranskning när en cykel utlöses" }, { label: "ZentroWrite", description: "Skriv om nedgånget innehåll med AI" }, { label: "ZentroContentBrief", description: "Generera uppdaterade briefer för omoptimering" }] },
-  zentrotopicality: { name: "ZentroTopicality", tagline: "Utvärdera innehållets tematiska djup", metaTitle: "ZentroTopicality – Utvärdera tematiskt djup", metaDescription: "NLP-topikalitetspoäng, frame semantics-analys, EAV-verifiering och queryluckdetektering.", overview: "ZentroTopicality svarar med **NLP-baserad topikalitetspoäng** som mäter innehåll mot kompletta semantiska förväntningar.\n\nFrame semantics-analysen är särskilt kraftfull — den utvärderar om innehållet aktiverar alla konceptuella ramar.", trustChips: ["NLP-poäng", "Frame semantics", "Luckanalys"], capabilities: [{ title: "NLP-relevansscorer", description: "Mät anpassningen av språkliga mönster till NLP-modellernas förväntningar." }, { title: "Frame semantics-analysator", description: "Utvärdera om sidan täcker alla semantiska ramar." }, { title: "Semantisk rolletikettare", description: "Analysera semantiska roller på meningsnivå." }, { title: "EAV-täckningschecker", description: "Verifiera att sidan täcker nödvändiga EAV-tripletter." }, { title: "Queryluckanalysator", description: "Jämför innehåll med det kompletta klustret av användarqueries." }, { title: "Namngivna entitetsdensitetsrapportör", description: "Rapportera densitet och distribution av namngivna entiteter." }], steps: [{ title: "Klistra in innehåll eller URL", description: "Ange URL eller klistra in innehåll direkt." }, { title: "Kör multidimensionell analys", description: "NLP-motorn utvärderar relevans, frame semantics och EAV-täckning samtidigt." }, { title: "Granska poängen", description: "Få sammansatt poäng med detaljer per dimension." }, { title: "Applicera riktade korrigeringar", description: "Använd rapporten för att lägga till saknade EAV-tripletter och entiteter." }], benefits: ["Känn till tematiskt djup innan publicering", "Identifiera luckor som förhindrar featured snippets", "Anpassa meningsstruktur till NLP-extraktionsmönster", "Uppnå komplett EAV-täckning för Knowledge Graph", "Detektera queryluckor som lämnar avsikt delvis olöst"], faqs: [{ q: "Vad är topicality scoring?", a: "Mäter semantiskt djup — fullständighet i täckning av entitetsrelationer." }, { q: "Vad är frame semantics i SEO?", a: "Queries aktiverar specifika semantiska ramar som innehållet måste adressera." }, { q: "Hur fungerar luckanalysatorn?", a: "Jämför innehåll med det kompletta klustret av användarqueries." }, { q: "Kan jag analysera konkurrentsidor?", a: "Ja! Klistra in vilken URL som helst." }], useCases: [{ title: "Kvalitetsport före publicering", description: "Utvärdera varje innehåll mot benchmarks innan publicering." }, { title: "Benchmarking av konkurrentinnehåll", description: "Klistra in konkurrent-URLs för poängen att slå." }, { title: "Innehållsgranskning och prioritering", description: "Utvärdera befintligt bibliotek i bulk." }], whoIsItFor: [{ persona: "Redaktörer och kvalitetsgranskare", reason: "Objektiv NLP-baserad poängsättning för innehållsgranskning." }, { persona: "SEO-specialister som optimerar", reason: "Identifiera specifika semantiska dimensioner där sidor fallerar." }, { persona: "AI-innehållsteam", reason: "Validera att AI-innehåll uppfyller topikalitetsstandarder." }], relatedTools: [{ label: "ZentroContentBrief", description: "Bygg EAV-briefer innan du skriver" }, { label: "ZentroAudit", description: "Kör komplett SEO-granskning med topikalitetskontroller" }, { label: "ZentroWrite", description: "Skriv om innehåll för att nå målpoäng" }] },
-  zentrowhite: { name: "ZentroWhite", tagline: "Leverera entitetsfokuserad SEO under ditt varumärke", metaTitle: "ZentroWhite – Entitets-SEO under ditt varumärke", metaDescription: "Leverera varumärkta instrumentpaneler med SEO-resultat till klienter.", overview: "ZentroWhite låter dig leverera hela kraften i det entitetsbaserade SEO-verktygslådan **under ditt varumärke**.\n\nFör byråer som vill differentiera sig är det infrastrukturplattformen för att skala.", trustChips: ["White-label", "Anpassat varumärke", "Klientrapporter"], capabilities: [{ title: "Anpassat varumärke", description: "Ersätt ZentroSEO-varumärket med din logotyp, färger och domän." }, { title: "Klienthantering", description: "Hantera flera klientkonton från en instrumentpanel." }, { title: "Varumärkta rapporter", description: "Generera professionella PDF-rapporter med ditt varumärke." }, { title: "Klientportaler", description: "Ge klienter egen åtkomst under ditt varumärke." }, { title: "Automatiserade rapporter", description: "Schemalägg automatiska vecko- eller månadsrapporter." }, { title: "Anpassad domän", description: "Hosta white-label-instrumentpanelen på din domän." }], steps: [{ title: "Konfigurera varumärket", description: "Ladda upp logotyp, ställ in färger och konfigurera domän." }, { title: "Lägg till klienter", description: "Skapa klientkonton och anslut deras webbplatser." }, { title: "Leverera SEO-tjänster", description: "Använd alla verktyg under ditt varumärke." }, { title: "Rapportera och behåll", description: "Skicka varumärkta rapporter som visar levererat värde." }], benefits: ["Presentera verktyg som proprietär plattform", "Hantera alla klienter från en instrumentpanel", "Automatisera rapportgenerering", "Ge portalåtkomst för transparens", "Skala byrån utan att bygga verktyg"], faqs: [{ q: "Kan jag använda min domän?", a: "Ja! Stöder anpassade domäner." }, { q: "Hur många klienter kan jag hantera?", a: "Utan gräns. Prissättning baseras på totala sidor och sökord." }, { q: "Kan klienter komma åt data?", a: "Ja. Varje klient har sin egen åtkomst under ditt varumärke." }, { q: "Vilka verktyg är tillgängliga?", a: "Alla ZentroSEO-verktyg: granskningar, tracking, innehållsanalys, bakåtlänkar och mer." }], useCases: [{ title: "Byrå som lanserar hanterad tjänst", description: "Varumärk hela plattformen som proprietärt verktyg." }, { title: "Marknadsföringskonsulting som lägger till SEO", description: "Lägg till en varumärkt SEO-plattform utan R&D-investering." }, { title: "Frilansare som bygger personligt varumärke", description: "Presentera kapaciteterna som eget verktygslåda." }], whoIsItFor: [{ persona: "SEO-byråägare", reason: "Skala med varumärkt plattform för entitetsbaserade SEO-tjänster." }, { persona: "Marknadsföringsbyråchefer", reason: "Lägg till en intäktsgenererande SEO-tjänstelinje." }, { persona: "Oberoende SEO-konsulter", reason: "Differentiera dig med en varumärkt plattform som inspirerar förtroende." }], relatedTools: [{ label: "ZentroAudit", description: "Kör varumärkta granskningar för klienter" }, { label: "ZentroRank", description: "Övervaka klienters sökordsrankningar" }, { label: "ZentroFix", description: "Fixa klienters SEO-problem effektivt" }] },
+  zentrofix: {
+    name: "ZentroFix",
+    tagline: "Åtgärda tekniska och innehållsmässiga SEO-fel direkt med AI",
+    metaTitle: "ZentroFix – Åtgärda SEO-fel direkt med AI",
+    metaDescription: "ZentroFix använder AI för att upptäcka och automatiskt åtgärda kritiska SEO-problem.",
+    overview: "Att hitta SEO-problem är bara halva striden — att åtgärda dem är där de flesta team fastnar. ZentroFix överbryggar klyftan mellan granskning och handling genom att använda AI för att generera precisa, kontextmedvetna korrigeringar för varje problem ZentroAudit upptäcker. Istället för att ge dig ett kalkylblad med problem, tillhandahåller ZentroFix den faktiska koden, innehållet och konfigurationsändringarna som behövs.\n\nVerktyget förstår den **semantiska kontexten** för varje problem. När det genererar en saknad metabeskrivning producerar det inte generisk utfyllnad — det analyserar sidans entitetstäckning, målsökord och tematiska fokus för att skapa metadata som noggrant representerar innehållets semantiska omfattning. När det fixar trasiga interna länkar föreslår det ersättningar baserade på tematisk relevans, inte bara URL-likhet.\n\nZentroFix är designat för team som behöver röra sig snabbt utan att offra kvalitet. Oavsett om du masskorrigerar metadata över tusentals sidor eller löser kritiska schema-fel ett i taget, förhandsgranskas varje korrigering innan den appliceras och är reversibel — vilket ger dig förtroendet att applicera ändringar i stor skala.",
+    trustChips: ["1-klick-fixar", "AI-drivet", "Autokorrigering"],
+    capabilities: [
+      { title: "Autokorrigeringar", description: "Fixa problem med ett klick." },
+      { title: "Metadatareparation", description: "Generera taggar och beskrivningar." },
+      { title: "Länklösning", description: "Laga trasiga länkar." },
+      { title: "Schema-injektion", description: "Skapa saknade data." },
+      { title: "Innehållsfyllning", description: "Berika tunna sidor." },
+      { title: "Säkerhet", description: "Fixa HTTPS och blandat innehåll." }
+    ],
+    steps: [
+      { title: "Granskning", description: "Skanna webbplatsen." },
+      { title: "Granska", description: "Se AI-förslag." },
+      { title: "Applicera", description: "Verkställ ändringar." },
+      { title: "Verifiera", description: "Bekräfta resultat." }
+    ],
+    benefits: ["Spara tid", "Ingen kodning", "Massåtgärder", "Skydda rankning", "Integrerat flöde"],
+    faqs: [
+      { q: "Ändrar det direkt?", a: "Genererar kod/förslag. Direkt för kopplade sidor." },
+      { q: "Vad fixas?", a: "Meta, länkar, schema, innehåll." },
+      { q: "Säkert?", a: "Ja, förhandsgranskning och ångra." },
+      { q: "CMS?", a: "Stödjer WordPress m.fl." }
+    ],
+    useCases: [
+      { title: "Reparationssprint", description: "Snabba massåtgärder." },
+      { title: "Innehållsberikning", description: "Förbättra tunna sidor." },
+      { title: "Utvecklare", description: "Färdiga kodsnuttar." }
+    ],
+    whoIsItFor: [
+      { persona: "SEO-chefer", reason: "Snabbhet utan dev-kö." },
+      { persona: "Byråer", reason: "Mervärde för klienter." },
+      { persona: "Småföretag", reason: "Enkelhet." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Hitta felen" },
+      { label: "ZentroWrite", description: "Skapa innehåll" },
+      { label: "ZentroMarkup", description: "Generera schema" }
+    ]
+  },
+  zentrokeywords: {
+    name: "ZentroKeywords",
+    tagline: "Semantisk sökordsresearch och entitetsupptäckt",
+    metaTitle: "ZentroKeywords – Semantisk sökordsresearch",
+    metaDescription: "Upptäck sökord med stor påverkan baserat på entitetsassociationer.",
+    overview: "Sökordsforskning har utvecklats bortom sökvolym och konkurrenspoäng. ZentroKeywords närmar sig sökordsupptäckt genom linsen av **semantiska entiteter och tematiska relationer** — samma ramverk som sökmotorer använder för att förstå och ranka innehåll. Istället för att ge dig en platt lista med sökord sorterade efter volym, kartlägger det entitetslandskapet runt ditt fröämne.\n\nVarje sökord existerar i ett nät av semantiska relationer. ZentroKeywords avslöjar dessa kopplingar: vilka entiteter sökmotorer associerar med en fråga, vilka tematiska kluster ett sökord tillhör och vilka sökavsiktsmönster det aktiverar. Detta låter dig bygga innehållsstrategier som etablerar **tematisk auktoritet** istället för att jaga individuella sökordsrankningar.\n\nVerktyget integrerar Koray Tugberk GÜBÜRs semantiska SEO-metodik direkt i forskningsarbetsflödet. När du anger ett frösökord hittar ZentroKeywords inte bara relaterade termer — det kartlägger hela entitetsgrafen, identifierar hub-och-spoke-innehållsstrukturen du behöver och klassificerar varje sökord efter avsikt.",
+    trustChips: ["Entitetsbaserad", "Avsiktsmapping", "Tematiska kluster"],
+    capabilities: [
+      { title: "Entitetsupptäckt", description: "Hitta relaterade teman." },
+      { title: "Avsikt", description: "Klassificera syfte." },
+      { title: "Kluster", description: "Gruppera för silos." },
+      { title: "Svårighet", description: "Entitetskonkurrens." },
+      { title: "Globalt", description: "Flerspråkig analys." },
+      { title: "Trender", description: "Säsongsvariationer." }
+    ],
+    steps: [
+      { title: "Frösökord", description: "Starta med ett ämne." },
+      { title: "Relationer", description: "Se kopplingar." },
+      { title: "Filtrera", description: "Välj de bästa." },
+      { title: "Exportera", description: "Planera innehåll." }
+    ],
+    benefits: ["Hitta dolda ord", "Bygg auktoritet", "Matcha avsikt", "Låg konkurrens", "Hela planer"],
+    faqs: [
+      { q: "Skillnad?", a: "Entitetsanalys vs volym." },
+      { q: "Språk?", a: "50+ språk och 100+ länder." },
+      { q: "Kluster?", a: "Semantiskt baserade." },
+      { q: "Export?", a: "CSV eller till ZentroWrite." }
+    ],
+    useCases: [
+      { title: "Nya silos", description: "Bygg från grunden." },
+      { title: "E-handel", description: "Kategorioptimering." },
+      { title: "Expansion", description: "Internationella marknader." }
+    ],
+    whoIsItFor: [
+      { persona: "Strateger", reason: "Tematiska kartor." },
+      { persona: "Specialister", reason: "Djupare insikter." },
+      { persona: "PPC/SEO", reason: "Samordning." }
+    ],
+    relatedTools: [
+      { label: "ZentroWrite", description: "Skapa innehåll" },
+      { label: "ZentroRank", description: "Följ resultat" },
+      { label: "ZentroCompare", description: "Konkurrentanalys" }
+    ]
+  },
+  zentrorank: {
+    name: "ZentroRank",
+    tagline: "Rankningsspårning i realtid",
+    metaTitle: "ZentroRank – Realtidsrankning",
+    metaDescription: "Övervaka resultat per enhet, plats och tema.",
+    overview: "Rankningar fluktuerar dagligen, och utan kontinuerlig övervakning flyger du i blindo. ZentroRank erbjuder sökordsrankningsspårning i realtid som går bortom enkla positionsnummer — den spårar din synlighet över **enheter, platser och SERP-funktioner** för att ge dig en komplett bild av hur sökmotorer presenterar ditt innehåll.\n\nDet som skiljer ZentroRank är dess entitetsmedvetna tillvägagångssätt. Den berättar inte bara att du rankar #7 — den visar vilka SERP-funktioner som omger din listning, om konkurrenter har knowledge panels, och hur dina rankningar korrelerar med dina entitetsauktoritetspoäng.\n\nFör byråer och företag med flera platser ger platsbaserad spårning granulära data. Spåra samma sökord i 100+ städer, jämför mobil vs desktop och ställ in smarta varningar för signifikanta förändringar.",
+    trustChips: ["Realtid", "Multi-enhet", "Platsbaserad"],
+    capabilities: [
+      { title: "Realtids-SERP", description: "Dagliga uppdateringar." },
+      { title: "Plats", description: "Städer och länder." },
+      { title: "Enheter", description: "Mobil vs Desktop." },
+      { title: "Konkurrenter", description: "Jämför sida vid sida." },
+      { title: "Funktioner", description: "Snippets, paneler." },
+      { title: "Varningar", description: "Vid tapp." }
+    ],
+    steps: [
+      { title: "Sökord", description: "Importera lista." },
+      { title: "Parametrar", description: "Ställ in spårning." },
+      { title: "Övervaka", description: "Se trender." },
+      { title: "Agera", description: "Optimera." }
+    ],
+    benefits: ["Missa inget", "Förstå synlighet", "Benchmark", "SERP-chanser", "Datadrivet"],
+    faqs: [
+      { q: "Uppdatering?", a: "Dagligen eller oftare." },
+      { q: "Antal ord?", a: "50 till obegränsat." },
+      { q: "Länder?", a: "100+ länder." },
+      { q: "Funktioner?", a: "Ja, alla SERP-typer." }
+    ],
+    useCases: [
+      { title: "Uppföljning", description: "Efter publicering." },
+      { title: "Franchise", description: "Lokala marknader." },
+      { title: "Pitch", description: "Konkurrentinsikt." }
+    ],
+    whoIsItFor: [
+      { persona: "Chefer", reason: "Tydliga rapporter." },
+      { persona: "Lokal SEO", reason: "Stadsnivå." },
+      { persona: "Content", reason: "Effektmätning." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Hitta nya ord" },
+      { label: "ZentroCompare", description: "Djupanalys" },
+      { label: "ZentroAudit", description: "Fixa problem" }
+    ]
+  },
+  zentrowrite: {
+    name: "ZentroWrite",
+    tagline: "Skapa entitetsrikt SEO-innehåll med AI",
+    metaTitle: "ZentroWrite – Entitetsrikt innehåll med AI",
+    metaDescription: "Generera optimerade inlägg och produktsidor.",
+    overview: "Innehållsskapande för SEO har skiftat från sökordsproppning till **semantisk fullständighet**. ZentroWrite är en AI-skrivassistent byggd specifikt för detta nya paradigm — den genererar innehåll som naturligt integrerar entiteter, attribut och tematiska relationer som sökmotorer förväntar sig.\n\nTill skillnad från generiska AI-skribenter är ZentroWrite tränad på entitetsbaserade SEO-principer. När du anger ett målsökord analyserar den hela entitetslandskapet — vilka namngivna entiteter som måste finnas, vilka EAV-tripletter som krävs, och hur innehållet ska struktureras med frågebaserade H2-rubriker.\n\nZentroWrite integreras med ZentroContentBrief och ZentroTopicality för ett slutet flöde: brief → skriv → betygsätt → förfina.",
+    trustChips: ["AI-drivet", "Optimerat", "SEO-redo"],
+    capabilities: [
+      { title: "Semantiskt innehåll", description: "Naturlig integration." },
+      { title: "Metataggar", description: "Automatisk generering." },
+      { title: "Brief builder", description: "Skapa riktlinjer." },
+      { title: "Score optimizer", description: "Realtidsbetyg." },
+      { title: "Artikelskrivare", description: "Hela texter." },
+      { title: "Mallar", description: "För olika format." }
+    ],
+    steps: [
+      { title: "Välj typ", description: "Blogg, produkt, etc." },
+      { title: "Sökord", description: "Analysera entiteter." },
+      { title: "Generera", description: "Skapa utkast." },
+      { title: "Publicera", description: "Exportera." }
+    ],
+    benefits: ["Täck entiteter", "Spara tid", "Bygg auktoritet", "Realtidsscore", "Ingen tunn content"],
+    faqs: [
+      { q: "Ersätter skribenter?", a: "Nej, hjälper dem." },
+      { q: "Typer?", a: "Artiklar, beskrivningar, FAQ." },
+      { q: "Varför entiteter?", a: "För relevans." },
+      { q: "Tonläge?", a: "Konfigurerbart." }
+    ],
+    useCases: [
+      { title: "Skalning", description: "Snabba utkast." },
+      { title: "Optimering", description: "Förbättra sidor." },
+      { title: "E-handel", description: "Produkttexter." }
+    ],
+    whoIsItFor: [
+      { persona: "Skribenter", reason: "Stöd och guidning." },
+      { persona: "Team", reason: "Effektivitet." },
+      { persona: "Byråer", reason: "Kvalitet i skala." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Forskning" },
+      { label: "ZentroAudit", description: "Hitta behov" },
+      { label: "ZentroMarkup", description: "Strukturera data" }
+    ]
+  },
+  zentrocompare: {
+    name: "ZentroCompare",
+    tagline: "Identifiera SEO-luckor i entitetstäckning",
+    metaTitle: "ZentroCompare – Entitetsluckor",
+    metaDescription: "Analysera konkurrenter baserat på entiteter och teman.",
+    overview: "Varför överträffar dina konkurrenter dig? Svaret ligger ofta inte i bakåtlänkar, utan i **tematisk auktoritet**. ZentroCompare erbjuder entitetsbaserad konkurrensanalys som går bortom enkel sökordsöverlappning. Den kartlägger dina konkurrenters tematiska fotavtryck och identifierar entiteter, ämnen och relationer de täcker men du missar.\n\nDe flesta verktyg visar vilka sökord rivaler rankar för. ZentroCompare visar *varför*. Genom att analysera entitetsdensitet, klusterstruktur och EAV-signaler avslöjar den semantiska luckor i din strategi. Missar du ett viktigt underämne? Har konkurrenter bättre entitetsrelationer?\n\nAnvänd ZentroCompare för att hitta nya möjligheter, jämföra din auktoritet och bygga en datadriven strategi som fyller luckorna i din nisch.",
+    trustChips: ["Gap-analys", "Jämförelse", "Kartor"],
+    capabilities: [
+      { title: "Gap-analys", description: "Jämför 5 konkurrenter." },
+      { title: "Täckningskartor", description: "Visualisera teman." },
+      { title: "Sökordsluckor", description: "Hitta missar." },
+      { title: "Auktoritet", description: "Jämför styrka." },
+      { title: "Trafik", description: "Estimera besökare." },
+      { title: "Trender", description: "Följ utveckling." }
+    ],
+    steps: [
+      { title: "Konkurrenter", description: "Lägg till domäner." },
+      { title: "Jämför", description: "Analysera täckning." },
+      { title: "Hitta luckor", description: "Se möjligheter." },
+      { title: "Strategi", description: "Skapa plan." }
+    ],
+    benefits: ["Hitta chanser", "Datadrivet", "Förstå auktoritet", "Prioritera", "Övervaka"],
+    faqs: [
+      { q: "Antal?", a: "5 eller 10 beroende på plan." },
+      { q: "Data?", a: "Ranking, content, länkar." },
+      { q: "Tid?", a: "Historisk data finns." },
+      { q: "Skillnad?", a: "Semantiskt djup." }
+    ],
+    useCases: [
+      { title: "Planering", description: "Kvartalsvis översyn." },
+      { title: "Marknad", description: "Analysera nya nischer." },
+      { title: "Diagnos", description: "Förstå tapp." }
+    ],
+    whoIsItFor: [
+      { persona: "Chefer", reason: "ROI-fokus." },
+      { persona: "Strateger", reason: "Djupanalys." },
+      { persona: "Marknadsföring", reason: "Positionering." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Fyll luckor" },
+      { label: "ZentroBacklinks", description: "Jämför länkar" },
+      { label: "ZentroWrite", description: "Skapa innehåll" }
+    ]
+  },
+  zentrobacklinks: {
+    name: "ZentroBacklinks",
+    tagline: "Upptäck bakåtlänkar som bygger entitetsförtroende",
+    metaTitle: "ZentroBacklinks – Entitetsförtroende",
+    metaDescription: "Analysera länkar baserat på auktoritet och relevans.",
+    overview: "Inte alla bakåtlänkar är lika. Inom entitetsbaserad SEO är den länkande domänens **tematiska relevans** lika viktig som dess auktoritet. ZentroBacklinks analyserar din länkprofil genom linsen av entitetsförtroende — och utvärderar om länkar kommer från källor som stärker din auktoritet eller späder ut den.\n\nTraditionella verktyg bedömer länkar mest på DA. ZentroBacklinks lägger till ett lager av entitetsrelevans: den kartlägger fokus för varje länkande domän. En länk från en nischblogg kan vara mer värd än en länk från en nyhetssajt med högt DA men utan relevans.\n\nUtöver analys ger verktyget möjligheter till länkbygge. Genom att analysera konkurrenter identifierar det tematiskt relevanta domäner som länkar till dem men inte till dig.",
+    trustChips: ["Länkanalys", "Toxisk detektion", "Auktoritet"],
+    capabilities: [
+      { title: "Profilanalys", description: "Full översikt." },
+      { title: "Toxiska länkar", description: "Hitta skräp." },
+      { title: "Poängsättning", description: "Kvalitet och relevans." },
+      { title: "Relevans", description: "Tematisk matchning." },
+      { title: "Möjligheter", description: "Hitta prospects." },
+      { title: "Övervakning", description: "Nya och förlorade." }
+    ],
+    steps: [
+      { title: "Domän", description: "Starta analys." },
+      { title: "Kvalitet", description: "Granska länkar." },
+      { title: "Disavow", description: "Skapa fil." },
+      { title: "Hitta nya", description: "Upptäck chanser." }
+    ],
+    benefits: ["Skydda sajten", "Bygg rätt länkar", "Övervaka tillväxt", "Hitta chanser", "Förstå värde"],
+    faqs: [
+      { q: "Databas?", a: "Miljarder länkar." },
+      { q: "Disavow?", a: "Ja, Google-format." },
+      { q: "Hur funkar det?", a: "Tematisk analys." },
+      { q: "Konkurrenter?", a: "Ja, full analys." }
+    ],
+    useCases: [
+      { title: "Återhämtning", description: "Efter straff." },
+      { title: "Kampanjer", description: "Rätt målgrupp." },
+      { title: "Due diligence", description: "Värdera domäner." }
+    ],
+    whoIsItFor: [
+      { persona: "Länkbyggare", reason: "Relevansfokus." },
+      { persona: "Chefer", reason: "Riskkontroll." },
+      { persona: "PR", reason: "Hitta publicister." }
+    ],
+    relatedTools: [
+      { label: "ZentroCompare", description: "Jämför profiler" },
+      { label: "ZentroAudit", description: "Interna länkar" },
+      { label: "ZentroRank", description: "Rankingpåverkan" }
+    ]
+  },
+  zentromarkup: {
+    name: "ZentroMarkup",
+    tagline: "Autogenerera JSON-LD Schema",
+    metaTitle: "ZentroMarkup – JSON-LD Schema",
+    metaDescription: "Öka rich results och entitetslänkning.",
+    overview: "Strukturerad data är bron mellan ditt innehåll och Knowledge Graph. ZentroMarkup automatiserar skapandet av **JSON-LD schema** som explicit deklarerar entiteter, attribut och relationer — vilket hjälper sökmotorer förstå dina sidor med precision.\n\nDe flesta generatorer skapar enkel kod. ZentroMarkup använder AI för att analysera ditt faktiska innehåll, identifiera entiteter och generera omfattande data som täcker mer än bara minimikraven. Det stärker kopplingarna i Knowledge Graph.\n\nRich results — featured snippets, paneler, FAQ — beror på korrekt data. ZentroMarkup validerar din kod i realtid mot Googles krav, så att du vet att den fungerar innan publicering.",
+    trustChips: ["JSON-LD", "Rich snippets", "Validering"],
+    capabilities: [
+      { title: "Autogenerering", description: "Ingen kodning." },
+      { title: "Validering", description: "Google-krav." },
+      { title: "Länkning", description: "Koppla till KG." },
+      { title: "Många typer", description: "30+ format." },
+      { title: "Visuell editor", description: "Enkel redigering." },
+      { title: "Bulk", description: "Många sidor samtidigt." }
+    ],
+    steps: [
+      { title: "Välj sida", description: "URL eller text." },
+      { title: "Granska", description: "Se koden." },
+      { title: "Anpassa", description: "Redigera." },
+      { title: "Implementera", description: "Kopiera in." }
+    ],
+    benefits: ["Rich results", "Bättre förståelse", "Ingen kod", "Skala upp", "Compliance"],
+    faqs: [
+      { q: "Typer?", a: "Artikel, Produkt, FAQ, etc." },
+      { q: "Kodning?", a: "Nej, helt visuellt." },
+      { q: "Fördel?", a: "CTR och synlighet." },
+      { q: "Uppdatera?", a: "Ja, importera befintligt." }
+    ],
+    useCases: [
+      { title: "E-handel", description: "Produktdata." },
+      { title: "Blogg", description: "Artikelschema." },
+      { title: "Lokalt", description: "Företagsinfo." }
+    ],
+    whoIsItFor: [
+      { persona: "Tekniker", reason: "Avancerad schema." },
+      { persona: "Content", reason: "Enkelhet." },
+      { persona: "E-handel", reason: "Bulkhantering." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Hitta fel" },
+      { label: "ZentroFix", description: "Autoinjicera" },
+      { label: "ZentroWrite", description: "Anpassa innehåll" }
+    ]
+  },
+  zentrotopicalmap: {
+    name: "ZentroTopicalMap",
+    tagline: "Bygg entitetsbaserade tematiska kartor",
+    metaTitle: "ZentroTopicalMap – Tematiska kartor",
+    metaDescription: "Generera hub-and-spoke-strukturer för auktoritet.",
+    overview: "Tematisk auktoritet byggs genom **systematisk innehållsarkitektur**, inte slumpmässiga artiklar. ZentroTopicalMap genererar omfattande hub-and-spoke-strukturer grundade i entitetsrelationer — en komplett ritning för att dominera ett ämne.\n\nKoray Tugberk GÜBÜRs ramverk betonar holistisk utvärdering. En enda artikel räcker inte. Du behöver ett nätverk av sidor som täcker varje entitet och attribut. ZentroTopicalMap bygger detta nätverk åt dig.\n\nVerktyget börjar med din centrala entitet och kartlägger utåt: identifierar hub-ämnen, spoke-underämnen, relationer och källkontexter som formar din nischs landskap.",
+    trustChips: ["Entitetsbaserad", "Hub & spoke", "Gap-detektion"],
+    capabilities: [
+      { title: "Kartläggning", description: "Bygg graf." },
+      { title: "Struktur", description: "Hierarkisk modell." },
+      { title: "Kontext", description: "Källanalys." },
+      { title: "Upptäckt", description: "Hitta randområden." },
+      { title: "Gaps", description: "Jämför innehåll." },
+      { title: "Djup", description: "Poängsätt." }
+    ],
+    steps: [
+      { title: "Definiera", description: "Centralt ämne." },
+      { title: "Generera", description: "Skapa karta." },
+      { title: "Granska", description: "Se kluster." },
+      { title: "Exportera", description: "Planera." }
+    ],
+    benefits: ["Bygg auktoritet", "Täck allt", "Hitta luckor", "Rätt struktur", "Strategisk plan"],
+    faqs: [
+      { q: "Vad är det?", a: "Struktur av ämnen." },
+      { q: "Hur funkar det?", a: "Entitetsanalys." },
+      { q: "Befintlig sajt?", a: "Ja, visar gaps." },
+      { q: "Skillnad?", a: "Djupare än sökord." }
+    ],
+    useCases: [
+      { title: "Ny sajt", description: "Rätt från start." },
+      { title: "Omstrukturering", description: "Fixa arkitektur." },
+      { title: "Pitch", description: "Visa strategi." }
+    ],
+    whoIsItFor: [
+      { persona: "Strateger", reason: "Planering." },
+      { persona: "Chefer", reason: "Ledning." },
+      { persona: "Grundare", reason: "MVP-plan." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Frösökord" },
+      { label: "ZentroWrite", description: "Skrivandet" },
+      { label: "ZentroCompare", description: "Jämförelse" }
+    ]
+  },
+  zentrocontentbrief: {
+    name: "ZentroContentBrief",
+    tagline: "Generera EAV-optimerade briefer",
+    metaTitle: "ZentroContentBrief – EAV-briefer",
+    metaDescription: "Skapa semantiska briefer med EAV och entiteter.",
+    overview: "Bra innehåll börjar med en bra brief. ZentroContentBrief genererar **EAV-optimerade ritningar** som talar om för skribenter exakt vilka entiteter som ska täckas, attribut att definiera och relationer att etablera — innan de skriver ett ord.\n\nDe flesta briefer fokuserar på sökord. ZentroContentBrief går djupare genom att generera EAV-tripletter, föreslå H2-frågor med mål för extraktiva svar och definiera makrokontexten.\n\nMakrokontexten är kritisk: den säkrar att sidan håller sig inom ett tydligt semantiskt ramverk. Tillsammans med entitetsrekommendationer och länkförslag skapas briefer som fungerar som semantiska ritningar.",
+    trustChips: ["EAV", "H2-frågor", "Entiteter"],
+    capabilities: [
+      { title: "EAV-generator", description: "Skapa tripletter." },
+      { title: "H2-förslag", description: "Frågebaserade." },
+      { title: "Makrokontext", description: "Sätt ramverk." },
+      { title: "Entiteter", description: "Rekommendationer." },
+      { title: "Poäng", description: "Förhandsbedömning." },
+      { title: "Ankartexter", description: "Länkförslag." }
+    ],
+    steps: [
+      { title: "Sökfråga", description: "Analysera landskap." },
+      { title: "Kartlägg", description: "Skapa graf." },
+      { title: "Anpassa", description: "Redigera." },
+      { title: "Exportera", description: "Till skribent." }
+    ],
+    benefits: ["Inga gissningar", "Snippet-chans", "Rätt kontext", "KG-signaler", "Spara tid"],
+    faqs: [
+      { q: "EAV?", a: "Datamodell för entiteter." },
+      { q: "H2?", a: "Baserat på sökbeteende." },
+      { q: "Makrokontext?", a: "Huvudfokus." },
+      { q: "Workflow?", a: "PDF eller app." }
+    ],
+    useCases: [
+      { title: "Redaktion", description: "Standardisering." },
+      { title: "Uppdatering", description: "Hitta brister." },
+      { title: "Snippets", description: "Strukturera svar." }
+    ],
+    whoIsItFor: [
+      { persona: "Chefer", reason: "Kvalitetssäkring." },
+      { persona: "Skribenter", reason: "Tydlighet." },
+      { persona: "Konsulter", reason: "Expertis." }
+    ],
+    relatedTools: [
+      { label: "ZentroWrite", description: "Skrivande" },
+      { label: "ZentroTopicalMap", description: "Struktur" },
+      { label: "ZentroKeywords", description: "Sökord" }
+    ]
+  },
+  zentrocontentplan: {
+    name: "ZentroContentPlan",
+    tagline: "Planera 6-månaders semantiska granskningar",
+    metaTitle: "ZentroContentPlan – Cykliska granskningar",
+    metaDescription: "Övervaka innehållets åldrande och förändringar.",
+    overview: "Innehåll förblir inte optimerat för evigt. Sökmönster skiftar, konkurrenter publicerar nytt, och förväntningar ändras. ZentroContentPlan automatiserar **livscykelhantering** genom att schemalägga omgranskningar för att fånga upp semantiskt förfall.\n\nCykeln på 6 månader baseras på sökbeteende: mönster skiftar ofta inom detta fönster. Sidor som var kompletta kan tappa relevans när entitetslandskapet förändras.\n\nVerktyget övervakar även akuta skiften i sökfrågor — plötsliga ändringar som kräver omedelbar åtgärd. Tillsammans med HCU-signaler ger det ett proaktivt underhållssystem.",
+    trustChips: ["Förfall", "6-månaders cykel", "Varningar"],
+    capabilities: [
+      { title: "Ålder", description: "Övervaka datum." },
+      { title: "Skiften", description: "Upptäck ändringar." },
+      { title: "Avstånd", description: "Mät relevanstapp." },
+      { title: "Historik", description: "Analysera trender." },
+      { title: "HCU", description: "Kvalitetssignaler." },
+      { title: "Schema", description: "Automatiska cykler." }
+    ],
+    steps: [
+      { title: "Anslut", description: "Inventera." },
+      { title: "Ställ in", description: "Välj intervall." },
+      { title: "Varningar", description: "Få notiser." },
+      { title: "Uppdatera", description: "Optimera om." }
+    ],
+    benefits: ["Undvik tapp", "Behåll auktoritet", "Automatisering", "Prioritering", "Kvalitet"],
+    faqs: [
+      { q: "Förfall?", a: "Minskad relevans." },
+      { q: "6 månader?", a: "Typiskt fönster." },
+      { q: "Detektion?", a: "Trendanalys." },
+      { q: "Integrerat?", a: "Med Audit." }
+    ],
+    useCases: [
+      { title: "Bibliotek", description: "Stora mängder." },
+      { title: "Säsong", description: "Kortare cykler." },
+      { title: "Algoritm", description: "Snabb respons." }
+    ],
+    whoIsItFor: [
+      { persona: "Chefer", reason: "Automatisering." },
+      { persona: "Byråer", reason: "Löpande tjänst." },
+      { persona: "Ledare", reason: "Proaktivitet." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Ny granskning" },
+      { label: "ZentroWrite", description: "Omskrivning" },
+      { label: "ZentroContentBrief", description: "Ny brief" }
+    ]
+  },
+  zentrotopicality: {
+    name: "ZentroTopicality",
+    tagline: "Poängsätt tematiskt djup",
+    metaTitle: "ZentroTopicality – Tematiskt djup",
+    metaDescription: "NLP-poängsättning och semantisk analys.",
+    overview: "Hur vet du om ditt innehåll är tillräckligt djupt? ZentroTopicality svarar med **NLP-driven poängsättning** som mäter ditt innehåll mot sökmotorernas fulla semantiska förväntningar.\n\nDe flesta verktyg mäter sökord. ZentroTopicality går ner på meningsnivå och analyserar semantiska roller, ramsemantik och EAV-kompletthet. Den kollar inte om du nämnt ett ord — den kollar om du beskriver entiteter och relationer så som krävs för faktaextraktion.\n\nAnalysen av ramsemantik är särskilt kraftfull. Den utvärderar om innehållet aktiverar alla konceptuella ramar kopplade till sökfrågan. Om du skriver om 'kaffebryggning' men missar vattentemperatur, saknas nyckelramar.",
+    trustChips: ["NLP-poäng", "Ramsemantik", "Gap-analys"],
+    capabilities: [
+      { title: "NLP Scorer", description: "Mät relevans." },
+      { title: "Ramsemantik", description: "Koncepttäckning." },
+      { title: "Semantiska roller", description: "Meningsstruktur." },
+      { title: "EAV-kontroll", description: "Entitetstäckning." },
+      { title: "Fråge-gap", description: "Användarfrågor." },
+      { title: "Densitet", description: "Entitetsfördelning." }
+    ],
+    steps: [
+      { title: "Klistra in", description: "URL eller text." },
+      { title: "Analysera", description: "Flerdimensionellt." },
+      { title: "Granska", description: "Se poäng." },
+      { title: "Åtgärda", description: "Fyll luckor." }
+    ],
+    benefits: ["Vet djupet", "Hitta luckor", "Anpassa till NLP", "Komplett EAV", "Täck avsikt"],
+    faqs: [
+      { q: "Skillnad?", a: "Djup vs nyckelord." },
+      { q: "Ramsemantik?", a: "Konceptuella ramar." },
+      { q: "Gap?", a: "Obesvarade frågor." },
+      { q: "Konkurrenter?", a: "Jämför URL:er." }
+    ],
+    useCases: [
+      { title: "Kvalitetsgrind", description: "Före publicering." },
+      { title: "Benchmark", description: "Slå konkurrenter." },
+      { title: "Revision", description: "Hitta svagheter." }
+    ],
+    whoIsItFor: [
+      { persona: "Redaktörer", reason: "Objektivitet." },
+      { persona: "Specialister", reason: "Detaljanalys." },
+      { persona: "AI-team", reason: "Validering." }
+    ],
+    relatedTools: [
+      { label: "ZentroContentBrief", description: "Skapa brief" },
+      { label: "ZentroAudit", description: "Full granskning" },
+      { label: "ZentroWrite", description: "Skriv om" }
+    ]
+  },
+  zentrowhite: {
+    name: "ZentroWhite",
+    tagline: "Leverera SEO under ditt varumärke",
+    metaTitle: "ZentroWhite – White-label SEO",
+    metaDescription: "Varumärkta instrumentpaneler och rapporter.",
+    overview: "SEO-byråer behöver verktyg som imponerar på klienter — inte verktyg som avslöjar plattformen bakom. ZentroWhite låter dig leverera ZentroSEO:s kraft **under ditt eget varumärke**, med din logotyp, färger och domän.\n\nDet handlar inte bara om en logotyp. ZentroWhite ger en komplett upplevelse: anpassade inloggningar, brandade mail, PDF-rapporter och instrumentpaneler som känns som din egen proprietära plattform. Klienterna ser aldrig ZentroSEO.\n\nFör byråer som vill differentiera sig är detta infrastrukturen som möjliggör skalning. Istället för att bygga egna verktyg får du omedelbar tillgång till hela sviten, helt under ditt varumärke.",
+    trustChips: ["White-label", "Branding", "Rapporter"],
+    capabilities: [
+      { title: "Branding", description: "Logo, färg, domän." },
+      { title: "Hantering", description: "Klientkonton." },
+      { title: "Rapporter", description: "PDF med ditt märke." },
+      { title: "Portaler", description: "Klientinloggning." },
+      { title: "Automation", description: "Schemaläggning." },
+      { title: "Domän", description: "Egen URL." }
+    ],
+    steps: [
+      { title: "Konfigurera", description: "Ladda upp assets." },
+      { title: "Klienter", description: "Skapa konton." },
+      { title: "Leverera", description: "Använd verktyg." },
+      { title: "Rapportera", description: "Visa värde." }
+    ],
+    benefits: ["Egen plattform", "Centralt", "Automation", "Transparens", "Skalning"],
+    faqs: [
+      { q: "Domän?", a: "Ja, CNAME." },
+      { q: "Klienter?", a: "Obegränsat." },
+      { q: "Åtkomst?", a: "Ja, egen portal." },
+      { q: "Verktyg?", a: "Alla ingår." }
+    ],
+    useCases: [
+      { title: "Tjänst", description: "Produktifiering." },
+      { title: "Konsult", description: "Utöka utbud." },
+      { title: "Frilans", description: "Professionellt." }
+    ],
+    whoIsItFor: [
+      { persona: "Ägare", reason: "Skalning." },
+      { persona: "Direktörer", reason: "Intäkter." },
+      { persona: "Konsulter", reason: "Förtroende." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Brandade granskningar" },
+      { label: "ZentroRank", description: "Spårning" },
+      { label: "ZentroFix", description: "Effektivitet" }
+    ]
+  }
 };
 
 export default featuresSV;

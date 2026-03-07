@@ -1,17 +1,579 @@
 const featuresNL: Record<string, any> = {
-  zentroaudit: { name: "ZentroAudit", tagline: "Voer entiteitsgebaseerde SEO-audits uit in seconden", metaTitle: "ZentroAudit – Entiteitsgebaseerde SEO-audits in seconden", metaDescription: "ZentroAudit analyseert uw site met semantische SEO, thematische diepte en entiteitsdekking.", overview: "ZentroAudit gaat verder dan oppervlakkige signalen. Het evalueert uw site via **entiteitsgebaseerde SEO**, waarbij de dekking van entiteiten, attributen en semantische relaties wordt gemeten.\n\nDoor 200+ technische SEO-controles te combineren met NLP-entiteitsanalyse en Core Web Vitals-monitoring, krijgt u één geprioriteerde routekaart.", trustChips: ["200+ SEO-controles", "Core Web Vitals", "Entiteitsdekking"], capabilities: [{ title: "Diepgaande crawlanalyse", description: "Crawlt elke pagina om gebroken links, redirectketens en indexeringsproblemen te ontdekken." }, { title: "Core Web Vitals Monitoring", description: "Volg LCP-, FID- en CLS-metrics voor snelle, stabiele gebruikerservaringen." }, { title: "EAV-dekkingsanalyse", description: "Meet de Entity-Attribute-Value-volledigheid tegen de verwachtingen van zoekmachines." }, { title: "On-Page SEO-analyse", description: "Audit title tags, meta descriptions, kopstructuur en contentstructuur." }, { title: "Beveiliging & Toegankelijkheid", description: "Controleer HTTPS-problemen, mixed content en ontbrekende alt-attributen." }, { title: "Geprioriteerde probleemscoring", description: "Problemen gerangschikt op SEO-impact zodat u het belangrijkste eerst oplost." }], steps: [{ title: "Voer uw URL in", description: "Plak uw website-URL en ZentroAudit start een uitgebreide crawl." }, { title: "AI analyseert alles", description: "Onze engine controleert 200+ SEO-factoren." }, { title: "Geprioriteerde resultaten", description: "Ontvang een duidelijk, bruikbaar rapport." }, { title: "Volg de voortgang", description: "Herhaal audits om verbetering te meten." }], benefits: ["Identificeer technische SEO-problemen vóór ze rankings beïnvloeden", "Begrijp uw entiteits- en thematische dekkingsgaten", "Monitor Core Web Vitals voor betere pagina-ervaring signalen", "Ontvang bruikbare aanbevelingen voor elk probleem", "Volg de verbetering van uw SEO-gezondheidsscore"], faqs: [{ q: "Hoeveel pagina's kan ZentroAudit crawlen?", a: "Tot 10.000 pagina's in het Pro-plan en onbeperkt in het Agency-plan." }, { q: "Welke SEO-factoren controleert ZentroAudit?", a: "200+ factoren inclusief meta tags, kopstructuur, Core Web Vitals, entiteitsdekking en meer." }, { q: "Hoe wordt entiteitsdekking gemeten?", a: "We vergelijken de semantische entiteiten van uw content met de thematische verwachtingen." }, { q: "Kan ik terugkerende audits plannen?", a: "Ja! Stel wekelijkse of maandelijkse geautomatiseerde audits in." }, { q: "Controleert ZentroAudit mobiele SEO?", a: "Absoluut. Het voert desktop- en mobiele crawls uit." }], useCases: [{ title: "Bureau dat 20+ klantsites beheert", description: "Voer wekelijkse geautomatiseerde audits uit over uw hele portfolio." }, { title: "E-commerce site met 10.000+ productpagina's", description: "Crawl uw hele catalogus om orphan producten en ontbrekende schema te vinden." }, { title: "Contentuitgever na algoritme-update", description: "Identificeer pagina's die rankings verloren door onvoldoende thematische diepte." }, { title: "Intern SEO-team voor een migratie", description: "Stel een baseline in van uw huidige SEO-gezondheidsscore." }], whoIsItFor: [{ persona: "Interne SEO-managers", reason: "Eén dashboard voor technische gezondheid, entiteitsdekking en Core Web Vitals." }, { persona: "SEO-bureaus", reason: "Audit klantsites op schaal met branded rapporten en entiteitsinzichten." }, { persona: "Contentstrategen", reason: "Begrijp welke pagina's semantische diepte missen." }, { persona: "Technisch SEO-specialisten", reason: "Diepgaande crawlanalyse met redirectketens en JavaScript-rendering controles." }], relatedTools: [{ label: "ZentroFix", description: "Los automatisch gevonden problemen op" }, { label: "ZentroMarkup", description: "Genereer schema voor betere entiteitsherkenning" }, { label: "ZentroKeywords", description: "Onderzoek keywords met entiteitscontext" }] },
-  zentrofix: { name: "ZentroFix", tagline: "Los direct technische en content SEO-fouten op met AI", metaTitle: "ZentroFix – Los SEO-fouten direct op met AI", metaDescription: "ZentroFix gebruikt AI om kritieke SEO-problemen automatisch te detecteren en corrigeren.", overview: "ZentroFix overbrugt de kloof tussen audit en actie met AI-gegenereerde, contextbewuste fixes.\n\nElke correctie wordt voorvertoond en is omkeerbaar.", trustChips: ["1-klik fixes", "AI-aangedreven", "Auto-correctie"], capabilities: [{ title: "1-Klik Auto-Fixes", description: "Los gebroken links, ontbrekende meta tags en duplicate content op met één klik." }, { title: "Metadata-reparatie", description: "Genereer en optimaliseer automatisch title tags en meta descriptions." }, { title: "Gebroken link-oplossing", description: "Detecteer en repareer gebroken interne en externe links." }, { title: "Schema-injectie", description: "Genereer en injecteer ontbrekende JSON-LD gestructureerde data." }, { title: "Content-gap vulling", description: "Identificeer dunne content en suggereer entiteitsrijke toevoegingen." }, { title: "Beveiligingsfix-suggesties", description: "Signaleer mixed content en ontbrekend HTTPS." }], steps: [{ title: "Voer uw audit uit", description: "ZentroFix werkt samen met ZentroAudit." }, { title: "Bekijk voorgestelde fixes", description: "Elk probleem komt met een AI-gegenereerde aanbeveling." }, { title: "Pas fixes direct toe", description: "Klik om individuele of bulk fixes toe te passen." }, { title: "Verifieer resultaten", description: "Audit opnieuw om te bevestigen dat fixes werken." }], benefits: ["Bespaar uren handmatig SEO-werk", "Geen technische expertise nodig", "Fix metadata, links en content in bulk", "Voorkom rankingdalingen", "Werkt naadloos met ZentroAudit"], faqs: [{ q: "Wijzigt ZentroFix mijn website direct?", a: "Het genereert aanbevelingen en code-snippets. Voor verbonden sites kan het direct fixes toepassen." }, { q: "Welke problemen kan het auto-corrigeren?", a: "Meta tags, gebroken links, redirectketens, ontbrekend schema en meer." }, { q: "Is bulk-toepassing veilig?", a: "Ja. Het toont precies wat er verandert en u kunt binnen 30 dagen ongedaan maken." }, { q: "Werkt het met WordPress?", a: "Ja! Integreert met WordPress en andere CMS-platforms." }], useCases: [{ title: "Post-audit remedie-sprint", description: "Pas high-impact fixes in bulk toe." }, { title: "Contentteam dat dunne pagina's repareert", description: "Gebruik AI-suggesties om pagina's te verrijken." }, { title: "Ontwikkelaar die technische fixes implementeert", description: "Ontvang kant-en-klare code-snippets." }], whoIsItFor: [{ persona: "SEO-managers met beperkte dev-resources", reason: "Pas technische fixes toe zonder te wachten op ontwikkeling." }, { persona: "Bureaus die fix-implementatie leveren", reason: "Onderscheid u door problemen daadwerkelijk op te lossen." }, { persona: "Kleine ondernemers", reason: "Geen SEO-expertise nodig — ZentroFix legt elk probleem helder uit." }], relatedTools: [{ label: "ZentroAudit", description: "Vind de problemen die ZentroFix oplost" }, { label: "ZentroWrite", description: "Genereer geoptimaliseerde content" }, { label: "ZentroMarkup", description: "Genereer gestructureerde data markup" }] },
-  zentrokeywords: { name: "ZentroKeywords", tagline: "Semantisch keywordonderzoek en entiteitstopic-ontdekking", metaTitle: "ZentroKeywords – Semantisch keywordonderzoek", metaDescription: "Ontdek impactvolle keywords op basis van entiteitsassociaties en zoekintentie.", overview: "ZentroKeywords benadert keyworddiscovery via **semantische entiteiten en thematische relaties**.\n\nIntegre de semantische SEO-methodologie van Koray Tugberk GÜBÜR.", trustChips: ["Entiteitsgebaseerd", "Intentiemapping", "Thematische clusters"], capabilities: [{ title: "Entiteits-topic-ontdekking", description: "Ontdek semantisch gerelateerde entiteiten en thema's." }, { title: "Zoekintentie-mapping", description: "Classificeer keywords op intentie." }, { title: "Thematische clusteropbouw", description: "Groepeer keywords in thematische clusters." }, { title: "Moeilijkheidsscore", description: "Beoordeel rankingmoeilijkheid via entiteitscompetitie-analyse." }, { title: "Lokale & globale inzichten", description: "Onderzoek keywords per locatie en taal." }, { title: "Zoekvolume-trends", description: "Volg trends voor seizoensgebonden kansen." }], steps: [{ title: "Voer een seed-keyword in", description: "Begin met een onderwerp en ZentroKeywords breidt het uit." }, { title: "Verken entiteitsrelaties", description: "Zie hoe keywords verbonden zijn met entiteiten." }, { title: "Filter op intentie en moeilijkheid", description: "Verklein tot bruikbare keywords." }, { title: "Exporteer en plan content", description: "Exporteer clusters naar uw contentkalender." }], benefits: ["Ontdek keywords die concurrenten missen", "Bouw thematische autoriteit met entiteitsclusters", "Lijn elke content uit op zoekintentie", "Vind low-competition kansen", "Maak complete contentplannen vanuit één seed"], faqs: [{ q: "Hoe verschilt ZentroKeywords?", a: "Het gebruikt entiteitsanalyse in plaats van alleen zoekvolume." }, { q: "Kan ik in meerdere talen onderzoeken?", a: "Ja! 50+ talen en 100+ landen." }, { q: "Hoe worden clusters gegenereerd?", a: "Onze AI analyseert semantische relaties." }, { q: "Kan ik exporteren?", a: "Ja. Als CSV of direct naar ZentroWrite." }], useCases: [{ title: "Nieuw contentsilo opbouwen", description: "Genereer het complete thematische cluster." }, { title: "E-commerce categoriepagina-optimalisatie", description: "Ontdek entiteitsrijke long-tail keywords." }, { title: "Internationale marktexpansie", description: "Onderzoek keywords in 50+ talen." }], whoIsItFor: [{ persona: "Contentstrategen", reason: "Bouw complete thematische kaarten vanuit keywordonderzoek." }, { persona: "SEO-specialisten", reason: "Ga voorbij volume — begrijp entiteitsrelaties." }, { persona: "PPC en SEO hybrid teams", reason: "Classificeer op intentie om strategieën af te stemmen." }], relatedTools: [{ label: "ZentroWrite", description: "Verander onderzoek in geoptimaliseerde content" }, { label: "ZentroRank", description: "Volg rankings van uw target keywords" }, { label: "ZentroCompare", description: "Vergelijk keyworddekking vs concurrenten" }] },
-  zentrorank: { name: "ZentroRank", tagline: "Realtime keyword-ranktracking", metaTitle: "ZentroRank – Realtime keyword-ranktracking", metaDescription: "Volg keywordprestaties per apparaat, locatie en entiteitsthema's.", overview: "ZentroRank biedt realtime ranktracking die verder gaat dan posities — het volgt visibiliteit over **apparaten, locaties en SERP-features**.", trustChips: ["Realtime", "Multi-apparaat", "Locatiegebaseerd"], capabilities: [{ title: "Realtime SERP-tracking", description: "Monitor rankings met dagelijkse updates en directe alerts." }, { title: "Locatiegebaseerd tracking", description: "Volg rankings in verschillende steden en landen." }, { title: "Apparaatsegmentatie", description: "Vergelijk rankings op desktop, mobiel en tablet." }, { title: "Concurrentievergelijking", description: "Volg uw rankings naast concurrenten." }, { title: "SERP-feature tracking", description: "Monitor featured snippets en knowledge panels." }, { title: "Rankdaling-alerts", description: "Directe meldingen bij belangrijke keyword-dalingen." }], steps: [{ title: "Voeg keywords toe", description: "Importeer handmatig, vanuit CSV of vanuit ZentroKeywords." }, { title: "Stel parameters in", description: "Kies apparaten, locaties en zoekmachines." }, { title: "Monitor dagelijks", description: "Bekijk uw dashboard met trends en bewegingen." }, { title: "Handel op inzichten", description: "Gebruik data om pagina's te identificeren voor optimalisatie." }], benefits: ["Mis nooit een rankingverandering", "Begrijp visibiliteit per apparaat en locatie", "Benchmark tegen concurrenten", "Volg SERP-feature verschijningen", "Neem datagedreven contentbeslissingen"], faqs: [{ q: "Hoe vaak worden rankings bijgewerkt?", a: "Dagelijks standaard. Pro en Agency bieden meerdere dagelijkse checks." }, { q: "Hoeveel keywords kan ik volgen?", a: "Gratis: 50. Pro: tot 1.000. Agency: onbeperkt." }, { q: "Kan ik in meerdere landen volgen?", a: "Ja! 100+ landen met stads-level tracking." }, { q: "Worden SERP-features gevolgd?", a: "Ja — featured snippets, People Also Ask, knowledge panels en meer." }], useCases: [{ title: "Monitoring na content-update", description: "Volg dagelijkse bewegingen na publicatie." }, { title: "Multi-locatie franchise", description: "Volg dezelfde keywords per locatie." }, { title: "Concurrentie-intelligence voor pitch", description: "Volg concurrenten naast eigen rankings." }], whoIsItFor: [{ persona: "SEO-managers die aan executives rapporteren", reason: "Genereer duidelijke visuele rankingrapporten." }, { persona: "Lokale SEO-specialisten", reason: "Stads-level tracking met apparaatsegmentatie." }, { persona: "Contentteams die impact meten", reason: "Koppel rankingveranderingen aan specifieke content-updates." }], relatedTools: [{ label: "ZentroKeywords", description: "Onderzoek nieuwe keywords om te volgen" }, { label: "ZentroCompare", description: "Duik diep in concurrentenrankings" }, { label: "ZentroAudit", description: "Los problemen op die rankingdalingen veroorzaken" }] },
-  zentrowrite: { name: "ZentroWrite", tagline: "Creëer entiteitsrijke SEO-content met AI", metaTitle: "ZentroWrite – Entiteitsrijke SEO-content met AI", metaDescription: "Genereer geoptimaliseerde blogposts, productpagina's en meta-content.", overview: "ZentroWrite is een AI-schrijfassistent gebouwd voor **semantische volledigheid** — het genereert content die natuurlijk entiteiten en thematische relaties integreert.", trustChips: ["AI-aangedreven", "Entiteitsgeoptimaliseerd", "SEO-klaar"], capabilities: [{ title: "Semantische contentgeneratie", description: "Genereer content die natuurlijk entiteiten en relaties integreert." }, { title: "Meta tag-generatie", description: "Maak automatisch geoptimaliseerde title tags en meta descriptions." }, { title: "Contentbrief-bouwer", description: "Genereer uitgebreide briefs met target-entiteiten." }, { title: "SEO-score optimizer", description: "Realtime contentscoring die entiteitsdekking en diepte meet." }, { title: "Blog- en artikelschrijver", description: "Genereer volledige artikelen geoptimaliseerd voor uw keywords." }, { title: "Contentsjablonen", description: "Gebruik branchespecifieke sjablonen." }], steps: [{ title: "Kies contenttype", description: "Selecteer blogposts, productbeschrijvingen of meta tags." }, { title: "Geef target keywords", description: "Voer uw keyword in en ZentroWrite mapt het entiteitslandschap." }, { title: "Genereer en pas aan", description: "AI genereert entiteitsrijke content die u kunt bewerken." }, { title: "Publiceer met vertrouwen", description: "Exporteer SEO-klare content." }], benefits: ["Maak content die verwachte entiteiten dekt", "Bespaar uren op meta tags", "Bouw sneller thematische autoriteit", "Krijg realtime SEO-scoring", "Publiceer nooit meer dunne content"], faqs: [{ q: "Vervangt ZentroWrite menselijke schrijvers?", a: "Nee. Het is een copiloot die helpt beter te schrijven." }, { q: "Welke contenttypes kan het genereren?", a: "Blogposts, productbeschrijvingen, meta tags, FAQ's en meer." }, { q: "Hoe helpt entiteitsrijke content?", a: "Zoekmachines gebruiken entiteiten voor relevantie." }, { q: "Kan ik mijn merkstijl gebruiken?", a: "Ja! Configureer uw toon en stijlrichtlijnen." }], useCases: [{ title: "Blogproductie opschalen", description: "Genereer entiteitsrijke eerste concepten." }, { title: "Bestaande dunne content optimaliseren", description: "Plak onderpresterende pagina's voor suggesties." }, { title: "Productpagina's op schaal", description: "Genereer unieke geoptimaliseerde beschrijvingen." }], whoIsItFor: [{ persona: "Contentschrijvers en -editors", reason: "Realtime semantische AI-begeleiding." }, { persona: "SEO-teams zonder schrijvers", reason: "Genereer publiceerklare eerste concepten." }, { persona: "Bureaus die klantcontent produceren", reason: "Schaal productie met kwaliteit." }], relatedTools: [{ label: "ZentroKeywords", description: "Onderzoek keywords voor het schrijven" }, { label: "ZentroAudit", description: "Identificeer pagina's die beter moeten" }, { label: "ZentroMarkup", description: "Voeg gestructureerde data toe" }] },
-  zentrocompare: { name: "ZentroCompare", tagline: "Identificeer SEO-gaten in entiteits- en themedekking", metaTitle: "ZentroCompare – SEO-gaten in entiteitsdekking", metaDescription: "Analyseer hoe concurrenten presteren op zoekentiteiten en thema's.", overview: "ZentroCompare biedt **entiteitsgebaseerde concurrentieanalyse** die verder gaat dan keywordoverlap.", trustChips: ["Gap-analyse", "Entiteitsvergelijking", "Thematische kaarten"], capabilities: [{ title: "Concurrentie-gap-analyse", description: "Vergelijk uw dekking met tot 5 concurrenten." }, { title: "Thematische dekkingskaarten", description: "Visualiseer uw clusterdekking vs concurrenten." }, { title: "Keyword-gap-vinder", description: "Ontdek keywords waar concurrenten ranken." }, { title: "Entiteitsautoriteitsvergelijking", description: "Vergelijk entiteitsautoriteit." }, { title: "Verkeersschatting", description: "Schat organisch concurrenten-verkeer." }, { title: "Trendanalyse", description: "Volg veranderingen in concurrentie-dekking." }], steps: [{ title: "Voeg concurrenten toe", description: "Voer tot 5 domeinen in." }, { title: "Vergelijk dekking", description: "Zie zij-aan-zij vergelijkingen." }, { title: "Identificeer gaten", description: "Ontdek content-gaps en keyword-kansen." }, { title: "Bouw uw strategie", description: "Exporteer naar bruikbare contentplannen." }], benefits: ["Vind kansen die concurrenten benutten", "Bouw datagedreven strategie", "Begrijp relatieve thematische autoriteit", "Prioriteer op verkeerspotentieel", "Monitor concurrentenbewegingen"], faqs: [{ q: "Hoeveel concurrenten?", a: "Tot 5 in Pro en 10 in Agency." }, { q: "Welke data?", a: "Rankings, contentdekking, entiteitspresentie, backlinks en SERP-features." }, { q: "Kan ik over tijd volgen?", a: "Ja!" }, { q: "Verschil met keyword-vergelijking?", a: "Entiteitsvergelijking toont thematische diepte." }], useCases: [{ title: "Kwartaalstrategieplanning", description: "Vergelijk dekking met top 5 concurrenten." }, { title: "Nieuwe markt betreden", description: "Analyseer de dekking van gevestigde concurrenten." }, { title: "Post-algoritme diagnose", description: "Begrijp semantische dekkingswinsten." }], whoIsItFor: [{ persona: "SEO-directeuren", reason: "Neem investeringsbeslissingen op entiteitsdata." }, { persona: "Bureaustrategisten", reason: "Lever analyses die semantische autoriteitsgaten tonen." }, { persona: "Productmarketing", reason: "Begrijp hoe concurrenten entiteitsthema's dekken." }], relatedTools: [{ label: "ZentroKeywords", description: "Onderzoek keywords uit gap-analyse" }, { label: "ZentroBacklinks", description: "Vergelijk backlinkprofielen" }, { label: "ZentroWrite", description: "Maak content voor ontdekte gaten" }] },
-  zentrobacklinks: { name: "ZentroBacklinks", tagline: "Ontdek backlinks die entiteitsvertrouwen opbouwen", metaTitle: "ZentroBacklinks – Backlinks die entiteitsvertrouwen opbouwen", metaDescription: "Analyseer backlinkprofielen op autoriteit, thematische relevantie en entiteitsassociaties.", overview: "ZentroBacklinks analyseert uw profiel via **entiteitsvertrouwen**.", trustChips: ["Linkanalyse", "Toxisch-detectie", "Autoriteitsscore"], capabilities: [{ title: "Backlinkprofiel-analyse", description: "Complete weergave met verwijzende domeinen en ankertekstverdeling." }, { title: "Toxische link-detectie", description: "Identificeer schadelijke backlinks." }, { title: "Autoriteitsscore", description: "Beoordeel de kwaliteit van elke backlink." }, { title: "Entiteitsgebaseerde linkrelevantie", description: "Beoordeel of backlinks van relevante bronnen komen." }, { title: "Link building-kansen", description: "Ontdek prospects vanuit concurrentenanalyse." }, { title: "Nieuwe & verloren links", description: "Volg nieuwe backlinks en ontvang alerts." }], steps: [{ title: "Voer domein in", description: "Plak uw domein voor een complete analyse." }, { title: "Bekijk linkkwaliteit", description: "Elke backlink beoordeeld op autoriteit en risico." }, { title: "Disavow toxische links", description: "Genereer disavow-bestanden." }, { title: "Vind kansen", description: "Ontdek prospects vanuit concurrentieanalyse." }], benefits: ["Bescherm tegen toxische backlinks", "Bouw links die autoriteit versterken", "Monitor profiel-groei", "Vind kansen vanuit concurrentieanalyse", "Begrijp de ware kwaliteit van elke link"], faqs: [{ q: "Hoe groot is de database?", a: "Miljarden backlinks, continu bijgewerkt." }, { q: "Kan ik een Google disavow-bestand genereren?", a: "Ja!" }, { q: "Hoe werkt entiteitsanalyse?", a: "We beoordelen of verwijzende domeinen gerelateerde thema's dekken." }, { q: "Kan ik concurrenten monitoren?", a: "Ja. Analyseer elk domein." }], useCases: [{ title: "Herstel na penalty", description: "Identificeer en disavow toxische links." }, { title: "Link building-targeting", description: "Bouw lijsten van relevante prospects." }, { title: "Due diligence bij overname", description: "Beoordeel backlinkgezondheid." }], whoIsItFor: [{ persona: "Link building-specialisten", reason: "Vind prospects op entiteitsrelevantie." }, { persona: "SEO-managers bezorgd over risico", reason: "Monitor profiel op toxische links." }, { persona: "Digitale PR-teams", reason: "Identificeer publicaties die naar concurrenten linken." }], relatedTools: [{ label: "ZentroCompare", description: "Vergelijk backlinkprofielen" }, { label: "ZentroAudit", description: "Vind interne link-problemen" }, { label: "ZentroRank", description: "Zie backlink-impact op rankings" }] },
-  zentromarkup: { name: "ZentroMarkup", tagline: "Auto-genereer JSON-LD Schema voor entiteitsherkenning", metaTitle: "ZentroMarkup – JSON-LD Schema voor entiteitsherkenning", metaDescription: "Verbeter rich results en entiteitslinking door schema te genereren en injecteren.", overview: "ZentroMarkup automatiseert de creatie van **JSON-LD schema markup**.\n\nRich results hangen af van correct geïmplementeerde gestructureerde data.", trustChips: ["JSON-LD generatie", "Rich Snippets", "Schema-validatie"], capabilities: [{ title: "Auto schema-generatie", description: "Genereer automatisch JSON-LD — geen code nodig." }, { title: "Rich Snippet-validatie", description: "Valideer tegen Google's vereisten." }, { title: "Entiteitslinking", description: "Verbind entiteiten met het knowledge graph." }, { title: "Multi-type ondersteuning", description: "Schema voor artikelen, producten, FAQ's en 30+ types." }, { title: "Visuele schema-editor", description: "Bewerk via visuele interface." }, { title: "Bulkgeneratie", description: "Schema voor honderden pagina's tegelijk." }], steps: [{ title: "Selecteer pagina", description: "Kies een URL en ZentroMarkup identificeert de beste schema-types." }, { title: "Bekijk schema", description: "AI genereert compleet JSON-LD markup." }, { title: "Pas aan en valideer", description: "Bewerk en valideer via de editor." }, { title: "Deploy", description: "Kopieer of auto-injecteer via CMS." }], benefits: ["Win rich snippets zonder syntax te leren", "Versterk entiteitsherkenning", "Ondersteun 30+ schema-types", "Valideer vóór deployment", "Genereer schema voor honderden pagina's"], faqs: [{ q: "Welke types?", a: "Article, Product, FAQ, HowTo, LocalBusiness en 20+ meer." }, { q: "Moet ik kunnen coderen?", a: "Nee. De visuele editor doet alles." }, { q: "Hoe helpt het SEO?", a: "Het helpt zoekmachines content te begrijpen en rich results mogelijk te maken." }, { q: "Kan ik valideren tegen Google?", a: "Ja!" }], useCases: [{ title: "E-commerce catalogus", description: "Genereer Product schema voor duizenden pagina's." }, { title: "Uitgever zoekt FAQ rich results", description: "Detecteer automatisch Q&A patronen." }, { title: "Lokaal bedrijf multi-locatie", description: "Genereer LocalBusiness schema per locatie." }], whoIsItFor: [{ persona: "Technisch SEO-specialisten", reason: "Genereer geavanceerd schema met entiteitslinking." }, { persona: "Contentmanagers zonder code", reason: "Maak schema via visuele editor." }, { persona: "E-commerce SEO-teams", reason: "Bulk-genereer Product en Offer schema." }], relatedTools: [{ label: "ZentroAudit", description: "Vind pagina's zonder schema" }, { label: "ZentroFix", description: "Injecteer schema automatisch" }, { label: "ZentroWrite", description: "Maak content voor schema" }] },
-  zentrotopicalmap: { name: "ZentroTopicalMap", tagline: "Bouw entiteitsgebaseerde topical maps voor totale autoriteit", metaTitle: "ZentroTopicalMap – Entiteitsgebaseerde topical maps", metaDescription: "Genereer hub-en-spoke topical maps op basis van semantische entiteiten.", overview: "Thematische autoriteit wordt opgebouwd door **systematische contentarchitectuur**. ZentroTopicalMap genereert uitgebreide hub-en-spoke structuren.", trustChips: ["Entiteitsgebaseerd", "Hub & Spoke", "Semantische gap-detectie"], capabilities: [{ title: "Centrale entiteitsmapper", description: "Definieer uw seed-entiteit en bouw een volledig entiteitsgrafiek." }, { title: "Hub-en-Spoke bouwer", description: "Structureer automatisch in pillar- en spoke-artikelen." }, { title: "Broncontext-analysator", description: "Identificeer dominante bronnen in uw niche." }, { title: "Outer section discovery", description: "Ontdek perifere entiteiten en attributen." }, { title: "Semantische gap-identifier", description: "Vergelijk bestaande content tegen de volledige kaart." }, { title: "Thematische dieptescore", description: "Score elke sectie op diepte en volledigheid." }], steps: [{ title: "Definieer seed-entiteit", description: "Voer een centraal onderwerp in." }, { title: "Genereer de kaart", description: "AI bouwt een gestructureerde hiërarchie." }, { title: "Bekijk clusters en gaps", description: "Verken en identificeer lacunes." }, { title: "Exporteer naar contentplan", description: "Exporteer als contentkalender." }], benefits: ["Bouw autoriteit zonder backlinks", "Volledige entiteitsdekking", "Identificeer gaps vooraf", "Hub-en-spoke architectuur", "Visuele contentroadmap"], faqs: [{ q: "Wat is een topical map?", a: "Een gestructureerde inhoudshiërarchie met hub- en spoke-content." }, { q: "Hoe detecteert het gaps?", a: "Door vergelijking met het volledige entiteitslandschap." }, { q: "Kan ik aanpassen?", a: "Ja!" }, { q: "Werkt het voor elke branche?", a: "Ja." }], useCases: [{ title: "Nieuwe website lanceren", description: "Genereer een complete kaart voor het eerste artikel." }, { title: "Bestaande bibliotheek herstructureren", description: "Map huidige content tegen het landschap." }, { title: "Bureau dat strategie pitcht", description: "Genereer visuele kaarten voor prospects." }], whoIsItFor: [{ persona: "Contentstrategen", reason: "Vervang ad-hoc brainstormen door datagedreven kaarten." }, { persona: "SEO-directeuren", reason: "Geef schrijvers een visuele roadmap." }, { persona: "Startup-founders", reason: "Duidelijk, geprioriteerd contentplan." }], relatedTools: [{ label: "ZentroKeywords", description: "Voed onderzoek in clusters" }, { label: "ZentroContentBrief", description: "Genereer briefs per spoke" }, { label: "ZentroWrite", description: "Schrijf content vanuit de kaart" }] },
-  zentrocontentbrief: { name: "ZentroContentBrief", tagline: "Genereer EAV-geoptimaliseerde semantische contentbriefs", metaTitle: "ZentroContentBrief – EAV-geoptimaliseerde contentbriefs", metaDescription: "Maak briefs met EAV-triplets, vraag-H2s en entiteitsaanbevelingen.", overview: "Goede content begint met een goede brief. ZentroContentBrief genereert **EAV-geoptimaliseerde blueprints**.\n\nDe macrocontext zorgt dat de pagina binnen één helder semantisch kader opereert.", trustChips: ["EAV-triplets", "Vraag-H2s", "Named entities"], capabilities: [{ title: "EAV-triplet generator", description: "Genereer automatisch Entity-Attribute-Value triplets." }, { title: "Vraag-H2 suggesties", description: "Produceer H2s als gebruikersvragen met 40-woord extractieve antwoorden." }, { title: "Macrocontext-insteller", description: "Definieer de macrocontext van de pagina." }, { title: "Named entity-aanbeveler", description: "Toon essentiële named entities voor Knowledge Graph." }, { title: "Topicaliteitsscore", description: "Pre-score geplande content." }, { title: "Ankertekst-optimizer", description: "Genereer beschrijvende ankertekstsuggesties." }], steps: [{ title: "Voer target query in", description: "Typ de exacte query." }, { title: "AI mapt entiteiten", description: "De engine genereert het entiteitsgrafiek en macrocontext." }, { title: "Bekijk en pas aan", description: "Bewerk de brief." }, { title: "Exporteer naar ZentroWrite", description: "Stuur direct naar ZentroWrite." }], benefits: ["Elimineer giswerk over entiteiten", "Structureer voor featured snippets", "Lijn macrocontext vooraf uit", "Zorg voor named entity-dekking", "Bespaar uren research"], faqs: [{ q: "Wat zijn EAV-triplets?", a: "Een datamodel dat entiteiten beschrijft via attributen en waarden." }, { q: "Hoe werkt de H2-suggestie?", a: "Analyseert querypatronen en People Also Ask data." }, { q: "Wat is macrocontext?", a: "Het dominante betekeniskader van uw pagina." }, { q: "Integreert het met mijn workflow?", a: "Ja. Exporteer als PDF of naar ZentroWrite." }], useCases: [{ title: "Redactie schaalt productie", description: "Genereer gestandaardiseerde briefs voor freelancers." }, { title: "Onderpresterende content verbeteren", description: "Genereer een brief voor bestaande pagina's." }, { title: "Featured snippet-content", description: "Gebruik vraag-H2 suggesties." }], whoIsItFor: [{ persona: "Contentmanagers met teams", reason: "Geef schrijvers semantische blueprints." }, { persona: "Freelance SEO-schrijvers", reason: "Ontvang briefs die precies zeggen wat te dekken." }, { persona: "SEO-consultants", reason: "Lever bruikbare briefs als onderdeel van service." }], relatedTools: [{ label: "ZentroWrite", description: "Verander brief in volledig artikel" }, { label: "ZentroTopicalMap", description: "Bouw de kaart voor uw briefs" }, { label: "ZentroKeywords", description: "Ontdek target queries" }] },
-  zentrocontentplan: { name: "ZentroContentPlan", tagline: "Plan 6-maanden semantische audits voor concurrerende content", metaTitle: "ZentroContentPlan – 6-maanden semantische audits", metaDescription: "Monitor contentleeftijd, querypatroonveranderingen en semantische afstandsverval.", overview: "Content blijft niet eeuwig geoptimaliseerd. ZentroContentPlan automatiseert **contentlevenscyclusbeheer** met regelmatige heraudits.", trustChips: ["Verval-detectie", "6-maanden cycli", "Shift-alerts"], capabilities: [{ title: "Contentleeftijdmonitoring", description: "Volg publicatie- en wijzigingsdatums." }, { title: "Querypatroon-shift alerts", description: "Detecteer significante veranderingen in querypatronen." }, { title: "Semantische afstandstracker", description: "Meet hoever content is afgedreven." }, { title: "Historische performance-analysator", description: "Analyseer 6-maanden patronen." }, { title: "Helpful Content Update checker", description: "Evalueer tegen Google's signalen." }, { title: "Geautomatiseerde heraudit-planning", description: "Stel 3, 6 of 12 maanden cycli in." }], steps: [{ title: "Verbind content", description: "Link uw site voor een volledige inventaris." }, { title: "Stel cycli in", description: "Configureer 3, 6 of 12 maanden." }, { title: "Ontvang alerts", description: "Meldingen bij veranderingen." }, { title: "Pas updates toe", description: "Gebruik gesignaleerde pagina's voor heroptimalisatie." }], benefits: ["Voorkom verval-gerelateerde rankingdalingen", "Behoud thematische autoriteit", "Automatiseer de 6-maanden auditcyclus", "Identificeer update vs herschrijving", "Bouw historische engagementkwaliteit"], faqs: [{ q: "Wat is contentverval?", a: "Geleidelijk relevantieveriles wanneer querypatronen veranderen." }, { q: "Waarom 6 maanden?", a: "Het typische venster voor querypatroonveranderingen." }, { q: "Hoe detecteert het shifts?", a: "Door volume-trends en SERP-veranderingen te monitoren." }, { q: "Integreert het met ZentroAudit?", a: "Ja — kan automatisch een audit triggeren." }], useCases: [{ title: "Enterprise bibliotheekonderhoud", description: "Beheer heraudits voor duizenden pagina's." }, { title: "Seizoensgebonden optimalisatie", description: "3-maanden cycli voor seizoenscontent." }, { title: "Post-algoritme reactie", description: "Identificeer meest afgedreven pagina's." }], whoIsItFor: [{ persona: "SEO-managers bij content-heavy sites", reason: "Automatiseer onderhoud." }, { persona: "Bureaus met retainers", reason: "Bouw terugkerende auditcycli in." }, { persona: "Content operations leads", reason: "Van reactief naar proactief onderhoud." }], relatedTools: [{ label: "ZentroAudit", description: "Voer heraudit uit wanneer cyclus triggert" }, { label: "ZentroWrite", description: "Herschrijf vervallen content" }, { label: "ZentroContentBrief", description: "Genereer bijgewerkte briefs" }] },
-  zentrotopicality: { name: "ZentroTopicality", tagline: "Score thematische diepte van content", metaTitle: "ZentroTopicality – Score thematische diepte", metaDescription: "NLP-topicaliteitsscoring, frame semantics analyse, EAV-controle en query-gap detectie.", overview: "ZentroTopicality biedt **NLP-gebaseerde topicaliteitsscoring** die content meet tegen volledige semantische verwachtingen.", trustChips: ["NLP-scoring", "Frame semantics", "Gap-analyse"], capabilities: [{ title: "NLP-relevantiescore", description: "Meet taalpatroonuitlijning met NLP-modelverwachtingen." }, { title: "Frame semantics-analysator", description: "Evalueer of alle semantische frames gedekt zijn." }, { title: "Semantische rollelabeler", description: "Analyseer zinsniveau semantische rollen." }, { title: "EAV-dekkingschecker", description: "Verifieer EAV-triplet dekking." }, { title: "Query-gap analysator", description: "Vergelijk met het volledige queryCluster." }, { title: "Named entity-dichtheidsrapport", description: "Rapporteer dichtheid en verdeling." }], steps: [{ title: "Plak content of URL", description: "Voer URL in of plak content." }, { title: "Multi-dimensionale analyse", description: "NLP scoort op alle dimensies tegelijk." }, { title: "Bekijk score", description: "Composietscore met dimensie-details." }, { title: "Pas fixes toe", description: "Gebruik het rapport om gaps te vullen." }], benefits: ["Ken de thematische diepte vóór publicatie", "Identificeer gaps die snippets blokkeren", "Lijn zinsstructuur uit op NLP-extractie", "Bereik volledige EAV-dekking", "Detecteer onbeantwoorde intentie"], faqs: [{ q: "Wat is topicaliteitsscoring?", a: "Meet semantische diepte van entiteitsrelaties." }, { q: "Wat is frame semantics?", a: "Query's activeren semantische frames die content moet dekken." }, { q: "Hoe werkt de gap-analysator?", a: "Vergelijkt met het volledige userquerycluster." }, { q: "Kan ik concurrenten analyseren?", a: "Ja!" }], useCases: [{ title: "Pre-publicatie kwaliteitsgate", description: "Score content tegen benchmarks." }, { title: "Competitief benchmarken", description: "Plak concurrent-URL's." }, { title: "Content audit en prioritering", description: "Score bestaande bibliotheek in bulk." }], whoIsItFor: [{ persona: "Editors en kwaliteitsreviewers", reason: "Objectieve NLP-scoring." }, { persona: "SEO-specialisten", reason: "Identificeer specifieke semantische gaps." }, { persona: "AI-contentteams", reason: "Valideer AI-content tegen standaarden." }], relatedTools: [{ label: "ZentroContentBrief", description: "Maak EAV-briefs" }, { label: "ZentroAudit", description: "Voer volledig audit uit" }, { label: "ZentroWrite", description: "Herschrijf voor target score" }] },
-  zentrowhite: { name: "ZentroWhite", tagline: "Lever entiteitsgericht SEO onder uw merk", metaTitle: "ZentroWhite – SEO onder uw merk", metaDescription: "Bied klanten branded dashboards met SEO-resultaten.", overview: "ZentroWhite laat u het volledige entiteitsgebaseerde SEO-toolkit **onder uw eigen merk** leveren.", trustChips: ["White-label", "Custom branding", "Klantrapporten"], capabilities: [{ title: "Custom branding", description: "Vervang ZentroSEO-branding door uw logo en kleuren." }, { title: "Klantbeheer", description: "Beheer meerdere klantaccounts vanuit één dashboard." }, { title: "Branded rapporten", description: "Genereer professionele PDF-rapporten." }, { title: "Klantportalen", description: "Geef klanten eigen toegang." }, { title: "Geautomatiseerde rapportage", description: "Plan wekelijkse of maandelijkse rapporten." }, { title: "Custom domein", description: "Host op uw eigen domein." }], steps: [{ title: "Stel merk in", description: "Upload logo en configureer kleuren." }, { title: "Voeg klanten toe", description: "Maak accounts en verbind sites." }, { title: "Lever SEO-diensten", description: "Gebruik alle tools onder uw merk." }, { title: "Rapporteer en behoud", description: "Stuur branded rapporten." }], benefits: ["Presenteer tools als uw eigen platform", "Beheer alle klanten centraal", "Automatiseer rapportgeneratie", "Bied portaaltoegang", "Schaal zonder tools te bouwen"], faqs: [{ q: "Kan ik mijn eigen domein gebruiken?", a: "Ja!" }, { q: "Hoeveel klanten?", a: "Onbeperkt." }, { q: "Kunnen klanten hun data zien?", a: "Ja, onder uw merk." }, { q: "Welke tools beschikbaar?", a: "Alle ZentroSEO tools." }], useCases: [{ title: "Bureau lanceert managed service", description: "Brand het volledige platform." }, { title: "Marketingadviesbureau voegt SEO toe", description: "Voeg branded SEO toe zonder R&D." }, { title: "Freelancer bouwt merk", description: "Presenteer capaciteiten als eigen toolkit." }], whoIsItFor: [{ persona: "SEO-bureau-eigenaren", reason: "Schaal met branded platform." }, { persona: "Marketingdirecteuren", reason: "Voeg omzet-genererende SEO toe." }, { persona: "Onafhankelijke consultants", reason: "Onderscheid met branded platform." }], relatedTools: [{ label: "ZentroAudit", description: "Branded audits voor klanten" }, { label: "ZentroRank", description: "Volg klantkeyword-rankings" }, { label: "ZentroFix", description: "Los klant-SEO-problemen op" }] },
+  zentroaudit: {
+    name: "ZentroAudit",
+    tagline: "Voer entiteitsgebaseerde SEO-audits uit in seconden",
+    metaTitle: "ZentroAudit – Entiteitsgebaseerde SEO-audits in seconden",
+    metaDescription: "ZentroAudit analyseert uw site met semantische SEO, thematische diepte en entiteitsdekking.",
+    overview: "De meeste SEO-audittools controleren alleen oppervlakkige signalen — ontbrekende meta-tags, trage laadtijden, gebroken links. ZentroAudit gaat dieper. Het evalueert uw site door de lens van **entiteitsgebaseerde SEO**, waarbij wordt gemeten hoe volledig uw inhoud de entiteiten, attributen en semantische relaties dekt die zoekmachines gebruiken om thematische autoriteit te bepalen.\n\nTraditionele audits missen de belangrijkste rankingfactor van het moderne zoektijdperk: **semantische volledigheid**. De Entity-Attribute-Value (EAV)-analyse van ZentroAudit vergelijkt uw inhoud met de Knowledge Graph-verwachtingen voor uw doelzoekopdrachten en legt hiaten bloot waar uw pagina's geen antwoord geven op de vragen die zoekmachines namens gebruikers stellen.\n\nDoor meer dan 200 technische SEO-controles te combineren met NLP-gestuurde entiteitsdekkingsanalyse en Core Web Vitals-monitoring, geeft ZentroAudit u één geprioriteerde routekaart die zowel de technische basis als de semantische diepte aanpakt die uw site nodig heeft om te scoren.",
+    trustChips: ["200+ SEO-controles", "Core Web Vitals", "Entiteitsdekking"],
+    capabilities: [
+      { title: "Diepgaande crawlanalyse", description: "Crawlt elke pagina om gebroken links, redirectketens en indexeringsproblemen te ontdekken." },
+      { title: "Core Web Vitals Monitoring", description: "Volg LCP-, FID- en CLS-metrics voor snelle, stabiele gebruikerservaringen." },
+      { title: "EAV-dekkingsanalyse", description: "Meet de Entity-Attribute-Value-volledigheid tegen de verwachtingen van zoekmachines." },
+      { title: "On-Page SEO-analyse", description: "Audit title tags, meta descriptions, kopstructuur en contentstructuur." },
+      { title: "Beveiliging & Toegankelijkheid", description: "Controleer HTTPS-problemen, mixed content en ontbrekende alt-attributen." },
+      { title: "Geprioriteerde probleemscoring", description: "Problemen gerangschikt op SEO-impact zodat u het belangrijkste eerst oplost." }
+    ],
+    steps: [
+      { title: "Voer uw URL in", description: "Plak uw website-URL en ZentroAudit start een uitgebreide crawl." },
+      { title: "AI analyseert alles", description: "Onze engine controleert 200+ SEO-factoren." },
+      { title: "Geprioriteerde resultaten", description: "Ontvang een duidelijk, bruikbaar rapport." },
+      { title: "Volg de voortgang", description: "Herhaal audits om verbetering te meten." }
+    ],
+    benefits: ["Identificeer technische SEO-problemen", "Begrijp entiteitsdekking", "Monitor Core Web Vitals", "Ontvang bruikbare aanbevelingen", "Volg SEO-gezondheid"],
+    faqs: [
+      { q: "Hoeveel pagina's kan ZentroAudit crawlen?", a: "Tot 10.000 pagina's in Pro en onbeperkt in Agency." },
+      { q: "Welke SEO-factoren controleert het?", a: "200+ factoren inclusief meta tags, structuur, Core Web Vitals en entiteiten." },
+      { q: "Hoe wordt entiteitsdekking gemeten?", a: "We vergelijken uw content met thematische verwachtingen." },
+      { q: "Kan ik audits plannen?", a: "Ja, wekelijkse of maandelijkse audits." },
+      { q: "Controleert het mobiele SEO?", a: "Ja, inclusief mobiele crawls en Core Web Vitals." }
+    ],
+    useCases: [
+      { title: "Bureau met 20+ sites", description: "Geautomatiseerde wekelijkse audits voor de hele portefeuille." },
+      { title: "E-commerce met veel producten", description: "Vind orphan producten en ontbrekende schema." },
+      { title: "Na algoritme-update", description: "Identificeer pagina's die rankings verloren door onvoldoende diepte." },
+      { title: "Voor site-migratie", description: "Stel een nulmeting in van SEO-gezondheid." }
+    ],
+    whoIsItFor: [
+      { persona: "Interne SEO-managers", reason: "Eén dashboard voor alle metrics." },
+      { persona: "SEO-bureaus", reason: "Schaalbare audits met branded rapporten." },
+      { persona: "Contentstrategen", reason: "Identificeer semantische hiaten." },
+      { persona: "Technische SEO-specialisten", reason: "Diepgaande technische analyses." }
+    ],
+    relatedTools: [
+      { label: "ZentroFix", description: "Los problemen automatisch op" },
+      { label: "ZentroMarkup", description: "Genereer schema markup" },
+      { label: "ZentroKeywords", description: "Onderzoek keywords met context" }
+    ]
+  },
+  zentrofix: {
+    name: "ZentroFix",
+    tagline: "Los direct technische en content SEO-fouten op met AI",
+    metaTitle: "ZentroFix – Los SEO-fouten direct op met AI",
+    metaDescription: "ZentroFix gebruikt AI om kritieke SEO-problemen automatisch te detecteren en corrigeren.",
+    overview: "SEO-problemen vinden is slechts de helft van de strijd — ze oplossen is waar de meeste teams vastlopen. ZentroFix overbrugt de kloof tussen audit en actie door AI te gebruiken om nauwkeurige, contextbewuste oplossingen te genereren voor elk probleem dat ZentroAudit ontdekt. In plaats van u een spreadsheet met problemen te geven, biedt ZentroFix de daadwerkelijke code, inhoud en configuratiewijzigingen die nodig zijn.\n\nDe tool begrijpt de **semantische context** van elk probleem. Wanneer het een ontbrekende meta-beschrijving genereert, produceert het geen generieke vulling — het analyseert de entiteitsdekking, doelzoekwoorden en thematische focus van uw pagina om metadata te maken die de semantische reikwijdte van de inhoud nauwkeurig weergeeft. Wanneer het gebroken interne links repareert, suggereert het vervangingen op basis van thematische relevantie, niet alleen URL-gelijkenis.\n\nZentroFix is ontworpen voor teams die snel moeten handelen zonder kwaliteit op te offeren. Of u nu metadata in bulk repareert over duizenden pagina's of kritieke schema-fouten één voor één oplost, elke oplossing wordt vooraf bekeken en is omkeerbaar — wat u het vertrouwen geeft om wijzigingen op schaal toe te passen.",
+    trustChips: ["1-klik fixes", "AI-aangedreven", "Auto-correctie"],
+    capabilities: [
+      { title: "1-Klik Auto-Fixes", description: "Los problemen met één klik op." },
+      { title: "Metadata-reparatie", description: "Genereer en optimaliseer title tags en meta descriptions." },
+      { title: "Gebroken link-oplossing", description: "Repareer gebroken interne en externe links." },
+      { title: "Schema-injectie", description: "Genereer ontbrekende JSON-LD data." },
+      { title: "Content-gap vulling", description: "Identificeer en vul dunne content aan." },
+      { title: "Beveiligingsfixes", description: "Los HTTPS en mixed content problemen op." }
+    ],
+    steps: [
+      { title: "Voer audit uit", description: "Scan uw site op problemen." },
+      { title: "Bekijk fixes", description: "Beoordeel AI-aanbevelingen." },
+      { title: "Pas toe", description: "Pas fixes direct of in bulk toe." },
+      { title: "Verifieer", description: "Audit opnieuw om resultaten te bevestigen." }
+    ],
+    benefits: ["Bespaar uren werk", "Geen technische expertise nodig", "Bulk-fixes", "Voorkom rankingdalingen", "Naadloze workflow"],
+    faqs: [
+      { q: "Wijzigt het mijn site direct?", a: "Het genereert code/aanbevelingen. Directe toepassing mogelijk voor verbonden sites." },
+      { q: "Wat kan het repareren?", a: "Meta tags, links, schema, content, en meer." },
+      { q: "Is bulk veilig?", a: "Ja, alles is zichtbaar en omkeerbaar." },
+      { q: "Werkt het met WordPress?", a: "Ja, integratie met populaire CMS'en." }
+    ],
+    useCases: [
+      { title: "Post-audit sprint", description: "Los veel problemen snel op." },
+      { title: "Content verrijking", description: "Verbeter dunne pagina's met AI." },
+      { title: "Technische implementatie", description: "Krijg kant-en-klare code snippets." }
+    ],
+    whoIsItFor: [
+      { persona: "SEO-managers", reason: "Fixes zonder wachten op developers." },
+      { persona: "Bureaus", reason: "Los problemen daadwerkelijk op voor klanten." },
+      { persona: "Ondernemers", reason: "Geen expertise nodig, duidelijke uitleg." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Vind de problemen" },
+      { label: "ZentroWrite", description: "Genereer content" },
+      { label: "ZentroMarkup", description: "Maak schema data" }
+    ]
+  },
+  zentrokeywords: {
+    name: "ZentroKeywords",
+    tagline: "Semantisch keywordonderzoek en entiteitstopic-ontdekking",
+    metaTitle: "ZentroKeywords – Semantisch keywordonderzoek",
+    metaDescription: "Ontdek impactvolle keywords op basis van entiteitsassociaties en zoekintentie.",
+    overview: "Zoekwoordonderzoek is geëvolueerd voorbij zoekvolume en concurrentiescores. ZentroKeywords benadert zoekwoordontdekking door de lens van **semantische entiteiten en thematische relaties** — hetzelfde kader dat zoekmachines gebruiken om inhoud te begrijpen en te rangschikken. In plaats van u een platte lijst met zoekwoorden te geven gesorteerd op volume, brengt het het entiteitslandschap rond uw zaadonderwerp in kaart.\n\nElk zoekwoord bestaat binnen een web van semantische relaties. ZentroKeywords onthult deze verbindingen: welke entiteiten zoekmachines associëren met een zoekopdracht, tot welke thematische clusters een zoekwoord behoort en welke zoekintentiepatronen het activeert. Dit stelt u in staat om inhoudsstrategieën te bouwen die **thematische autoriteit** vestigen in plaats van individuele zoekwoordrankings na te jagen.\n\nDe tool integreert de semantische SEO-methodologie van Koray Tugberk GÜBÜR direct in de onderzoeksworkflow. Wanneer u een zaadzoekwoord invoert, vindt ZentroKeywords niet alleen gerelateerde termen — het brengt de volledige entiteitsgrafiek in kaart, identificeert de hub-and-spoke-inhoudsstructuur die u nodig hebt en classificeert elk zoekwoord op intentie zodat uw inhoudsstrategie aansluit bij hoe gebruikers daadwerkelijk zoeken.",
+    trustChips: ["Entiteitsgebaseerd", "Intentiemapping", "Thematische clusters"],
+    capabilities: [
+      { title: "Entiteits-topic-ontdekking", description: "Ontdek gerelateerde entiteiten en thema's." },
+      { title: "Zoekintentie-mapping", description: "Classificeer op intentie (info, transactie, etc)." },
+      { title: "Thematische clusters", description: "Groepeer keywords voor content silo's." },
+      { title: "Moeilijkheidsscore", description: "Beoordeel op entiteitsconcurrentie." },
+      { title: "Lokale & globale inzichten", description: "Onderzoek per taal en locatie." },
+      { title: "Volumetrends", description: "Identificeer seizoensgebonden kansen." }
+    ],
+    steps: [
+      { title: "Voer seed-keyword in", description: "Start met een onderwerp." },
+      { title: "Verken relaties", description: "Zie verbindingen met entiteiten." },
+      { title: "Filter", description: "Kies op intentie en moeilijkheid." },
+      { title: "Exporteer", description: "Maak uw contentplan." }
+    ],
+    benefits: ["Vind gemiste keywords", "Bouw thematische autoriteit", "Lijn uit op intentie", "Vind kansen", "Maak complete plannen"],
+    faqs: [
+      { q: "Waarin verschilt het?", a: "Entiteitsanalyse i.p.v. alleen volume." },
+      { q: "Meerdere talen?", a: "Ja, 50+ talen en 100+ landen." },
+      { q: "Hoe werken clusters?", a: "Op basis van semantische relaties." },
+      { q: "Export mogelijk?", a: "Ja, CSV of naar ZentroWrite." }
+    ],
+    useCases: [
+      { title: "Nieuwe silo bouwen", description: "Genereer compleet cluster." },
+      { title: "E-commerce optimalisatie", description: "Vind long-tail entiteit-keywords." },
+      { title: "Internationale expansie", description: "Onderzoek in lokale talen." }
+    ],
+    whoIsItFor: [
+      { persona: "Contentstrategen", reason: "Bouw thematische kaarten." },
+      { persona: "SEO-specialisten", reason: "Begrijp entiteitsrelaties." },
+      { persona: "PPC/SEO teams", reason: "Lijn betaald en organisch uit." }
+    ],
+    relatedTools: [
+      { label: "ZentroWrite", description: "Zet onderzoek om in content" },
+      { label: "ZentroRank", description: "Volg rankings" },
+      { label: "ZentroCompare", description: "Vergelijk met concurrenten" }
+    ]
+  },
+  zentrorank: {
+    name: "ZentroRank",
+    tagline: "Realtime keyword-ranktracking",
+    metaTitle: "ZentroRank – Realtime keyword-ranktracking",
+    metaDescription: "Volg keywordprestaties per apparaat, locatie en entiteitsthema's.",
+    overview: "Rankings fluctueren dagelijks, en zonder continue monitoring vliegt u blind. ZentroRank biedt realtime zoekwoordranktracking die verder gaat dan eenvoudige positienummers — het volgt uw zichtbaarheid over **apparaten, locaties en SERP-functies** om u een compleet beeld te geven van hoe zoekmachines uw inhoud aan gebruikers presenteren.\n\nWat ZentroRank onderscheidt van generieke ranktrackers is de entiteitsbewuste aanpak. Het vertelt u niet alleen dat u op #7 staat voor een zoekwoord — het laat zien welke SERP-functies uw vermelding omringen, of uw concurrenten knowledge panels of featured snippets bezitten, en hoe uw rankings correleren met uw entiteitsautoriteitsscores van ZentroTopicality.\n\nVoor bureaus en bedrijven met meerdere locaties biedt de locatiegebaseerde tracking van ZentroRank granulaire zichtbaarheidsgegevens. Volg hetzelfde zoekwoord in 100+ steden om uw lokale zoekaanwezigheid te begrijpen, vergelijk mobiele vs desktop rankings, en stel intelligente waarschuwingen in die u alleen op de hoogte stellen wanneer bewegingen statistisch significant zijn.",
+    trustChips: ["Realtime", "Multi-apparaat", "Locatiegebaseerd"],
+    capabilities: [
+      { title: "Realtime SERP-tracking", description: "Dagelijkse updates en alerts." },
+      { title: "Locatiegebaseerd", description: "Volg per stad, regio of land." },
+      { title: "Apparaatsegmentatie", description: "Desktop vs mobiel vs tablet." },
+      { title: "Concurrentievergelijking", description: "Volg naast concurrenten." },
+      { title: "SERP-features", description: "Monitor snippets, panels, etc." },
+      { title: "Daling-alerts", description: "Melding bij significante dalingen." }
+    ],
+    steps: [
+      { title: "Voeg keywords toe", description: "Importeer handmatig of via CSV." },
+      { title: "Stel parameters in", description: "Kies locatie en apparaat." },
+      { title: "Monitor", description: "Bekijk trends en bewegingen." },
+      { title: "Onderneem actie", description: "Optimaliseer op basis van data." }
+    ],
+    benefits: ["Mis geen wijzigingen", "Begrijp zichtbaarheid", "Benchmark concurrenten", "Volg SERP-features", "Datagedreven beslissingen"],
+    faqs: [
+      { q: "Hoe vaak updates?", a: "Dagelijks. Vaker in hogere plannen." },
+      { q: "Hoeveel keywords?", a: "50 gratis, tot onbeperkt in Agency." },
+      { q: "Meerdere landen?", a: "Ja, 100+ landen." },
+      { q: "SERP-features?", a: "Ja, snippets, panels, etc." }
+    ],
+    useCases: [
+      { title: "Na content-update", description: "Meet impact van wijzigingen." },
+      { title: "Multi-locatie", description: "Vergelijk prestaties per locatie." },
+      { title: "Concurrentie-analyse", description: "Identificeer sterke/zwakke punten." }
+    ],
+    whoIsItFor: [
+      { persona: "SEO-managers", reason: "Duidelijke rapportage voor management." },
+      { persona: "Lokale SEO", reason: "Granulaire stads-tracking." },
+      { persona: "Contentteams", reason: "Meet impact van content." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Nieuwe keywords vinden" },
+      { label: "ZentroCompare", description: "Diepe concurrentie-analyse" },
+      { label: "ZentroAudit", description: "Fix problemen die ranking schaden" }
+    ]
+  },
+  zentrowrite: {
+    name: "ZentroWrite",
+    tagline: "Creëer entiteitsrijke SEO-content met AI",
+    metaTitle: "ZentroWrite – Entiteitsrijke SEO-content met AI",
+    metaDescription: "Genereer geoptimaliseerde blogposts, productpagina's en meta-content.",
+    overview: "Contentcreatie voor SEO is verschoven van zoekwoordvulling naar **semantische volledigheid**. ZentroWrite is een AI-schrijfassistent die speciaal voor dit nieuwe paradigma is gebouwd — het genereert inhoud die op natuurlijke wijze de entiteiten, attributen en thematische relaties integreert die zoekmachines verwachten te vinden op gezaghebbende pagina's.\n\nIn tegenstelling tot generieke AI-schrijvers die vloeiende maar semantisch oppervlakkige inhoud produceren, is ZentroWrite getraind op entiteitsgebaseerde SEO-principes. Wanneer u een doelzoekwoord opgeeft, analyseert het het volledige entiteitslandschap — welke benoemde entiteiten moeten verschijnen, welke EAV-tripletten dekking nodig hebben, en hoe de inhoud moet worden gestructureerd met vraag-indeling H2's en extractieve antwoorden die optimaliseren voor featured snippets en AI Overviews.\n\nZentroWrite integreert direct met ZentroContentBrief om vooraf gebouwde semantische blauwdrukken te ontvangen, en met ZentroTopicality om de thematische diepte van de inhoud te scoren vóór publicatie. Dit creëert een gesloten workflow: brief → schrijf → score → verfijn.",
+    trustChips: ["AI-aangedreven", "Entiteitsgeoptimaliseerd", "SEO-klaar"],
+    capabilities: [
+      { title: "Semantische generatie", description: "Integreer entiteiten natuurlijk." },
+      { title: "Meta-tags", description: "Auto-genereer titels en beschrijvingen." },
+      { title: "Brief builder", description: "Maak briefs met doelentiteiten." },
+      { title: "Score optimizer", description: "Realtime SEO- en entiteitsscore." },
+      { title: "Blog/Artikel schrijver", description: "Volledige artikelen op basis van keywords." },
+      { title: "Templates", description: "Sjablonen voor diverse contenttypes." }
+    ],
+    steps: [
+      { title: "Kies type", description: "Blog, product, meta, etc." },
+      { title: "Geef keywords", description: "AI mapt entiteiten." },
+      { title: "Genereer & pas aan", description: "Bewerk de AI-draft." },
+      { title: "Publiceer", description: "Exporteer geoptimaliseerde content." }
+    ],
+    benefits: ["Dek juiste entiteiten", "Bespaar tijd", "Bouw autoriteit", "Realtime scoring", "Geen dunne content meer"],
+    faqs: [
+      { q: "Vervangt het schrijvers?", a: "Nee, het is een assistent." },
+      { q: "Welke types?", a: "Blogs, productteksten, meta's, FAQ's." },
+      { q: "Waarom entiteiten?", a: "Voor relevantie bij zoekmachines." },
+      { q: "Eigen stijl?", a: "Ja, configureerbare toon." }
+    ],
+    useCases: [
+      { title: "Blogs schalen", description: "Snelle eerste versies." },
+      { title: "Content optimalisatie", description: "Verbeter bestaande pagina's." },
+      { title: "Productbeschrijvingen", description: "Unieke teksten op schaal." }
+    ],
+    whoIsItFor: [
+      { persona: "Schrijvers", reason: "Semantische begeleiding." },
+      { persona: "SEO-teams", reason: "Snel content produceren." },
+      { persona: "Bureaus", reason: "Schaalbare productie." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Keyword onderzoek" },
+      { label: "ZentroAudit", description: "Vind pagina's voor optimalisatie" },
+      { label: "ZentroMarkup", description: "Voeg structured data toe" }
+    ]
+  },
+  zentrocompare: {
+    name: "ZentroCompare",
+    tagline: "Identificeer SEO-gaten in entiteits- en themadekking",
+    metaTitle: "ZentroCompare – SEO-gaten in entiteitsdekking",
+    metaDescription: "Analyseer hoe concurrenten presteren op zoekentiteiten en thema's.",
+    overview: "Waarom overtreffen uw concurrenten u? Het antwoord ligt vaak niet in backlinks, maar in **thematische autoriteit**. ZentroCompare biedt entiteitsgebaseerde concurrentieanalyse die verder gaat dan eenvoudige zoekwoordoverlapping. Het brengt de thematische voetafdruk van uw concurrenten in kaart en identificeert de entiteiten, onderwerpen en semantische relaties die zij dekken en u mist.\n\nDe meeste concurrentietools laten u zien voor welke zoekwoorden uw rivalen scoren. ZentroCompare laat u zien *waarom* ze scoren. Door de entiteitsdichtheid, thematische clusterstructuur en EAV-signalen van best presterende pagina's te analyseren, onthult het de semantische hiaten in uw eigen inhoudsstrategie. Mist u een cruciaal subonderwerp in uw cluster? Hebben concurrenten betere entiteitsrelaties gelegd in hun hub-pagina's?\n\nGebruik ZentroCompare om onaangeboorde inhoudskansen te vinden, uw thematische autoriteit te benchmarken tegen marktleiders en een datagedreven strategie te bouwen die hiaten in uw niche vult voordat concurrenten dat doen.",
+    trustChips: ["Gap-analyse", "Entiteitsvergelijking", "Thematische kaarten"],
+    capabilities: [
+      { title: "Gap-analyse", description: "Vergelijk dekking met 5 concurrenten." },
+      { title: "Dekkingskaarten", description: "Visualiseer clusterdekking." },
+      { title: "Keyword-gaps", description: "Vind gemiste keywords." },
+      { title: "Autoriteitsvergelijking", description: "Vergelijk entiteitsautoriteit." },
+      { title: "Verkeersschatting", description: "Schat organisch verkeer." },
+      { title: "Trendanalyse", description: "Volg veranderingen in tijd." }
+    ],
+    steps: [
+      { title: "Voeg concurrenten toe", description: "Voer domeinen in." },
+      { title: "Vergelijk", description: "Zij-aan-zij analyse." },
+      { title: "Identificeer gaps", description: "Vind content- en keywordkansen." },
+      { title: "Strategie", description: "Exporteer actieplan." }
+    ],
+    benefits: ["Vind kansen", "Datagedreven strategie", "Begrijp autoriteit", "Prioriteer content", "Monitor concurrenten"],
+    faqs: [
+      { q: "Hoeveel concurrenten?", a: "Tot 5 (Pro) of 10 (Agency)." },
+      { q: "Welke data?", a: "Rankings, content, entiteiten, backlinks." },
+      { q: "Historische data?", a: "Ja, volg trends." },
+      { q: "Verschil met keywords?", a: "Entiteiten tonen thematische diepte." }
+    ],
+    useCases: [
+      { title: "Kwartaalplanning", description: "Benchmark tegen top 5." },
+      { title: "Nieuwe markt", description: "Analyseer gevestigde spelers." },
+      { title: "Diagnose", description: "Begrijp rankingverlies." }
+    ],
+    whoIsItFor: [
+      { persona: "SEO-directeuren", reason: "ROI-gebaseerde beslissingen." },
+      { persona: "Strategen", reason: "Toon semantische hiaten." },
+      { persona: "Productmarketing", reason: "Positionering en dekking." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Onderzoek gap-keywords" },
+      { label: "ZentroBacklinks", description: "Vergelijk backlinks" },
+      { label: "ZentroWrite", description: "Vul de gaps" }
+    ]
+  },
+  zentrobacklinks: {
+    name: "ZentroBacklinks",
+    tagline: "Ontdek backlinks die entiteitsvertrouwen opbouwen",
+    metaTitle: "ZentroBacklinks – Entiteitsvertrouwen backlinks",
+    metaDescription: "Analyseer backlinkprofielen op autoriteit en thematische relevantie.",
+    overview: "Niet alle backlinks zijn gelijk. In entiteitsgebaseerde SEO is de **thematische relevantie** van een linkend domein net zo belangrijk als de domeinautoriteit. ZentroBacklinks analyseert uw backlinkprofiel door de lens van entiteitsvertrouwen — en evalueert of uw links afkomstig zijn van bronnen die uw thematische autoriteit versterken of verwateren met irrelevante associaties.\n\nTraditionele backlinktools scoren links voornamelijk op basis van domeinautoriteit. ZentroBacklinks voegt een laag voor entiteitsrelevantie toe: het brengt de thematische focus van elk linkend domein in kaart en beoordeelt of de link uw entiteitsautoriteit voor uw doelonderwerpen versterkt of verzwakt. Een link van een niche-relevant blog met bescheiden verkeer kan meer waard zijn dan een link van een site met hoge DA die ongerelateerde onderwerpen behandelt.\n\nNaast analyse biedt ZentroBacklinks bruikbare mogelijkheden voor linkbuilding. Door backlinkprofielen van concurrenten door dezelfde entiteitslens te analyseren, identificeert het thematisch relevante domeinen die naar concurrenten linken maar niet naar u — prospects met een hoge waarschijnlijkheid die al geïnteresseerd zijn in uw onderwerp.",
+    trustChips: ["Linkanalyse", "Toxische detectie", "Autoriteitsscore"],
+    capabilities: [
+      { title: "Profielanalyse", description: "Compleet overzicht van backlinks." },
+      { title: "Toxische detectie", description: "Identificeer schadelijke links." },
+      { title: "Autoriteitsscore", description: "Beoordeel kwaliteit en relevantie." },
+      { title: "Entiteitsrelevantie", description: "Check thematische match." },
+      { title: "Linkbuilding kansen", description: "Vind prospects via concurrenten." },
+      { title: "Monitoring", description: "Volg nieuwe en verloren links." }
+    ],
+    steps: [
+      { title: "Voer domein in", description: "Start analyse." },
+      { title: "Bekijk kwaliteit", description: "Zie scores en risico's." },
+      { title: "Disavow", description: "Maak disavow-bestanden." },
+      { title: "Vind kansen", description: "Ontdek nieuwe prospects." }
+    ],
+    benefits: ["Bescherm tegen penalties", "Bouw relevante links", "Monitor groei", "Vind kansen", "Begrijp linkkwaliteit"],
+    faqs: [
+      { q: "Hoe groot is de database?", a: "Miljarden links, continu geüpdatet." },
+      { q: "Disavow file?", a: "Ja, Google-compatible formaat." },
+      { q: "Hoe werkt relevantie?", a: "Checkt thematische overlap." },
+      { q: "Concurrenten volgen?", a: "Ja, analyseer elk domein." }
+    ],
+    useCases: [
+      { title: "Penalty herstel", description: "Verwijder toxische links." },
+      { title: "Linkbuilding", description: "Vind relevante targets." },
+      { title: "Due diligence", description: "Beoordeel domeingezondheid." }
+    ],
+    whoIsItFor: [
+      { persona: "Linkbuilders", reason: "Focus op relevantie." },
+      { persona: "SEO-managers", reason: "Monitor risico's." },
+      { persona: "PR-teams", reason: "Vind relevante publicaties." }
+    ],
+    relatedTools: [
+      { label: "ZentroCompare", description: "Vergelijk profielen" },
+      { label: "ZentroAudit", description: "Interne links checken" },
+      { label: "ZentroRank", description: "Impact op rankings" }
+    ]
+  },
+  zentromarkup: {
+    name: "ZentroMarkup",
+    tagline: "Genereer JSON-LD Schema voor entiteitsherkenning",
+    metaTitle: "ZentroMarkup – JSON-LD Schema voor entiteitsherkenning",
+    metaDescription: "Verbeter rich results en entiteitslinking met schema.",
+    overview: "Gestructureerde data is de brug tussen uw inhoud en de Knowledge Graph. ZentroMarkup automatiseert het maken van **JSON-LD schema markup** die expliciet de entiteiten, attributen en relaties in uw inhoud declareert — waardoor zoekmachines uw pagina's met precisie begrijpen in plaats van door gevolgtrekking.\n\nDe meeste schema-generatoren produceren basisopmaak vanuit formuliervelden. ZentroMarkup gebruikt AI om uw werkelijke pagina-inhoud te analyseren, de aanwezige entiteiten te identificeren en uitgebreide gestructureerde data te genereren die niet alleen vereiste eigenschappen dekt, maar ook de aanbevolen en entiteitslinkende eigenschappen die Knowledge Graph-associaties versterken.\n\nRich results — featured snippets, knowledge panels, FAQ-accordeons, productcarrousels — zijn allemaal afhankelijk van correct geïmplementeerde gestructureerde data. ZentroMarkup valideert uw schema in realtime tegen de vereisten van Google's Rich Results Test, zodat uw opmaak in aanmerking komt voor verbeterde SERP-presentaties voordat u deze implementeert.",
+    trustChips: ["JSON-LD generatie", "Rich snippets", "Schema validatie"],
+    capabilities: [
+      { title: "Auto-generatie", description: "Maak JSON-LD op basis van content." },
+      { title: "Validatie", description: "Check tegen Google eisen." },
+      { title: "Entiteitslinking", description: "Verbind met Knowledge Graph." },
+      { title: "Multi-type", description: "30+ schema types." },
+      { title: "Visuele editor", description: "Pas aan zonder code." },
+      { title: "Bulk generatie", description: "Voor honderden pagina's." }
+    ],
+    steps: [
+      { title: "Kies pagina", description: "URL of content invoeren." },
+      { title: "Bekijk schema", description: "AI maakt complete JSON-LD." },
+      { title: "Pas aan & Valideer", description: "Bewerk en test." },
+      { title: "Implementeer", description: "Injecteer of kopieer code." }
+    ],
+    benefits: ["Krijg rich results", "Versterk entiteitsherkenning", "Geen code nodig", "Schaalbaar", "Blijf compliant"],
+    faqs: [
+      { q: "Welke types?", a: "Artikel, Product, FAQ, LocalBusiness, etc." },
+      { q: "Codeerkennis nodig?", a: "Nee, volledig visueel/automatisch." },
+      { q: "Hoe helpt het?", a: "Beter begrip, rich results, CTR." },
+      { q: "Bestaand schema updaten?", a: "Ja, importeren en verbeteren." }
+    ],
+    useCases: [
+      { title: "E-commerce", description: "Product schema voor catalogus." },
+      { title: "Blog", description: "Artikel schema voor nieuws." },
+      { title: "Lokaal bedrijf", description: "LocalBusiness schema." }
+    ],
+    whoIsItFor: [
+      { persona: "Technische SEO", reason: "Geavanceerde schema." },
+      { persona: "Content teams", reason: "Zonder dev implementeren." },
+      { persona: "E-commerce", reason: "Bulk generatie." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Vind ontbrekend schema" },
+      { label: "ZentroFix", description: "Auto-injectie" },
+      { label: "ZentroWrite", description: "Schema-ready content" }
+    ]
+  },
+  zentrotopicalmap: {
+    name: "ZentroTopicalMap",
+    tagline: "Bouw entiteitsgebaseerde topische kaarten",
+    metaTitle: "ZentroTopicalMap – Entiteitsgebaseerde topische kaarten",
+    metaDescription: "Genereer hub-and-spoke kaarten voor topische autoriteit.",
+    overview: "Thematische autoriteit wordt opgebouwd door **systematische inhoudsarchitectuur**, niet door willekeurige artikelpublicatie. ZentroTopicalMap genereert uitgebreide hub-and-spoke-inhoudsstructuren die zijn gebaseerd op entiteitsrelaties — wat u een complete blauwdruk geeft om een onderwerp in zoekopdrachten te domineren.\n\nKoray Tugberk GÜBÜR's semantische SEO-raamwerk benadrukt dat zoekmachines thematische autoriteit holistisch evalueren. Een enkel artikel, hoe goed geschreven ook, kan geen autoriteit vestigen. U hebt een gestructureerd netwerk van onderling verbonden pagina's nodig die gezamenlijk elke entiteit, attribuut en relatie binnen de semantische ruimte van uw onderwerp dekken. ZentroTopicalMap bouwt dit netwerk voor u.\n\nDe tool begint met uw centrale entiteit en brengt naar buiten toe in kaart: het identificeren van de hub-onderwerpen die uw inhoudsarchitectuur verankeren, de spoke-subonderwerpen die diepte bieden, de entiteitsrelaties die alles verbinden, en de broncontexten die het autoriteitslandschap van uw niche vormen.",
+    trustChips: ["Entiteitsgebaseerd", "Hub & spoke", "Gap detectie"],
+    capabilities: [
+      { title: "Centrale entiteit map", description: "Bouw volledige entiteitsgrafiek." },
+      { title: "Hub-and-Spoke", description: "Structureer content hiërarchisch." },
+      { title: "Context analyse", description: "Identificeer dominante bronnen." },
+      { title: "Randontdekking", description: "Vind gerelateerde subtopics." },
+      { title: "Gap identificatie", description: "Vergelijk met bestaande content." },
+      { title: "Diepte score", description: "Prioriteer content impact." }
+    ],
+    steps: [
+      { title: "Definieer entiteit", description: "Start met centraal topic." },
+      { title: "Genereer kaart", description: "AI bouwt structuur." },
+      { title: "Review", description: "Identificeer gaps en clusters." },
+      { title: "Exporteer", description: "Maak contentkalender." }
+    ],
+    benefits: ["Bouw autoriteit zonder backlinks", "Complete dekking", "Identificeer gaps vooraf", "Goede structuur", "Strategische alignment"],
+    faqs: [
+      { q: "Wat is een topical map?", a: "Hiërarchie van topics en relaties." },
+      { q: "Hoe werkt het?", a: "Analyseert entiteitsrelaties en KG data." },
+      { q: "Voor bestaande sites?", a: "Ja, toont gaps in huidige content." },
+      { q: "Verschil met keywords?", a: "Gaat dieper in op semantiek/structuur." }
+    ],
+    useCases: [
+      { title: "Nieuwe site", description: "Architectuur vanaf dag 1." },
+      { title: "Herstructurering", description: "Vind gaps en orphans." },
+      { title: "Agency pitch", description: "Toon visuele strategie." }
+    ],
+    whoIsItFor: [
+      { persona: "Strategen", reason: "Datagedreven planning." },
+      { persona: "SEO-directeuren", reason: "Duidelijke roadmap." },
+      { persona: "Founders", reason: "Minimaal levensvatbaar contentplan." }
+    ],
+    relatedTools: [
+      { label: "ZentroKeywords", description: "Seed keywords vinden" },
+      { label: "ZentroWrite", description: "Maak de content" },
+      { label: "ZentroCompare", description: "Vergelijk dekking" }
+    ]
+  },
+  zentrocontentbrief: {
+    name: "ZentroContentBrief",
+    tagline: "Genereer EAV-geoptimaliseerde contentbriefs",
+    metaTitle: "ZentroContentBrief – EAV-geoptimaliseerde briefs",
+    metaDescription: "Bouw semantische briefs met EAV, vragen en entiteiten.",
+    overview: "Geweldige inhoud begint met een geweldige brief. ZentroContentBrief genereert **EAV-geoptimaliseerde inhoudsblauwdrukken** die schrijvers precies vertellen welke entiteiten ze moeten dekken, welke attributen ze moeten definiëren en welke semantische relaties ze moeten leggen — voordat ze een enkel woord schrijven.\n\nDe meeste inhoudsbriefs richten zich op zoekwoorden, aantal woorden en koppen van concurrenten. ZentroContentBrief gaat dieper door de Entity-Attribute-Value-tripletten te genereren die uw inhoud moet dekken, vraag-indeling H2-koppen voor te stellen met doelen van 40 woorden voor extractieve antwoorden (volgens Koray's auteurschapskader), en de macrocontext te definiëren die uw hele pagina moet beheersen.\n\nDe macrocontext-instelling is cruciaal: het zorgt ervoor dat uw pagina binnen één duidelijk semantisch kader werkt in plaats van de thematische focus te verwateren over meerdere betekenissen. Gecombineerd met aanbevelingen voor benoemde entiteiten en suggesties voor ankerteksten voor interne links, produceert ZentroContentBrief briefs die in wezen semantische blauwdrukken zijn.",
+    trustChips: ["EAV triples", "Vraag H2's", "Benoemde entiteiten"],
+    capabilities: [
+      { title: "EAV Generator", description: "Maak automatisch triples." },
+      { title: "Vraag H2's", description: "Vragen met antwoord-targets." },
+      { title: "Macro Context", description: "Definieer semantisch kader." },
+      { title: "Entiteit aanbevelingen", description: "Must-have entiteiten." },
+      { title: "Topicality score", description: "Score vooraf." },
+      { title: "Ankerteksten", description: "Interne link suggesties." }
+    ],
+    steps: [
+      { title: "Voer query in", description: "Analyseer semantisch landschap." },
+      { title: "Map entiteiten", description: "Genereer graaf en context." },
+      { title: "Pas aan", description: "Bewerk de brief." },
+      { title: "Exporteer", description: "Naar ZentroWrite of PDF." }
+    ],
+    benefits: ["Geen giswerk", "Snippet-optimalisatie", "Juiste context", "KG signalen", "Tijdsbesparing"],
+    faqs: [
+      { q: "Wat is EAV?", a: "Entity-Attribute-Value model voor data." },
+      { q: "Hoe werken H2's?", a: "Gebaseerd op PAA en query patronen." },
+      { q: "Wat is macro context?", a: "Dominant betekeniskader." },
+      { q: "Workflow integratie?", a: "Ja, exporteerbaar." }
+    ],
+    useCases: [
+      { title: "Redactieteams", description: "Standaardiseer kwaliteit." },
+      { title: "Content refresh", description: "Vind ontbrekende elementen." },
+      { title: "Featured snippets", description: "Optimaliseer structuur." }
+    ],
+    whoIsItFor: [
+      { persona: "Content managers", reason: "Consistente kwaliteit." },
+      { persona: "Freelancers", reason: "Duidelijke instructies." },
+      { persona: "Consultants", reason: "Waardevolle deliverables." }
+    ],
+    relatedTools: [
+      { label: "ZentroWrite", description: "Schrijf het artikel" },
+      { label: "ZentroTopicalMap", description: "Plaats in structuur" },
+      { label: "ZentroKeywords", description: "Vind queries" }
+    ]
+  },
+  zentrocontentplan: {
+    name: "ZentroContentPlan",
+    tagline: "Plan semantische audits van 6 maanden",
+    metaTitle: "ZentroContentPlan – 6-maandelijkse semantische audits",
+    metaDescription: "Monitor contentverval en plan her-audits.",
+    overview: "Inhoud blijft niet voor altijd geoptimaliseerd. Zoekpatronen verschuiven, concurrenten publiceren betere inhoud en de semantische verwachtingen voor uw doelonderwerpen evolueren in de loop van de tijd. ZentroContentPlan automatiseert het **beheer van de inhoudslevenscyclus** dat Koray's raamwerk voorschrijft — door regelmatige her-audits te plannen om verval van semantische afstand op te vangen voordat het zichtbaar wordt in uw rankinggegevens.\n\nDe her-auditcyclus van 6 maanden is gebaseerd op waarneembaar zoekgedrag: zoekpatronen verschuiven doorgaans binnen een venster van 6 maanden, en historische betrokkenheidsgegevens accumuleren gedurende deze periode. Pagina's die semantisch uitgebreid waren bij publicatie, kunnen uit de pas lopen naarmate het entiteitslandschap rond hun onderwerpen evolueert.\n\nNaast geplande her-audits controleert ZentroContentPlan op acute verschuivingen in zoekpatronen — plotselinge veranderingen in hoe gebruikers naar uw doelonderwerpen zoeken die aangeven dat uw inhoud onmiddellijke aandacht nodig heeft.",
+    trustChips: ["Verval detectie", "6-maands cycli", "Verschuivingsalerts"],
+    capabilities: [
+      { title: "Leeftijd monitoring", description: "Volg publicatiedata." },
+      { title: "Patroonverschuivingen", description: "Detecteer zoekgedrag wijzigingen." },
+      { title: "Semantische afstand", description: "Meet relevantieverlies." },
+      { title: "Historische analyse", description: "Analyseer 6-maands trends." },
+      { title: "HCU check", description: "Helpful Content signalen." },
+      { title: "Auto-planning", description: "Configureerbare cycli." }
+    ],
+    steps: [
+      { title: "Verbind content", description: "Bouw inventaris." },
+      { title: "Stel cycli in", description: "3, 6 of 12 maanden." },
+      { title: "Ontvang alerts", description: "Bij wijzigingen of verval." },
+      { title: "Update", description: "Her-optimaliseer pagina's." }
+    ],
+    benefits: ["Voorkom rankingverlies", "Behoud autoriteit", "Automatiseer onderhoud", "Prioriteer updates", "Bouw kwaliteit"],
+    faqs: [
+      { q: "Wat is contentverval?", a: "Verlies van relevantie over tijd." },
+      { q: "Waarom 6 maanden?", a: "Typisch venster voor patroonverschuiving." },
+      { q: "Hoe detecteer je shifts?", a: "Monitoring van SERP en volumes." },
+      { q: "Integratie?", a: "Ja, triggert ZentroAudit." }
+    ],
+    useCases: [
+      { title: "Enterprise bibliotheek", description: "Beheer duizenden pagina's." },
+      { title: "Seizoenscontent", description: "Kortere cycli." },
+      { title: "Na updates", description: "Vind getroffen pagina's." }
+    ],
+    whoIsItFor: [
+      { persona: "SEO-managers", reason: "Automatisering." },
+      { persona: "Agencies", reason: "Retainer services." },
+      { persona: "Content leads", reason: "Proactief onderhoud." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Voer her-audit uit" },
+      { label: "ZentroWrite", description: "Herschrijf content" },
+      { label: "ZentroContentBrief", description: "Update briefs" }
+    ]
+  },
+  zentrotopicality: {
+    name: "ZentroTopicality",
+    tagline: "Score thematische diepte tegen verwachtingen",
+    metaTitle: "ZentroTopicality – Score thematische diepte",
+    metaDescription: "NLP-scoring, frame semantics en gap analyse.",
+    overview: "Hoe weet u of uw inhoud semantisch diep genoeg is om te rangschikken? ZentroTopicality beantwoordt deze vraag met **NLP-gestuurde topicaliteitsscore** die uw inhoud meet aan de volledige semantische verwachtingen die zoekmachines hebben voor uw doelonderwerp.\n\nDe meeste SEO-tools scoren inhoud op basis van zoekwoorddichtheid, leesbaarheid en on-page factoren. ZentroTopicality gaat naar het zinsniveau en analyseert semantische rollen (agent, patiënt, actie), frame-semantiekdekking en Entity-Attribute-Value-volledigheid. Het controleert niet of u een zoekwoord hebt genoemd — het controleert of uw inhoud de entiteiten, hun attributen en hun relaties volledig beschrijft op de manier die zoekmachines nodig hebben voor feitextractie en Knowledge Graph-integratie.\n\nDe frame-semantiekanalyse is bijzonder krachtig. Gebaseerd op linguïstische frametheorie, evalueert het of uw inhoud alle conceptuele frames activeert die geassocieerd zijn met uw doelzoekopdracht.",
+    trustChips: ["NLP scoring", "Frame semantics", "Gap analyse"],
+    capabilities: [
+      { title: "NLP Scorer", description: "Meet semantische coherentie." },
+      { title: "Frame Semantics", description: "Evalueer conceptuele dekking." },
+      { title: "Semantic Roles", description: "Analyseer zinsstructuur." },
+      { title: "EAV Checker", description: "Verifieer triple dekking." },
+      { title: "Query Gap", description: "Vergelijk met gebruikersvragen." },
+      { title: "Entiteitsdichtheid", description: "Check distributie." }
+    ],
+    steps: [
+      { title: "Plak content", description: "Of URL invoeren." },
+      { title: "Analyseer", description: "Multi-dimensionele scan." },
+      { title: "Review score", description: "Zie breakdowns." },
+      { title: "Fix", description: "Vul gaps en verbeter." }
+    ],
+    benefits: ["Weet diepte vooraf", "Vind semantische gaps", "Lijn uit met NLP", "Complete EAV", "Detecteer query gaps"],
+    faqs: [
+      { q: "Verschil met SEO score?", a: "Meet semantische diepte, niet keywords." },
+      { q: "Wat is frame semantics?", a: "Conceptuele kaders geactiveerd door woorden." },
+      { q: "Query Gap?", a: "Onbeantwoorde gebruikersvragen." },
+      { q: "Concurrenten?", a: "Ja, benchmark tegen URL's." }
+    ],
+    useCases: [
+      { title: "Kwaliteitscontrole", description: "Pre-publicatie check." },
+      { title: "Benchmarking", description: "Versla concurrenten." },
+      { title: "Audit", description: "Prioriteer optimalisatie." }
+    ],
+    whoIsItFor: [
+      { persona: "Redacteurs", reason: "Objectieve kwaliteitsmaatstaf." },
+      { persona: "SEO-specialisten", reason: "Diepte-analyse." },
+      { persona: "AI-teams", reason: "Valideer output." }
+    ],
+    relatedTools: [
+      { label: "ZentroContentBrief", description: "Bouw briefs" },
+      { label: "ZentroAudit", description: "Technische check" },
+      { label: "ZentroWrite", description: "Herschrijf content" }
+    ]
+  },
+  zentrowhite: {
+    name: "ZentroWhite",
+    tagline: "Lever entiteitsgerichte SEO onder uw merk",
+    metaTitle: "ZentroWhite – White-label SEO-platform",
+    metaDescription: "Branded dashboards en rapporten voor klanten.",
+    overview: "SEO-bureaus hebben tools nodig die hun klanten 'wauw' laten zeggen — geen tools die het platform achter de schermen onthullen. ZentroWhite stelt u in staat om de volledige kracht van ZentroSEO's entiteitsgebaseerde SEO-toolkit te leveren **onder uw eigen merk**, met uw logo, uw kleuren, uw domein en uw naam op elk rapport en dashboard.\n\nWhite-labeling gaat niet alleen over het plakken van een logo op andermans tool. ZentroWhite biedt een complete merkervaring: aangepaste inlogportalen, gebrandmerkte e-mailmeldingen, PDF-rapporten met uw voorpagina's en samenvattingen, en klantgerichte dashboards die eruitzien en aanvoelen als een eigen platform dat uw bureau heeft gebouwd. Uw klanten zien nooit het merk ZentroSEO.\n\nVoor bureaus die zich willen onderscheiden met entiteitsgebaseerde SEO-methodologie, is ZentroWhite de infrastructuurlaag waarmee u kunt schalen. In plaats van eigen tools vanaf nul te bouwen, krijgt u direct toegang tot semantische auditing en alle tools, volledig gebrandmerkt.",
+    trustChips: ["White-label", "Branding", "Rapporten"],
+    capabilities: [
+      { title: "Custom Branding", description: "Logo, kleuren, domein." },
+      { title: "Klantbeheer", description: "Dashboard voor accounts." },
+      { title: "Branded rapporten", description: "Professionele PDF's." },
+      { title: "Klantportalen", description: "Eigen inlog voor klanten." },
+      { title: "Automatisering", description: "Geplande rapporten." },
+      { title: "Eigen domein", description: "Host op uw URL." }
+    ],
+    steps: [
+      { title: "Stel merk in", description: "Upload assets." },
+      { title: "Voeg klanten toe", description: "Maak accounts." },
+      { title: "Lever diensten", description: "Gebruik tools." },
+      { title: "Rapporteer", description: "Toon waarde." }
+    ],
+    benefits: ["Eigen platform", "Centraal beheer", "Automatisering", "Transparantie", "Schaalbaarheid"],
+    faqs: [
+      { q: "Eigen domein?", a: "Ja, volledige CNAME support." },
+      { q: "Aantal klanten?", a: "Onbeperkt." },
+      { q: "Toegang klanten?", a: "Ja, eigen portal." },
+      { q: "Welke tools?", a: "Alles beschikbaar." }
+    ],
+    useCases: [
+      { title: "Managed service", description: "Productiseer uw dienst." },
+      { title: "Consultancy", description: "Voeg SEO toe." },
+      { title: "Freelancer", description: "Professionele uitstraling." }
+    ],
+    whoIsItFor: [
+      { persona: "Bureau-eigenaren", reason: "Schaalbaar platform." },
+      { persona: "Marketing directeurs", reason: "Nieuwe inkomstenstroom." },
+      { persona: "Consultants", reason: "Premium uitstraling." }
+    ],
+    relatedTools: [
+      { label: "ZentroAudit", description: "Branded audits" },
+      { label: "ZentroRank", description: "Klant tracking" },
+      { label: "ZentroFix", description: "Efficiënte fixes" }
+    ]
+  }
 };
 
 export default featuresNL;
