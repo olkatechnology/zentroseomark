@@ -155,5 +155,28 @@ export function getSolutionData(slug: string): SolutionData | null {
     metaDescription: td(`solutions.${slug}.metaDescription`, base.metaDescription),
     heroTagline: td(`solutions.${slug}.heroTagline`, base.heroTagline),
     heroDescription: td(`solutions.${slug}.heroDescription`, base.heroDescription),
+    painPoints: base.painPoints.map((p, i) => ({
+      title: td(`solutions.${slug}.painPoint${i}.title`, p.title),
+      description: td(`solutions.${slug}.painPoint${i}.description`, p.description),
+    })),
+    solutions: base.solutions.map((s, i) => ({
+      ...s,
+      description: td(`solutions.${slug}.solution${i}.description`, s.description),
+    })),
+    faqs: base.faqs.map((f, i) => ({
+      q: td(`solutions.${slug}.faq${i}.q`, f.q),
+      a: td(`solutions.${slug}.faq${i}.a`, f.a),
+    })),
+    testimonial: {
+      quote: td(`solutions.${slug}.testimonial.quote`, base.testimonial.quote),
+      name: base.testimonial.name,
+      role: td(`solutions.${slug}.testimonial.role`, base.testimonial.role),
+      company: base.testimonial.company,
+    },
+    relatedSolutions: base.relatedSolutions.map((r, i) => ({
+      ...r,
+      label: td(`solutions.${slug}.related${i}.label`, r.label),
+      description: td(`solutions.${slug}.related${i}.description`, r.description),
+    })),
   };
 }

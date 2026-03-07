@@ -1,3 +1,6 @@
+import featuresDE from '@/i18n/data/features-de';
+import contentDE from '@/i18n/data/content-de'; // session-3 fix
+
 const de = {
   common: {
     getStarted: "Jetzt starten",
@@ -217,6 +220,17 @@ const de = {
     standardDesc: "Ideal für kleine Unternehmen und Startups",
     proDesc: "Perfekt für wachsende Unternehmen und Agenturen",
     advancedDesc: "Für Agenturen und große Unternehmen",
+    f_1Website: "1 Website", f_3Websites: "3 Websites", f_10Websites: "10 Websites", f_unlimitedWebsites: "Unbegrenzte Websites",
+    f_4BasicAudits: "4 grundlegende SEO-Audits", f_20CompleteAudits: "20 vollständige SEO-Audits pro URL", f_unlimitedAudits: "Unbegrenzte SEO-Audits",
+    f_3KeywordTracking: "3 Keyword-Tracking", f_50KeywordTracking: "50 Keyword-Tracking pro URL", f_unlimitedKeywordTracking: "Unbegrenztes Keyword-Tracking",
+    f_100KeywordResearch: "100 Keyword-Recherchen pro URL", f_unlimitedKeywordResearch: "Unbegrenzte Keyword-Recherche",
+    f_5CompetitorAnalysis: "5 Wettbewerbsanalysen pro URL", f_10CompetitorAnalysis: "10 Wettbewerbsanalysen pro URL", f_unlimitedCompetitorAnalysis: "Unbegrenzte Wettbewerbsanalyse",
+    f_backlinkAnalysis: "Backlink-Analyse", f_limitedAiWriting: "Eingeschränktes KI-Content-Writing", f_unlimitedAiWriting: "Unbegrenztes KI-Content-Writing", f_unlimitedAiWritingShort: "Unbegrenztes KI-Writing",
+    f_schemaGenerator: "Schema-Generator", f_schemaGeneration: "Schema-Generierung",
+    f_monthlyReports: "Monatliche Berichte", f_weeklyReports: "Wöchentliche Berichte", f_dailyReports: "Tägliche Berichte",
+    f_emailSupport: "E-Mail-Support", f_priorityEmailSupport: "Priorisierter E-Mail-Support", f_phoneEmailSupport: "Telefon- + E-Mail-Support",
+    f_autoSchedulingReports: "Automatische Berichtsplanung", f_whiteLabelReports: "White-Label-Berichte", f_fullWhiteLabel: "Vollständige White-Label-Lösung", f_dedicatedAccountManager: "Dedizierter Account Manager",
+    l_100PagesScanned: "Auf 100 gescannte Seiten begrenzt", l_basicReportingOnly: "Nur grundlegende Berichte",
   },
   pages: {
     featuresMetaTitle: "Alle ZentroSEO-Funktionen – KI-Tools für jede SEO-Aufgabe",
@@ -466,6 +480,10 @@ const de = {
     exploreMoreTopics: "Weitere Themen entdecken", allArticles: "Alle Artikel",
     authorNotFound: "Autor nicht gefunden", backToAboutUs: "← Zurück zu Über uns",
     aboutAuthor: "Über {{name}}", articlesByAuthor: "Artikel von {{name}} ({{count}})",
+  },
+  data: {
+    features: featuresDE,
+    ...contentDE,
   },
 };
 

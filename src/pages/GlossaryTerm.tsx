@@ -11,7 +11,7 @@ import { featuresData } from "@/data/features";
 import { useTranslation } from "react-i18next";
 import { useLang } from "@/hooks/use-lang";
 import { getCanonicalUrl } from "@/lib/lang-utils";
-import { Link } from "react-router-dom";
+
 
 // Lightweight markdown renderer (simplified from BlogPost)
 function renderMarkdown(md: string) {
@@ -31,7 +31,7 @@ function renderMarkdown(md: string) {
       if (match[1] !== undefined && match[2]) {
         const href = match[2];
         const isExt = href.startsWith("http");
-        parts.push(isExt ? <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[1]}</a> : <Link key={pk++} to={href} className="text-primary hover:underline">{match[1]}</Link>);
+        parts.push(isExt ? <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[1]}</a> : <LocalizedLink key={pk++} to={href} className="text-primary hover:underline">{match[1]}</LocalizedLink>);
       } else if (match[3]) parts.push(<strong key={pk++}>{match[3]}</strong>);
       else if (match[4]) parts.push(<code key={pk++} className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">{match[4]}</code>);
       lastIndex = regex.lastIndex;

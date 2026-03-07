@@ -1,3 +1,6 @@
+import featuresPL from '@/i18n/data/features-pl';
+import contentPL from '@/i18n/data/content-pl';
+
 const pl = {
   common: {
     getStarted: "Rozpocznij",
@@ -145,6 +148,17 @@ const pl = {
     starter: "Starter", standard: "Standard", pro: "Pro", advanced: "Advanced",
     starterDesc: "Idealny do testowania ZentroSEO", standardDesc: "Świetny dla małych firm i startupów",
     proDesc: "Idealny dla rozwijających się firm i agencji", advancedDesc: "Dla agencji i dużych firm",
+    f_1Website: "1 strona", f_3Websites: "3 strony", f_10Websites: "10 stron", f_unlimitedWebsites: "Nieograniczona liczba stron",
+    f_4BasicAudits: "4 podstawowe audyty SEO", f_20CompleteAudits: "20 pełnych audytów SEO na URL", f_unlimitedAudits: "Nieograniczone audyty SEO",
+    f_3KeywordTracking: "3 śledzenia słów kluczowych", f_50KeywordTracking: "50 śledzeń słów kluczowych na URL", f_unlimitedKeywordTracking: "Nieograniczone śledzenie słów kluczowych",
+    f_100KeywordResearch: "100 badań słów kluczowych na URL", f_unlimitedKeywordResearch: "Nieograniczone badania słów kluczowych",
+    f_5CompetitorAnalysis: "5 analiz konkurencji na URL", f_10CompetitorAnalysis: "10 analiz konkurencji na URL", f_unlimitedCompetitorAnalysis: "Nieograniczona analiza konkurencji",
+    f_backlinkAnalysis: "Analiza backlinków", f_limitedAiWriting: "Ograniczone pisanie treści AI", f_unlimitedAiWriting: "Nieograniczone pisanie treści AI", f_unlimitedAiWritingShort: "Nieograniczone pisanie AI",
+    f_schemaGenerator: "Generator schema", f_schemaGeneration: "Generowanie schema",
+    f_monthlyReports: "Miesięczne raporty", f_weeklyReports: "Tygodniowe raporty", f_dailyReports: "Dzienne raporty",
+    f_emailSupport: "Wsparcie e-mail", f_priorityEmailSupport: "Priorytetowe wsparcie e-mail", f_phoneEmailSupport: "Wsparcie telefoniczne + e-mail",
+    f_autoSchedulingReports: "Automatyczne planowanie raportów", f_whiteLabelReports: "Raporty white-label", f_fullWhiteLabel: "Pełne rozwiązanie white-label", f_dedicatedAccountManager: "Dedykowany opiekun konta",
+    l_100PagesScanned: "Limit 100 przeskanowanych stron", l_basicReportingOnly: "Tylko podstawowe raportowanie",
   },
   pages: {
     featuresMetaTitle: "Wszystkie funkcje ZentroSEO", featuresMetaDesc: "Odkryj funkcje ZentroSEO.",
@@ -336,6 +350,10 @@ const pl = {
     goToHomepage: "Przejdź do strony głównej", backToHomepage: "Powrót do strony głównej",
     exploreTools: "Odkryj nasze narzędzia SEO", readSeoTips: "Czytaj przewodniki i porady SEO",
     getInTouchWithTeam: "Skontaktuj się z naszym zespołem", lastUpdated: "Ostatnia aktualizacja:",
+  },
+  data: {
+    features: featuresPL,
+    ...contentPL,
   },
 };
 

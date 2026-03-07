@@ -1,3 +1,6 @@
+import featuresFR from '@/i18n/data/features-fr';
+import contentFR from '@/i18n/data/content-fr';
+
 const fr = {
   common: {
     getStarted: "Commencer", startFreeTrial: "Essai gratuit", tryForFree: "Essayer gratuitement",
@@ -138,6 +141,17 @@ const fr = {
     standardDesc: "Idéal pour les petites entreprises et startups",
     proDesc: "Parfait pour les entreprises en croissance et agences",
     advancedDesc: "Pour les agences et grandes entreprises",
+    f_1Website: "1 site web", f_3Websites: "3 sites web", f_10Websites: "10 sites web", f_unlimitedWebsites: "Sites web illimités",
+    f_4BasicAudits: "4 audits SEO basiques", f_20CompleteAudits: "20 audits SEO complets par URL", f_unlimitedAudits: "Audits SEO illimités",
+    f_3KeywordTracking: "3 suivis de mots-clés", f_50KeywordTracking: "50 suivis de mots-clés par URL", f_unlimitedKeywordTracking: "Suivi de mots-clés illimité",
+    f_100KeywordResearch: "100 recherches de mots-clés par URL", f_unlimitedKeywordResearch: "Recherche de mots-clés illimitée",
+    f_5CompetitorAnalysis: "5 analyses de concurrents par URL", f_10CompetitorAnalysis: "10 analyses de concurrents par URL", f_unlimitedCompetitorAnalysis: "Analyse de concurrents illimitée",
+    f_backlinkAnalysis: "Analyse de backlinks", f_limitedAiWriting: "Rédaction IA limitée", f_unlimitedAiWriting: "Rédaction de contenu IA illimitée", f_unlimitedAiWritingShort: "Rédaction IA illimitée",
+    f_schemaGenerator: "Générateur de schema", f_schemaGeneration: "Génération de schema",
+    f_monthlyReports: "Rapports mensuels", f_weeklyReports: "Rapports hebdomadaires", f_dailyReports: "Rapports quotidiens",
+    f_emailSupport: "Support par email", f_priorityEmailSupport: "Support email prioritaire", f_phoneEmailSupport: "Support téléphone + email",
+    f_autoSchedulingReports: "Planification automatique des rapports", f_whiteLabelReports: "Rapports en marque blanche", f_fullWhiteLabel: "Solution marque blanche complète", f_dedicatedAccountManager: "Gestionnaire de compte dédié",
+    l_100PagesScanned: "Limité à 100 pages analysées", l_basicReportingOnly: "Rapports basiques uniquement",
   },
   pages: {
     featuresMetaTitle: "Toutes les fonctionnalités ZentroSEO", featuresMetaDesc: "Découvrez les fonctionnalités de ZentroSEO.",
@@ -359,6 +373,10 @@ const fr = {
     aboutUs: "À propos", contactUs: "Nous contacter", all: "Toutes",
     tool: "Outil", agencies: "Agences", startups: "Startups",
     ecommerce: "E-commerce", creators: "Créateurs", careers: "Carrières", topicalMap: "Carte thématique",
+  },
+  data: {
+    features: featuresFR,
+    ...contentFR,
   },
 };
 

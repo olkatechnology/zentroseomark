@@ -1349,5 +1349,7 @@ export function getTranslatedGlossaryTerms(): GlossaryTerm[] {
     ...t,
     term: td(`glossary.${t.slug}.term`, t.term),
     definition: td(`glossary.${t.slug}.definition`, t.definition),
+    longDescription: td(`glossary.${t.slug}.longDescription`, t.longDescription),
+    category: td(`glossary.${t.slug}.category`, t.category),
   }));
 }
