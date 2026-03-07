@@ -675,6 +675,7 @@ const en = {
     careers: "Careers",
     topicalMap: "Topical Map",
   },
+  data: {},
 };
 
 export default en;

@@ -6,9 +6,12 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const SEOToolkit = () => {
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   const tools = [
     { icon: BarChart3, titleKey: "toolScoreChecker", descKey: "toolScoreCheckerDesc", ctaKey: "toolScoreCheckerCta" },
@@ -21,7 +24,7 @@ const SEOToolkit = () => {
       <Helmet>
         <title>{t("seoToolkitMetaTitle")}</title>
         <meta name="description" content={t("seoToolkitMetaDesc")} />
-        <link rel="canonical" href="https://zentroseo.com/resources/seo-toolkit/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/seo-toolkit/")} />
       </Helmet>
 
       <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("seoToolkitHeroTitle") }]} />

@@ -1,3 +1,5 @@
+import { td } from "@/lib/i18n-data";
+
 export interface GlossaryTerm {
   term: string;
   slug: string;
@@ -1341,3 +1343,11 @@ Natural Language Processing (NLP) is a field of artificial intelligence that foc
     ],
   },
 ];
+
+export function getTranslatedGlossaryTerms(): GlossaryTerm[] {
+  return glossaryTerms.map((t) => ({
+    ...t,
+    term: td(`glossary.${t.slug}.term`, t.term),
+    definition: td(`glossary.${t.slug}.definition`, t.definition),
+  }));
+}

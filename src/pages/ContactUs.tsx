@@ -10,11 +10,14 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const ContactUs = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +34,7 @@ const ContactUs = () => {
       <Helmet>
         <title>{t("contactMetaTitle")}</title>
         <meta name="description" content={t("contactMetaDesc")} />
-        <link rel="canonical" href="https://zentroseo.com/company/contact-us/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/company/contact-us/")} />
         <meta property="og:title" content={t("contactMetaTitle")} />
         <meta property="og:description" content={t("contactMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
