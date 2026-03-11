@@ -62,9 +62,10 @@ export function useToolPoll<TResult = unknown>(
       setError(null);
 
       try {
-        const { data: rpcData, error: rpcError } = await supabase.rpc(
-          rpcName as never,
-          args as never
+        // Use REST-style RPC call
+        const { data: rpcData, error: rpcError } = await (supabase.rpc as Function)(
+          rpcName,
+          args
         );
 
         if (rpcError) throw new Error(rpcError.message);
@@ -84,21 +85,19 @@ export function useToolPoll<TResult = unknown>(
         // Start polling
         intervalRef.current = setInterval(async () => {
           try {
-            const { data: reqRow, error: reqError } = await supabase
-              .from(requestTable)
+            const { data: reqRow, error: reqError } = await (supabase.from as Function)(requestTable)
               .select("status, progress")
               .eq("id", requestId)
               .single();
 
             if (reqError) throw new Error(reqError.message);
 
-            if (reqRow?.progress) setProgress(reqRow.progress);
+            const row = reqRow as Record<string, unknown>;
+            if (row?.progress) setProgress(row.progress as number);
 
-            if (reqRow?.status === "completed") {
+            if (row?.status === "completed") {
               cleanup();
-              // Fetch result
-              const { data: resultRow, error: resultError } = await supabase
-                .from(resultTable)
+              const { data: resultRow, error: resultError } = await (supabase.from as Function)(resultTable)
                 .select("*")
                 .eq("scan_id", requestId)
                 .single();
@@ -107,7 +106,7 @@ export function useToolPoll<TResult = unknown>(
 
               setResult(resultRow as TResult);
               setStatus("completed");
-            } else if (reqRow?.status === "failed") {
+            } else if (row?.status === "failed") {
               cleanup();
               setStatus("error");
               setError("Scan failed. Please try again.");
