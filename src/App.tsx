@@ -66,6 +66,7 @@ const App = () => (
             <Route path="/resources/case-studies/" element={<CaseStudies />} />
             <Route path="/resources/documentation/" element={<Documentation />} />
             <Route path="/resources/seo-toolkit/" element={<SEOToolkit />} />
+            <Route path="/resources/seo-toolkit/title-meta-checker/" element={<TitleMetaChecker />} />
             <Route path="/resources/glossary/" element={<Glossary />} />
             <Route path="/resources/glossary/:slug/" element={<GlossaryTerm />} />
             <Route path="/resources/topics/" element={<TopicsHub />} />
