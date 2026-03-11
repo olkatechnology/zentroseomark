@@ -7,7 +7,7 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import TableOfContents from "@/components/blog/TableOfContents";
-import { blogPosts } from "@/data/blog-posts";
+import { blogPosts, getTranslatedBlogPost, getTranslatedBlogPosts } from "@/data/blog-posts";
 import { teamMembers } from "@/data/team";
 import { featuresData } from "@/data/features";
 import { Badge } from "@/components/ui/badge";
@@ -19,7 +19,7 @@ import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = getTranslatedBlogPost(slug);
   const { t, i18n } = useTranslation("pages");
   const { lang } = useLang();
 
@@ -38,11 +38,12 @@ const BlogPostPage = () => {
     );
   }
 
-  const related = blogPosts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3);
-  const relatedPillarPosts = (post.relatedSlugs || []).map((s) => blogPosts.find((p) => p.slug === s)).filter(Boolean) as typeof blogPosts;
-  const hubPost = post.topicalMapHub ? blogPosts.find((p) => p.slug === post.topicalMapHub) : null;
-  const spokeArticles = post.isHub ? blogPosts.filter((p) => p.topicalMapHub === post.slug) : [];
-  const siblingSpokes = hubPost ? blogPosts.filter((p) => p.topicalMapHub === hubPost.slug && p.slug !== post.slug).slice(0, 4) : [];
+  const allTranslatedPosts = getTranslatedBlogPosts();
+  const related = allTranslatedPosts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3);
+  const relatedPillarPosts = (post.relatedSlugs || []).map((s) => allTranslatedPosts.find((p) => p.slug === s)).filter(Boolean) as typeof allTranslatedPosts;
+  const hubPost = post.topicalMapHub ? allTranslatedPosts.find((p) => p.slug === post.topicalMapHub) : null;
+  const spokeArticles = post.isHub ? allTranslatedPosts.filter((p) => p.topicalMapHub === post.slug) : [];
+  const siblingSpokes = hubPost ? allTranslatedPosts.filter((p) => p.topicalMapHub === hubPost.slug && p.slug !== post.slug).slice(0, 4) : [];
   const authorMember = teamMembers.find((m) => m.name === post.author);
   const authorUrl = authorMember ? getCanonicalUrl(lang, `/company/team/${authorMember.authorSlug}/`) : getCanonicalUrl(lang, "/company/about-us/");
   const relatedFeatureData = (post.relatedFeatures || []).map((slug) => featuresData[slug]).filter(Boolean);

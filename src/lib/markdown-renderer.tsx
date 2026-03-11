@@ -51,7 +51,7 @@ export function extractFAQs(md: string): { question: string; answer: string }[] 
 /* ── Inline Markdown Parser ── */
 function inline(text: string): React.ReactNode[] {
   const parts: React.ReactNode[] = [];
-  const regex = /!\[([^\]]*)\]\(([^)]+)\)|\[([^\]]*)\]\(([^)]+)\)|\*\*(.+?)\*\*|_(.+?)_|`([^`]+)`/g;
+  const regex = /!\[([^\]]*)\]\(([^)]+)\)|\*\*\[([^\]]*)\]\(([^)]+)\)\*\*|\[([^\]]*)\]\(([^)]+)\)|\*\*(.+?)\*\*|_(.+?)_|`([^`]+)`/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
   let pk = 0;
@@ -60,25 +60,38 @@ function inline(text: string): React.ReactNode[] {
       parts.push(text.slice(lastIndex, match.index));
     }
     if (match[1] !== undefined && match[2]) {
+      // Image: ![alt](url)
       parts.push(
         <img key={pk++} src={match[2]} alt={match[1]} className="rounded-lg my-4 max-w-full" loading="lazy" />
       );
     } else if (match[3] !== undefined && match[4]) {
+      // Bold link: **[text](url)**
       const href = match[4];
       const isExternal = href.startsWith("http");
       parts.push(
         isExternal ? (
-          <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[3]}</a>
+          <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">{match[3]}</a>
         ) : (
-          <LocalizedLink key={pk++} to={href} className="text-primary hover:underline">{match[3]}</LocalizedLink>
+          <LocalizedLink key={pk++} to={href} className="text-primary hover:underline font-bold">{match[3]}</LocalizedLink>
         )
       );
-    } else if (match[5]) {
-      parts.push(<strong key={pk++}>{match[5]}</strong>);
-    } else if (match[6]) {
-      parts.push(<em key={pk++}>{match[6]}</em>);
+    } else if (match[5] !== undefined && match[6]) {
+      // Regular link: [text](url)
+      const href = match[6];
+      const isExternal = href.startsWith("http");
+      parts.push(
+        isExternal ? (
+          <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[5]}</a>
+        ) : (
+          <LocalizedLink key={pk++} to={href} className="text-primary hover:underline">{match[5]}</LocalizedLink>
+        )
+      );
     } else if (match[7]) {
-      parts.push(<code key={pk++} className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">{match[7]}</code>);
+      parts.push(<strong key={pk++}>{match[7]}</strong>);
+    } else if (match[8]) {
+      parts.push(<em key={pk++}>{match[8]}</em>);
+    } else if (match[9]) {
+      parts.push(<code key={pk++} className="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">{match[9]}</code>);
     }
     lastIndex = regex.lastIndex;
   }

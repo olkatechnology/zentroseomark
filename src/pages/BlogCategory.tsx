@@ -7,11 +7,10 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import {
-  blogPosts,
   blogCategories,
   categorySlug,
-  categoryMeta,
-  getPostsByCategory,
+  getTranslatedCategoryMeta,
+  getTranslatedPostsByCategory,
 } from "@/data/blog-posts";
 import { useTranslation } from "react-i18next";
 import { formatDate } from "@/lib/date-utils";
@@ -38,8 +37,9 @@ const BlogCategory = () => {
     );
   }
 
-  const posts = getPostsByCategory(categoryName);
-  const meta = categoryMeta[categoryName];
+  const translatedCategoryMeta = getTranslatedCategoryMeta();
+  const posts = getTranslatedPostsByCategory(categoryName);
+  const meta = translatedCategoryMeta[categoryName];
   const otherCategories = blogCategories
     .filter((c) => c !== "All" && c !== categoryName);
 

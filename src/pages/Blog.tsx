@@ -7,7 +7,7 @@ import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
+import { blogPosts, blogCategories, categorySlug, getTranslatedBlogPosts } from "@/data/blog-posts";
 import { formatDate } from "@/lib/date-utils";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
@@ -20,7 +20,9 @@ const Blog = () => {
   const { t, i18n } = useTranslation("pages");
   const { lang } = useLang();
 
-  const filtered = blogPosts.filter((p) => {
+  const translatedPosts = getTranslatedBlogPosts();
+
+  const filtered = translatedPosts.filter((p) => {
     const matchesCategory = activeCategory === "All" || p.category === activeCategory;
     if (!searchQuery.trim()) return matchesCategory;
     const q = searchQuery.toLowerCase();
@@ -35,7 +37,7 @@ const Blog = () => {
     url: getCanonicalUrl(lang, "/resources/blog/"),
     mainEntity: {
       "@type": "ItemList",
-      itemListElement: blogPosts.map((post, i) => ({
+      itemListElement: translatedPosts.map((post, i) => ({
         "@type": "ListItem",
         position: i + 1,
         url: getCanonicalUrl(lang, `/resources/blog/${post.slug}/`),
@@ -84,7 +86,7 @@ const Blog = () => {
           </div>
 
           {activeCategory === "All" && !searchQuery.trim() && (() => {
-            const trendingPosts = blogPosts.filter((p) => p.trending);
+            const trendingPosts = translatedPosts.filter((p) => p.trending);
             return trendingPosts.length > 0 ? (
               <div className="max-w-5xl mx-auto mb-12">
                 <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">{t("trendingArticles")}</h2>

@@ -845,5 +845,13 @@ export function getTranslatedGuides(): Guide[] {
     ...g,
     title: td(`guides.${g.slug}.title`, g.title),
     excerpt: td(`guides.${g.slug}.excerpt`, g.excerpt),
+    content: td(`guides.${g.slug}.content`, g.content),
+    prerequisites: g.prerequisites.map((p, i) =>
+      td(`guides.${g.slug}.prerequisite${i}`, p)
+    ),
+    steps: g.steps.map((s, i) => ({
+      name: td(`guides.${g.slug}.step${i}Name`, s.name),
+      text: td(`guides.${g.slug}.step${i}Text`, s.text),
+    })),
   }));
 }

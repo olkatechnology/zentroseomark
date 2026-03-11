@@ -433,5 +433,6 @@ export function getTranslatedTopics(): Topic[] {
     ...t,
     name: td(`topics.${t.slug}.name`, t.name),
     description: td(`topics.${t.slug}.description`, t.description),
+    heroContent: td(`topics.${t.slug}.heroContent`, t.heroContent),
   }));
 }
