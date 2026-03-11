@@ -1,17 +1,14 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BookOpen, Code2, FileText, Rocket, ArrowRight } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Documentation = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   const sections = [
     {
@@ -64,7 +61,7 @@ const Documentation = () => {
       <Helmet>
         <title>{t("docsMetaTitle")}</title>
         <meta name="description" content={t("docsMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/documentation/")} />
+        <link rel="canonical" href="https://zentroseo.com/resources/documentation/" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("docsHeroTitle") }]} />
@@ -91,14 +88,14 @@ const Documentation = () => {
                       const label = link.labelKey ? t(link.labelKey) : link.label;
                       return (
                         <li key={li}>
-                          {link.href.startsWith("http") || link.href === "#" ? (
+                          {link.href.startsWith("http") ? (
                             <a href={link.href} className="text-sm text-primary hover:underline flex items-center gap-1">
                               {label} <ArrowRight className="w-3 h-3" />
                             </a>
                           ) : (
-                            <LocalizedLink to={link.href} className="text-sm text-primary hover:underline flex items-center gap-1">
+                            <Link to={link.href} className="text-sm text-primary hover:underline flex items-center gap-1">
                               {label} <ArrowRight className="w-3 h-3" />
-                            </LocalizedLink>
+                            </Link>
                           )}
                         </li>
                       );

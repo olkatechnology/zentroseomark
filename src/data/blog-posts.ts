@@ -1,5 +1,3 @@
-import { td } from "@/lib/i18n-data";
-
 export interface BlogPost {
   title: string;
   slug: string;
@@ -11840,53 +11838,3 @@ export const getPostsByFeature = (featureSlug: string): BlogPost[] =>
 /** Get blog posts written by a specific author name */
 export const getPostsByAuthor = (authorName: string): BlogPost[] =>
   blogPosts.filter((post) => post.author === authorName);
-
-/**
- * Returns all blog posts with title, excerpt, category, and content translated via td().
- * Content falls back to English if no translation key exists.
- * Components calling this MUST use useTranslation() to trigger re-renders on language change.
- */
-export const getTranslatedBlogPosts = (): BlogPost[] =>
-  blogPosts.map((post) => ({
-    ...post,
-    title: td(`blog.${post.slug}.title`, post.title),
-    excerpt: td(`blog.${post.slug}.excerpt`, post.excerpt),
-    category: td(`blog.${post.slug}.category`, post.category),
-    content: td(`blog.${post.slug}.content`, post.content),
-  }));
-
-/**
- * Returns a single translated blog post by slug, or undefined if not found.
- */
-export const getTranslatedBlogPost = (slug: string): BlogPost | undefined => {
-  const post = blogPosts.find((p) => p.slug === slug);
-  if (!post) return undefined;
-  return {
-    ...post,
-    title: td(`blog.${post.slug}.title`, post.title),
-    excerpt: td(`blog.${post.slug}.excerpt`, post.excerpt),
-    category: td(`blog.${post.slug}.category`, post.category),
-    content: td(`blog.${post.slug}.content`, post.content),
-  };
-};
-
-/**
- * Returns categoryMeta with title and description translated via td().
- */
-export const getTranslatedCategoryMeta = (): Record<string, { title: string; description: string }> => {
-  const result: Record<string, { title: string; description: string }> = {};
-  for (const [key, val] of Object.entries(categoryMeta)) {
-    const safeKey = key.toLowerCase().replace(/[&\s]+/g, "-").replace(/-+/g, "-");
-    result[key] = {
-      title: td(`blog.category.${safeKey}.title`, val.title),
-      description: td(`blog.category.${safeKey}.description`, val.description),
-    };
-  }
-  return result;
-};
-
-/**
- * Returns translated posts filtered by category.
- */
-export const getTranslatedPostsByCategory = (category: string): BlogPost[] =>
-  getTranslatedBlogPosts().filter((post) => post.category === category);

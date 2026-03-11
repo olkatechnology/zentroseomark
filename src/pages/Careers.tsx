@@ -1,18 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Heart, Zap, Users, Globe } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Careers = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   const values = [
     { icon: Zap, titleKey: "careersValueInnovation", descKey: "careersValueInnovationDesc" },
@@ -26,10 +23,10 @@ const Careers = () => {
       <Helmet>
         <title>{t("careersMetaTitle")}</title>
         <meta name="description" content={t("careersMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/company/careers/")} />
+        <link rel="canonical" href="https://zentroseo.com/company/careers/" />
         <meta property="og:title" content={t("careersMetaTitle")} />
         <meta property="og:description" content={t("careersMetaDesc")} />
-        <meta property="og:url" content={getCanonicalUrl(lang, "/company/careers/")} />
+        <meta property="og:url" content="https://zentroseo.com/company/careers/" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("company"), href: "/company/" }, { label: t("careers") }]} />
@@ -77,9 +74,9 @@ const Careers = () => {
         <div className="container mx-auto px-4 text-center max-w-2xl">
           <h2 className="font-display text-2xl font-bold mb-3">{t("careersDontSeeRole")}</h2>
           <p className="text-muted-foreground mb-6">{t("careersDontSeeRoleDesc")}</p>
-          <LocalizedLink to="/company/contact-us/">
+          <Link to="/company/contact-us/">
             <Button>{t("getInTouch")}</Button>
-          </LocalizedLink>
+          </Link>
         </div>
       </section>
 

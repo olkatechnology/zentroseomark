@@ -1,8 +1,6 @@
 import React, { useMemo, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { blogPosts } from "@/data/blog-posts";
-import { useLang } from "@/hooks/use-lang";
-import { localizedPath } from "@/lib/lang-utils";
 
 /* ── Category color palette ── */
 const CATEGORY_FILLS: Record<string, { bg: string; stroke: string; text: string }> = {
@@ -46,7 +44,6 @@ interface EdgeData {
 
 const NetworkVisualization: React.FC = () => {
   const navigate = useNavigate();
-  const { lang } = useLang();
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<{ x: number; y: number; label: string; category: string } | null>(null);
 
@@ -115,8 +112,8 @@ const NetworkVisualization: React.FC = () => {
   }, []);
 
   const handleClick = useCallback(
-    (slug: string) => navigate(localizedPath(lang, `/resources/blog/${slug}/`)),
-    [navigate, lang]
+    (slug: string) => navigate(`/resources/blog/${slug}/`),
+    [navigate]
   );
 
   const handleMouseEnter = useCallback((node: NodeData, e: React.MouseEvent<SVGElement>) => {

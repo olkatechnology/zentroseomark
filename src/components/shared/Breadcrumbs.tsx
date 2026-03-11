@@ -1,8 +1,6 @@
-import LocalizedLink from "@/components/LocalizedLink";
+import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 interface BreadcrumbItem {
   label: string;
@@ -14,8 +12,6 @@ interface BreadcrumbsProps {
 }
 
 const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
-  const { lang } = useLang();
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -23,7 +19,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
       "@type": "ListItem",
       position: i + 1,
       name: item.label,
-      ...(item.href ? { item: getCanonicalUrl(lang, item.href) } : {}),
+      ...(item.href ? { item: `https://zentroseo.com${item.href}` } : {}),
     })),
   };
 
@@ -38,9 +34,9 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
             <li key={i} className="flex items-center gap-1">
               {i > 0 && <ChevronRight className="w-3.5 h-3.5" />}
               {item.href && i < items.length - 1 ? (
-                <LocalizedLink to={item.href} className="hover:text-primary transition-colors">
+                <Link to={item.href} className="hover:text-primary transition-colors">
                   {item.label}
-                </LocalizedLink>
+                </Link>
               ) : (
                 <span className="text-foreground font-medium">{item.label}</span>
               )}

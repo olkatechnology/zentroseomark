@@ -2,10 +2,8 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import { legalPages, getLegalPage } from "@/data/legal";
+import { legalPages } from "@/data/legal";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 interface LegalPageProps {
   slug?: string;
@@ -14,9 +12,8 @@ interface LegalPageProps {
 const LegalPage = ({ slug: propSlug }: LegalPageProps) => {
   const { slug: paramSlug } = useParams<{ slug: string }>();
   const slug = propSlug || paramSlug;
-  const page = slug ? getLegalPage(slug) : null;
+  const page = slug ? legalPages[slug] : null;
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   if (!page) {
     return (
@@ -33,7 +30,7 @@ const LegalPage = ({ slug: propSlug }: LegalPageProps) => {
       <Helmet>
         <title>{page.metaTitle}</title>
         <meta name="description" content={page.metaDescription} />
-        <link rel="canonical" href={getCanonicalUrl(lang, `/${page.slug}/`)} />
+        <link rel="canonical" href={`https://zentroseo.com/${page.slug}/`} />
         <meta property="og:title" content={page.metaTitle} />
         <meta property="og:description" content={page.metaDescription} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />

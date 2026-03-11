@@ -1,17 +1,14 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BookOpen, HelpCircle, BarChart3, FileText, Wrench, GraduationCap, BookA, Map, GitCompareArrows } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const ResourcesHub = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   const resources = [
     { icon: BookOpen, title: t("blog"), description: t("blogHeroSubtitle"), href: "/resources/blog/" },
@@ -30,7 +27,7 @@ const ResourcesHub = () => {
       <Helmet>
         <title>{t("resourcesMetaTitle")}</title>
         <meta name="description" content={t("resourcesMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/")} />
+        <link rel="canonical" href="https://zentroseo.com/resources/" />
         <meta property="og:title" content={t("resourcesMetaTitle")} />
         <meta property="og:description" content={t("resourcesMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -56,11 +53,11 @@ const ResourcesHub = () => {
               const RIcon = r.icon;
               return (
                 <motion.div key={r.href} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                  <LocalizedLink to={r.href} className="group block p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all h-full">
+                  <Link to={r.href} className="group block p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all h-full">
                     <RIcon className="w-8 h-8 text-primary mb-4" />
                     <h2 className="font-display text-lg font-bold mb-2 group-hover:text-primary transition-colors">{r.title}</h2>
                     <p className="text-sm text-muted-foreground">{r.description}</p>
-                  </LocalizedLink>
+                  </Link>
                 </motion.div>
               );
             })}

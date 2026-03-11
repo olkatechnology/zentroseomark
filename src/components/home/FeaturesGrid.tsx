@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, Wrench, BarChart3, PenTool, GitCompare, Link2, Code2, FileText, Sparkles, Map, FileEdit, CalendarClock, Gauge } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.06 } } };
@@ -35,7 +35,7 @@ const FeaturesGrid = () => {
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {tools.map((tool) => (
             <motion.div key={tool.name} variants={item}>
-              <LocalizedLink to={tool.href} className="group block p-6 rounded-xl border bg-card hover:shadow-card-hover transition-all duration-300">
+              <Link to={tool.href} className="group block p-6 rounded-xl border bg-card hover:shadow-card-hover transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
                     <tool.icon className="w-5 h-5 text-primary" />
@@ -48,7 +48,7 @@ const FeaturesGrid = () => {
                     <p className="text-sm text-muted-foreground">{tool.desc}</p>
                   </div>
                 </div>
-              </LocalizedLink>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

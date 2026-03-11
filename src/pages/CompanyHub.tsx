@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Zap, Lightbulb, Target, Rocket, ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
@@ -9,12 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { teamMembers } from "@/data/team";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const CompanyHub = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   const stats = [
     { value: "100+", labelKey: "statWebsites" },
@@ -41,7 +38,7 @@ const CompanyHub = () => {
       <Helmet>
         <title>{t("companyMetaTitle")}</title>
         <meta name="description" content={t("companyMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/company/")} />
+        <link rel="canonical" href="https://zentroseo.com/company/" />
       </Helmet>
 
       <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("company") }]} />
@@ -61,9 +58,9 @@ const CompanyHub = () => {
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-4 mb-12">
             <p>
               {t("companyStoryP1").split("Tomisin Sode")[0]}
-              <LocalizedLink to="/company/team/tomisin-sode/" className="text-primary hover:underline font-medium">Tomisin Sode</LocalizedLink>
+              <Link to="/company/team/tomisin-sode/" className="text-primary hover:underline font-medium">Tomisin Sode</Link>
               {" "}{t("companyStoryP1").includes("and") ? "and" : t("companyStoryP1").split("Tomisin Sode")[1]?.split("Olayinka Olayokun")[0]}
-              <LocalizedLink to="/company/team/olayinka-olayokun/" className="text-primary hover:underline font-medium">Olayinka Olayokun</LocalizedLink>
+              <Link to="/company/team/olayinka-olayokun/" className="text-primary hover:underline font-medium">Olayinka Olayokun</Link>
               {t("companyStoryP1").split("Olayinka Olayokun")[1]}
             </p>
             <p>{t("companyStoryP2")}</p>
@@ -115,9 +112,9 @@ const CompanyHub = () => {
                 <Card className="overflow-hidden">
                   <CardContent className="p-6 flex flex-col items-center text-center">
                     <img src={member.photo} alt={member.name} className="w-24 h-24 rounded-full object-cover mb-4" />
-                    <LocalizedLink to={`/company/team/${member.authorSlug}/`} className="hover:underline">
+                    <Link to={`/company/team/${member.authorSlug}/`} className="hover:underline">
                       <h3 className="font-display text-lg font-semibold">{member.name}</h3>
-                    </LocalizedLink>
+                    </Link>
                     <p className="text-sm text-primary mb-3">{member.role}</p>
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{member.bio}</p>
                     <div className="flex gap-3">
@@ -131,9 +128,9 @@ const CompanyHub = () => {
           </div>
 
           <div className="text-center mt-10">
-            <LocalizedLink to="/company/about-us/">
+            <Link to="/company/about-us/">
               <Button variant="outline">{t("learnMoreAboutUs")} <ArrowRight className="w-4 h-4 ml-1" /></Button>
-            </LocalizedLink>
+            </Link>
           </div>
         </div>
       </section>
@@ -143,9 +140,9 @@ const CompanyHub = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-display text-3xl font-bold mb-4">{t("joinOurTeam")}</h2>
             <p className="text-muted-foreground max-w-xl mx-auto mb-8">{t("joinOurTeamDesc")}</p>
-            <LocalizedLink to="/company/careers/">
+            <Link to="/company/careers/">
               <Button>{t("viewOpenPositions")} <ArrowRight className="w-4 h-4 ml-1" /></Button>
-            </LocalizedLink>
+            </Link>
           </motion.div>
         </div>
       </section>

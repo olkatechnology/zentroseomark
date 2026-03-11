@@ -6,12 +6,9 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { teamMembers } from "@/data/team";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const AboutUs = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
 
   const stats = [
     { value: "100+", labelKey: "aboutStatWebsites" },
@@ -40,7 +37,7 @@ const AboutUs = () => {
       <Helmet>
         <title>{t("aboutMetaTitle")}</title>
         <meta name="description" content={t("aboutMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/company/about-us/")} />
+        <link rel="canonical" href="https://zentroseo.com/company/about-us/" />
         <meta property="og:title" content={t("aboutMetaTitle")} />
         <meta property="og:description" content={t("aboutMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />

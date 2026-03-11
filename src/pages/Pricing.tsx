@@ -6,34 +6,25 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import FAQSection from "@/components/home/FAQSection";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
-
-const starterFeatures = ["f_1Website", "f_4BasicAudits", "f_3KeywordTracking", "f_monthlyReports", "f_emailSupport"] as const;
-const starterLimits = ["l_100PagesScanned", "l_basicReportingOnly"] as const;
-const standardFeatures = ["f_3Websites", "f_20CompleteAudits", "f_100KeywordResearch", "f_50KeywordTracking", "f_5CompetitorAnalysis", "f_backlinkAnalysis", "f_limitedAiWriting", "f_schemaGenerator", "f_weeklyReports", "f_priorityEmailSupport"] as const;
-const proFeatures = ["f_10Websites", "f_20CompleteAudits", "f_100KeywordResearch", "f_50KeywordTracking", "f_10CompetitorAnalysis", "f_backlinkAnalysis", "f_unlimitedAiWriting", "f_schemaGeneration", "f_dailyReports", "f_autoSchedulingReports", "f_phoneEmailSupport", "f_whiteLabelReports"] as const;
-const advancedFeatures = ["f_unlimitedWebsites", "f_unlimitedAudits", "f_unlimitedKeywordResearch", "f_unlimitedKeywordTracking", "f_unlimitedCompetitorAnalysis", "f_backlinkAnalysis", "f_unlimitedAiWritingShort", "f_schemaGeneration", "f_dailyReports", "f_dedicatedAccountManager", "f_fullWhiteLabel"] as const;
 
 const plans = {
   monthly: [
-    { nameKey: "starter", price: "$19", period: "/mo", descKey: "starterDesc", featureKeys: starterFeatures, limitKeys: starterLimits, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=starter_monthly&flow=pricing" },
-    { nameKey: "standard", price: "$49", period: "/mo", descKey: "standardDesc", featureKeys: standardFeatures, popular: true, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=standard_monthly&flow=pricing" },
-    { nameKey: "pro", price: "$99", period: "/mo", descKey: "proDesc", featureKeys: proFeatures, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=pro_monthly&flow=pricing" },
-    { nameKey: "advanced", price: "$299", period: "/mo", descKey: "advancedDesc", featureKeys: advancedFeatures, ctaKey: "contactSales", href: "/company/contact-us/" },
+    { nameKey: "starter", price: "$19", period: "/mo", descKey: "starterDesc", features: ["1 website", "4 Basic SEO audits", "3 keyword tracking", "Monthly reports", "Email support"], limits: ["Limited to 100 pages scanned", "Basic reporting only"], ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=starter_monthly&flow=pricing" },
+    { nameKey: "standard", price: "$49", period: "/mo", descKey: "standardDesc", features: ["3 websites", "20 Complete SEO audits per URL", "100 keyword research per URL", "50 keyword tracking per URL", "5 competitor analysis per URL", "Backlink analysis", "Limited AI content writing", "Schema generator", "Weekly reports", "Priority email support"], popular: true, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=standard_monthly&flow=pricing" },
+    { nameKey: "pro", price: "$99", period: "/mo", descKey: "proDesc", features: ["10 websites", "20 Complete SEO audits per URL", "100 keyword research per URL", "50 keyword tracking per URL", "10 competitor analysis per URL", "Backlink analysis", "Unlimited AI content writing", "Schema generation", "Daily reports", "Auto scheduling reports", "Phone + email support", "White-label reports"], ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=pro_monthly&flow=pricing" },
+    { nameKey: "advanced", price: "$299", period: "/mo", descKey: "advancedDesc", features: ["Unlimited websites", "Unlimited SEO audits", "Unlimited keyword research", "Unlimited keyword tracking", "Unlimited competitor analysis", "Backlink analysis", "Unlimited AI writing", "Schema generation", "Daily reports", "Dedicated account manager", "Full white-label solution"], ctaKey: "contactSales", href: "/company/contact-us/" },
   ],
   yearly: [
-    { nameKey: "starter", price: "$190", period: "/yr", descKey: "starterDesc", featureKeys: starterFeatures, limitKeys: starterLimits, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=starter_yearly&flow=pricing" },
-    { nameKey: "standard", price: "$490", period: "/yr", descKey: "standardDesc", featureKeys: standardFeatures, popular: true, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=standard_yearly&flow=pricing" },
-    { nameKey: "pro", price: "$990", period: "/yr", descKey: "proDesc", featureKeys: proFeatures, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=pro_yearly&flow=pricing" },
-    { nameKey: "advanced", price: "$2,990", period: "/yr", descKey: "advancedDesc", featureKeys: advancedFeatures, ctaKey: "contactSales", href: "/company/contact-us/" },
+    { nameKey: "starter", price: "$190", period: "/yr", descKey: "starterDesc", features: ["1 website", "4 Basic SEO audits", "3 keyword tracking", "Monthly reports", "Email support"], limits: ["Limited to 100 pages scanned", "Basic reporting only"], ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=starter_yearly&flow=pricing" },
+    { nameKey: "standard", price: "$490", period: "/yr", descKey: "standardDesc", features: ["3 websites", "20 Complete SEO audits per URL", "100 keyword research per URL", "50 keyword tracking per URL", "5 competitor analysis per URL", "Backlink analysis", "Limited AI content writing", "Schema generator", "Weekly reports", "Priority email support"], popular: true, ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=standard_yearly&flow=pricing" },
+    { nameKey: "pro", price: "$990", period: "/yr", descKey: "proDesc", features: ["10 websites", "20 Complete SEO audits per URL", "100 keyword research per URL", "50 keyword tracking per URL", "10 competitor analysis per URL", "Backlink analysis", "Unlimited AI content writing", "Schema generation", "Daily reports", "Auto scheduling reports", "Phone + email support", "White-label reports"], ctaKey: "startTrial", href: "https://app.zentroseo.com/signup?plan=pro_yearly&flow=pricing" },
+    { nameKey: "advanced", price: "$2,990", period: "/yr", descKey: "advancedDesc", features: ["Unlimited websites", "Unlimited SEO audits", "Unlimited keyword research", "Unlimited keyword tracking", "Unlimited competitor analysis", "Backlink analysis", "Unlimited AI writing", "Schema generation", "Daily reports", "Dedicated account manager", "Full white-label solution"], ctaKey: "contactSales", href: "/company/contact-us/" },
   ],
 };
 
 const Pricing = () => {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const { t } = useTranslation(["pricing", "common"]);
-  const { lang } = useLang();
 
   const currentPlans = plans[billing];
 
@@ -43,7 +34,7 @@ const Pricing = () => {
     name: "ZentroSEO",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    url: getCanonicalUrl(lang, "/pricing/"),
+    url: "https://zentroseo.com/pricing/",
     offers: currentPlans.map((plan) => ({
       "@type": "Offer",
       name: t(`pricing:${plan.nameKey}`),
@@ -59,7 +50,7 @@ const Pricing = () => {
       <Helmet>
         <title>{t("pricing:metaTitle")}</title>
         <meta name="description" content={t("pricing:metaDescription")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/pricing/")} />
+        <link rel="canonical" href="https://zentroseo.com/pricing/" />
         <meta property="og:title" content={t("pricing:metaTitle")} />
         <meta property="og:description" content={t("pricing:metaDescription")} />
         <meta property="og:type" content="product" />
@@ -119,18 +110,18 @@ const Pricing = () => {
                 <p className="text-sm text-muted-foreground mb-6">{t(`pricing:${plan.descKey}`)}</p>
 
                 <ul className="space-y-2.5 mb-6 flex-1">
-                  {plan.featureKeys.map((fKey) => (
-                    <li key={fKey} className="flex items-start gap-2 text-sm text-foreground">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-foreground">
                       <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                      {t(`pricing:${fKey}`)}
+                      {f}
                     </li>
                   ))}
                 </ul>
 
-                {"limitKeys" in plan && plan.limitKeys && (
+                {plan.limits && (
                   <div className="mb-6 text-xs text-muted-foreground space-y-1">
                     <p className="font-medium text-foreground">{t("pricing:limitations")}:</p>
-                    {plan.limitKeys.map((lKey) => <p key={lKey}>• {t(`pricing:${lKey}`)}</p>)}
+                    {plan.limits.map((l) => <p key={l}>• {l}</p>)}
                   </div>
                 )}
 

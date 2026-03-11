@@ -1,5 +1,4 @@
 import { Search, Wrench, BarChart3, PenTool, GitCompare, Link2, Code2, Palette, FileSearch, Zap, Shield, Brain, Target, TrendingUp, Globe, CheckCircle, AlertTriangle, RefreshCw, Eye, Layers, Activity, BookOpen, Users, Lock, Map, FileEdit, CalendarClock, Gauge } from "lucide-react";
-import { td } from "@/lib/i18n-data";
 
 export interface FeatureData {
   slug: string;
@@ -700,56 +699,3 @@ export const featuresData: Record<string, FeatureData> = {
     ],
   },
 };
-
-/** Returns a single feature with translatable fields overlaid from i18n. */
-export function getFeatureData(slug: string): FeatureData | null {
-  const base = featuresData[slug];
-  if (!base) return null;
-  const t = (key: string, fallback: string) => td(`features.${slug}.${key}`, fallback);
-  return {
-    ...base,
-    name: t('name', base.name),
-    tagline: t('tagline', base.tagline),
-    metaTitle: t('metaTitle', base.metaTitle),
-    metaDescription: t('metaDescription', base.metaDescription),
-    overview: base.overview ? t('overview', base.overview) : undefined,
-    trustChips: base.trustChips.map((chip, i) => t(`trustChips.${i}`, chip)),
-    capabilities: base.capabilities.map((cap, i) => ({
-      ...cap,
-      title: t(`capabilities.${i}.title`, cap.title),
-      description: t(`capabilities.${i}.description`, cap.description),
-    })),
-    steps: base.steps.map((step, i) => ({
-      ...step,
-      title: t(`steps.${i}.title`, step.title),
-      description: t(`steps.${i}.description`, step.description),
-    })),
-    benefits: base.benefits.map((b, i) => t(`benefits.${i}`, b)),
-    faqs: base.faqs.map((faq, i) => ({
-      q: t(`faqs.${i}.q`, faq.q),
-      a: t(`faqs.${i}.a`, faq.a),
-    })),
-    useCases: base.useCases?.map((uc, i) => ({
-      title: t(`useCases.${i}.title`, uc.title),
-      description: t(`useCases.${i}.description`, uc.description),
-    })),
-    whoIsItFor: base.whoIsItFor?.map((w, i) => ({
-      persona: t(`whoIsItFor.${i}.persona`, w.persona),
-      reason: t(`whoIsItFor.${i}.reason`, w.reason),
-    })),
-    relatedTools: base.relatedTools.map((rt, i) => ({
-      ...rt,
-      label: t(`relatedTools.${i}.label`, rt.label),
-      description: t(`relatedTools.${i}.description`, rt.description),
-    })),
-  };
-}
-
-/** Returns all features with translatable fields overlaid. */
-export function getAllFeaturesData(): Record<string, FeatureData> {
-  const result: Record<string, FeatureData> = {};
-  for (const slug of Object.keys(featuresData)) {
-    result[slug] = getFeatureData(slug)!;
-  }
-  return result;
-}

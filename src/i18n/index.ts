@@ -15,18 +15,14 @@ import tr from './locales/tr';
 import zh from './locales/zh';
 import ja from './locales/ja';
 import ko from './locales/ko';
-import { getLangFromPath } from '@/lib/lang-utils';
 
-// Derive initial language from URL (source of truth)
-const initialLang = typeof window !== 'undefined'
-  ? getLangFromPath(window.location.pathname)
-  : 'en';
+const savedLang = (typeof window !== 'undefined' && localStorage.getItem('zentro-lang')) || 'EN';
 
 i18n.use(initReactI18next).init({
   resources: { en, de, es, fr, it, nl, pl, pt, sv, vi, tr, zh, ja, ko },
-  lng: initialLang,
+  lng: savedLang.toLowerCase(),
   fallbackLng: 'en',
-  ns: ['common', 'nav', 'home', 'pricing', 'pages', 'data'],
+  ns: ['common', 'nav', 'home', 'pricing', 'pages'],
   defaultNS: 'common',
   interpolation: { escapeValue: false },
 });

@@ -1,5 +1,3 @@
-import { td } from "@/lib/i18n-data";
-
 export interface Guide {
   title: string;
   slug: string;
@@ -839,19 +837,3 @@ After your initial setup:
     ],
   },
 ];
-
-export function getTranslatedGuides(): Guide[] {
-  return guides.map((g) => ({
-    ...g,
-    title: td(`guides.${g.slug}.title`, g.title),
-    excerpt: td(`guides.${g.slug}.excerpt`, g.excerpt),
-    content: td(`guides.${g.slug}.content`, g.content),
-    prerequisites: g.prerequisites.map((p, i) =>
-      td(`guides.${g.slug}.prerequisite${i}`, p)
-    ),
-    steps: g.steps.map((s, i) => ({
-      name: td(`guides.${g.slug}.step${i}Name`, s.name),
-      text: td(`guides.${g.slug}.step${i}Text`, s.text),
-    })),
-  }));
-}

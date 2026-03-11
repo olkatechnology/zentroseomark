@@ -1,5 +1,3 @@
-import { td } from "@/lib/i18n-data";
-
 export interface SolutionData {
   slug: string;
   audience: string;
@@ -144,39 +142,3 @@ export const solutionsData: Record<string, SolutionData> = {
     ],
   },
 };
-
-export function getSolutionData(slug: string): SolutionData | null {
-  const base = solutionsData[slug];
-  if (!base) return null;
-  return {
-    ...base,
-    audience: td(`solutions.${slug}.audience`, base.audience),
-    metaTitle: td(`solutions.${slug}.metaTitle`, base.metaTitle),
-    metaDescription: td(`solutions.${slug}.metaDescription`, base.metaDescription),
-    heroTagline: td(`solutions.${slug}.heroTagline`, base.heroTagline),
-    heroDescription: td(`solutions.${slug}.heroDescription`, base.heroDescription),
-    painPoints: base.painPoints.map((p, i) => ({
-      title: td(`solutions.${slug}.painPoint${i}.title`, p.title),
-      description: td(`solutions.${slug}.painPoint${i}.description`, p.description),
-    })),
-    solutions: base.solutions.map((s, i) => ({
-      ...s,
-      description: td(`solutions.${slug}.solution${i}.description`, s.description),
-    })),
-    faqs: base.faqs.map((f, i) => ({
-      q: td(`solutions.${slug}.faq${i}.q`, f.q),
-      a: td(`solutions.${slug}.faq${i}.a`, f.a),
-    })),
-    testimonial: {
-      quote: td(`solutions.${slug}.testimonial.quote`, base.testimonial.quote),
-      name: base.testimonial.name,
-      role: td(`solutions.${slug}.testimonial.role`, base.testimonial.role),
-      company: base.testimonial.company,
-    },
-    relatedSolutions: base.relatedSolutions.map((r, i) => ({
-      ...r,
-      label: td(`solutions.${slug}.related${i}.label`, r.label),
-      description: td(`solutions.${slug}.related${i}.description`, r.description),
-    })),
-  };
-}

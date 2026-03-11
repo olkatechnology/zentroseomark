@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { blogPosts, blogCategories, categorySlug } from "@/data/blog-posts";
@@ -9,12 +9,9 @@ import { topics } from "@/data/topics";
 import { guides } from "@/data/guides";
 import { comparisons } from "@/data/comparisons";
 import { useTranslation } from "react-i18next";
-import { useLang } from "@/hooks/use-lang";
-import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const Sitemap = () => {
   const { t } = useTranslation("pages");
-  const { lang } = useLang();
   const categories = blogCategories.filter((c) => c !== "All");
 
   const siteStructure = [
@@ -71,7 +68,7 @@ const Sitemap = () => {
     "@type": "CollectionPage",
     name: t("sitemapMetaTitle"),
     description: t("sitemapMetaDesc"),
-    url: getCanonicalUrl(lang, "/sitemap/"),
+    url: "https://zentroseo.com/sitemap/",
   };
 
   return (
@@ -79,7 +76,7 @@ const Sitemap = () => {
       <Helmet>
         <title>{t("sitemapMetaTitle")}</title>
         <meta name="description" content={t("sitemapMetaDesc")} />
-        <link rel="canonical" href={getCanonicalUrl(lang, "/sitemap/")} />
+        <link rel="canonical" href="https://zentroseo.com/sitemap/" />
         <script type="application/ld+json">{JSON.stringify(sitemapJsonLd)}</script>
       </Helmet>
 
@@ -94,8 +91,8 @@ const Sitemap = () => {
             <section>
               <h2 className="font-display text-xl font-bold mb-1">{t("mainPages")}</h2>
               <ul className="mt-3 space-y-1.5">
-                <li><LocalizedLink to="/" className="text-primary hover:underline">{t("home")}</LocalizedLink></li>
-                <li><LocalizedLink to="/pricing/" className="text-primary hover:underline">{t("common:viewPricing", { ns: "common" })}</LocalizedLink></li>
+                <li><Link to="/" className="text-primary hover:underline">{t("home")}</Link></li>
+                <li><Link to="/pricing/" className="text-primary hover:underline">{t("common:viewPricing", { ns: "common" })}</Link></li>
               </ul>
             </section>
 
@@ -105,14 +102,14 @@ const Sitemap = () => {
                 <ul className="mt-3 space-y-1.5">
                   {section.hubLink && (
                     <li>
-                      <LocalizedLink to={section.hubLink.href} className="text-primary hover:underline font-medium">
+                      <Link to={section.hubLink.href} className="text-primary hover:underline font-medium">
                         {section.hubLink.label}
-                      </LocalizedLink>
+                      </Link>
                     </li>
                   )}
                   {section.links.map((link) => (
                     <li key={link.href} className="ml-4">
-                      <LocalizedLink to={link.href} className="text-primary hover:underline">{link.label}</LocalizedLink>
+                      <Link to={link.href} className="text-primary hover:underline">{link.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -122,7 +119,7 @@ const Sitemap = () => {
             <section>
               <h2 className="font-display text-xl font-bold mb-1">{t("blog")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <LocalizedLink to="/resources/blog/" className="text-primary hover:underline font-medium">{t("allBlogPosts")}</LocalizedLink>
+                <Link to="/resources/blog/" className="text-primary hover:underline font-medium">{t("allBlogPosts")}</Link>
               </p>
               {categories.map((cat) => {
                 const posts = blogPosts.filter((p) => p.category === cat);
@@ -130,17 +127,17 @@ const Sitemap = () => {
                 return (
                   <div key={cat} className="mb-6">
                     <h3 className="font-display text-base font-semibold mb-2">
-                      <LocalizedLink to={`/resources/blog/category/${categorySlug(cat)}/`} className="text-primary hover:underline">
+                      <Link to={`/resources/blog/category/${categorySlug(cat)}/`} className="text-primary hover:underline">
                         {cat}
-                      </LocalizedLink>
+                      </Link>
                       <span className="text-muted-foreground text-sm font-normal ml-2">({posts.length})</span>
                     </h3>
                     <ul className="ml-4 space-y-1">
                       {posts.map((p) => (
                         <li key={p.slug}>
-                          <LocalizedLink to={`/resources/blog/${p.slug}/`} className="text-sm text-primary hover:underline">
+                          <Link to={`/resources/blog/${p.slug}/`} className="text-sm text-primary hover:underline">
                             {p.title}
-                          </LocalizedLink>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -152,14 +149,14 @@ const Sitemap = () => {
             <section>
               <h2 className="font-display text-xl font-bold mb-1">{t("glossary")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <LocalizedLink to="/resources/glossary/" className="text-primary hover:underline font-medium">{t("allGlossaryTerms")}</LocalizedLink>
+                <Link to="/resources/glossary/" className="text-primary hover:underline font-medium">{t("allGlossaryTerms")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
                 {glossaryTerms.map((term) => (
                   <li key={term.slug}>
-                    <LocalizedLink to={`/resources/glossary/${term.slug}/`} className="text-sm text-primary hover:underline">
+                    <Link to={`/resources/glossary/${term.slug}/`} className="text-sm text-primary hover:underline">
                       {term.term}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -168,14 +165,14 @@ const Sitemap = () => {
             <section>
               <h2 className="font-display text-xl font-bold mb-1">{t("topics")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <LocalizedLink to="/resources/topics/" className="text-primary hover:underline font-medium">{t("allTopics")}</LocalizedLink>
+                <Link to="/resources/topics/" className="text-primary hover:underline font-medium">{t("allTopics")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
                 {topics.map((tp) => (
                   <li key={tp.slug}>
-                    <LocalizedLink to={`/resources/topics/${tp.slug}/`} className="text-sm text-primary hover:underline">
+                    <Link to={`/resources/topics/${tp.slug}/`} className="text-sm text-primary hover:underline">
                       {tp.name}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -184,14 +181,14 @@ const Sitemap = () => {
             <section>
               <h2 className="font-display text-xl font-bold mb-1">{t("guides")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <LocalizedLink to="/resources/guides/" className="text-primary hover:underline font-medium">{t("allSitemapGuides")}</LocalizedLink>
+                <Link to="/resources/guides/" className="text-primary hover:underline font-medium">{t("allSitemapGuides")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
                 {guides.map((g) => (
                   <li key={g.slug}>
-                    <LocalizedLink to={`/resources/guides/${g.slug}/`} className="text-sm text-primary hover:underline">
+                    <Link to={`/resources/guides/${g.slug}/`} className="text-sm text-primary hover:underline">
                       {g.title}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -200,14 +197,14 @@ const Sitemap = () => {
             <section>
               <h2 className="font-display text-xl font-bold mb-1">{t("comparisons")}</h2>
               <p className="text-sm text-muted-foreground mb-3">
-                <LocalizedLink to="/resources/comparisons/" className="text-primary hover:underline font-medium">{t("allSitemapComparisons")}</LocalizedLink>
+                <Link to="/resources/comparisons/" className="text-primary hover:underline font-medium">{t("allSitemapComparisons")}</Link>
               </p>
               <ul className="ml-4 space-y-1">
                 {comparisons.map((c) => (
                   <li key={c.slug}>
-                    <LocalizedLink to={`/resources/comparisons/${c.slug}/`} className="text-sm text-primary hover:underline">
+                    <Link to={`/resources/comparisons/${c.slug}/`} className="text-sm text-primary hover:underline">
                       {c.title}
-                    </LocalizedLink>
+                    </Link>
                   </li>
                 ))}
               </ul>
