@@ -252,7 +252,7 @@ const zh = {
     toolAIContentDetector: "AI内容检测器",
     toolAIContentDetectorDesc: "分析文本以检测AI生成的内容。",
     toolPAAExtractor: "People Also Ask提取器",
-    toolPAAExtractorDesc: "提取Google对任何关键词的"人们还在问"问题。",
+    toolPAAExtractorDesc: "提取Google对任何关键词的'人们还在问'问题。",
     toolInternalLinkingFinder: "内部链接查找器",
     toolInternalLinkingFinderDesc: "发现网站上的内部链接机会。",
     toolAutocompleteFinder: "自动完成关键词查找器",
