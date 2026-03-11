@@ -20,6 +20,7 @@ import HelpCenter from "./pages/HelpCenter";
 import CaseStudies from "./pages/CaseStudies";
 import Documentation from "./pages/Documentation";
 import SEOToolkit from "./pages/SEOToolkit";
+import TitleMetaChecker from "./pages/tools/TitleMetaChecker";
 import LegalPage from "./pages/LegalPage";
 import BlogPostPage from "./pages/BlogPost";
 import BlogCategory from "./pages/BlogCategory";
