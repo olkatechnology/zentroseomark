@@ -1,32 +1,30 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "react-i18next";
 
-const ToolCTA = () => {
-  const { t } = useTranslation("pages");
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3 }}
-      className="mt-12 rounded-2xl bg-hero p-8 md:p-12 text-center"
-    >
+const ToolCTA = () => (
+  <motion.section
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3 }}
+    className="py-14 bg-muted/40"
+  >
+    <div className="container mx-auto px-4 text-center max-w-xl">
       <Sparkles className="w-8 h-8 text-primary mx-auto mb-4" />
-      <h3 className="font-display text-2xl md:text-3xl font-bold text-hero-foreground mb-3">
-        {t("toolCtaHeading")}
-      </h3>
-      <p className="text-hero-muted text-base max-w-lg mx-auto mb-6">
-        {t("toolCtaDescription")}
+      <h2 className="font-display text-2xl font-bold mb-2">
+        Get Deeper Insights with ZentroSEO
+      </h2>
+      <p className="text-muted-foreground mb-6">
+        Unlock unlimited scans, AI-powered fixes, rank tracking, and 13 more SEO
+        tools — free to start.
       </p>
       <a href="https://app.zentroseo.com/signup?flow=tools">
-        <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground px-8 py-3 text-base">
-          {t("toolCtaButton")} <ArrowRight className="w-4 h-4 ml-2" />
+        <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground">
+          Sign Up Free <ArrowRight className="w-4 h-4 ml-1" />
         </Button>
       </a>
-    </motion.div>
-  );
-};
+    </div>
+  </motion.section>
+);
 
 export default ToolCTA;

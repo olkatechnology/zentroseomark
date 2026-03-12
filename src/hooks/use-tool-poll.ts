@@ -6,13 +6,11 @@ type ToolStatus = "idle" | "submitting" | "polling" | "completed" | "error";
 interface UseToolPollConfig {
   requestTable: string;
   resultTable: string;
-  rpcName: string;
-  pollIntervalMs?: number;
-  timeoutMs?: number;
+  resultForeignKey?: string; // defaults to "scan_id"
 }
 
 interface UseToolPollReturn<TResult> {
-  submit: (args: Record<string, unknown>) => Promise<void>;
+  submit: (rpcName: string, rpcArgs: Record<string, unknown>) => Promise<void>;
   status: ToolStatus;
   progress: number;
   result: TResult | null;
@@ -20,17 +18,12 @@ interface UseToolPollReturn<TResult> {
   reset: () => void;
 }
 
+const POLL_INTERVAL = 2000;
+const POLL_TIMEOUT = 60000;
+
 export function useToolPoll<TResult = unknown>(
   config: UseToolPollConfig
 ): UseToolPollReturn<TResult> {
-  const {
-    requestTable,
-    resultTable,
-    rpcName,
-    pollIntervalMs = 2000,
-    timeoutMs = 60000,
-  } = config;
-
   const [status, setStatus] = useState<ToolStatus>("idle");
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState<TResult | null>(null);
@@ -53,79 +46,78 @@ export function useToolPoll<TResult = unknown>(
     setError(null);
   }, [cleanup]);
 
-  const submit = useCallback(
-    async (args: Record<string, unknown>) => {
-      cleanup();
-      setStatus("submitting");
-      setProgress(0);
-      setResult(null);
-      setError(null);
+  const pollForResult = useCallback(
+    (requestId: string) => {
+      const fk = config.resultForeignKey || "scan_id";
 
-      try {
-        // Use REST-style RPC call
-        const { data: rpcData, error: rpcError } = await (supabase.rpc as Function)(
-          rpcName,
-          args
-        );
+      setStatus("polling");
 
-        if (rpcError) throw new Error(rpcError.message);
-
-        const requestId = rpcData as string;
-        if (!requestId) throw new Error("No request ID returned");
-
-        setStatus("polling");
-
-        // Start timeout
-        timeoutRef.current = setTimeout(() => {
-          cleanup();
-          setStatus("error");
-          setError("Request timed out. Please try again.");
-        }, timeoutMs);
-
-        // Start polling
-        intervalRef.current = setInterval(async () => {
-          try {
-            const { data: reqRow, error: reqError } = await (supabase.from as Function)(requestTable)
-              .select("status, progress")
-              .eq("id", requestId)
-              .single();
-
-            if (reqError) throw new Error(reqError.message);
-
-            const row = reqRow as Record<string, unknown>;
-            if (row?.progress) setProgress(row.progress as number);
-
-            if (row?.status === "completed") {
-              cleanup();
-              const { data: resultRow, error: resultError } = await (supabase.from as Function)(resultTable)
-                .select("*")
-                .eq("scan_id", requestId)
-                .single();
-
-              if (resultError) throw new Error(resultError.message);
-
-              setResult(resultRow as TResult);
-              setStatus("completed");
-            } else if (row?.status === "failed") {
-              cleanup();
-              setStatus("error");
-              setError("Scan failed. Please try again.");
-            }
-          } catch (pollErr) {
-            cleanup();
-            setStatus("error");
-            setError(
-              pollErr instanceof Error ? pollErr.message : "Polling error"
-            );
-          }
-        }, pollIntervalMs);
-      } catch (err) {
+      timeoutRef.current = setTimeout(() => {
         cleanup();
         setStatus("error");
-        setError(err instanceof Error ? err.message : "Unknown error");
+        setError("Scan timed out. Please try again.");
+      }, POLL_TIMEOUT);
+
+      intervalRef.current = setInterval(async () => {
+        try {
+          const { data: reqData, error: reqErr } = await (supabase as any)
+            .from(config.requestTable)
+            .select("status, progress, error_message")
+            .eq("id", requestId)
+            .single();
+
+          if (reqErr) throw reqErr;
+
+          setProgress(reqData.progress ?? 0);
+
+          if (reqData.status === "completed") {
+            cleanup();
+
+            const { data: resultData, error: resErr } = await (supabase as any)
+              .from(config.resultTable)
+              .select("*")
+              .eq(fk, requestId)
+              .single();
+
+            if (resErr) throw resErr;
+
+            setResult(resultData as TResult);
+            setStatus("completed");
+          } else if (reqData.status === "failed" || reqData.status === "error") {
+            cleanup();
+            setStatus("error");
+            setError(reqData.error_message || "Scan failed. Please try again.");
+          }
+        } catch (e: any) {
+          cleanup();
+          setStatus("error");
+          setError(e.message || "An unexpected error occurred.");
+        }
+      }, POLL_INTERVAL);
+    },
+    [config, cleanup]
+  );
+
+  const submit = useCallback(
+    async (rpcName: string, rpcArgs: Record<string, unknown>) => {
+      reset();
+      setStatus("submitting");
+
+      try {
+        const { data, error: rpcErr } = await supabase.rpc(rpcName as any, rpcArgs as any);
+
+        if (rpcErr) throw rpcErr;
+
+        const requestId = data as string;
+        if (!requestId) throw new Error("No request ID returned");
+
+        pollForResult(requestId);
+      } catch (e: any) {
+        setStatus("error");
+        setError(e.message || "Failed to submit scan request.");
       }
     },
-    [rpcName, requestTable, resultTable, pollIntervalMs, timeoutMs, cleanup]
+    [reset, pollForResult]
   );
 
   return { submit, status, progress, result, error, reset };

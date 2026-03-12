@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 
 /** Generate a URL-friendly slug from heading text */
 export const slugify = (text: string) =>
@@ -70,7 +70,7 @@ function inline(text: string): React.ReactNode[] {
         isExternal ? (
           <a key={pk++} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{match[3]}</a>
         ) : (
-          <Link key={pk++} to={href} className="text-primary hover:underline">{match[3]}</Link>
+          <LocalizedLink key={pk++} to={href} className="text-primary hover:underline">{match[3]}</LocalizedLink>
         )
       );
     } else if (match[5]) {

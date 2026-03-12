@@ -1,23 +1,27 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Calendar, Clock, Users } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import Testimonials from "@/components/shared/Testimonials";
 import RelatedLinks from "@/components/shared/RelatedLinks";
 import CTASection from "@/components/home/CTASection";
 import { Button } from "@/components/ui/button";
-import { featuresData } from "@/data/features";
+import { featuresData, getFeatureData } from "@/data/features";
 import { getPostsByFeature } from "@/data/blog-posts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useTranslation } from "react-i18next";
 import { formatDate } from "@/lib/date-utils";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const FeatureDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const feature = slug ? featuresData[slug] : null;
+  const feature = slug ? getFeatureData(slug) : null;
   const { t, i18n } = useTranslation("pages");
+  const { lang } = useLang();
 
   if (!feature) {
     return (
@@ -48,7 +52,7 @@ const FeatureDetail = () => {
     description: feature.tagline,
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    url: `https://zentroseo.com/features/${feature.slug}/`,
+    url: getCanonicalUrl(lang, `/features/${feature.slug}/`),
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   };
 
@@ -57,7 +61,7 @@ const FeatureDetail = () => {
       <Helmet>
         <title>{feature.metaTitle}</title>
         <meta name="description" content={feature.metaDescription} />
-        <link rel="canonical" href={`https://zentroseo.com/features/${feature.slug}/`} />
+        <link rel="canonical" href={getCanonicalUrl(lang, `/features/${feature.slug}/`)} />
         <meta property="og:title" content={feature.metaTitle} />
         <meta property="og:description" content={feature.metaDescription} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -257,7 +261,7 @@ const FeatureDetail = () => {
               </p>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedPosts.slice(0, 3).map((post) => (
-                  <Link
+                  <LocalizedLink
                     key={post.slug}
                     to={`/resources/blog/${post.slug}/`}
                     className="group block rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all overflow-hidden bg-card"
@@ -273,7 +277,7 @@ const FeatureDetail = () => {
                         <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.readTime}</span>
                       </div>
                     </div>
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>

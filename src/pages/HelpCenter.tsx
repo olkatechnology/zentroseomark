@@ -7,9 +7,12 @@ import CTASection from "@/components/home/CTASection";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const HelpCenter = () => {
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   const categories = [
     {
@@ -67,7 +70,7 @@ const HelpCenter = () => {
       <Helmet>
         <title>{t("helpCenterMetaTitle")}</title>
         <meta name="description" content={t("helpCenterMetaDesc")} />
-        <link rel="canonical" href="https://zentroseo.com/resources/help-center/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/help-center/")} />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 

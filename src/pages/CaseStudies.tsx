@@ -5,9 +5,12 @@ import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const CaseStudies = () => {
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   const caseStudies = [
     {
@@ -56,7 +59,7 @@ const CaseStudies = () => {
       <Helmet>
         <title>{t("caseStudiesMetaTitle")}</title>
         <meta name="description" content={t("caseStudiesMetaDesc")} />
-        <link rel="canonical" href="https://zentroseo.com/resources/case-studies/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/resources/case-studies/")} />
       </Helmet>
 
       <Breadcrumbs items={[{ label: t("home"), href: "/" }, { label: t("resources"), href: "/resources/" }, { label: t("caseStudiesHeroTitle") }]} />

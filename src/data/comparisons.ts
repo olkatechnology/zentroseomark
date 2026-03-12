@@ -1,3 +1,5 @@
+import { td } from "@/lib/i18n-data";
+
 export interface Comparison {
   title: string;
   slug: string;
@@ -615,3 +617,12 @@ The AI does the heavy lifting; you maintain creative and strategic control.`,
     ],
   },
 ];
+
+export function getTranslatedComparisons(): Comparison[] {
+  return comparisons.map((c) => ({
+    ...c,
+    title: td(`comparisons.${c.slug}.title`, c.title),
+    excerpt: td(`comparisons.${c.slug}.excerpt`, c.excerpt),
+    verdict: td(`comparisons.${c.slug}.verdict`, c.verdict),
+  }));
+}

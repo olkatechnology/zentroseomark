@@ -1,12 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Users, Rocket, ShoppingCart, PenTool, CheckCircle } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const audiences = [
   { labelKey: "forAgencies", href: "/solutions/for-agencies/", icon: Users, descriptionKey: "forAgenciesDesc", highlight: "ZentroWhite, ZentroAudit, ZentroFix" },
@@ -29,13 +31,14 @@ const toolMatrix = [
 
 const SolutionHub = () => {
   const { t } = useTranslation(["pages", "nav"]);
+  const { lang } = useLang();
 
   return (
     <Layout>
       <Helmet>
         <title>{t("pages:solutionsMetaTitle")}</title>
         <meta name="description" content={t("pages:solutionsMetaDesc")} />
-        <link rel="canonical" href="https://zentroseo.com/solutions/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/solutions/")} />
         <meta property="og:title" content={t("pages:solutionsMetaTitle")} />
         <meta property="og:description" content={t("pages:solutionsMetaDesc")} />
         <meta property="og:image" content="https://zentroseo.com/og-default.png" />
@@ -61,12 +64,12 @@ const SolutionHub = () => {
               const AIcon = a.icon;
               return (
                 <motion.div key={a.href} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                  <Link to={a.href} className="group block p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all h-full">
+                  <LocalizedLink to={a.href} className="group block p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all h-full">
                     <AIcon className="w-8 h-8 text-primary mb-4" />
                     <h2 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">{t(`nav:${a.labelKey}`)}</h2>
                     <p className="text-sm text-muted-foreground mb-3">{t(`nav:${a.descriptionKey}`)}</p>
                     <p className="text-xs text-primary font-medium">{t("pages:keyTools")} {a.highlight}</p>
-                  </Link>
+                  </LocalizedLink>
                 </motion.div>
               );
             })}

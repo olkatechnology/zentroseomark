@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import FAQSection from "@/components/home/FAQSection";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const plans = {
   monthly: [
@@ -25,6 +27,7 @@ const plans = {
 const Pricing = () => {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const { t } = useTranslation(["pricing", "common"]);
+  const { lang } = useLang();
 
   const currentPlans = plans[billing];
 
@@ -34,7 +37,7 @@ const Pricing = () => {
     name: "ZentroSEO",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
-    url: "https://zentroseo.com/pricing/",
+    url: getCanonicalUrl(lang, "/pricing/"),
     offers: currentPlans.map((plan) => ({
       "@type": "Offer",
       name: t(`pricing:${plan.nameKey}`),
@@ -50,7 +53,7 @@ const Pricing = () => {
       <Helmet>
         <title>{t("pricing:metaTitle")}</title>
         <meta name="description" content={t("pricing:metaDescription")} />
-        <link rel="canonical" href="https://zentroseo.com/pricing/" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/pricing/")} />
         <meta property="og:title" content={t("pricing:metaTitle")} />
         <meta property="og:description" content={t("pricing:metaDescription")} />
         <meta property="og:type" content="product" />

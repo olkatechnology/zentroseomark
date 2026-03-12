@@ -1,3 +1,5 @@
+import { td } from "@/lib/i18n-data";
+
 export interface SolutionData {
   slug: string;
   audience: string;
@@ -142,3 +144,16 @@ export const solutionsData: Record<string, SolutionData> = {
     ],
   },
 };
+
+export function getSolutionData(slug: string): SolutionData | null {
+  const base = solutionsData[slug];
+  if (!base) return null;
+  return {
+    ...base,
+    audience: td(`solutions.${slug}.audience`, base.audience),
+    metaTitle: td(`solutions.${slug}.metaTitle`, base.metaTitle),
+    metaDescription: td(`solutions.${slug}.metaDescription`, base.metaDescription),
+    heroTagline: td(`solutions.${slug}.heroTagline`, base.heroTagline),
+    heroDescription: td(`solutions.${slug}.heroDescription`, base.heroDescription),
+  };
+}

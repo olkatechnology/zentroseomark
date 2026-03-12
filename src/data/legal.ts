@@ -1,3 +1,5 @@
+import { td } from "@/lib/i18n-data";
+
 export interface LegalSection {
   title: string;
   content: string;
@@ -63,3 +65,18 @@ export const legalPages: Record<string, LegalPageData> = {
     ],
   },
 };
+
+export function getLegalPage(slug: string): LegalPageData | null {
+  const base = legalPages[slug];
+  if (!base) return null;
+  return {
+    ...base,
+    title: td(`legal.${slug}.title`, base.title),
+    metaTitle: td(`legal.${slug}.metaTitle`, base.metaTitle),
+    metaDescription: td(`legal.${slug}.metaDescription`, base.metaDescription),
+    sections: base.sections.map((s, i) => ({
+      title: td(`legal.${slug}.section${i}.title`, s.title),
+      content: td(`legal.${slug}.section${i}.content`, s.content),
+    })),
+  };
+}

@@ -1,4 +1,5 @@
 import { Search, Wrench, BarChart3, PenTool, GitCompare, Link2, Code2, Palette, FileSearch, Zap, Shield, Brain, Target, TrendingUp, Globe, CheckCircle, AlertTriangle, RefreshCw, Eye, Layers, Activity, BookOpen, Users, Lock, Map, FileEdit, CalendarClock, Gauge } from "lucide-react";
+import { td } from "@/lib/i18n-data";
 
 export interface FeatureData {
   slug: string;
@@ -699,3 +700,25 @@ export const featuresData: Record<string, FeatureData> = {
     ],
   },
 };
+
+/** Returns a single feature with translatable fields overlaid from i18n. */
+export function getFeatureData(slug: string): FeatureData | null {
+  const base = featuresData[slug];
+  if (!base) return null;
+  return {
+    ...base,
+    name: td(`features.${slug}.name`, base.name),
+    tagline: td(`features.${slug}.tagline`, base.tagline),
+    metaTitle: td(`features.${slug}.metaTitle`, base.metaTitle),
+    metaDescription: td(`features.${slug}.metaDescription`, base.metaDescription),
+  };
+}
+
+/** Returns all features with translatable fields overlaid. */
+export function getAllFeaturesData(): Record<string, FeatureData> {
+  const result: Record<string, FeatureData> = {};
+  for (const slug of Object.keys(featuresData)) {
+    result[slug] = getFeatureData(slug)!;
+  }
+  return result;
+}

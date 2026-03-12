@@ -1,24 +1,28 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, BookOpen, Tag, Wrench } from "lucide-react";
+import LocalizedLink from "@/components/LocalizedLink";
 import Layout from "@/components/Layout";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import CTASection from "@/components/home/CTASection";
-import { topics } from "@/data/topics";
+import { topics, getTranslatedTopics } from "@/data/topics";
 import { blogPosts } from "@/data/blog-posts";
 import { glossaryTerms } from "@/data/glossary";
 import { featuresData } from "@/data/features";
 import { renderMarkdown } from "@/lib/markdown-renderer";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 const TopicDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const topic = topics.find((t) => t.slug === slug);
+  const topic = getTranslatedTopics().find((t) => t.slug === slug);
   const { t } = useTranslation("pages");
+  const { lang } = useLang();
 
   if (!topic) {
-    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("topicNotFound")}</h1><Link to="/resources/topics/" className="text-primary hover:underline">{t("backToTopics")}</Link></div></Layout>);
+    return (<Layout><div className="container mx-auto px-4 py-20 text-center"><h1 className="font-display text-3xl font-bold mb-4">{t("topicNotFound")}</h1><LocalizedLink to="/resources/topics/" className="text-primary hover:underline">{t("backToTopics")}</LocalizedLink></div></Layout>);
   }
 
   const relatedPosts = topic.relatedBlogSlugs.map((s) => blogPosts.find((p) => p.slug === s)).filter(Boolean);
@@ -27,7 +31,7 @@ const TopicDetail = () => {
 
   const trendingPosts = relatedPosts.filter((p) => p && (p as any).trending);
 
-  const topicUrl = `https://zentroseo.com/resources/topics/${topic.slug}/`;
+  const topicUrl = getCanonicalUrl(lang, `/resources/topics/${topic.slug}/`);
 
   const webPageJsonLd = {
     "@context": "https://schema.org",
@@ -63,9 +67,9 @@ const TopicDetail = () => {
 
       <article className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4 max-w-3xl">
-          <Link to="/resources/topics/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
+          <LocalizedLink to="/resources/topics/" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> {t("allTopics")}
-          </Link>
+          </LocalizedLink>
 
           <div className="prose-custom">
             {renderMarkdown(topic.heroContent)}
@@ -85,13 +89,13 @@ const TopicDetail = () => {
               <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2">{t("trendingInTopic", { name: topic.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {trendingPosts.map((p) => p && (
-                  <Link key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all">
+                  <LocalizedLink key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-primary/20 bg-accent/30 hover:border-primary/40 hover:shadow-card transition-all">
                     <div className="flex items-center gap-2 mb-1">
                       <Badge variant="default" className="text-[10px] px-2 py-0">{t("trending")}</Badge>
                     </div>
                     <h3 className="font-display font-semibold text-sm line-clamp-2">{p.title}</h3>
                     <p className="text-xs text-muted-foreground mt-1">{p.readTime} · {p.category}</p>
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>
@@ -102,10 +106,10 @@ const TopicDetail = () => {
               <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><BookOpen className="w-5 h-5 text-primary" /> {t("relatedArticles")}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedPosts.map((p) => p && (
-                  <Link key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
+                  <LocalizedLink key={p.slug} to={`/resources/blog/${p.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
                     <h3 className="font-display font-semibold text-sm group-hover:text-primary line-clamp-2">{p.title}</h3>
                     <p className="text-xs text-muted-foreground mt-1">{p.readTime} · {p.category}</p>
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>
@@ -116,7 +120,7 @@ const TopicDetail = () => {
               <h2 className="font-display text-xl font-bold mb-4">{t("keyTerms")}</h2>
               <div className="flex flex-wrap gap-2">
                 {relatedGlossary.map((gt) => gt && (
-                  <Link key={gt.slug} to={`/resources/glossary/${gt.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{gt.term}</Link>
+                  <LocalizedLink key={gt.slug} to={`/resources/glossary/${gt.slug}/`} className="px-3 py-1.5 rounded-lg border border-border hover:border-primary/30 text-sm font-medium hover:text-primary transition-colors">{gt.term}</LocalizedLink>
                 ))}
               </div>
             </div>
@@ -127,10 +131,10 @@ const TopicDetail = () => {
               <h2 className="font-display text-xl font-bold mb-4 flex items-center gap-2"><Wrench className="w-5 h-5 text-primary" /> {t("toolsForTopic", { name: topic.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-3">
                 {relatedFeats.map((f) => (
-                  <Link key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
+                  <LocalizedLink key={f.slug} to={`/features/${f.slug}/`} className="p-4 rounded-xl border border-border hover:border-primary/30 hover:shadow-card transition-all">
                     <h3 className="font-display font-semibold text-sm">{f.name}</h3>
                     <p className="text-xs text-muted-foreground mt-1">{f.tagline}</p>
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>
