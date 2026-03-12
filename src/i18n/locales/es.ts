@@ -1,7 +1,7 @@
 const es = {
   common: {
     getStarted: "Comenzar", startFreeTrial: "Prueba gratuita", tryForFree: "Probar gratis",
-    viewPricing: "Ver precios", checkMyWebsite: "Analizar mi sitio web", login: "Iniciar sesión",
+    viewPricing: "Ver precios", checkMyWebsite: "Analizar mi sitio web", seeHowFindable: "Descubre qué tan visible eres", login: "Iniciar sesión",
     contactSales: "Contactar ventas", goToHomepage: "Ir al inicio",
     readMore: "Leer más", learnMore: "Saber más", comingSoon: "Próximamente", new: "Nuevo",
     mostPopular: "Más popular", language: "Idioma", limitations: "Limitaciones",
