@@ -1,7 +1,7 @@
 const zh = {
   common: {
     getStarted: "开始使用", startFreeTrial: "免费试用", tryForFree: "免费试用",
-    viewPricing: "查看价格", checkMyWebsite: "检查我的网站", login: "登录",
+    viewPricing: "查看价格", checkMyWebsite: "检查我的网站", seeHowFindable: "看看您有多容易被找到", login: "登录",
     contactSales: "联系销售", goToHomepage: "返回首页",
     readMore: "阅读更多", learnMore: "了解更多", comingSoon: "即将推出", new: "新",
     mostPopular: "最受欢迎", language: "语言", limitations: "限制",

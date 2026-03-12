@@ -5,6 +5,7 @@ const it = {
     tryForFree: "Prova gratis",
     viewPricing: "Vedi prezzi",
     checkMyWebsite: "Analizza il mio sito",
+    seeHowFindable: "Scopri quanto sei trovabile",
     login: "Accedi",
     contactSales: "Contatta le vendite",
     goToHomepage: "Vai alla homepage",

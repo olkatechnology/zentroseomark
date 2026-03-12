@@ -1,7 +1,7 @@
 const ja = {
   common: {
     getStarted: "始める", startFreeTrial: "無料トライアル", tryForFree: "無料で試す",
-    viewPricing: "料金を見る", checkMyWebsite: "ウェブサイトをチェック", login: "ログイン",
+    viewPricing: "料金を見る", checkMyWebsite: "ウェブサイトをチェック", seeHowFindable: "あなたの見つけやすさを確認", login: "ログイン",
     contactSales: "営業に問い合わせ", goToHomepage: "ホームページへ",
     readMore: "続きを読む", learnMore: "詳しく見る", comingSoon: "近日公開", new: "新機能",
     mostPopular: "最も人気", language: "言語", limitations: "制限事項",

@@ -5,6 +5,7 @@ const pt = {
     tryForFree: "Experimentar grátis",
     viewPricing: "Ver preços",
     checkMyWebsite: "Analisar meu site",
+    seeHowFindable: "Descubra o quão encontrável você é",
     login: "Entrar",
     contactSales: "Falar com vendas",
     goToHomepage: "Ir para a página inicial",

@@ -1,7 +1,7 @@
 const tr = {
   common: {
     getStarted: "Başla", startFreeTrial: "Ücretsiz deneyin", tryForFree: "Ücretsiz deneyin",
-    viewPricing: "Fiyatları gör", checkMyWebsite: "Web sitemi kontrol et", login: "Giriş yap",
+    viewPricing: "Fiyatları gör", checkMyWebsite: "Web sitemi kontrol et", seeHowFindable: "Ne kadar bulunabilir olduğunu gör", login: "Giriş yap",
     contactSales: "Satışla iletişime geç", goToHomepage: "Ana sayfaya git",
     readMore: "Devamını oku", learnMore: "Daha fazla bilgi", comingSoon: "Yakında", new: "Yeni",
     mostPopular: "En popüler", language: "Dil", limitations: "Kısıtlamalar",

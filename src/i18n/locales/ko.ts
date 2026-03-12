@@ -1,7 +1,7 @@
 const ko = {
   common: {
     getStarted: "시작하기", startFreeTrial: "무료 체험", tryForFree: "무료로 사용해보기",
-    viewPricing: "요금제 보기", checkMyWebsite: "내 웹사이트 확인", login: "로그인",
+    viewPricing: "요금제 보기", checkMyWebsite: "내 웹사이트 확인", seeHowFindable: "얼마나 잘 검색되는지 확인", login: "로그인",
     contactSales: "영업팀 문의", goToHomepage: "홈페이지로 이동",
     readMore: "더 읽기", learnMore: "자세히 알아보기", comingSoon: "출시 예정", new: "신규",
     mostPopular: "가장 인기", language: "언어", limitations: "제한 사항",

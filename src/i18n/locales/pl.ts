@@ -5,6 +5,7 @@ const pl = {
     tryForFree: "Wypróbuj za darmo",
     viewPricing: "Zobacz cennik",
     checkMyWebsite: "Sprawdź moją stronę",
+    seeHowFindable: "Sprawdź, jak łatwo Cię znaleźć",
     login: "Zaloguj się",
     contactSales: "Skontaktuj się z działem sprzedaży",
     goToHomepage: "Przejdź do strony głównej",

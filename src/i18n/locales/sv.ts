@@ -1,7 +1,7 @@
 const sv = {
   common: {
     getStarted: "Kom igång", startFreeTrial: "Gratis provperiod", tryForFree: "Prova gratis",
-    viewPricing: "Se priser", checkMyWebsite: "Kontrollera min webbplats", login: "Logga in",
+    viewPricing: "Se priser", checkMyWebsite: "Kontrollera min webbplats", seeHowFindable: "Se hur hittbar du är", login: "Logga in",
     contactSales: "Kontakta försäljning", goToHomepage: "Gå till startsidan",
     readMore: "Läs mer", learnMore: "Lär dig mer", comingSoon: "Kommer snart", new: "Nytt",
     mostPopular: "Mest populär", language: "Språk", limitations: "Begränsningar",

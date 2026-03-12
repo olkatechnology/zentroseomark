@@ -1,7 +1,7 @@
 const vi = {
   common: {
     getStarted: "Bắt đầu", startFreeTrial: "Dùng thử miễn phí", tryForFree: "Dùng thử miễn phí",
-    viewPricing: "Xem bảng giá", checkMyWebsite: "Kiểm tra website của tôi", login: "Đăng nhập",
+    viewPricing: "Xem bảng giá", checkMyWebsite: "Kiểm tra website của tôi", seeHowFindable: "Xem bạn dễ tìm thấy đến mức nào", login: "Đăng nhập",
     contactSales: "Liên hệ bán hàng", goToHomepage: "Về trang chủ",
     readMore: "Đọc thêm", learnMore: "Tìm hiểu thêm", comingSoon: "Sắp ra mắt", new: "Mới",
     mostPopular: "Phổ biến nhất", language: "Ngôn ngữ", limitations: "Hạn chế",

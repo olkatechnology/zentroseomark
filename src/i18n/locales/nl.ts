@@ -5,6 +5,7 @@ const nl = {
     tryForFree: "Gratis proberen",
     viewPricing: "Prijzen bekijken",
     checkMyWebsite: "Mijn website controleren",
+    seeHowFindable: "Ontdek hoe vindbaar je bent",
     login: "Inloggen",
     contactSales: "Verkoop contacteren",
     goToHomepage: "Naar de homepage",
