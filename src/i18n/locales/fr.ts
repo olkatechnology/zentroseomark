@@ -1,7 +1,7 @@
 const fr = {
   common: {
     getStarted: "Commencer", startFreeTrial: "Essai gratuit", tryForFree: "Essayer gratuitement",
-    viewPricing: "Voir les tarifs", checkMyWebsite: "Analyser mon site web", login: "Se connecter",
+    viewPricing: "Voir les tarifs", checkMyWebsite: "Analyser mon site web", seeHowFindable: "Découvrez votre visibilité", login: "Se connecter",
     contactSales: "Contacter les ventes", goToHomepage: "Retour à l'accueil",
     readMore: "Lire la suite", learnMore: "En savoir plus", comingSoon: "Bientôt disponible", new: "Nouveau",
     mostPopular: "Le plus populaire", language: "Langue", limitations: "Limitations",
