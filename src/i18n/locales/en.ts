@@ -5,6 +5,7 @@ const en = {
     tryForFree: "Try for free",
     viewPricing: "View Pricing",
     checkMyWebsite: "Check My Website",
+    seeHowFindable: "See how findable you are",
     login: "Login",
     contactSales: "Contact Sales",
     goToHomepage: "Go to Homepage",
