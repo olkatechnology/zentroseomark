@@ -1,7 +1,7 @@
 const vi = {
   common: {
     getStarted: "Bắt đầu", startFreeTrial: "Dùng thử miễn phí", tryForFree: "Dùng thử miễn phí",
-    viewPricing: "Xem bảng giá", checkMyWebsite: "Kiểm tra website của tôi", login: "Đăng nhập",
+    viewPricing: "Xem bảng giá", checkMyWebsite: "Kiểm tra website của tôi", seeHowFindable: "Xem bạn dễ tìm thấy đến mức nào", login: "Đăng nhập",
     contactSales: "Liên hệ bán hàng", goToHomepage: "Về trang chủ",
     readMore: "Đọc thêm", learnMore: "Tìm hiểu thêm", comingSoon: "Sắp ra mắt", new: "Mới",
     mostPopular: "Phổ biến nhất", language: "Ngôn ngữ", limitations: "Hạn chế",
@@ -44,11 +44,13 @@ const vi = {
     contact: "Liên hệ", contactDesc: "Liên hệ với chúng tôi",
   },
   home: {
-    heroTitle1: "SEO đơn giản hóa", heroTitle2: "cho người không chuyên kỹ thuật",
-    heroDescription: "ZentroSEO là nền tảng SEO thân thiện giúp người không chuyên kỹ thuật, freelancer và doanh nghiệp nhỏ tăng lưu lượng tự nhiên với AI.",
+    heroTitle1: "Mỗi ngày, mọi người tìm kiếm trên Google, Bing, ChatGPT, Gemini, Claude và các nền tảng AI khác những gì bạn bán.",
+    heroTitle2: "Họ có tìm thấy bạn không?",
+    heroDescription: "",
     urlPlaceholder: "Nhập URL website của bạn...",
     urlError: "Vui lòng nhập URL website", urlErrorInvalid: "Vui lòng nhập URL hợp lệ (ví dụ: example.com)",
-    chip13Tools: "13 công cụ SEO", chipAIPowered: "Hỗ trợ AI", chipNoCoding: "Không cần code", chipFreePlan: "Gói miễn phí",
+    heroTimeEstimate: "Mất từ 45 giây đến 5 phút",
+    chipNoTechSkills: "Không cần kỹ năng kỹ thuật", chipFreeToStart: "Miễn phí để bắt đầu", chipAnyWebsite: "Hoạt động với mọi website", chipResultsInMinutes: "Kết quả trong vài phút",
     trustedBy: "Được tin tưởng bởi các đội ngũ đang phát triển trên toàn thế giới",
     featuresTitle: "13 công cụ SEO mạnh mẽ trong một nền tảng",
     featuresSubtitle: "Mọi thứ bạn cần để thống trị bảng xếp hạng tìm kiếm, tất cả được hỗ trợ bởi tự động hóa AI.",

@@ -1,7 +1,7 @@
 const sv = {
   common: {
     getStarted: "Kom igång", startFreeTrial: "Gratis provperiod", tryForFree: "Prova gratis",
-    viewPricing: "Se priser", checkMyWebsite: "Kontrollera min webbplats", login: "Logga in",
+    viewPricing: "Se priser", checkMyWebsite: "Kontrollera min webbplats", seeHowFindable: "Se hur hittbar du är", login: "Logga in",
     contactSales: "Kontakta försäljning", goToHomepage: "Gå till startsidan",
     readMore: "Läs mer", learnMore: "Lär dig mer", comingSoon: "Kommer snart", new: "Nytt",
     mostPopular: "Mest populär", language: "Språk", limitations: "Begränsningar",
@@ -44,11 +44,13 @@ const sv = {
     contact: "Kontakt", contactDesc: "Kontakta oss",
   },
   home: {
-    heroTitle1: "SEO förenklat", heroTitle2: "för icke-tekniker",
-    heroDescription: "ZentroSEO är den nybörjarvänliga SEO-plattformen som hjälper icke-tekniker, frilansare och småföretag att öka organisk trafik med AI-drivna insikter.",
+    heroTitle1: "Varje dag söker människor på Google, Bing, ChatGPT, Gemini, Claude och andra AI-plattformar efter det du säljer.",
+    heroTitle2: "Hittar de dig?",
+    heroDescription: "",
     urlPlaceholder: "Ange din webbplats-URL...",
     urlError: "Ange en webbplats-URL", urlErrorInvalid: "Ange en giltig URL (t.ex. exempel.se)",
-    chip13Tools: "13 SEO-verktyg", chipAIPowered: "AI-drivet", chipNoCoding: "Ingen kod behövs", chipFreePlan: "Gratis plan",
+    heroTimeEstimate: "Tar mellan 45 sekunder och 5 minuter",
+    chipNoTechSkills: "Inga tekniska kunskaper krävs", chipFreeToStart: "Gratis att börja", chipAnyWebsite: "Fungerar med vilken webbplats som helst", chipResultsInMinutes: "Resultat på minuter",
     trustedBy: "Betrodd av växande team världen över",
     featuresTitle: "13 kraftfulla SEO-verktyg i en motor",
     featuresSubtitle: "Allt du behöver för att dominera sökrankningar, drivet av AI-automatisering.",

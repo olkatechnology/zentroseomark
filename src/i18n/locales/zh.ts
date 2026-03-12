@@ -1,7 +1,7 @@
 const zh = {
   common: {
     getStarted: "开始使用", startFreeTrial: "免费试用", tryForFree: "免费试用",
-    viewPricing: "查看价格", checkMyWebsite: "检查我的网站", login: "登录",
+    viewPricing: "查看价格", checkMyWebsite: "检查我的网站", seeHowFindable: "看看您有多容易被找到", login: "登录",
     contactSales: "联系销售", goToHomepage: "返回首页",
     readMore: "阅读更多", learnMore: "了解更多", comingSoon: "即将推出", new: "新",
     mostPopular: "最受欢迎", language: "语言", limitations: "限制",
@@ -44,11 +44,13 @@ const zh = {
     contact: "联系", contactDesc: "联系我们",
   },
   home: {
-    heroTitle1: "SEO变简单", heroTitle2: "非技术人员也能用",
-    heroDescription: "ZentroSEO是一个对初学者友好的SEO平台，帮助非技术人员、自由职业者和小型企业通过AI驱动的洞察力增长自然流量。",
+    heroTitle1: "每天，人们在Google、Bing、ChatGPT、Gemini、Claude和其他AI平台上搜索您销售的产品。",
+    heroTitle2: "他们找到您了吗？",
+    heroDescription: "",
     urlPlaceholder: "输入您的网站URL...",
     urlError: "请输入网站URL", urlErrorInvalid: "请输入有效的网站URL（例如 example.com）",
-    chip13Tools: "13个SEO工具", chipAIPowered: "AI驱动", chipNoCoding: "无需编程", chipFreePlan: "免费计划",
+    heroTimeEstimate: "需要45秒到5分钟",
+    chipNoTechSkills: "无需技术技能", chipFreeToStart: "免费开始", chipAnyWebsite: "适用于任何网站", chipResultsInMinutes: "几分钟内出结果",
     trustedBy: "被全球成长中的团队信赖",
     featuresTitle: "一个引擎中的13个强大SEO工具",
     featuresSubtitle: "您需要的一切来主导搜索排名，全部由AI自动化驱动。",
