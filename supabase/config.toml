@@ -1,10 +1,1 @@
 project_id = "thtrkyjzefqdkhhgkivp"
-
-[functions.autocomplete-suggestions]
-verify_jwt = false
-
-[functions.ai-blog-titles]
-verify_jwt = false
-
-[functions.ai-meta-descriptions]
-verify_jwt = false

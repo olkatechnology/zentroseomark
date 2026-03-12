@@ -14,6 +14,176 @@ export type Database = {
   }
   public: {
     Tables: {
+      _archived_crawl_job_queue: {
+        Row: {
+          assigned_worker_id: string | null
+          completed_at: string | null
+          crawl_settings: Json | null
+          created_at: string
+          error_log: Json | null
+          id: string
+          job_type: string
+          max_retries: number
+          priority: number
+          retry_count: number
+          started_at: string | null
+          status: string
+          user_email: string
+          website_id: string
+        }
+        Insert: {
+          assigned_worker_id?: string | null
+          completed_at?: string | null
+          crawl_settings?: Json | null
+          created_at?: string
+          error_log?: Json | null
+          id?: string
+          job_type?: string
+          max_retries?: number
+          priority?: number
+          retry_count?: number
+          started_at?: string | null
+          status: string
+          user_email: string
+          website_id: string
+        }
+        Update: {
+          assigned_worker_id?: string | null
+          completed_at?: string | null
+          crawl_settings?: Json | null
+          created_at?: string
+          error_log?: Json | null
+          id?: string
+          job_type?: string
+          max_retries?: number
+          priority?: number
+          retry_count?: number
+          started_at?: string | null
+          status?: string
+          user_email?: string
+          website_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "crawl_job_queue_assigned_worker_id_fkey"
+            columns: ["assigned_worker_id"]
+            isOneToOne: false
+            referencedRelation: "crawl_workers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "crawl_job_queue_website_id_fkey"
+            columns: ["website_id"]
+            isOneToOne: false
+            referencedRelation: "user_websites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      _archived_crawl_queue: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          depth: number
+          error_message: string | null
+          id: string
+          max_retries: number
+          priority: number
+          retry_count: number
+          session_id: string
+          started_at: string | null
+          status: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          depth?: number
+          error_message?: string | null
+          id?: string
+          max_retries?: number
+          priority?: number
+          retry_count?: number
+          session_id: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          depth?: number
+          error_message?: string | null
+          id?: string
+          max_retries?: number
+          priority?: number
+          retry_count?: number
+          session_id?: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "crawl_queue_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "audit_progress_sessions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      _archived_crawl_queues: {
+        Row: {
+          completed_at: string | null
+          created_at: string | null
+          depth: number | null
+          error_message: string | null
+          id: string
+          max_retries: number | null
+          priority: number | null
+          retry_count: number | null
+          session_id: string
+          started_at: string | null
+          status: string
+          updated_at: string | null
+          url: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string | null
+          depth?: number | null
+          error_message?: string | null
+          id?: string
+          max_retries?: number | null
+          priority?: number | null
+          retry_count?: number | null
+          session_id: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string | null
+          url: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string | null
+          depth?: number | null
+          error_message?: string | null
+          id?: string
+          max_retries?: number | null
+          priority?: number | null
+          retry_count?: number | null
+          session_id?: string
+          started_at?: string | null
+          status?: string
+          updated_at?: string | null
+          url?: string
+        }
+        Relationships: []
+      }
       activity_log: {
         Row: {
           activity_type: string
@@ -2235,6 +2405,53 @@ export type Database = {
         }
         Relationships: []
       }
+      autofix_log: {
+        Row: {
+          after_value: string | null
+          applied_at: string | null
+          approved_by_user: boolean | null
+          before_value: string | null
+          change_type: string
+          created_at: string | null
+          id: string
+          site_id: string
+          tier: number
+          undone_at: string | null
+        }
+        Insert: {
+          after_value?: string | null
+          applied_at?: string | null
+          approved_by_user?: boolean | null
+          before_value?: string | null
+          change_type: string
+          created_at?: string | null
+          id?: string
+          site_id: string
+          tier: number
+          undone_at?: string | null
+        }
+        Update: {
+          after_value?: string | null
+          applied_at?: string | null
+          approved_by_user?: boolean | null
+          before_value?: string | null
+          change_type?: string
+          created_at?: string | null
+          id?: string
+          site_id?: string
+          tier?: number
+          undone_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "autofix_log_site_id_fkey"
+            columns: ["site_id"]
+            isOneToOne: false
+            referencedRelation: "user_websites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       backup_profiles: {
         Row: {
           avatar_url: string | null
@@ -2471,6 +2688,7 @@ export type Database = {
       blog_drafts: {
         Row: {
           brief_data: Json | null
+          business_id: string | null
           content: string
           content_length: Database["public"]["Enums"]["content_length"]
           created_at: string
@@ -2493,6 +2711,7 @@ export type Database = {
         }
         Insert: {
           brief_data?: Json | null
+          business_id?: string | null
           content?: string
           content_length?: Database["public"]["Enums"]["content_length"]
           created_at?: string
@@ -2515,6 +2734,7 @@ export type Database = {
         }
         Update: {
           brief_data?: Json | null
+          business_id?: string | null
           content?: string
           content_length?: Database["public"]["Enums"]["content_length"]
           created_at?: string
@@ -2536,6 +2756,13 @@ export type Database = {
           word_count?: number | null
         }
         Relationships: [
+          {
+            foreignKeyName: "blog_drafts_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "fk_blog_drafts_website"
             columns: ["website_id"]
@@ -2622,6 +2849,100 @@ export type Database = {
           target_count?: number
         }
         Relationships: []
+      }
+      business_notifications: {
+        Row: {
+          action_url: string | null
+          body: string | null
+          business_id: string
+          channel: string | null
+          created_at: string | null
+          id: string
+          read_at: string | null
+          sent_at: string | null
+          title: string
+          type: string
+        }
+        Insert: {
+          action_url?: string | null
+          body?: string | null
+          business_id: string
+          channel?: string | null
+          created_at?: string | null
+          id?: string
+          read_at?: string | null
+          sent_at?: string | null
+          title: string
+          type: string
+        }
+        Update: {
+          action_url?: string | null
+          body?: string | null
+          business_id?: string
+          channel?: string | null
+          created_at?: string | null
+          id?: string
+          read_at?: string | null
+          sent_at?: string | null
+          title?: string
+          type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_notifications_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      businesses: {
+        Row: {
+          created_at: string | null
+          id: string
+          industry: string | null
+          last_active_at: string | null
+          name: string
+          onboarding_complete: boolean | null
+          primary_site_id: string | null
+          sessions_complete: number | null
+          unlock_advanced_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          industry?: string | null
+          last_active_at?: string | null
+          name: string
+          onboarding_complete?: boolean | null
+          primary_site_id?: string | null
+          sessions_complete?: number | null
+          unlock_advanced_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          industry?: string | null
+          last_active_at?: string | null
+          name?: string
+          onboarding_complete?: boolean | null
+          primary_site_id?: string | null
+          sessions_complete?: number | null
+          unlock_advanced_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "businesses_primary_site_id_fkey"
+            columns: ["primary_site_id"]
+            isOneToOne: false
+            referencedRelation: "user_websites"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       cache_performance: {
         Row: {
@@ -3642,176 +3963,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
-      }
-      crawl_job_queue: {
-        Row: {
-          assigned_worker_id: string | null
-          completed_at: string | null
-          crawl_settings: Json | null
-          created_at: string
-          error_log: Json | null
-          id: string
-          job_type: string
-          max_retries: number
-          priority: number
-          retry_count: number
-          started_at: string | null
-          status: string
-          user_email: string
-          website_id: string
-        }
-        Insert: {
-          assigned_worker_id?: string | null
-          completed_at?: string | null
-          crawl_settings?: Json | null
-          created_at?: string
-          error_log?: Json | null
-          id?: string
-          job_type?: string
-          max_retries?: number
-          priority?: number
-          retry_count?: number
-          started_at?: string | null
-          status: string
-          user_email: string
-          website_id: string
-        }
-        Update: {
-          assigned_worker_id?: string | null
-          completed_at?: string | null
-          crawl_settings?: Json | null
-          created_at?: string
-          error_log?: Json | null
-          id?: string
-          job_type?: string
-          max_retries?: number
-          priority?: number
-          retry_count?: number
-          started_at?: string | null
-          status?: string
-          user_email?: string
-          website_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "crawl_job_queue_assigned_worker_id_fkey"
-            columns: ["assigned_worker_id"]
-            isOneToOne: false
-            referencedRelation: "crawl_workers"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "crawl_job_queue_website_id_fkey"
-            columns: ["website_id"]
-            isOneToOne: false
-            referencedRelation: "user_websites"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      crawl_queue: {
-        Row: {
-          completed_at: string | null
-          created_at: string
-          depth: number
-          error_message: string | null
-          id: string
-          max_retries: number
-          priority: number
-          retry_count: number
-          session_id: string
-          started_at: string | null
-          status: string
-          updated_at: string
-          url: string
-        }
-        Insert: {
-          completed_at?: string | null
-          created_at?: string
-          depth?: number
-          error_message?: string | null
-          id?: string
-          max_retries?: number
-          priority?: number
-          retry_count?: number
-          session_id: string
-          started_at?: string | null
-          status?: string
-          updated_at?: string
-          url: string
-        }
-        Update: {
-          completed_at?: string | null
-          created_at?: string
-          depth?: number
-          error_message?: string | null
-          id?: string
-          max_retries?: number
-          priority?: number
-          retry_count?: number
-          session_id?: string
-          started_at?: string | null
-          status?: string
-          updated_at?: string
-          url?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "crawl_queue_session_id_fkey"
-            columns: ["session_id"]
-            isOneToOne: false
-            referencedRelation: "audit_progress_sessions"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      crawl_queues: {
-        Row: {
-          completed_at: string | null
-          created_at: string | null
-          depth: number | null
-          error_message: string | null
-          id: string
-          max_retries: number | null
-          priority: number | null
-          retry_count: number | null
-          session_id: string
-          started_at: string | null
-          status: string
-          updated_at: string | null
-          url: string
-        }
-        Insert: {
-          completed_at?: string | null
-          created_at?: string | null
-          depth?: number | null
-          error_message?: string | null
-          id?: string
-          max_retries?: number | null
-          priority?: number | null
-          retry_count?: number | null
-          session_id: string
-          started_at?: string | null
-          status?: string
-          updated_at?: string | null
-          url: string
-        }
-        Update: {
-          completed_at?: string | null
-          created_at?: string | null
-          depth?: number | null
-          error_message?: string | null
-          id?: string
-          max_retries?: number | null
-          priority?: number | null
-          retry_count?: number | null
-          session_id?: string
-          started_at?: string | null
-          status?: string
-          updated_at?: string | null
-          url?: string
-        }
-        Relationships: []
       }
       crawl_request_dedupe: {
         Row: {
@@ -6109,6 +6260,7 @@ export type Database = {
         Row: {
           audit_id: string
           best_position: number | null
+          business_id: string | null
           competitor_position: number | null
           competitor_url: string | null
           created_at: string
@@ -6128,6 +6280,7 @@ export type Database = {
         Insert: {
           audit_id: string
           best_position?: number | null
+          business_id?: string | null
           competitor_position?: number | null
           competitor_url?: string | null
           created_at?: string
@@ -6147,6 +6300,7 @@ export type Database = {
         Update: {
           audit_id?: string
           best_position?: number | null
+          business_id?: string | null
           competitor_position?: number | null
           competitor_url?: string | null
           created_at?: string
@@ -6169,6 +6323,13 @@ export type Database = {
             columns: ["audit_id"]
             isOneToOne: false
             referencedRelation: "seo_audits"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "keyword_rankings_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
             referencedColumns: ["id"]
           },
         ]
@@ -6559,6 +6720,50 @@ export type Database = {
           updated_at?: string | null
         }
         Relationships: []
+      }
+      monthly_reports: {
+        Row: {
+          business_id: string
+          created_at: string | null
+          generated_at: string | null
+          id: string
+          month: number
+          pdf_storage_path: string | null
+          sent_at: string | null
+          summary_text: string | null
+          year: number
+        }
+        Insert: {
+          business_id: string
+          created_at?: string | null
+          generated_at?: string | null
+          id?: string
+          month: number
+          pdf_storage_path?: string | null
+          sent_at?: string | null
+          summary_text?: string | null
+          year: number
+        }
+        Update: {
+          business_id?: string
+          created_at?: string | null
+          generated_at?: string | null
+          id?: string
+          month?: number
+          pdf_storage_path?: string | null
+          sent_at?: string | null
+          summary_text?: string | null
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "monthly_reports_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       notification_preferences: {
         Row: {
@@ -7054,6 +7259,7 @@ export type Database = {
       }
       profiles: {
         Row: {
+          active_business_id: string | null
           ai_tokens_used: number | null
           api_credits_used: number | null
           avatar_url: string | null
@@ -7084,6 +7290,7 @@ export type Database = {
           website: string | null
         }
         Insert: {
+          active_business_id?: string | null
           ai_tokens_used?: number | null
           api_credits_used?: number | null
           avatar_url?: string | null
@@ -7114,6 +7321,7 @@ export type Database = {
           website?: string | null
         }
         Update: {
+          active_business_id?: string | null
           ai_tokens_used?: number | null
           api_credits_used?: number | null
           avatar_url?: string | null
@@ -7143,7 +7351,15 @@ export type Database = {
           updated_at?: string
           website?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_active_business_id_fkey"
+            columns: ["active_business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       project_clusters: {
         Row: {
@@ -8424,6 +8640,41 @@ export type Database = {
           },
         ]
       }
+      sessions_progress: {
+        Row: {
+          business_id: string
+          completed_at: string | null
+          created_at: string | null
+          id: string
+          session_number: number
+          task_id: string | null
+        }
+        Insert: {
+          business_id: string
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          session_number: number
+          task_id?: string | null
+        }
+        Update: {
+          business_id?: string
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          session_number?: number
+          task_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sessions_progress_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       signup_funnel_events: {
         Row: {
           browser: string | null
@@ -8644,6 +8895,7 @@ export type Database = {
           current_period_end: string
           current_period_start: string
           id: string
+          max_businesses: number | null
           metadata: Json | null
           paddle_customer_id: string
           paddle_subscription_id: string
@@ -8663,6 +8915,7 @@ export type Database = {
           current_period_end: string
           current_period_start: string
           id?: string
+          max_businesses?: number | null
           metadata?: Json | null
           paddle_customer_id: string
           paddle_subscription_id: string
@@ -8682,6 +8935,7 @@ export type Database = {
           current_period_end?: string
           current_period_start?: string
           id?: string
+          max_businesses?: number | null
           metadata?: Json | null
           paddle_customer_id?: string
           paddle_subscription_id?: string
@@ -10085,6 +10339,7 @@ export type Database = {
         Row: {
           brand_description: string | null
           brand_voice: string | null
+          business_id: string | null
           business_type: string | null
           content_tone: string | null
           created_at: string
@@ -10114,6 +10369,7 @@ export type Database = {
         Insert: {
           brand_description?: string | null
           brand_voice?: string | null
+          business_id?: string | null
           business_type?: string | null
           content_tone?: string | null
           created_at?: string
@@ -10143,6 +10399,7 @@ export type Database = {
         Update: {
           brand_description?: string | null
           brand_voice?: string | null
+          business_id?: string | null
           business_type?: string | null
           content_tone?: string | null
           created_at?: string
@@ -10169,7 +10426,15 @@ export type Database = {
           zentro_health_score?: number | null
           zentro_health_updated_at?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "user_websites_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       website_comparisons: {
         Row: {

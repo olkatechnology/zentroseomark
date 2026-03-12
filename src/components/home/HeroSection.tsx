@@ -1,12 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const isValidUrl = (input: string) => {
   const pattern = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/.*)?$/;
   return pattern.test(input.trim());
+};
+
+const platforms = ["Google", "Bing", "ChatGPT", "Gemini", "Claude"];
+
+const RotatingWord = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % platforms.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <span className="inline-block relative align-bottom" style={{ width: "5.5ch", minWidth: "fit-content" }}>
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={platforms[index]}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -20, opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="inline-block text-gradient-cta italic font-bold"
+        >
+          {platforms[index]}
+        </motion.span>
+      </AnimatePresence>
+    </span>
+  );
 };
 
 const HeroSection = () => {
@@ -27,10 +57,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(0 0% 100%) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       <div className="container mx-auto px-4 py-24 md:py-32 relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-hero-foreground leading-tight mb-4">
-            {t("home:heroTitle1")}
+          <h1 className="hero-heading font-display text-3xl md:text-5xl lg:text-6xl font-bold text-hero-foreground leading-tight mb-4">
+            {t("home:heroTitle1")}{" "}
+            <RotatingWord />{" "}
+            <span dangerouslySetInnerHTML={{ __html: t("home:heroTitle1Suffix") }} />
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl font-display font-semibold text-gradient-primary mb-8">
+          <p className="text-xl md:text-2xl lg:text-3xl font-display font-semibold text-gradient-primary mb-8 italic">
             {t("home:heroTitle2")}
           </p>
           <form onSubmit={handleCheck} className="max-w-xl mx-auto mb-4">
