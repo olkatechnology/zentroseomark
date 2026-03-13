@@ -2414,6 +2414,7 @@ export type Database = {
           change_type: string
           created_at: string | null
           id: string
+          issue_id: string | null
           site_id: string
           tier: number
           undone_at: string | null
@@ -2426,6 +2427,7 @@ export type Database = {
           change_type: string
           created_at?: string | null
           id?: string
+          issue_id?: string | null
           site_id: string
           tier: number
           undone_at?: string | null
@@ -2438,11 +2440,19 @@ export type Database = {
           change_type?: string
           created_at?: string | null
           id?: string
+          issue_id?: string | null
           site_id?: string
           tier?: number
           undone_at?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "autofix_log_issue_id_fkey"
+            columns: ["issue_id"]
+            isOneToOne: false
+            referencedRelation: "audit_issues"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "autofix_log_site_id_fkey"
             columns: ["site_id"]
@@ -7524,6 +7534,8 @@ export type Database = {
           created_at: string
           error_message: string | null
           estimated_duration: number | null
+          expires_at: string | null
+          guest_token: string | null
           id: string
           idempotency_key: string | null
           job_type: string
@@ -7550,6 +7562,8 @@ export type Database = {
           created_at?: string
           error_message?: string | null
           estimated_duration?: number | null
+          expires_at?: string | null
+          guest_token?: string | null
           id?: string
           idempotency_key?: string | null
           job_type: string
@@ -7576,6 +7590,8 @@ export type Database = {
           created_at?: string
           error_message?: string | null
           estimated_duration?: number | null
+          expires_at?: string | null
+          guest_token?: string | null
           id?: string
           idempotency_key?: string | null
           job_type?: string
@@ -8418,8 +8434,11 @@ export type Database = {
           audit_results: Json | null
           audit_status: Database["public"]["Enums"]["audit_status"]
           business_name: string | null
+          claimed_at: string | null
           created_at: string
           email: string
+          expires_at: string | null
+          guest_token: string | null
           id: string
           phone: string | null
           seo_score: number | null
@@ -8432,8 +8451,11 @@ export type Database = {
           audit_results?: Json | null
           audit_status?: Database["public"]["Enums"]["audit_status"]
           business_name?: string | null
+          claimed_at?: string | null
           created_at?: string
           email: string
+          expires_at?: string | null
+          guest_token?: string | null
           id?: string
           phone?: string | null
           seo_score?: number | null
@@ -8446,8 +8468,11 @@ export type Database = {
           audit_results?: Json | null
           audit_status?: Database["public"]["Enums"]["audit_status"]
           business_name?: string | null
+          claimed_at?: string | null
           created_at?: string
           email?: string
+          expires_at?: string | null
+          guest_token?: string | null
           id?: string
           phone?: string | null
           seo_score?: number | null
@@ -11008,6 +11033,8 @@ export type Database = {
           created_at: string
           error_message: string | null
           estimated_duration: number | null
+          expires_at: string | null
+          guest_token: string | null
           id: string
           idempotency_key: string | null
           job_type: string
@@ -11054,6 +11081,8 @@ export type Database = {
               created_at: string
               error_message: string | null
               estimated_duration: number | null
+              expires_at: string | null
+              guest_token: string | null
               id: string
               idempotency_key: string | null
               job_type: string
@@ -11110,6 +11139,7 @@ export type Database = {
         Returns: Json
       }
       cleanup_expired_cache: { Args: never; Returns: undefined }
+      cleanup_expired_guest_audits: { Args: never; Returns: undefined }
       cleanup_expired_keyword_locks: { Args: never; Returns: undefined }
       cleanup_expired_rank_cache: { Args: never; Returns: undefined }
       cleanup_expired_serp_cache: { Args: never; Returns: undefined }
@@ -11129,6 +11159,8 @@ export type Database = {
           created_at: string
           error_message: string | null
           estimated_duration: number | null
+          expires_at: string | null
+          guest_token: string | null
           id: string
           idempotency_key: string | null
           job_type: string
@@ -11206,6 +11238,8 @@ export type Database = {
           created_at: string
           error_message: string | null
           estimated_duration: number | null
+          expires_at: string | null
+          guest_token: string | null
           id: string
           idempotency_key: string | null
           job_type: string
@@ -11232,6 +11266,10 @@ export type Database = {
           isOneToOne: true
           isSetofReturn: false
         }
+      }
+      get_business_active_days: {
+        Args: { p_business_id: string }
+        Returns: number
       }
       get_keyword_cache: {
         Args: { p_country_code: string; p_keyword: string }
