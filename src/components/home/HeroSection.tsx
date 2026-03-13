@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { getSessionToken } from "@/lib/session-token";
+import { supabase } from "@/integrations/supabase/client";
 
 const isValidUrl = (input: string) => {
   const pattern = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/.*)?$/;
@@ -43,13 +45,31 @@ const HeroSection = () => {
   const { t } = useTranslation(["home", "common"]);
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleCheck = (e: React.FormEvent) => {
+  const handleCheck = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url.trim()) { setError(t("home:urlError")); return; }
     if (!isValidUrl(url)) { setError(t("home:urlErrorInvalid")); return; }
     setError("");
-    window.location.href = `https://app.zentroseo.com/signup?url=${encodeURIComponent(url.trim())}&flow=hero`;
+    setIsSubmitting(true);
+
+    try {
+      const guestToken = getSessionToken();
+      const { data, error: fnError } = await supabase.functions.invoke("guest-audit", {
+        body: { url: url.trim(), guest_token: guestToken },
+      });
+
+      if (fnError) throw fnError;
+      if (data?.error) throw new Error(data.error);
+
+      // Redirect to app with job_id so it can show progress
+      window.location.href = `https://app.zentroseo.com/signup?url=${encodeURIComponent(url.trim())}&flow=hero&job_id=${data.job_id}&guest_token=${guestToken}`;
+    } catch (err) {
+      console.error("Guest audit error:", err);
+      setError(t("home:heroAuditError", "Something went wrong. Please try again."));
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -67,9 +87,13 @@ const HeroSection = () => {
           </p>
           <form onSubmit={handleCheck} className="max-w-xl mx-auto mb-4">
             <div className="flex flex-col sm:flex-row bg-hero-foreground/10 backdrop-blur rounded-xl p-1.5 border border-hero-muted/20">
-              <input type="text" placeholder={t("home:urlPlaceholder")} value={url} onChange={(e) => setUrl(e.target.value)} className="flex-1 bg-transparent text-hero-foreground placeholder:text-hero-muted/60 px-4 py-3 text-sm focus:outline-none" />
-              <Button type="submit" className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-6 py-3 rounded-lg flex items-center gap-2">
-                {t("common:seeHowFindable")} <ArrowRight className="w-4 h-4" />
+              <input type="text" placeholder={t("home:urlPlaceholder")} value={url} onChange={(e) => setUrl(e.target.value)} disabled={isSubmitting} className="flex-1 bg-transparent text-hero-foreground placeholder:text-hero-muted/60 px-4 py-3 text-sm focus:outline-none disabled:opacity-50" />
+              <Button type="submit" disabled={isSubmitting} className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-6 py-3 rounded-lg flex items-center gap-2">
+                {isSubmitting ? (
+                  <><Loader2 className="w-4 h-4 animate-spin" /> {t("common:analyzing", "Analyzing...")}</>
+                ) : (
+                  <>{t("common:seeHowFindable")} <ArrowRight className="w-4 h-4" /></>
+                )}
               </Button>
             </div>
             {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
