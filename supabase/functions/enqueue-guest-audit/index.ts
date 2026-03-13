@@ -6,6 +6,17 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function isValidUrl(s: string): boolean {
+  try {
+    const u = new URL(s);
+    return u.protocol === "http:" || u.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -14,9 +25,16 @@ Deno.serve(async (req) => {
   try {
     const { url, guest_token } = await req.json();
 
-    if (!url || !guest_token) {
+    if (!url || !isValidUrl(url)) {
       return new Response(
-        JSON.stringify({ error: "url and guest_token required" }),
+        JSON.stringify({ error: "A valid http or https URL is required" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    if (!guest_token || !UUID_RE.test(guest_token)) {
+      return new Response(
+        JSON.stringify({ error: "A valid UUID guest_token is required" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -26,9 +44,6 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    // Generate a website_id for the guest audit
-    const websiteId = crypto.randomUUID();
-
     const { data, error } = await supabase
       .from("queue_jobs")
       .insert({
@@ -36,7 +51,6 @@ Deno.serve(async (req) => {
         status: "created",
         user_id: null,
         guest_token,
-        website_id: websiteId,
         payload: { website_url: url, guest: true },
         expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
       })
@@ -52,11 +66,11 @@ Deno.serve(async (req) => {
     }
 
     return new Response(
-      JSON.stringify({ job_id: data.id, guest_token }),
+      JSON.stringify({ job_id: data.id, guest_token, status: "queued" }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (err) {
-    console.error("guest-audit error:", err);
+    console.error("enqueue-guest-audit error:", err);
     return new Response(
       JSON.stringify({ error: err instanceof Error ? err.message : "Unknown error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }

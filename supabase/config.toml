@@ -1,4 +1,10 @@
 project_id = "thtrkyjzefqdkhhgkivp"
 
-[functions.guest-audit]
+[functions.enqueue-guest-audit]
+verify_jwt = false
+
+[functions.get-guest-audit-status]
+verify_jwt = false
+
+[functions.claim-guest-audit]
 verify_jwt = false

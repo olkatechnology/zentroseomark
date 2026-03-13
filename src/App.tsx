@@ -53,6 +53,8 @@ import GuidesHub from "./pages/GuidesHub";
 import GuideDetail from "./pages/GuideDetail";
 import ComparisonsHub from "./pages/ComparisonsHub";
 import ComparisonDetail from "./pages/ComparisonDetail";
+import ScanPage from "./pages/ScanPage";
+import ResultsPage from "./pages/ResultsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -110,6 +112,8 @@ const AppRoutes = () => (
     <Route path="terms-of-service/" element={<LegalPage slug="terms-of-service" />} />
     <Route path="refund-policy/" element={<LegalPage slug="refund-policy" />} />
     <Route path="sitemap/" element={<Sitemap />} />
+    <Route path="scan/" element={<ScanPage />} />
+    <Route path="results/" element={<ResultsPage />} />
     <Route path="*" element={<NotFound />} />
   </>
 );

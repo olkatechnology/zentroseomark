@@ -12,20 +12,32 @@ Deno.serve(async (req) => {
   }
 
   try {
-    // Requires valid JWT
+    // Manual JWT validation (verify_jwt = false in config)
     const authHeader = req.headers.get("Authorization");
-    const supabaseAuth = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_ANON_KEY")!,
-      { global: { headers: { Authorization: authHeader! } } }
-    );
-    const { data: { user } } = await supabaseAuth.auth.getUser();
-    if (!user) {
+    if (!authHeader?.startsWith("Bearer ")) {
       return new Response(
         JSON.stringify({ error: "Unauthorised" }),
         { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+
+    const supabaseAuth = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_ANON_KEY")!,
+      { global: { headers: { Authorization: authHeader } } }
+    );
+
+    const token = authHeader.replace("Bearer ", "");
+    const { data: claimsData, error: claimsError } = await supabaseAuth.auth.getClaims(token);
+    if (claimsError || !claimsData?.claims) {
+      return new Response(
+        JSON.stringify({ error: "Unauthorised" }),
+        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const userId = claimsData.claims.sub as string;
+    const userEmail = claimsData.claims.email as string;
 
     const { guest_token } = await req.json();
     if (!guest_token) {
@@ -35,7 +47,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Use service role to update (bypasses RLS)
+    // Service role client for updates (bypasses RLS)
     const supabaseAdmin = createClient(
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
@@ -44,7 +56,7 @@ Deno.serve(async (req) => {
     // Update queue_job ownership
     await supabaseAdmin
       .from("queue_jobs")
-      .update({ user_id: user.id })
+      .update({ user_id: userId })
       .eq("guest_token", guest_token)
       .is("user_id", null);
 
@@ -52,7 +64,7 @@ Deno.serve(async (req) => {
     const { data: audit } = await supabaseAdmin
       .from("seo_audits")
       .update({
-        email: user.email,
+        email: userEmail,
         claimed_at: new Date().toISOString(),
       })
       .eq("guest_token", guest_token)
@@ -70,7 +82,7 @@ Deno.serve(async (req) => {
     // Link website to user
     await supabaseAdmin
       .from("user_websites")
-      .update({ email: user.email })
+      .update({ email: userEmail })
       .eq("id", audit.website_id);
 
     return new Response(

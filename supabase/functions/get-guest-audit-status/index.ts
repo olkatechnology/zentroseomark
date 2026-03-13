@@ -9,25 +9,22 @@ const corsHeaders = {
 function plainEnglish(title: string | undefined): string {
   if (!title) return "";
   const map: Record<string, string> = {
-    "Missing meta description":
-      "Your Google shop window text is missing",
+    "Missing meta description": "Your Google shop window text is missing",
     "Missing H1 tag": "Your page headline is missing",
     "Slow page speed": "Your site loads slowly on phones",
-    "Missing alt text": "Your images need descriptions",
-    "No SSL certificate":
-      "Your site security certificate is missing",
+    "Poor LCP": "Your site loads slowly on phones",
+    "Missing alt text": "Your images need descriptions for Google",
+    "No SSL certificate": "Your site security certificate is missing",
     "Broken internal links": "Some of your links go nowhere",
-    "Duplicate title tags":
-      "Two pages have the same Google title",
-    "Large image files":
-      "Your images are slowing your site down",
+    "Duplicate title tags": "Two pages have the same Google title",
+    "Large image files": "Your images are slowing your site down",
   };
   return map[title] || title;
 }
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
+    return new Response(null, { headers: corsHeaders });
   }
 
   try {
@@ -45,7 +42,6 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    // Find the queue job
     const { data: job } = await supabase
       .from("queue_jobs")
       .select("id, status, result")
@@ -60,6 +56,20 @@ Deno.serve(async (req) => {
       );
     }
 
+    if (job.status === "created" || job.status === "running") {
+      return new Response(
+        JSON.stringify({ status: "pending" }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    if (job.status === "failed") {
+      return new Response(
+        JSON.stringify({ status: "failed" }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     if (job.status !== "completed") {
       return new Response(
         JSON.stringify({ status: job.status }),
@@ -67,7 +77,7 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Job complete — fetch audit data
+    // Job completed — fetch audit data
     const { data: audit } = await supabase
       .from("seo_audits")
       .select("id, seo_score, audit_results")
@@ -88,20 +98,17 @@ Deno.serve(async (req) => {
       .order("severity", { ascending: false })
       .limit(20);
 
-    // Derive verdict from score
     const score = audit.seo_score || 0;
     const verdict =
       score >= 70 ? "Easy to Find" :
       score >= 40 ? "Needs Some Work" : "Hard to Find";
-    const verdictColour =
+    const colour =
       score >= 70 ? "green" :
       score >= 40 ? "amber" : "red";
 
-    // Derive visitor estimate (rough proxy from score)
     const visitorsPerDay = Math.max(1, Math.round(score / 10));
-    const potentialPerDay = Math.round(visitorsPerDay * 3);
+    const potentialPerDay = visitorsPerDay * 3;
 
-    // Build 3 insight cards
     const passing = issues?.filter((i) =>
       i.severity === "info" || i.severity === "low") || [];
     const blocking = issues?.filter((i) =>
@@ -113,20 +120,20 @@ Deno.serve(async (req) => {
       status: "completed",
       audit_id: audit.id,
       verdict,
-      verdictColour,
+      colour,
       visitorsPerDay,
       potentialPerDay,
       cards: {
         working: plainEnglish(passing[0]?.title) ||
           "Your website is live and Google can reach it",
         blocking: plainEnglish(blocking[0]?.title) ||
-          "We found some things stopping customers finding you",
+          "We found some improvements that could help",
         opportunity: plainEnglish(opportunity[0]?.title) ||
           "There are quick wins available for your site",
       },
     }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
   } catch (err) {
-    console.error("guest-audit-status error:", err);
+    console.error("get-guest-audit-status error:", err);
     return new Response(
       JSON.stringify({ error: err instanceof Error ? err.message : "Unknown error" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
