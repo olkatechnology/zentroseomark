@@ -7292,6 +7292,7 @@ export type Database = {
           selected_plan_id: string | null
           seo_goal: string | null
           signup_completed_at: string | null
+          source_channel: string | null
           subscription_status: string | null
           test_data_tag: string | null
           trial_ends_at: string | null
@@ -7323,6 +7324,7 @@ export type Database = {
           selected_plan_id?: string | null
           seo_goal?: string | null
           signup_completed_at?: string | null
+          source_channel?: string | null
           subscription_status?: string | null
           test_data_tag?: string | null
           trial_ends_at?: string | null
@@ -7354,6 +7356,7 @@ export type Database = {
           selected_plan_id?: string | null
           seo_goal?: string | null
           signup_completed_at?: string | null
+          source_channel?: string | null
           subscription_status?: string | null
           test_data_tag?: string | null
           trial_ends_at?: string | null
@@ -7554,7 +7557,7 @@ export type Database = {
           status: string | null
           updated_at: string
           user_id: string | null
-          website_id: string
+          website_id: string | null
         }
         Insert: {
           backoff_ms?: number | null
@@ -7582,7 +7585,7 @@ export type Database = {
           status?: string | null
           updated_at?: string
           user_id?: string | null
-          website_id: string
+          website_id?: string | null
         }
         Update: {
           backoff_ms?: number | null
@@ -7610,7 +7613,7 @@ export type Database = {
           status?: string | null
           updated_at?: string
           user_id?: string | null
-          website_id?: string
+          website_id?: string | null
         }
         Relationships: [
           {
@@ -10372,7 +10375,7 @@ export type Database = {
           domain_authority: number | null
           domain_metrics_updated_at: string | null
           domain_rating: number | null
-          email: string
+          email: string | null
           favicon_url: string | null
           id: string
           industry_confidence: number | null
@@ -10402,7 +10405,7 @@ export type Database = {
           domain_authority?: number | null
           domain_metrics_updated_at?: string | null
           domain_rating?: number | null
-          email: string
+          email?: string | null
           favicon_url?: string | null
           id?: string
           industry_confidence?: number | null
@@ -10432,7 +10435,7 @@ export type Database = {
           domain_authority?: number | null
           domain_metrics_updated_at?: string | null
           domain_rating?: number | null
-          email?: string
+          email?: string | null
           favicon_url?: string | null
           id?: string
           industry_confidence?: number | null
@@ -11053,7 +11056,7 @@ export type Database = {
           status: string | null
           updated_at: string
           user_id: string | null
-          website_id: string
+          website_id: string | null
         }[]
         SetofOptions: {
           from: "*"
@@ -11101,7 +11104,7 @@ export type Database = {
               status: string | null
               updated_at: string
               user_id: string | null
-              website_id: string
+              website_id: string | null
             }[]
             SetofOptions: {
               from: "*"
@@ -11179,7 +11182,7 @@ export type Database = {
           status: string | null
           updated_at: string
           user_id: string | null
-          website_id: string
+          website_id: string | null
         }
         SetofOptions: {
           from: "*"
@@ -11258,7 +11261,7 @@ export type Database = {
           status: string | null
           updated_at: string
           user_id: string | null
-          website_id: string
+          website_id: string | null
         }
         SetofOptions: {
           from: "*"
