@@ -8439,7 +8439,7 @@ export type Database = {
           business_name: string | null
           claimed_at: string | null
           created_at: string
-          email: string
+          email: string | null
           expires_at: string | null
           guest_token: string | null
           id: string
@@ -8448,7 +8448,7 @@ export type Database = {
           updated_at: string
           user_website_id: string | null
           website_id: string | null
-          website_url: string
+          website_url: string | null
         }
         Insert: {
           audit_results?: Json | null
@@ -8456,7 +8456,7 @@ export type Database = {
           business_name?: string | null
           claimed_at?: string | null
           created_at?: string
-          email: string
+          email?: string | null
           expires_at?: string | null
           guest_token?: string | null
           id?: string
@@ -8465,7 +8465,7 @@ export type Database = {
           updated_at?: string
           user_website_id?: string | null
           website_id?: string | null
-          website_url: string
+          website_url?: string | null
         }
         Update: {
           audit_results?: Json | null
@@ -8473,7 +8473,7 @@ export type Database = {
           business_name?: string | null
           claimed_at?: string | null
           created_at?: string
-          email?: string
+          email?: string | null
           expires_at?: string | null
           guest_token?: string | null
           id?: string
@@ -8482,7 +8482,7 @@ export type Database = {
           updated_at?: string
           user_website_id?: string | null
           website_id?: string | null
-          website_url?: string
+          website_url?: string | null
         }
         Relationships: [
           {
