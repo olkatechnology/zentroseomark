@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toolContent } from "@/data/tool-content";
 import ToolLayout from "@/components/tools/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -75,6 +76,7 @@ const PAAExtractor = () => {
       metaDescription="Extract People Also Ask questions from Google for any keyword. Use them for content ideas, FAQ schema, and featured snippet targeting."
       canonicalPath="/resources/seo-toolkit/paa-extractor/"
       showCTA={status === "completed"}
+      {...toolContent["paa-extractor"]}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

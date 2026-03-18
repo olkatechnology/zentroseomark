@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Copy, Check, Sparkles, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 const TONES = ["Professional", "Casual", "Clickbait", "Informative", "Listicle", "How-To"];
 
@@ -57,6 +57,8 @@ const AIBlogTitleGenerator = () => {
     setTimeout(() => setCopiedIdx(null), 2000);
   };
 
+  const tc = toolContent["ai-blog-title-generator"];
+
   return (
     <ToolLayout
       toolName="AI Blog Title Generator"
@@ -64,6 +66,16 @@ const AIBlogTitleGenerator = () => {
       metaTitle="AI Blog Title Generator – Free SEO Tool | ZentroSEO"
       metaDescription="Free AI blog title generator. Get 10 click-worthy, SEO-optimized blog title suggestions for any topic. Powered by AI with tone customization."
       canonicalPath="/resources/seo-toolkit/ai-blog-title-generator/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-6">
         <div className="space-y-3">
@@ -116,8 +128,6 @@ const AIBlogTitleGenerator = () => {
           </div>
         )}
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

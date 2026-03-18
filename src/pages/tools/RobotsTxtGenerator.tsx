@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Copy, Plus, Trash2, RotateCcw } from "lucide-react";
 import { toast } from "sonner";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 interface Rule {
   id: string;
@@ -85,6 +85,8 @@ const RobotsTxtGenerator = () => {
     setHostUrl("");
   };
 
+  const content = toolContent["robots-txt-generator"];
+
   return (
     <ToolLayout
       toolName="Robots.txt Generator"
@@ -92,6 +94,16 @@ const RobotsTxtGenerator = () => {
       metaTitle="Robots.txt Generator – Free SEO Tool | ZentroSEO"
       metaDescription="Create a robots.txt file for your website. Configure user-agents, disallow/allow rules, sitemap URL, and crawl delay. Free SEO tool."
       canonicalPath="/resources/seo-toolkit/robots-txt-generator/"
+      howToUse={content.howToUse}
+      whatIs={content.whatIs}
+      whatIsTitle={content.whatIsTitle}
+      whyMatters={content.whyMatters}
+      whyMattersTitle={content.whyMattersTitle}
+      faqs={content.faqs}
+      relatedTools={content.relatedTools}
+      showCTA
+      ctaHeadline={content.ctaHeadline}
+      ctaSubtitle={content.ctaSubtitle}
     >
       <div className="space-y-6">
         {rules.map((rule) => (
@@ -162,8 +174,6 @@ const RobotsTxtGenerator = () => {
           <Textarea readOnly value={output()} className="min-h-[180px] font-mono text-sm" />
         </div>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

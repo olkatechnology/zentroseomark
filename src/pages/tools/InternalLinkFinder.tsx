@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toolContent } from "@/data/tool-content";
 import ToolLayout from "@/components/tools/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,6 +51,7 @@ const InternalLinkFinder = () => {
       metaDescription="Find internal linking opportunities for any URL. Get anchor text recommendations based on NLP topic analysis and entity detection."
       canonicalPath="/resources/seo-toolkit/internal-link-finder/"
       showCTA={status === "completed"}
+      {...toolContent["internal-link-finder"]}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

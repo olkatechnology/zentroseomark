@@ -13,6 +13,44 @@
       ]
     }
   ],
+  "redirects": [
+    { "source": "/technical-seo/schema-markup-guide/", "destination": "/resources/blog/schema-markup-seo-guide/", "permanent": true },
+    { "source": "/technical-seo/schema-markup-guide", "destination": "/resources/blog/schema-markup-seo-guide/", "permanent": true },
+    { "source": "/technical-seo/canonicalization-duplicate-content/", "destination": "/resources/blog/canonicalization/", "permanent": true },
+    { "source": "/technical-seo/canonicalization-duplicate-content", "destination": "/resources/blog/canonicalization/", "permanent": true },
+    { "source": "/technical-seo/https-security-seo-trust-signals/", "destination": "/resources/blog/https-security/", "permanent": true },
+    { "source": "/technical-seo/https-security-seo-trust-signals", "destination": "/resources/blog/https-security/", "permanent": true },
+
+    { "source": "/technical-seo/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/technical-seo/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/on-page-seo/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/on-page-seo/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/semantic-seo/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/semantic-seo/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/keyword-research/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/keyword-research/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/link-building/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/link-building/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/local-seo/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/local-seo/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/seo-tools/:slug/", "destination": "/resources/blog/:slug/", "permanent": true },
+    { "source": "/seo-tools/:slug", "destination": "/resources/blog/:slug/", "permanent": true },
+
+    { "source": "/technical-seo/", "destination": "/resources/blog/category/technical-seo/", "permanent": true },
+    { "source": "/technical-seo", "destination": "/resources/blog/category/technical-seo/", "permanent": true },
+    { "source": "/on-page-seo/", "destination": "/resources/blog/category/on-page-seo/", "permanent": true },
+    { "source": "/on-page-seo", "destination": "/resources/blog/category/on-page-seo/", "permanent": true },
+    { "source": "/semantic-seo/", "destination": "/resources/blog/category/semantic-seo/", "permanent": true },
+    { "source": "/semantic-seo", "destination": "/resources/blog/category/semantic-seo/", "permanent": true },
+    { "source": "/keyword-research/", "destination": "/resources/blog/category/keyword-research--content-strategy/", "permanent": true },
+    { "source": "/keyword-research", "destination": "/resources/blog/category/keyword-research--content-strategy/", "permanent": true },
+    { "source": "/link-building/", "destination": "/resources/blog/category/link-building--off-page-seo/", "permanent": true },
+    { "source": "/link-building", "destination": "/resources/blog/category/link-building--off-page-seo/", "permanent": true },
+    { "source": "/local-seo/", "destination": "/resources/blog/category/local--e-commerce-seo/", "permanent": true },
+    { "source": "/local-seo", "destination": "/resources/blog/category/local--e-commerce-seo/", "permanent": true },
+    { "source": "/seo-tools/", "destination": "/resources/blog/category/seo-tools--ai/", "permanent": true },
+    { "source": "/seo-tools", "destination": "/resources/blog/category/seo-tools--ai/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ]

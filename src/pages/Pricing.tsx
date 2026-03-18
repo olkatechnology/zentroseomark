@@ -81,6 +81,19 @@ const Pricing = () => {
     })),
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqKeys.map((key) => ({
+      "@type": "Question",
+      name: t(`pricing:${key}Q`),
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: t(`pricing:${key}A`),
+      },
+    })),
+  };
+
   return (
     <Layout>
       <Helmet>
@@ -94,6 +107,7 @@ const Pricing = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://zentroseo.com/og-default.png" />
         <script type="application/ld+json">{JSON.stringify(pricingJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
       {/* Hero */}

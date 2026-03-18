@@ -87,7 +87,13 @@ const Footer = () => {
           ))}
         </div>
         <div className="mt-12 pt-8 border-t border-hero-muted/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-hero-muted">{t("copyright", { year: new Date().getFullYear() })}</p>
+          <p className="text-sm text-hero-muted">
+            {t("copyrightBefore", { year: new Date().getFullYear() })}
+            <a href="https://olkadigital.com" target="_blank" rel="noopener noreferrer" className="hover:text-hero-foreground transition-colors underline">
+              OLKA Technology LTD
+            </a>
+            {t("copyrightAfter")}
+          </p>
           <div className="flex items-center gap-4">
             <LocalizedLink to="/privacy-policy/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("privacy")}</LocalizedLink>
             <LocalizedLink to="/terms-of-service/" className="text-sm text-hero-muted hover:text-hero-foreground transition-colors">{t("terms")}</LocalizedLink>

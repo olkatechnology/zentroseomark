@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Copy, Check, Plus, Trash2 } from "lucide-react";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -66,6 +66,8 @@ const HreflangTagGenerator = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const content = toolContent["hreflang-generator"];
+
   return (
     <ToolLayout
       toolName="Hreflang Tag Generator"
@@ -73,6 +75,16 @@ const HreflangTagGenerator = () => {
       metaTitle="Hreflang Tag Generator – Free SEO Tool | ZentroSEO"
       metaDescription="Free hreflang tag generator. Create hreflang link elements for multilingual websites. Ensure Google serves the right language version to the right audience."
       canonicalPath="/resources/seo-toolkit/hreflang-generator/"
+      howToUse={content.howToUse}
+      whatIs={content.whatIs}
+      whatIsTitle={content.whatIsTitle}
+      whyMatters={content.whyMatters}
+      whyMattersTitle={content.whyMattersTitle}
+      faqs={content.faqs}
+      relatedTools={content.relatedTools}
+      showCTA
+      ctaHeadline={content.ctaHeadline}
+      ctaSubtitle={content.ctaSubtitle}
     >
       <div className="space-y-4">
         {entries.map((entry, i) => (
@@ -125,8 +137,6 @@ const HreflangTagGenerator = () => {
           </div>
         )}
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

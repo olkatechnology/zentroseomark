@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AlertCircle, CheckCircle2, XCircle, RotateCcw, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 interface Heading {
   level: number;
@@ -82,6 +82,8 @@ const HeadingAnalyzer = () => {
   const run = () => setResult(analyzeHeadings(html));
   const reset = () => { setHtml(""); setResult(null); };
 
+  const tc = toolContent["heading-analyzer"];
+
   return (
     <ToolLayout
       toolName="Heading Structure Analyzer"
@@ -89,6 +91,16 @@ const HeadingAnalyzer = () => {
       metaTitle="Heading Analyzer – Check H1-H6 Structure | ZentroSEO"
       metaDescription="Free heading analyzer tool. Check your page's H1-H6 heading hierarchy for SEO issues, skipped levels, and missing H1 tags. Improve your content structure."
       canonicalPath="/resources/seo-toolkit/heading-analyzer/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-5">
         <div>
@@ -152,8 +164,6 @@ const HeadingAnalyzer = () => {
           )}
         </AnimatePresence>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

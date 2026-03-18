@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import CookieConsent from "./CookieConsent";
 import { useLang } from "@/hooks/use-lang";
 import { supportedLangs, getCanonicalUrl, stripLangPrefix } from "@/lib/lang-utils";
 
@@ -32,6 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Navbar />
       <main className="flex-1 pt-16">{children}</main>
       <Footer />
+      <CookieConsent />
     </div>
   );
 };

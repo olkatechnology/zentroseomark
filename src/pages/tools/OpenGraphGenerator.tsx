@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Copy, Eye } from "lucide-react";
 import { toast } from "sonner";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 const OG_TYPES = ["website", "article", "product", "profile", "video.other", "music.song"] as const;
 
@@ -46,6 +46,8 @@ const OpenGraphGenerator = () => {
     toast.success("Tags copied to clipboard!");
   };
 
+  const content = toolContent["open-graph-generator"];
+
   return (
     <ToolLayout
       toolName="Open Graph Meta Tag Generator"
@@ -53,6 +55,16 @@ const OpenGraphGenerator = () => {
       metaTitle="Open Graph Meta Tag Generator – Free SEO Tool | ZentroSEO"
       metaDescription="Generate Open Graph (OG) and Twitter Card meta tags for your website. Preview how your content will look when shared on social media. Free tool."
       canonicalPath="/resources/seo-toolkit/open-graph-generator/"
+      howToUse={content.howToUse}
+      whatIs={content.whatIs}
+      whatIsTitle={content.whatIsTitle}
+      whyMatters={content.whyMatters}
+      whyMattersTitle={content.whyMattersTitle}
+      faqs={content.faqs}
+      relatedTools={content.relatedTools}
+      showCTA
+      ctaHeadline={content.ctaHeadline}
+      ctaSubtitle={content.ctaSubtitle}
     >
       <div className="space-y-5">
         <div className="grid sm:grid-cols-2 gap-4">
@@ -136,8 +148,6 @@ const OpenGraphGenerator = () => {
           <Textarea readOnly value={generateTags()} className="min-h-[200px] font-mono text-xs" />
         </div>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

@@ -34,6 +34,19 @@ const Index = () => {
     logo: "https://zentroseo.com/zentroseo-logo.png",
     description: "AI-powered SEO platform that helps marketers and businesses grow faster with audits, fixes, schema, keywords, and rank tracking.",
     foundingDate: "2021",
+    foundingLocation: {
+      "@type": "Place",
+      name: "London, United Kingdom",
+    },
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      minValue: 2,
+      maxValue: 10,
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Worldwide",
+    },
     founders: [
       { "@type": "Person", name: "Tomisin Sode", url: "https://www.linkedin.com/in/tomisinsode/" },
       { "@type": "Person", name: "Olayinka Olayokun", url: "https://www.linkedin.com/in/olayinkaolayokun/" },

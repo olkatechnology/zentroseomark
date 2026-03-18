@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 import logo from "@/assets/zentroseo-logo.png";
 
 const MESSAGES = [
@@ -196,6 +198,11 @@ const ScanPage = () => {
   if (status === "error") {
     return (
       <Layout>
+        <Helmet>
+          <title>Scanning your website – ZentroSEO</title>
+          <meta name="robots" content="noindex, nofollow" />
+          <link rel="canonical" href={getCanonicalUrl(lang, "/scan/")} />
+        </Helmet>
         <div className="min-h-[60vh] flex items-center justify-center bg-background">
           <div className="text-center max-w-md mx-auto px-4">
             <p className="text-xl font-semibold text-foreground mb-2">Something went wrong checking your site.</p>
@@ -218,6 +225,11 @@ const ScanPage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Scanning your website – ZentroSEO</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href={getCanonicalUrl(lang, "/scan/")} />
+      </Helmet>
       <div className="min-h-[60vh] flex items-center justify-center bg-background">
         <div className="text-center max-w-lg mx-auto px-4 py-16">
           <img src={logo} alt="ZentroSEO" className="h-10 mx-auto mb-10" />

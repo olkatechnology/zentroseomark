@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toolContent } from "@/data/tool-content";
 import ToolLayout from "@/components/tools/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,6 +62,7 @@ const WebsiteFixScanner = () => {
       metaDescription="Scan any website for SEO issues and get prioritized, actionable fix recommendations. Detects CMS, hosting, speed issues, and more."
       canonicalPath="/resources/seo-toolkit/website-fix-scanner/"
       showCTA={status === "completed"}
+      {...toolContent["website-fix-scanner"]}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Copy, Check, Sparkles, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 const AIMetaDescriptionGenerator = () => {
   const [pageTitle, setPageTitle] = useState("");
@@ -58,6 +58,8 @@ const AIMetaDescriptionGenerator = () => {
     setTimeout(() => setCopiedIdx(null), 2000);
   };
 
+  const tc = toolContent["ai-meta-description-generator"];
+
   return (
     <ToolLayout
       toolName="AI Meta Description Generator"
@@ -65,6 +67,16 @@ const AIMetaDescriptionGenerator = () => {
       metaTitle="AI Meta Description Generator – Free SEO Tool | ZentroSEO"
       metaDescription="Free AI meta description generator. Create compelling, SEO-optimized meta descriptions from your page title or content. Boost CTR from search results."
       canonicalPath="/resources/seo-toolkit/ai-meta-description-generator/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-6">
         <div className="space-y-3">
@@ -121,8 +133,6 @@ const AIMetaDescriptionGenerator = () => {
           </div>
         )}
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

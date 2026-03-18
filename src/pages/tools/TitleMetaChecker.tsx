@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, XCircle, RotateCcw } from "lucide-react";
 import { motion } from "framer-motion";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 const TITLE_PX_LIMIT = 580;
 const TITLE_CHAR_LIMIT = 60;
@@ -75,6 +75,7 @@ const TitleMetaChecker = () => {
       metaDescription="Check your title tag and meta description pixel widths against Google's SERP limits. Preview your search snippet and fix truncation issues."
       canonicalPath="/resources/seo-toolkit/title-meta-checker/"
       showCTA={analyzed}
+      {...toolContent["title-meta-checker"]}
     >
       {/* Form */}
       <div className="space-y-5">

@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Copy, Check, Plus, Trash2 } from "lucide-react";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 type SchemaType = "Article" | "FAQ" | "Product" | "LocalBusiness" | "HowTo" | "Event";
 
@@ -307,6 +307,8 @@ const SchemaMarkupGenerator = () => {
     }
   };
 
+  const content = toolContent["schema-markup-generator"];
+
   return (
     <ToolLayout
       toolName="Schema Markup Generator (JSON-LD)"
@@ -314,6 +316,16 @@ const SchemaMarkupGenerator = () => {
       metaTitle="Schema Markup Generator (JSON-LD) – Free SEO Tool | ZentroSEO"
       metaDescription="Free JSON-LD schema markup generator. Create structured data for Articles, FAQs, Products, Local Businesses, How-To guides, and Events to boost rich results."
       canonicalPath="/resources/seo-toolkit/schema-markup-generator/"
+      howToUse={content.howToUse}
+      whatIs={content.whatIs}
+      whatIsTitle={content.whatIsTitle}
+      whyMatters={content.whyMatters}
+      whyMattersTitle={content.whyMattersTitle}
+      faqs={content.faqs}
+      relatedTools={content.relatedTools}
+      showCTA
+      ctaHeadline={content.ctaHeadline}
+      ctaSubtitle={content.ctaSubtitle}
     >
       <div className="space-y-6">
         <div>
@@ -346,8 +358,6 @@ const SchemaMarkupGenerator = () => {
           </pre>
         </div>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

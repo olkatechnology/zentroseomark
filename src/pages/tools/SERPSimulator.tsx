@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 const TITLE_PIXEL_LIMIT = 580;
 const DESC_CHAR_LIMIT = 160;
@@ -41,6 +41,8 @@ const SERPSimulator = () => {
     }
   })();
 
+  const tc = toolContent["serp-simulator"];
+
   return (
     <ToolLayout
       toolName="Google SERP Simulator"
@@ -48,6 +50,16 @@ const SERPSimulator = () => {
       metaTitle="Google SERP Simulator – Free SEO Preview Tool | ZentroSEO"
       metaDescription="Free Google SERP simulator. Preview how your page appears in search results. Optimize title tags and meta descriptions for better click-through rates."
       canonicalPath="/resources/seo-toolkit/serp-simulator/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-6">
         <div className="space-y-3">
@@ -142,8 +154,6 @@ const SERPSimulator = () => {
           </ul>
         </Card>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

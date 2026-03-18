@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toolContent } from "@/data/tool-content";
 import ToolLayout from "@/components/tools/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,6 +66,7 @@ const EEATAnalyzer = () => {
       metaDescription="Analyze your content for E-E-A-T signals. Get category scores, risk level, and actionable fixes to boost your content's trust and authority."
       canonicalPath="/resources/seo-toolkit/eeat-analyzer/"
       showCTA={status === "completed"}
+      {...toolContent["eeat-analyzer"]}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex gap-2">

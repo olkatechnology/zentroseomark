@@ -2914,7 +2914,7 @@ export type Database = {
           industry: string | null
           last_active_at: string | null
           name: string
-          onboarding_complete: boolean | null
+          onboarding_completed: boolean | null
           primary_site_id: string | null
           sessions_complete: number | null
           unlock_advanced_at: string | null
@@ -2926,7 +2926,7 @@ export type Database = {
           industry?: string | null
           last_active_at?: string | null
           name: string
-          onboarding_complete?: boolean | null
+          onboarding_completed?: boolean | null
           primary_site_id?: string | null
           sessions_complete?: number | null
           unlock_advanced_at?: string | null
@@ -2938,7 +2938,7 @@ export type Database = {
           industry?: string | null
           last_active_at?: string | null
           name?: string
-          onboarding_complete?: boolean | null
+          onboarding_completed?: boolean | null
           primary_site_id?: string | null
           sessions_complete?: number | null
           unlock_advanced_at?: string | null

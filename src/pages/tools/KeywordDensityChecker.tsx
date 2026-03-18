@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Search, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 interface WordFreq {
   word: string;
@@ -70,6 +70,8 @@ const KeywordDensityChecker = () => {
 
   const reset = () => { setText(""); setKeyword(""); setAnalyzed(false); };
 
+  const tc = toolContent["keyword-density-checker"];
+
   return (
     <ToolLayout
       toolName="Keyword Density Checker"
@@ -77,6 +79,16 @@ const KeywordDensityChecker = () => {
       metaTitle="Keyword Density Checker – Free SEO Tool | ZentroSEO"
       metaDescription="Check keyword density in your content. Find top words, analyze target keyword frequency, and avoid over-optimization. Free SEO keyword density tool."
       canonicalPath="/resources/seo-toolkit/keyword-density-checker/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-5">
         <div>
@@ -159,8 +171,6 @@ const KeywordDensityChecker = () => {
           )}
         </AnimatePresence>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

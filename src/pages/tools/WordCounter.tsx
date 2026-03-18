@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Type, Hash, Clock, FileText, AlignLeft, LetterText } from "lucide-react";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 function analyze(text: string) {
   const trimmed = text.trim();
@@ -33,6 +33,8 @@ const WordCounter = () => {
   const [text, setText] = useState("");
   const data = useMemo(() => analyze(text), [text]);
 
+  const tc = toolContent["word-counter"];
+
   return (
     <ToolLayout
       toolName="Word Counter & Text Analyzer"
@@ -40,6 +42,16 @@ const WordCounter = () => {
       metaTitle="Word Counter & Text Analyzer – Free SEO Tool | ZentroSEO"
       metaDescription="Free word counter tool. Count words, characters, sentences, paragraphs, and estimate reading time for your content. Optimize content length for SEO."
       canonicalPath="/resources/seo-toolkit/word-counter/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <Textarea
         placeholder="Paste or type your text here..."
@@ -66,8 +78,6 @@ const WordCounter = () => {
         <Badge variant="outline">Speaking Time: ~{data.speakingTime} min</Badge>
         <Badge variant="outline">Avg Word Length: {data.avgWordLength} chars</Badge>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

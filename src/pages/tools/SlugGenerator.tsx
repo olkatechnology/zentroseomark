@@ -4,8 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Copy, Check, RefreshCw } from "lucide-react";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { Copy, Check } from "lucide-react";
+import { toolContent } from "@/data/tool-content";
 
 const STOP_WORDS = new Set([
   "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for",
@@ -57,6 +57,8 @@ const SlugGenerator = () => {
   if (slug.split("-").length > 8) tips.push("Slug has many words. Shorter slugs tend to rank better.");
   if (slug && slug.length <= 75 && slug.split("-").length <= 8) tips.push("Slug length and word count look good. ✓");
 
+  const tc = toolContent["slug-generator"];
+
   return (
     <ToolLayout
       toolName="SEO-Friendly URL Slug Generator"
@@ -64,6 +66,16 @@ const SlugGenerator = () => {
       metaTitle="SEO-Friendly URL Slug Generator – Free Tool | ZentroSEO"
       metaDescription="Free URL slug generator. Convert titles to clean, SEO-friendly slugs. Remove stop words, diacritics, and special characters for better search rankings."
       canonicalPath="/resources/seo-toolkit/slug-generator/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-6">
         <div>
@@ -132,8 +144,6 @@ const SlugGenerator = () => {
           </>
         )}
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };

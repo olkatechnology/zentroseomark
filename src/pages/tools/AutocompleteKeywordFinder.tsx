@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toolContent } from "@/data/tool-content";
 import ToolLayout from "@/components/tools/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -101,6 +102,8 @@ const AutocompleteKeywordFinder = () => {
       metaTitle="Autocomplete Keyword Finder – Free Google Suggest Tool | ZentroSEO"
       metaDescription="Extract Google autocomplete suggestions for any keyword. Discover long-tail keywords, content ideas, and search trends with this free SEO tool."
       canonicalPath="/resources/seo-toolkit/autocomplete-keyword-finder/"
+      showCTA={suggestions.length > 0}
+      {...toolContent["autocomplete-keyword-finder"]}
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

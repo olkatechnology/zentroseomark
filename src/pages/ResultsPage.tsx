@@ -1,8 +1,11 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import { useLang } from "@/hooks/use-lang";
+import { getCanonicalUrl } from "@/lib/lang-utils";
 
 interface ScanResult {
   verdict: string;
@@ -75,6 +78,10 @@ const ResultsPage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Your SEO Results – ZentroSEO</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Verdict block */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}

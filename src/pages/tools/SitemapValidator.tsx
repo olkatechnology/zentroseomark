@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AlertCircle, CheckCircle2, XCircle, RotateCcw, Search, Link2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ToolCTA from "@/components/tools/ToolCTA";
+import { toolContent } from "@/data/tool-content";
 
 interface Issue {
   type: "error" | "warning" | "info";
@@ -102,6 +102,8 @@ const SitemapValidator = () => {
   const run = () => setResult(validateSitemap(xml));
   const reset = () => { setXml(""); setResult(null); };
 
+  const tc = toolContent["sitemap-validator"];
+
   return (
     <ToolLayout
       toolName="Sitemap XML Validator"
@@ -109,6 +111,16 @@ const SitemapValidator = () => {
       metaTitle="Sitemap XML Validator – Free SEO Tool | ZentroSEO"
       metaDescription="Validate your sitemap.xml file for errors, duplicate URLs, missing elements, and SEO best practices. Free sitemap validation tool."
       canonicalPath="/resources/seo-toolkit/sitemap-validator/"
+      howToUse={tc.howToUse}
+      whatIs={tc.whatIs}
+      whatIsTitle={tc.whatIsTitle}
+      whyMatters={tc.whyMatters}
+      whyMattersTitle={tc.whyMattersTitle}
+      faqs={tc.faqs}
+      relatedTools={tc.relatedTools}
+      showCTA
+      ctaHeadline={tc.ctaHeadline}
+      ctaSubtitle={tc.ctaSubtitle}
     >
       <div className="space-y-5">
         <div>
@@ -167,8 +179,6 @@ const SitemapValidator = () => {
           )}
         </AnimatePresence>
       </div>
-
-      <ToolCTA />
     </ToolLayout>
   );
 };
