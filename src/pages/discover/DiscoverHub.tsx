@@ -53,15 +53,15 @@ const DiscoverHub = () => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      {/* Hero */}
-      <section className="bg-hero text-hero-foreground py-20 md:py-28">
-        <div className="container mx-auto px-4 text-center">
-          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Discover" }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Discover" }]} />
 
+      {/* Hero */}
+      <section className="bg-hero text-hero-foreground py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-bold mt-6"
+            className="text-3xl md:text-5xl font-bold"
           >
             Discover SEO Performance of{" "}
             <span className="text-transparent bg-clip-text bg-gradient-cta">Businesses, SaaS & Local Companies</span>
@@ -90,22 +90,22 @@ const DiscoverHub = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-3 mt-6"
           >
-            <a href="https://app.zentroseo.com/signup?flow=direct">
-              <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-6">
-                Claim Your Business
-              </Button>
-            </a>
             <LocalizedLink to="/scan/">
-              <Button variant="outline" className="border-hero-muted/30 text-hero-foreground hover:bg-hero-foreground/10">
-                Run SEO Audit
+              <Button className="bg-gradient-cta hover:opacity-90 text-primary-foreground font-semibold px-6">
+                Run Free SEO Audit
               </Button>
             </LocalizedLink>
+            <a href="#categories">
+              <Button variant="outline" className="border-hero-foreground/30 text-hero-foreground bg-hero-foreground/10 hover:bg-hero-foreground/20">
+                Browse Categories
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="py-16 bg-secondary/30">
+      <section id="categories" className="py-16 bg-secondary/30">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-foreground text-center mb-10">Browse by Category</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-5xl mx-auto">

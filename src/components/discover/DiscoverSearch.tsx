@@ -16,7 +16,7 @@ const DiscoverSearch = ({ value, onChange, placeholder = "Search by name, domain
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="pl-12 pr-4 py-6 text-base rounded-xl border-border bg-background shadow-sm"
+        className="pl-12 pr-4 py-6 h-auto text-base rounded-xl border-border bg-background text-foreground shadow-sm"
       />
     </div>
   );
