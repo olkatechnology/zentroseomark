@@ -93,6 +93,7 @@ const en = {
     ourStoryDesc: "Why we built this",
     contact: "Contact",
     contactDesc: "Get in touch",
+    discover: "Discover",
   },
   home: {
     metaTitle: "ZentroSEO – All-in-One AI SEO Engine for Smarter Rankings",

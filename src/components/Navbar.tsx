@@ -79,6 +79,7 @@ const Navbar = () => {
       ],
     },
     { label: t("nav:pricing"), href: "/pricing/" },
+    { label: t("nav:discover"), href: "/discover/" },
     {
       label: t("nav:learn"),
       href: "/resources/",

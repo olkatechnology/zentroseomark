@@ -55,6 +55,11 @@ import ComparisonsHub from "./pages/ComparisonsHub";
 import ComparisonDetail from "./pages/ComparisonDetail";
 import ScanPage from "./pages/ScanPage";
 import ResultsPage from "./pages/ResultsPage";
+import DiscoverHub from "./pages/discover/DiscoverHub";
+import DiscoverResolver from "./pages/discover/DiscoverResolver";
+import DiscoverSubResolver from "./pages/discover/DiscoverSubResolver";
+import AdminDiscover from "./pages/admin/AdminDiscover";
+import AdminDiscoverForm from "./pages/admin/AdminDiscoverForm";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -112,8 +117,13 @@ const AppRoutes = () => (
     <Route path="terms-of-service/" element={<LegalPage slug="terms-of-service" />} />
     <Route path="refund-policy/" element={<LegalPage slug="refund-policy" />} />
     <Route path="sitemap/" element={<Sitemap />} />
+    <Route path="discover/" element={<DiscoverHub />} />
+    <Route path="discover/:param/" element={<DiscoverResolver />} />
+    <Route path="discover/:category/:subparam/" element={<DiscoverSubResolver />} />
     <Route path="scan/" element={<ScanPage />} />
     <Route path="results/" element={<ResultsPage />} />
+    <Route path="admin/discover/" element={<AdminDiscover />} />
+    <Route path="admin/discover/edit/:slug/" element={<AdminDiscoverForm />} />
     <Route path="*" element={<NotFound />} />
   </>
 );

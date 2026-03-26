@@ -4464,6 +4464,113 @@ export type Database = {
         }
         Relationships: []
       }
+      discover_categories: {
+        Row: {
+          description: string
+          icon: string
+          label: string
+          slug: string
+          sort_order: number
+        }
+        Insert: {
+          description?: string
+          icon?: string
+          label: string
+          slug: string
+          sort_order?: number
+        }
+        Update: {
+          description?: string
+          icon?: string
+          label?: string
+          slug?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      discover_listings: {
+        Row: {
+          ai_visibility: number
+          backlinks: number
+          category_slug: string
+          claimed: boolean
+          content_strength: number
+          created_at: string
+          description: string
+          domain: string
+          id: string
+          industry: string
+          keywords: number
+          local_seo: number
+          location: string | null
+          location_slug: string | null
+          logo: string | null
+          name: string
+          published: boolean
+          seo_score: number
+          slug: string
+          subcategory: string
+          technical_health: number
+          updated_at: string
+        }
+        Insert: {
+          ai_visibility?: number
+          backlinks?: number
+          category_slug: string
+          claimed?: boolean
+          content_strength?: number
+          created_at?: string
+          description?: string
+          domain: string
+          id?: string
+          industry?: string
+          keywords?: number
+          local_seo?: number
+          location?: string | null
+          location_slug?: string | null
+          logo?: string | null
+          name: string
+          published?: boolean
+          seo_score?: number
+          slug: string
+          subcategory?: string
+          technical_health?: number
+          updated_at?: string
+        }
+        Update: {
+          ai_visibility?: number
+          backlinks?: number
+          category_slug?: string
+          claimed?: boolean
+          content_strength?: number
+          created_at?: string
+          description?: string
+          domain?: string
+          id?: string
+          industry?: string
+          keywords?: number
+          local_seo?: number
+          location?: string | null
+          location_slug?: string | null
+          logo?: string | null
+          name?: string
+          published?: boolean
+          seo_score?: number
+          slug?: string
+          subcategory?: string
+          technical_health?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "discover_listings_category_slug_fkey"
+            columns: ["category_slug"]
+            isOneToOne: false
+            referencedRelation: "discover_categories"
+            referencedColumns: ["slug"]
+          },
+        ]
+      }
       domain_analytics: {
         Row: {
           competitor_analysis: Json | null
@@ -5166,6 +5273,88 @@ export type Database = {
           website_id?: string | null
         }
         Relationships: []
+      }
+      fix_dispatch_queue: {
+        Row: {
+          after_value: string
+          applied_at: string | null
+          before_value: string | null
+          created_at: string | null
+          delivery_method: string
+          dispatched_at: string | null
+          error_message: string | null
+          expires_at: string | null
+          fix_type: string
+          id: string
+          issue_id: string | null
+          page_url: string
+          site_id: string
+          status: string
+          undo_dispatch_id: string | null
+          undone_at: string | null
+          user_id: string
+        }
+        Insert: {
+          after_value: string
+          applied_at?: string | null
+          before_value?: string | null
+          created_at?: string | null
+          delivery_method?: string
+          dispatched_at?: string | null
+          error_message?: string | null
+          expires_at?: string | null
+          fix_type: string
+          id?: string
+          issue_id?: string | null
+          page_url: string
+          site_id: string
+          status?: string
+          undo_dispatch_id?: string | null
+          undone_at?: string | null
+          user_id: string
+        }
+        Update: {
+          after_value?: string
+          applied_at?: string | null
+          before_value?: string | null
+          created_at?: string | null
+          delivery_method?: string
+          dispatched_at?: string | null
+          error_message?: string | null
+          expires_at?: string | null
+          fix_type?: string
+          id?: string
+          issue_id?: string | null
+          page_url?: string
+          site_id?: string
+          status?: string
+          undo_dispatch_id?: string | null
+          undone_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fix_dispatch_queue_issue_id_fkey"
+            columns: ["issue_id"]
+            isOneToOne: false
+            referencedRelation: "audit_issues"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fix_dispatch_queue_site_id_fkey"
+            columns: ["site_id"]
+            isOneToOne: false
+            referencedRelation: "user_websites"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fix_dispatch_queue_undo_dispatch_id_fkey"
+            columns: ["undo_dispatch_id"]
+            isOneToOne: false
+            referencedRelation: "fix_dispatch_queue"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       fix_scan_requests: {
         Row: {
@@ -10386,6 +10575,7 @@ export type Database = {
           primary_keywords: string[] | null
           rank_tracking_next_run_at: string | null
           seo_health_score: number | null
+          site_api_key: string | null
           status: string | null
           target_audience: string | null
           updated_at: string
@@ -10416,6 +10606,7 @@ export type Database = {
           primary_keywords?: string[] | null
           rank_tracking_next_run_at?: string | null
           seo_health_score?: number | null
+          site_api_key?: string | null
           status?: string | null
           target_audience?: string | null
           updated_at?: string
@@ -10446,6 +10637,7 @@ export type Database = {
           primary_keywords?: string[] | null
           rank_tracking_next_run_at?: string | null
           seo_health_score?: number | null
+          site_api_key?: string | null
           status?: string | null
           target_audience?: string | null
           updated_at?: string
@@ -10999,7 +11191,39 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      user_oauth_safe: {
+        Row: {
+          access_token: string | null
+          created_at: string | null
+          id: string | null
+          provider: string | null
+          scope: string | null
+          token_expires_at: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          access_token?: string | null
+          created_at?: string | null
+          id?: string | null
+          provider?: string | null
+          scope?: string | null
+          token_expires_at?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          access_token?: string | null
+          created_at?: string | null
+          id?: string | null
+          provider?: string | null
+          scope?: string | null
+          token_expires_at?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       acquire_automation_job: {
@@ -11279,6 +11503,10 @@ export type Database = {
         Returns: Json
       }
       get_next_run_number: { Args: { p_job_id: string }; Returns: number }
+      get_oauth_refresh_token: {
+        Args: { _scope: string; _user_id: string }
+        Returns: string
+      }
       get_user_admin_roles: {
         Args: { _user_id: string }
         Returns: Database["public"]["Enums"]["admin_role"][]

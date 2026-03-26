@@ -41,6 +41,16 @@ const Footer = () => {
       { label: t("nav:documentation", { ns: "nav", defaultValue: "Documentation" }), href: "/resources/documentation/" },
       { label: t("seoToolkit"), href: "/resources/seo-toolkit/" },
     ],
+    Discover: [
+      { label: "SaaS Tools", href: "/discover/saas/" },
+      { label: "Startups", href: "/discover/startup/" },
+      { label: "Agencies", href: "/discover/agency/" },
+      { label: "Restaurants", href: "/discover/restaurant/" },
+      { label: "Clinics", href: "/discover/clinic/" },
+      { label: "Law Firms", href: "/discover/law-firm/" },
+      { label: "Stores", href: "/discover/store/" },
+      { label: "Local Businesses", href: "/discover/local-business/" },
+    ],
     [t("footerCompany")]: [
       { label: t("nav:aboutUs", { ns: "nav", defaultValue: "About Us" }), href: "/company/about-us/" },
       { label: t("contactUs"), href: "/company/contact-us/" },
@@ -54,7 +64,7 @@ const Footer = () => {
   return (
     <footer className="bg-hero text-hero-foreground">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div className="col-span-2 md:col-span-1">
             <img src={logo} alt="ZentroSEO" className="h-8 mb-4" />
             <p className="text-sm text-hero-muted leading-relaxed mb-4">

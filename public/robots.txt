@@ -1,5 +1,9 @@
 Sitemap: https://zentroseo.com/sitemap.xml
 
+# LLM context files — see https://llmstxt.org
+LLMs-Txt: https://zentroseo.com/llms.txt
+LLMs-Full-Txt: https://zentroseo.com/llms-full.txt
+
 User-agent: Googlebot
 Allow: /
 

@@ -1,0 +1,298 @@
+# ZentroSEO — Full Context
+
+> ZentroSEO is an AI-powered SEO platform that helps websites rank higher through entity-based audits, semantic content optimization, topical authority mapping, and automated technical SEO fixes.
+
+Website: https://zentroseo.com
+Founded: 2025
+Category: SaaS, SEO Software, Marketing Technology
+
+---
+
+## About ZentroSEO
+
+ZentroSEO is a comprehensive SEO platform built around entity-based optimization — the way modern search engines actually understand and rank content. Instead of focusing only on keywords, ZentroSEO analyzes Entity-Attribute-Value (EAV) relationships, topical depth, and semantic completeness to help websites build genuine topical authority.
+
+The platform combines technical SEO auditing, AI-powered content optimization, keyword research, rank tracking, backlink analysis, schema markup generation, and competitive gap analysis into a single tool. It is purpose-built for agencies managing multiple clients, e-commerce sites with large product catalogs, content publishers building topical authority, and startups looking for cost-effective SEO growth.
+
+Key differentiators:
+- Entity-Attribute-Value (EAV) analysis that measures semantic completeness against Knowledge Graph expectations
+- AI-powered one-click fixes for both technical and content SEO issues
+- Topical map generation that visualizes content gaps and authority coverage
+- White-label reporting for agencies
+- 18 free SEO tools available without signup
+
+---
+
+## Features (Detailed)
+
+### ZentroAudit — Entity-Based SEO Audits
+URL: https://zentroseo.com/features/zentroaudit/
+Run comprehensive SEO audits with 200+ checks including Core Web Vitals monitoring, Entity-Attribute-Value coverage analysis, deep crawl analysis, on-page SEO analysis, security and accessibility checks, and priority issue scoring. Unlike traditional audit tools that check surface-level signals, ZentroAudit evaluates semantic completeness — how well your content covers the entities, attributes, and relationships that search engines expect.
+
+### ZentroFix — AI-Powered SEO Fixes
+URL: https://zentroseo.com/features/zentrofix/
+Instantly fix technical and content SEO errors with AI. Generates optimized title tags, meta descriptions, heading structures, schema markup, and content improvements. One-click implementation for common issues like missing alt text, broken links, and thin content.
+
+### ZentroKeywords — Semantic Keyword Research
+URL: https://zentroseo.com/features/zentrokeywords/
+Semantic keyword research with entity topic discovery, search intent classification, keyword clustering, difficulty analysis, and competitive opportunity identification. Goes beyond search volume to map keywords to entities and topics.
+
+### ZentroRank — Keyword Rank Tracking
+URL: https://zentroseo.com/features/zentrorank/
+Real-time keyword rank tracking across search entities with SERP feature monitoring, competitor tracking, and historical trend analysis.
+
+### ZentroWrite — AI Content Creation
+URL: https://zentroseo.com/features/zentrowrite/
+Create entity-rich SEO content with AI. Generates content optimized for topical depth, entity coverage, and semantic relevance. Includes content scoring, entity gap detection, and real-time optimization suggestions.
+
+### ZentroCompare — Competitive Gap Analysis
+URL: https://zentroseo.com/features/zentrocompare/
+Identify SEO gaps in entity and topic coverage by comparing your site against competitors. Surfaces content opportunities, keyword gaps, and entity coverage differences.
+
+### ZentroBacklinks — Backlink Analysis
+URL: https://zentroseo.com/features/zentrobacklinks/
+Discover backlinks that build entity trust. Analyze your backlink profile, identify toxic links, find link building opportunities, and track competitor link acquisition.
+
+### ZentroMarkup — Schema Markup Generator
+URL: https://zentroseo.com/features/zentromarkup/
+Auto-generate JSON-LD schema markup for entity recognition. Supports Organization, Article, Product, FAQ, HowTo, LocalBusiness, and other schema types.
+
+### ZentroTopicalMap — Topical Map Builder
+URL: https://zentroseo.com/features/zentrotopicalmap/
+Build entity-based topical maps for total topic authority. Visualize content relationships, identify coverage gaps, and plan content that establishes comprehensive topical authority.
+
+### ZentroContentBrief — Content Brief Generator
+URL: https://zentroseo.com/features/zentrocontentbrief/
+Generate EAV-optimized content briefs with target entities, required attributes, semantic keywords, competitor analysis, and structural recommendations.
+
+### ZentroContentPlan — Content Planning
+URL: https://zentroseo.com/features/zentrocontentplan/
+Schedule 6-month semantic audits to keep content competitive. Automated content freshness monitoring and update recommendations.
+
+### ZentroTopicality — Topical Depth Scoring
+URL: https://zentroseo.com/features/zentrotopicality/
+Score content topical depth against search engine expectations. Measures entity coverage, semantic completeness, and topical relevance.
+
+### ZentroWhite — White-Label SEO
+URL: https://zentroseo.com/features/zentrowhite/
+Deliver entity-focused SEO reports and dashboards under your own brand. Designed for agencies managing multiple clients.
+
+---
+
+## Solutions
+
+### For Agencies
+URL: https://zentroseo.com/solutions/for-agencies/
+White-label reporting, multi-client management, automated audit scheduling, and branded dashboards for SEO agencies managing portfolios of client websites.
+
+### For Startups
+URL: https://zentroseo.com/solutions/for-startups/
+Cost-effective SEO toolkit for early-stage companies. Free tools to get started, affordable plans that scale, and AI automation to do more with smaller teams.
+
+### For E-commerce
+URL: https://zentroseo.com/solutions/for-e-commerce/
+Product page optimization, structured data for rich results, catalog-scale crawling, category SEO, and e-commerce-specific technical strategies.
+
+### For Content Creators
+URL: https://zentroseo.com/solutions/for-content-creators/
+AI writing assistance, topical authority planning, semantic content optimization, and content performance tracking for publishers and bloggers.
+
+---
+
+## Free SEO Tools (18 Tools)
+
+All available without signup at https://zentroseo.com/resources/seo-toolkit/
+
+1. **Website Fix Scanner** — Scan any website for SEO issues with prioritized severity-based fixes
+2. **Title & Meta Checker** — Check title tag and meta description pixel widths against Google's SERP limits
+3. **SERP Simulator** — Preview how your Google search listing appears on desktop and mobile
+4. **Schema Markup Generator** — Generate valid JSON-LD structured data for any page type
+5. **AI Meta Description Generator** — AI-powered meta description creation optimized for CTR
+6. **AI Blog Title Generator** — Generate SEO-optimized, click-worthy blog titles
+7. **Heading Analyzer** — Analyze H1-H6 heading hierarchy for SEO best practices
+8. **Keyword Density Checker** — Check keyword usage, density, and prominence
+9. **Word Counter** — Count words, characters, sentences, and estimate reading time
+10. **Slug Generator** — Create SEO-friendly URL slugs from any text
+11. **Open Graph Generator** — Generate Open Graph meta tags for social media sharing
+12. **Robots.txt Generator** — Create properly formatted robots.txt files
+13. **Hreflang Tag Generator** — Generate hreflang tags for multilingual and multi-regional sites
+14. **Sitemap Validator** — Validate XML sitemap structure and URLs
+15. **Internal Link Finder** — Discover internal linking opportunities within your content
+16. **E-E-A-T Analyzer** — Analyze Experience, Expertise, Authoritativeness, and Trustworthiness signals
+17. **PAA Extractor** — Extract People Also Ask questions for content ideation
+18. **Autocomplete Keyword Finder** — Discover Google autocomplete suggestions for keyword research
+
+---
+
+## Blog (Selected Articles)
+
+URL: https://zentroseo.com/resources/blog/
+
+Categories: Technical SEO, On-Page SEO, Semantic SEO, Keyword Research & Content Strategy, Link Building & Off-Page SEO, Local & E-commerce SEO, SEO Tools & AI
+
+### Technical SEO
+- [Why Mobile-First Indexing Affects Your Rankings](https://zentroseo.com/resources/blog/mobile-first-indexing-seo/)
+- [What Is a Technical SEO Audit? And How to Run One in Minutes](https://zentroseo.com/resources/blog/technical-seo-audit/)
+- [XML Sitemap Optimization: Best Practices for SEO](https://zentroseo.com/resources/blog/xml-sitemap-optimization/)
+- [Canonicalization: Avoiding Duplicate Content Issues](https://zentroseo.com/resources/blog/canonicalization/)
+- [HTTPS & Security: Why SSL Matters for SEO](https://zentroseo.com/resources/blog/https-security/)
+- [Schema Markup SEO Guide: Boost Your Rich Snippets](https://zentroseo.com/resources/blog/schema-markup-seo-guide/)
+- [Site Architecture SEO: Building a Crawlable & User-Friendly Site](https://zentroseo.com/resources/blog/site-architecture-seo/)
+- [Crawlability vs Indexability: What's the Difference?](https://zentroseo.com/resources/blog/crawlability-vs-indexability/)
+- [Core Web Vitals: LCP, FID, CLS Optimization Guide](https://zentroseo.com/resources/blog/core-web-vitals-optimization/)
+- [Robots.txt vs Meta Robots: What Controls What](https://zentroseo.com/resources/blog/robots-txt-vs-meta-robots/)
+- [JavaScript SEO & Rendering Guide](https://zentroseo.com/resources/blog/javascript-seo-rendering/)
+- [Log File Analysis for SEO](https://zentroseo.com/resources/blog/log-file-analysis-seo/)
+
+### On-Page SEO
+- [On-Page SEO Audit: The Tactical Framework](https://zentroseo.com/resources/blog/on-page-seo-audit/)
+- [Title Tag Optimization Guide](https://zentroseo.com/resources/blog/title-tag-optimization/)
+- [Meta Description Best Practices](https://zentroseo.com/resources/blog/meta-description-best-practices/)
+- [Heading Hierarchy H1-H6 Guide](https://zentroseo.com/resources/blog/heading-hierarchy-guide/)
+- [Image Alt Text SEO Guide](https://zentroseo.com/resources/blog/image-alt-text-seo/)
+- [Internal Linking Strategy Guide](https://zentroseo.com/resources/blog/internal-linking-strategy/)
+
+### Semantic SEO
+- [What Is Semantic SEO?](https://zentroseo.com/resources/blog/what-is-semantic-seo/)
+- [Entity-Based SEO Optimization](https://zentroseo.com/resources/blog/entity-based-seo/)
+- [Building Topical Authority for SEO](https://zentroseo.com/resources/blog/building-topical-authority/)
+- [Knowledge Graph Optimization](https://zentroseo.com/resources/blog/knowledge-graph-optimization/)
+- [Entity-Attribute-Value SEO](https://zentroseo.com/resources/blog/entity-attribute-value-seo/)
+- [NLP and Search Engines](https://zentroseo.com/resources/blog/nlp-search-engines/)
+- [Topical Map Content Strategy Blueprint](https://zentroseo.com/resources/blog/topical-map-content-strategy/)
+
+### Keyword Research & Content Strategy
+- [Keyword Research Complete Guide](https://zentroseo.com/resources/blog/keyword-research-guide/)
+- [Long-Tail Keywords Strategy](https://zentroseo.com/resources/blog/long-tail-keywords-strategy/)
+- [Search Intent Types & Keyword Strategy](https://zentroseo.com/resources/blog/search-intent-types/)
+- [Content Gap Analysis Guide](https://zentroseo.com/resources/blog/content-gap-analysis/)
+- [Keyword Clustering & Topical Groups](https://zentroseo.com/resources/blog/keyword-clustering/)
+- [Competitor Keyword Analysis](https://zentroseo.com/resources/blog/competitor-keyword-analysis/)
+- [Semantic Content Briefs Guide](https://zentroseo.com/resources/blog/semantic-content-briefs/)
+
+### Link Building & Off-Page SEO
+- [Link Building Strategies Complete Guide](https://zentroseo.com/resources/blog/link-building-strategies/)
+- [Anchor Text Optimization Guide](https://zentroseo.com/resources/blog/anchor-text-optimization/)
+- [Digital PR for SEO: Earning Links](https://zentroseo.com/resources/blog/digital-pr-seo/)
+- [Brand Mentions & Unlinked SEO](https://zentroseo.com/resources/blog/brand-mentions-unlinked-seo/)
+- [Broken Link Building Technique](https://zentroseo.com/resources/blog/broken-link-building/)
+- [Internal vs External Links for SEO](https://zentroseo.com/resources/blog/internal-vs-external-links/)
+
+### Local & E-commerce SEO
+- [Google Business Profile Optimization](https://zentroseo.com/resources/blog/google-business-profile-optimization/)
+- [Local Citations & NAP Consistency](https://zentroseo.com/resources/blog/local-citations-nap-consistency/)
+- [Local Keyword Research Guide](https://zentroseo.com/resources/blog/local-keyword-research/)
+- [Product Page SEO for E-commerce](https://zentroseo.com/resources/blog/product-page-seo/)
+- [Structured Data for E-commerce](https://zentroseo.com/resources/blog/structured-data-ecommerce/)
+
+### SEO Tools & AI
+- [Best SEO Tools 2025 Comparison](https://zentroseo.com/resources/blog/best-seo-tools-comparison/)
+- [AI SEO Tools Changing the Landscape](https://zentroseo.com/resources/blog/ai-seo-tools/)
+- [AI Content Optimization for SEO](https://zentroseo.com/resources/blog/ai-content-optimization/)
+- [SEO Automation Workflows Guide](https://zentroseo.com/resources/blog/seo-automation-workflows/)
+- [Rank Tracking Tools Guide](https://zentroseo.com/resources/blog/rank-tracking-tools/)
+- [SEO Audit Tools Compared](https://zentroseo.com/resources/blog/seo-audit-tools-compared/)
+- [Schema Markup Generators Compared](https://zentroseo.com/resources/blog/schema-generators-compared/)
+
+---
+
+## Guides
+
+URL: https://zentroseo.com/resources/guides/
+
+- [Complete Technical SEO Audit Guide](https://zentroseo.com/resources/guides/complete-technical-seo-audit/) — Run a comprehensive technical SEO audit covering crawlability, indexation, Core Web Vitals, schema markup, and site architecture
+- [Building Topical Authority from Scratch](https://zentroseo.com/resources/guides/building-topical-authority/) — Establish your website as the definitive authority on a topic through strategic content planning and internal linking
+- [Schema Markup Implementation for Every Page Type](https://zentroseo.com/resources/guides/schema-markup-implementation/) — Implement JSON-LD structured data across your entire website
+- [Keyword Research to Content Strategy Pipeline](https://zentroseo.com/resources/guides/keyword-research-to-content-strategy/) — Transform raw keyword data into a structured content strategy
+- [Link Building Without Outreach: The Semantic Approach](https://zentroseo.com/resources/guides/semantic-link-building/) — Attract backlinks naturally through content quality and entity authority
+- [Setting Up ZentroSEO for Your First Website](https://zentroseo.com/resources/guides/getting-started-zentroseo/) — Get up and running with ZentroSEO from account creation through first audit
+
+---
+
+## Topics
+
+URL: https://zentroseo.com/resources/topics/
+
+- [Technical SEO](https://zentroseo.com/resources/topics/technical-seo/) — Crawlability, indexation, Core Web Vitals, schema markup, server-side optimization
+- [Semantic SEO](https://zentroseo.com/resources/topics/semantic-seo/) — Entity-based SEO, topical authority, Knowledge Graph optimization
+- [On-Page SEO](https://zentroseo.com/resources/topics/on-page-seo/) — Title tags, headings, content structure, internal links, E-E-A-T signals
+- [Off-Page SEO](https://zentroseo.com/resources/topics/off-page-seo/) — Link building, digital PR, brand mentions, external authority signals
+- [Local SEO](https://zentroseo.com/resources/topics/local-seo/) — Google Business Profile, local citations, NAP consistency
+- [E-commerce SEO](https://zentroseo.com/resources/topics/e-commerce-seo/) — Product page optimization, structured data, category SEO
+- [Content Strategy](https://zentroseo.com/resources/topics/content-strategy/) — Topical maps, keyword clustering, content gap analysis
+- [Link Building](https://zentroseo.com/resources/topics/link-building/) — Ethical link building strategies, digital PR, guest posting
+- [Schema Markup](https://zentroseo.com/resources/topics/schema-markup-topic/) — JSON-LD structured data, rich results, Knowledge Graph
+- [Keyword Research](https://zentroseo.com/resources/topics/keyword-research/) — Search intent, clustering, difficulty analysis, competitive opportunities
+- [Core Web Vitals](https://zentroseo.com/resources/topics/core-web-vitals-topic/) — LCP, INP, CLS optimization
+- [AI in SEO](https://zentroseo.com/resources/topics/ai-in-seo/) — AI content generation, AI Overviews, LLM visibility, automated workflows
+
+---
+
+## Comparisons
+
+URL: https://zentroseo.com/resources/comparisons/
+
+- [ZentroSEO vs Ahrefs](https://zentroseo.com/resources/comparisons/zentroseo-vs-ahrefs/) — Full feature, pricing, and use case comparison
+- [ZentroSEO vs SEMrush](https://zentroseo.com/resources/comparisons/zentroseo-vs-semrush/) — Which SEO platform wins for different user types
+- [Technical SEO vs On-Page SEO](https://zentroseo.com/resources/comparisons/technical-seo-vs-on-page-seo/) — What each covers and when to prioritize
+- [Schema Markup vs Open Graph](https://zentroseo.com/resources/comparisons/schema-markup-vs-open-graph/) — When to use each and why you need both
+- [Robots.txt vs Meta Robots](https://zentroseo.com/resources/comparisons/robots-txt-vs-meta-robots/) — What each controls and common mistakes
+- [Canonical Tags vs 301 Redirects](https://zentroseo.com/resources/comparisons/canonical-tags-vs-301-redirects/) — Which to use for duplicate content and migrations
+- [Manual SEO vs AI-Powered SEO](https://zentroseo.com/resources/comparisons/manual-seo-vs-ai-seo/) — Pros, cons, efficiency, and quality comparison
+
+---
+
+## SEO Glossary (Selected Terms)
+
+URL: https://zentroseo.com/resources/glossary/
+
+- [Topical Authority](https://zentroseo.com/resources/glossary/topical-authority/) — A website's perceived expertise on a specific subject
+- [Entity-Based SEO](https://zentroseo.com/resources/glossary/entity-based-seo/) — Optimization focused on entities rather than just keywords
+- [Semantic SEO](https://zentroseo.com/resources/glossary/semantic-seo/) — Optimization focused on meaning, context, and intent
+- [Core Web Vitals](https://zentroseo.com/resources/glossary/core-web-vitals/) — Google's LCP, INP, and CLS performance metrics
+- [Schema Markup](https://zentroseo.com/resources/glossary/schema-markup/) — Structured data vocabulary from schema.org
+- [Crawlability](https://zentroseo.com/resources/glossary/crawlability/) — A website's ability to be discovered by search engine bots
+- [Indexability](https://zentroseo.com/resources/glossary/indexability/) — Whether a page is eligible to be stored in a search engine's index
+- [SERP](https://zentroseo.com/resources/glossary/serp/) — Search Engine Results Page
+- [Backlinks](https://zentroseo.com/resources/glossary/backlinks/) — Incoming hyperlinks that signal authority
+- [Canonical Tag](https://zentroseo.com/resources/glossary/canonical-tag/) — HTML element indicating the preferred URL version
+- [Hreflang](https://zentroseo.com/resources/glossary/hreflang/) — HTML attribute for language/region targeting
+- [Robots.txt](https://zentroseo.com/resources/glossary/robots-txt/) — File that instructs search engine crawlers
+- [Meta Robots](https://zentroseo.com/resources/glossary/meta-robots/) — HTML meta tag for page-level crawl control
+- [Knowledge Graph](https://zentroseo.com/resources/glossary/knowledge-graph/) — Google's entity database
+- [E-E-A-T](https://zentroseo.com/resources/glossary/e-e-a-t/) — Experience, Expertise, Authoritativeness, Trustworthiness
+- [Topical Map](https://zentroseo.com/resources/glossary/topical-map/) — Strategic content plan for topical authority
+- [Content Silo](https://zentroseo.com/resources/glossary/content-silo/) — Thematic content grouping strategy
+
+---
+
+## ZentroDiscover — Business & SaaS SEO Directory
+
+URL: https://zentroseo.com/discover/
+
+ZentroDiscover is a directory system integrated into the ZentroSEO marketing website. It allows SaaS tools, SMEs, startups, and local businesses to be listed, discovered, and claim their SEO profile. Each listing includes an SEO snapshot showing overall SEO score, AI visibility, technical health, content strength, local SEO, backlinks, and keyword metrics.
+
+### Directory Categories
+- **SaaS Tools** (https://zentroseo.com/discover/saas/): Software platforms and developer tools
+- **Local Businesses** (https://zentroseo.com/discover/local/): Restaurants, agencies, clinics, and local services
+- **Businesses** (https://zentroseo.com/discover/business/): SMEs, startups, and established companies
+
+### How It Works
+1. Browse or search the directory by name, domain, industry, or location
+2. View any business's SEO profile with performance metrics
+3. Unclaimed profiles can be claimed by the business owner
+4. Claiming redirects to ZentroSEO's scan and signup flow
+5. The business website is automatically added to the user's ZentroSEO dashboard
+
+---
+
+## Company
+
+- Website: https://zentroseo.com
+- About: https://zentroseo.com/company/about-us/
+- Contact: https://zentroseo.com/company/contact-us/
+- Pricing: https://zentroseo.com/pricing/
+- Privacy Policy: https://zentroseo.com/privacy-policy/
+- Terms of Service: https://zentroseo.com/terms-of-service/
+- Refund Policy: https://zentroseo.com/refund-policy/
+- Sitemap: https://zentroseo.com/sitemap/

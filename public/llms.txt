@@ -1,0 +1,84 @@
+# ZentroSEO
+
+> ZentroSEO is an AI-powered SEO platform that helps websites rank higher through entity-based audits, semantic content optimization, topical authority mapping, and automated technical SEO fixes.
+
+Website: https://zentroseo.com
+Founded: 2025
+Category: SaaS, SEO Software, Marketing Technology
+
+## What ZentroSEO Does
+
+ZentroSEO is a comprehensive SEO platform built around entity-based optimization — the way modern search engines actually understand and rank content. Instead of focusing only on keywords, ZentroSEO analyzes Entity-Attribute-Value (EAV) relationships, topical depth, and semantic completeness to help websites build genuine topical authority.
+
+The platform combines technical SEO auditing, AI-powered content optimization, keyword research, rank tracking, backlink analysis, schema markup generation, and competitive gap analysis into a single tool — purpose-built for agencies, e-commerce sites, content publishers, and startups.
+
+## Core Features
+
+- [ZentroAudit](https://zentroseo.com/features/zentroaudit/): Entity-based SEO audits with 200+ checks, Core Web Vitals, and EAV coverage analysis
+- [ZentroFix](https://zentroseo.com/features/zentrofix/): AI-powered one-click fixes for technical and content SEO issues
+- [ZentroKeywords](https://zentroseo.com/features/zentrokeywords/): Semantic keyword research with entity topic discovery and intent classification
+- [ZentroRank](https://zentroseo.com/features/zentrorank/): Real-time keyword rank tracking across search entities
+- [ZentroWrite](https://zentroseo.com/features/zentrowrite/): AI content creation optimized for entity coverage and topical depth
+- [ZentroCompare](https://zentroseo.com/features/zentrocompare/): Competitive gap analysis for entity and topic coverage
+- [ZentroBacklinks](https://zentroseo.com/features/zentrobacklinks/): Backlink discovery and entity trust analysis
+- [ZentroMarkup](https://zentroseo.com/features/zentromarkup/): Automatic JSON-LD schema markup generation
+- [ZentroTopicalMap](https://zentroseo.com/features/zentrotopicalmap/): Entity-based topical map builder for content planning
+- [ZentroContentBrief](https://zentroseo.com/features/zentrocontentbrief/): EAV-optimized content brief generation
+- [ZentroContentPlan](https://zentroseo.com/features/zentrocontentplan/): 6-month semantic audit scheduling
+- [ZentroTopicality](https://zentroseo.com/features/zentrotopicality/): Content topical depth scoring
+- [ZentroWhite](https://zentroseo.com/features/zentrowhite/): White-label SEO reporting for agencies
+
+## Solutions
+
+- [For Agencies](https://zentroseo.com/solutions/for-agencies/): White-label reporting, multi-client management, and automated audits
+- [For Startups](https://zentroseo.com/solutions/for-startups/): Cost-effective SEO toolkit for early-stage growth
+- [For E-commerce](https://zentroseo.com/solutions/for-e-commerce/): Product page optimization, structured data, and catalog SEO
+- [For Content Creators](https://zentroseo.com/solutions/for-content-creators/): AI writing, topical planning, and semantic content optimization
+
+## Free SEO Tools
+
+- [Website Fix Scanner](https://zentroseo.com/resources/seo-toolkit/website-fix-scanner/): Scan any website for SEO issues with prioritized fixes
+- [Title & Meta Checker](https://zentroseo.com/resources/seo-toolkit/title-meta-checker/): Check title tag and meta description pixel widths
+- [SERP Simulator](https://zentroseo.com/resources/seo-toolkit/serp-simulator/): Preview Google search listings on desktop and mobile
+- [Schema Markup Generator](https://zentroseo.com/resources/seo-toolkit/schema-generator/): Generate JSON-LD structured data
+- [AI Meta Description Generator](https://zentroseo.com/resources/seo-toolkit/ai-meta-description-generator/): AI-powered meta description creation
+- [AI Blog Title Generator](https://zentroseo.com/resources/seo-toolkit/ai-blog-title-generator/): Generate SEO-optimized blog titles
+- [Heading Analyzer](https://zentroseo.com/resources/seo-toolkit/heading-analyzer/): Analyze H1-H6 heading hierarchy
+- [Keyword Density Checker](https://zentroseo.com/resources/seo-toolkit/keyword-density-checker/): Check keyword usage and density
+- [Word Counter](https://zentroseo.com/resources/seo-toolkit/word-counter/): Count words, characters, and reading time
+- [Slug Generator](https://zentroseo.com/resources/seo-toolkit/slug-generator/): Create SEO-friendly URL slugs
+- [Open Graph Generator](https://zentroseo.com/resources/seo-toolkit/open-graph-generator/): Generate OG tags for social sharing
+- [Robots.txt Generator](https://zentroseo.com/resources/seo-toolkit/robots-txt-generator/): Create robots.txt files
+- [Hreflang Tag Generator](https://zentroseo.com/resources/seo-toolkit/hreflang-generator/): Generate hreflang tags for multilingual sites
+- [Sitemap Validator](https://zentroseo.com/resources/seo-toolkit/sitemap-validator/): Validate XML sitemap structure
+- [Internal Link Finder](https://zentroseo.com/resources/seo-toolkit/internal-link-finder/): Discover internal linking opportunities
+- [E-E-A-T Analyzer](https://zentroseo.com/resources/seo-toolkit/eeat-analyzer/): Analyze E-E-A-T signals on any page
+- [PAA Extractor](https://zentroseo.com/resources/seo-toolkit/paa-extractor/): Extract People Also Ask questions
+- [Autocomplete Keyword Finder](https://zentroseo.com/resources/seo-toolkit/autocomplete-keyword-finder/): Discover autocomplete keyword suggestions
+
+## Resources
+
+- [Blog](https://zentroseo.com/resources/blog/): 50+ in-depth SEO articles covering technical SEO, semantic SEO, on-page optimization, link building, and AI in search
+- [SEO Glossary](https://zentroseo.com/resources/glossary/): 30+ SEO term definitions with detailed explanations
+- [Guides](https://zentroseo.com/resources/guides/): Step-by-step SEO implementation guides
+- [Topics](https://zentroseo.com/resources/topics/): Deep-dive topic hubs covering all SEO disciplines
+- [Comparisons](https://zentroseo.com/resources/comparisons/): Side-by-side tool and concept comparisons
+
+## Pricing
+
+- [Pricing](https://zentroseo.com/pricing/): Free tier available, paid plans for professionals and agencies
+
+## ZentroDiscover — Business & SaaS Directory
+
+- [Discover](https://zentroseo.com/discover/): Directory of businesses and SaaS tools with SEO performance profiles
+- [SaaS Directory](https://zentroseo.com/discover/saas/): Browse SaaS tools and their SEO visibility
+- [Local Business Directory](https://zentroseo.com/discover/local/): Explore local businesses and their online presence
+- [Business Directory](https://zentroseo.com/discover/business/): SMEs, startups, and established companies
+
+## Company
+
+- [About Us](https://zentroseo.com/company/about-us/)
+- [Contact](https://zentroseo.com/company/contact-us/)
+- [Privacy Policy](https://zentroseo.com/privacy-policy/)
+- [Terms of Service](https://zentroseo.com/terms-of-service/)
+- [Sitemap](https://zentroseo.com/sitemap/)

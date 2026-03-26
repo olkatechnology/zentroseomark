@@ -1,6 +1,20 @@
 {
   "headers": [
     {
+      "source": "/llms\\.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/llms-full\\.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
@@ -52,6 +66,9 @@
     { "source": "/seo-tools", "destination": "/resources/blog/category/seo-tools--ai/", "permanent": true }
   ],
   "rewrites": [
+    { "source": "/discover/", "destination": "/api/discover" },
+    { "source": "/discover/:param/", "destination": "/api/discover" },
+    { "source": "/discover/:param/:sub/", "destination": "/api/discover" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
