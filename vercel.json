@@ -69,6 +69,6 @@
     { "source": "/discover/", "destination": "/api/discover" },
     { "source": "/discover/:param/", "destination": "/api/discover" },
     { "source": "/discover/:param/:sub/", "destination": "/api/discover" },
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/(.*)", "destination": "/api/render" }
   ]
 }
