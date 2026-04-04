@@ -355,12 +355,18 @@ try {
 
 // ── Write output ──
 
-const outPath = path.join("dist", "meta-map.json");
+try {
+  const outPath = path.join("dist", "meta-map.json");
 
-// Ensure dist exists (should after vite build)
-if (!fs.existsSync("dist")) {
-  fs.mkdirSync("dist", { recursive: true });
+  if (!fs.existsSync("dist")) {
+    fs.mkdirSync("dist", { recursive: true });
+  }
+
+  fs.writeFileSync(outPath, JSON.stringify(map, null, 2));
+  console.log(`✅ meta-map.json generated with ${Object.keys(map).length} entries → ${outPath}`);
+} catch (e) {
+  console.error("❌ Failed to write meta-map.json, writing empty fallback:", e.message);
+  const outPath = path.join("dist", "meta-map.json");
+  if (!fs.existsSync("dist")) fs.mkdirSync("dist", { recursive: true });
+  fs.writeFileSync(outPath, "{}");
 }
-
-fs.writeFileSync(outPath, JSON.stringify(map, null, 2));
-console.log(`✅ meta-map.json generated with ${Object.keys(map).length} entries → ${outPath}`);
