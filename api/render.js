@@ -1,13 +1,14 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SITE_URL = "https://zentroseo.com";
 
 let htmlTemplate = null;
 let metaMap = null;
 
 function getDistPath(file) {
-  // Try multiple resolution strategies for Vercel Lambda
   const candidates = [
     path.join(__dirname, "..", "dist", file),
     path.join(process.cwd(), "dist", file),
@@ -16,7 +17,7 @@ function getDistPath(file) {
   for (const c of candidates) {
     if (fs.existsSync(c)) return c;
   }
-  return candidates[0]; // fallback, will throw if missing
+  return candidates[0];
 }
 
 function loadAssets() {
@@ -47,7 +48,7 @@ function normalizePath(url) {
   return p;
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   try {
     loadAssets();
 
@@ -96,7 +97,6 @@ module.exports = async function handler(req, res) {
     res.status(200).send(html);
   } catch (err) {
     console.error("render.js error:", err);
-    // Serve a minimal HTML page that lets the SPA boot client-side
     const fallbackHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,4 +116,4 @@ module.exports = async function handler(req, res) {
       res.status(500).send("Internal Server Error");
     }
   }
-};
+}

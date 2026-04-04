@@ -1,9 +1,23 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 const SITE_URL = "https://zentroseo.com";
+
+function getDistPath(file) {
+  const candidates = [
+    path.join(__dirname, "..", "dist", file),
+    path.join(process.cwd(), "dist", file),
+    path.join("/var/task", "dist", file),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c;
+  }
+  return candidates[0];
+}
 
 async function supabaseFetch(endpoint) {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/${endpoint}`, {
@@ -32,6 +46,10 @@ function parsePath(url) {
   return { type: "hub" };
 }
 
+function esc(s) {
+  return (s || "").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 function buildMeta({ title, description, url, jsonLd }) {
   const og = `
     <meta property="og:title" content="${esc(title)}" />
@@ -50,15 +68,9 @@ function buildMeta({ title, description, url, jsonLd }) {
   return { title, description, og, ld };
 }
 
-function esc(s) {
-  return (s || "").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
 function injectIntoHtml(html, { title, description, og, ld, ssrData }) {
-  // Replace <title>
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
 
-  // Inject meta + OG + JSON-LD before </head>
   const metaBlock = `
     <meta name="description" content="${esc(description)}" />
     <link rel="canonical" href="${ssrData?._canonical || ""}" />
@@ -67,7 +79,6 @@ function injectIntoHtml(html, { title, description, og, ld, ssrData }) {
   `;
   html = html.replace("</head>", `${metaBlock}</head>`);
 
-  // Inject SSR data before </body>
   if (ssrData) {
     const script = `<script>window.__SSR_DATA__=${JSON.stringify(ssrData)}</script>`;
     html = html.replace("</body>", `${script}</body>`);
@@ -76,10 +87,9 @@ function injectIntoHtml(html, { title, description, og, ld, ssrData }) {
   return html;
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   try {
-    const htmlPath = path.join(process.cwd(), "dist", "index.html");
-    let html = fs.readFileSync(htmlPath, "utf-8");
+    let html = fs.readFileSync(getDistPath("index.html"), "utf-8");
 
     const url = req.url || "/discover/";
     const { type, param, sub } = parsePath(url);
@@ -88,7 +98,6 @@ module.exports = async function handler(req, res) {
     let ssrData = {};
 
     if (type === "hub") {
-      // ── Hub page ──
       const categories = await supabaseFetch(
         "discover_categories?order=sort_order&select=*"
       );
@@ -114,13 +123,11 @@ module.exports = async function handler(req, res) {
       ssrData = { type: "hub", categories, listings, _canonical: `${SITE_URL}/discover/` };
 
     } else if (type === "single") {
-      // Could be a category slug OR a listing profile slug
       const categories = await supabaseFetch(
         `discover_categories?slug=eq.${param}&select=*`
       );
 
       if (categories && categories.length > 0) {
-        // ── Category page ──
         const cat = categories[0];
         const listings = await supabaseFetch(
           `discover_listings?published=eq.true&category_slug=eq.${param}&order=seo_score.desc&select=*`
@@ -141,7 +148,6 @@ module.exports = async function handler(req, res) {
 
         ssrData = { type: "category", category: cat, listings, _canonical: `${SITE_URL}/discover/${param}/` };
       } else {
-        // ── Profile page (listing slug) ──
         const listings = await supabaseFetch(
           `discover_listings?slug=eq.${param}&select=*`
         );
@@ -168,7 +174,6 @@ module.exports = async function handler(req, res) {
 
           ssrData = { type: "profile", listing, _canonical: `${SITE_URL}/discover/${param}/` };
         } else {
-          // Not found — fall through to SPA
           meta = buildMeta({
             title: "Discover | ZentroSEO",
             description: "Explore SEO performance across industries.",
@@ -179,7 +184,6 @@ module.exports = async function handler(req, res) {
       }
 
     } else if (type === "sub") {
-      // ── Sub-page: /discover/:category/:location-or-industry ──
       const listings = await supabaseFetch(
         `discover_listings?published=eq.true&category_slug=eq.${param}&or=(location_slug.eq.${sub},subcategory.eq.${sub})&order=seo_score.desc&select=*`
       );
@@ -212,16 +216,12 @@ module.exports = async function handler(req, res) {
     res.status(200).send(html);
   } catch (err) {
     console.error("ISR discover error:", err);
-    // Fallback: serve plain SPA index.html
     try {
-      const fallback = fs.readFileSync(
-        path.join(process.cwd(), "dist", "index.html"),
-        "utf-8"
-      );
+      const fallback = fs.readFileSync(getDistPath("index.html"), "utf-8");
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.status(200).send(fallback);
     } catch {
       res.status(500).send("Internal Server Error");
     }
   }
-};
+}
