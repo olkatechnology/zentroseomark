@@ -1,36 +1,27 @@
 
+Goal: stop the sitewide Vercel crash on all marketing pages.
 
-## Fix: `api/render.js` Crashing with 500 on All Pages
+Root cause:
+- `package.json` sets `"type": "module"`.
+- `api/render.js` and `api/discover.js` are still written in CommonJS (`require`, `module.exports`).
+- On Vercel, that can crash at module load time before the handler runs, which matches the generic `FUNCTION_INVOCATION_FAILED` page. It also explains why the fallback response inside `api/render.js` is never shown.
 
-### Root Cause
+Implementation plan:
+1. Convert both serverless handlers to ESM
+   - Replace `require(...)` with `import ...`
+   - Replace `module.exports = ...` with `export default ...`
+   - Recreate `__dirname` using `fileURLToPath(import.meta.url)` and `path.dirname(...)`
+2. Keep the current SEO rendering logic
+   - Preserve the existing `dist/index.html` / `meta-map.json` loading and meta injection in `api/render.js`
+   - Preserve the discover SSR logic in `api/discover.js`
+3. Standardize runtime-safe file resolution
+   - Use the same robust asset lookup approach in both handlers so `dist` files are found reliably in Vercel
+   - Keep the `vercel.json` `includeFiles` config already added
+4. Verify after redeploy
+   - Test `/`, one blog post, one tool page, and `/discover/`
+   - Confirm Vercel logs no longer show module-scope crashes and pages return HTML instead of the Vercel error screen
 
-The `api/render.js` serverless function crashes because it cannot locate `dist/index.html` at runtime. On Vercel, serverless functions don't automatically include files from the build output directory in their bundle. The function uses `process.cwd()` to construct the path, but the `dist/` files aren't packaged with the function unless explicitly configured.
-
-`api/discover.js` uses the same pattern but was deployed before and may have worked due to caching or a different deployment state. Now that **all** routes funnel through `render.js`, any crash there takes down the entire site.
-
-### Fix
-
-**File: `vercel.json`** — Add `functions` config to include `dist/` files in the render function bundle:
-
-```json
-{
-  "functions": {
-    "api/render.js": {
-      "includeFiles": "dist/**"
-    },
-    "api/discover.js": {
-      "includeFiles": "dist/**"
-    }
-  }
-}
-```
-
-**File: `api/render.js`** — Use `path.join(__dirname, "..", "dist", ...)` instead of `process.cwd()` for more reliable path resolution in the Lambda environment. Also add a safeguard: if `index.html` can't be loaded at all, return a minimal HTML page with a client-side redirect instead of a bare 500.
-
-**File: `scripts/generate-meta-map.mjs`** — Wrap the entire script in a top-level try/catch so a parsing failure in any data file doesn't crash the build. If the script fails, write an empty `{}` to `dist/meta-map.json` so the build succeeds and render.js can still serve pages (just without custom meta).
-
-### Files Modified
-- `vercel.json` — add `functions.includeFiles` config
-- `api/render.js` — fix file paths, improve fallback
-- `scripts/generate-meta-map.mjs` — ensure build never fails
-
+Technical details:
+- This is a deployment compatibility fix, not a metadata-content change.
+- No React page components need to change.
+- `scripts/generate-meta-map.mjs` can stay as-is unless a separate build error appears later.
