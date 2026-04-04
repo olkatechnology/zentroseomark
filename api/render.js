@@ -6,19 +6,26 @@ const SITE_URL = "https://zentroseo.com";
 let htmlTemplate = null;
 let metaMap = null;
 
+function getDistPath(file) {
+  // Try multiple resolution strategies for Vercel Lambda
+  const candidates = [
+    path.join(__dirname, "..", "dist", file),
+    path.join(process.cwd(), "dist", file),
+    path.join("/var/task", "dist", file),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c;
+  }
+  return candidates[0]; // fallback, will throw if missing
+}
+
 function loadAssets() {
   if (!htmlTemplate) {
-    htmlTemplate = fs.readFileSync(
-      path.join(process.cwd(), "dist", "index.html"),
-      "utf-8"
-    );
+    htmlTemplate = fs.readFileSync(getDistPath("index.html"), "utf-8");
   }
   if (!metaMap) {
     try {
-      const raw = fs.readFileSync(
-        path.join(process.cwd(), "dist", "meta-map.json"),
-        "utf-8"
-      );
+      const raw = fs.readFileSync(getDistPath("meta-map.json"), "utf-8");
       metaMap = JSON.parse(raw);
     } catch {
       metaMap = {};
@@ -35,9 +42,7 @@ function esc(s) {
 }
 
 function normalizePath(url) {
-  // Strip query string and hash
   let p = url.split("?")[0].split("#")[0];
-  // Ensure trailing slash
   if (!p.endsWith("/")) p += "/";
   return p;
 }
@@ -49,7 +54,6 @@ module.exports = async function handler(req, res) {
     const rawPath = req.url || "/";
     const normalizedPath = normalizePath(rawPath);
 
-    // Look up meta — try with and without trailing slash
     const meta =
       metaMap[normalizedPath] ||
       metaMap[normalizedPath.replace(/\/$/, "")] ||
@@ -59,13 +63,11 @@ module.exports = async function handler(req, res) {
     const canonical = `${SITE_URL}${normalizedPath}`;
 
     if (meta) {
-      // Replace <title>
       html = html.replace(
         /<title>[^<]*<\/title>/,
         `<title>${esc(meta.title)}</title>`
       );
 
-      // Build meta block to inject before </head>
       const metaBlock = `
     <meta name="description" content="${esc(meta.description)}" />
     <link rel="canonical" href="${esc(canonical)}" />
@@ -80,7 +82,6 @@ module.exports = async function handler(req, res) {
 
       html = html.replace("</head>", `${metaBlock}\n  </head>`);
     } else {
-      // Even for unmapped pages, inject canonical
       html = html.replace(
         "</head>",
         `\n    <link rel="canonical" href="${esc(canonical)}" />\n  </head>`
@@ -95,13 +96,22 @@ module.exports = async function handler(req, res) {
     res.status(200).send(html);
   } catch (err) {
     console.error("render.js error:", err);
+    // Serve a minimal HTML page that lets the SPA boot client-side
+    const fallbackHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZentroSEO</title>
+  <meta http-equiv="refresh" content="0;url=${esc(req.url || "/")}" />
+</head>
+<body>
+  <p>Loading...</p>
+</body>
+</html>`;
     try {
-      const fallback = fs.readFileSync(
-        path.join(process.cwd(), "dist", "index.html"),
-        "utf-8"
-      );
       res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.status(200).send(fallback);
+      res.status(200).send(fallbackHtml);
     } catch {
       res.status(500).send("Internal Server Error");
     }

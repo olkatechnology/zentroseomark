@@ -1,4 +1,8 @@
 {
+  "functions": {
+    "api/render.js": { "includeFiles": "dist/**" },
+    "api/discover.js": { "includeFiles": "dist/**" }
+  },
   "headers": [
     {
       "source": "/llms\\.txt",
